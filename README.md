@@ -26,5 +26,12 @@ https://www.carone.com.ar/
 *Incluye un canal de contacto para la venta de un vehiculo por parte de un particular.  
 *Apuntamos a un publico entre 18-60 años de edad, familiarizado con el uso de internet.  
 
+## LINK ACCESO A WIREFRAMES Y DIAGRAMA DE FLUJO:  
+
+### WIREFRAMES:  
+https://drive.google.com/file/d/1lFxUgvlVthRrG0FPIIZ7RteTgzGJ9cEr/view?usp=sharing (abrir con diagrams.net)  
+
+### DIAGRAMA DE FLUJO:  
+https://drive.google.com/file/d/1mN-5_qjvwYEcYzqlS2yzI2Qu2jVNyT0D/view (abrir con diagrams.net)
 
 
