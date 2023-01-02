@@ -1,0 +1,23 @@
+{
+  "name": "grupo_9_eleanorcars",
+  "version": "1.0.0",
+  "description": "Santiago Vanzillotta  \r Ignacio Nicolás Moscatelli  \r Javier Pereyro  \r Lautaro Alejandro Robles  \r Alcides Catriel Almada Garay  \r Monica Alejandra Lopez Monsalve",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LautaroRobles05/grupo_9_EleanorCars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LautaroRobles05/grupo_9_EleanorCars/issues"
+  },
+  "homepage": "https://github.com/LautaroRobles05/grupo_9_EleanorCars#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
