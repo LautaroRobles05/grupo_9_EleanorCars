@@ -3,7 +3,7 @@
 ## INTEGRANTES:
 
 Santiago Vanzillotta  
-Ignacio Nicolas Moscatelli  
+Ignacio Nicolás Moscatelli  
 Javier Pereyro  
 Lautaro Alejandro Robles  
 Alcides Catriel Almada Garay  
