@@ -34,7 +34,7 @@ https://drive.google.com/file/d/1lFxUgvlVthRrG0FPIIZ7RteTgzGJ9cEr/view?usp=shari
 ### DIAGRAMA DE FLUJO:  
 https://drive.google.com/file/d/1mN-5_qjvwYEcYzqlS2yzI2Qu2jVNyT0D/view (abrir con diagrams.net)
 
-### TRELLO:
+## LINK ACCESO A TABLERO DE TRABAJO (TRELLO):
 https://trello.com/invite/b/TKrFdusw/ATTI6e1e892a557311af2061da3eabc55915EBFCB1A5/grupo9eleanorcars
 
 
