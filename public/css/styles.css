@@ -31,7 +31,7 @@ header {
 }
 
 main {
-    height: 50vh;
+    height: 1200px;
 }
 
 .burguer-menu {
@@ -66,8 +66,19 @@ main {
     font-size: larger;
 }
 /* -----------------------------------MAIN--------------------------------------- */
+
+.publicity{
+  text-align: center;
+}
+
+.publicity img{
+  height: auto;
+  width: 60vw;
+  padding-top: 10px;
+}
+
 .search-car{
- 
+
 text-align: center;
 }
 .form-search-car{
@@ -89,6 +100,35 @@ main form select{
     height: 35px;
     width: 50px;
     line-height: 35px;
+}
+.buy_with_us{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.buy_with_us a {
+  line-height: 40px;
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.sell_with_us {
+  text-align: center;
+}
+
+.sell_with_us p {
+  text-align: center;
+}
+
+.sell_with_us button {
+  display: block;
+}
+
+.sell_with_us img{
+  margin-top: 20px;
+  height: auto;
+  width: 60vw;
 }
 /* -----------------------------------carrusel--------------------------------------- */
 /* 
