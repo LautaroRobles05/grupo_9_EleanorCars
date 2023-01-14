@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    background-color: grey;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: initial;
+}
+
+/* -----------------------------------HEADER--------------------------------------- */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 90px;
+}
+
+main {
+    height: 50vh;
+}
+
+.burguer-menu {
+    width: 55px;
+    height: 55px;
+    margin-left: 10px;
+    position: absolute;
+    left: 10px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+}
+
+.fa-bars{
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 45px;
+    color: grey;
+}
+
+.logo {
+    /* margin-left: auto; */
+    text-align: center;
+}
+
+.logo img{
+    height: 45px;
+    width: 55px;
+}
+
+.logo p {
+    line-height: 0px;
+    font-size: larger;
+}
+
+
+
+/* -----------------------------------FOOTER--------------------------------------- */
+footer {
+    height: 450px;
+    padding: 10px 10px 10px 10px;
+}
+
+.container-social-media{
+    padding-top: 10px;
+    text-align: center;
+    font-size:x-large;
+}
+
+
+.bookmark{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 1px;
+    background-color: black;
+}
+
+.nav-footer {
+    margin-left: 20px;
+}
+
+.nav-footer ul li a:hover {
+    font-weight: 700;
+}
+
+.terminos-y-condiciones{
+    font-size: smaller;
+}
+
+.terminos-y-condiciones p {
+    margin-bottom: 15px;
+    text-align:justify;
+}
+
+footer .logo {
+    padding-top: 10px;
+    height: 70px;
+}
+
+
