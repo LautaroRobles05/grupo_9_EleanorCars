@@ -1,0 +1,55 @@
+
+
+.details{
+font-weight: bold;
+}
+.data{
+    text-align: right;
+}
+table{
+    /* background-color: aqua; */
+    margin:auto;
+ 
+    width: 90vw;
+    
+    /* display: flex; */
+    border-collapse: collapse;
+}
+.search-details{
+    height:30px;
+    width: 30px;
+    
+}
+.show-more{
+    text-align: center;
+}
+main section{
+    margin-bottom: 25px;
+}
+.previews{
+    display: flex;
+    justify-content: center;
+}
+.div-previews{
+    height:30px;
+    width: 60px;
+    border:solid 1px;
+}
+
+.arrow{
+    margin-top: 6px;
+}
+
+.price{
+    border:solid 1px;
+    height:30px;
+    width: 80px;
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+}
+.reserve{
+    margin: auto;
+    display: block;
+    margin-top: 15px;
+}
