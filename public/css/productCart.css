@@ -1,0 +1,40 @@
+.div-cars-cart{
+    margin: 10vw;
+width: 80vw;
+height: 150px;
+border:solid 1px;
+position: relative;
+padding: 10px;
+}
+.div-cars-cart-img{
+    margin: auto;
+    border-radius: 8px;
+    border:solid 1px;
+height: 100px;
+}
+
+.div-cars-cart-p{
+    text-align: center;
+margin-top: 40px;
+}
+main section h2{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vw;
+}
+.car-data-container{
+    display: flex;
+    justify-content: space-between;
+}
+.fa-heart{
+    color: red;
+}
+.car-search-error{
+    text-align: center;
+    
+}
+.car-search-button{
+    margin-top: 10px;
+    height: 30px;
+    width: 120px;
+}

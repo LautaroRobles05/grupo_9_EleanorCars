@@ -13,6 +13,10 @@ app.get("/productDetail", (req, res) => {
   res.sendFile(path.resolve("./views/productDetail.html"));
 });
 
+app.get("/productCart", (req, res) => {
+  res.sendFile(path.resolve("./views/productCart.html"));
+});
+
 app.get("/login", (req, res) => {
     res.sendFile(path.resolve("./views/login.html"));
 });
