@@ -38,3 +38,50 @@ main section h2{
     height: 30px;
     width: 120px;
 }
+
+@media (min-width: 768px){
+    header{
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    .burguer-menu {
+        display: none;
+    }
+
+    .nav_header{
+        display: flex;
+        align-self: flex-end;
+    }
+
+    .nav_header ul {
+        display: flex;
+    }
+
+    .nav_header ul li{
+        margin-right: 25px;
+    }
+    .car-data-container{
+        width: 40%;
+    }
+    .div-cars-cart{
+        display: flex;
+        height: 100px;
+    }
+    .div-cars-cart-img{
+        margin-left: 0px;
+        margin-right: 10px;
+        height: 80%;
+        width: 30%;
+    }
+    .car-data1{
+        margin: auto;
+        margin-right: auto;
+    }
+    .car-data2{
+        width: 100%;
+        margin: auto;
+        margin-left: 100%;
+    }
+}
