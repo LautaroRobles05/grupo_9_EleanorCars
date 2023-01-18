@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css" />
+
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
@@ -18,18 +20,33 @@
       <div class="burguer-menu"><i class="fa-solid fa-bars"></i></div>
 
       <div class="logo">
-        <a href="/"><img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars" /></a>
+        <img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars" />
         <p>Eleanor Cars</p>
       </div>
+
+      <nav class="nav_header">
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Vender</a></li>
+          <li><a href="#">Comprar</a></li>
+          <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+          <li><a href="#"><i class="fa-solid fa-user-tie"></i></a></li>
+        </ul>
+      </nav>
+
     </header>
 
     <main>
       <section class="publicity">
-        <img src="https://acnews.blob.core.windows.net/imgnews/large/NAZ_3c0b3a3bb5da42bcbe970a9be1abac9f.jpg" alt="">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente nesciunt dolores voluptatum dicta, facere nisi quia exercitationem voluptate consequuntur, obcaecati odio debitis illo fuga necessitatibus eligendi inventore ad iure quo.</p>
+        <div>
+          <img src="https://acnews.blob.core.windows.net/imgnews/large/NAZ_3c0b3a3bb5da42bcbe970a9be1abac9f.jpg" alt="">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente nesciunt dolores voluptatum dicta, facere nisi quia exercitationem voluptate consequuntur, obcaecati odio debitis illo fuga necessitatibus eligendi inventore ad iure quo.</p>
+        </div>
       </section>
+
       <section class="search-car">
       <form class="form-search-car" action="/">
+
         <select  name="tipo" id="tipo">
           <option value="">Pick-up</option>
           <option value="">Sedan</option>
@@ -37,6 +54,7 @@
           <option value="">Coupe</option>
           <option value="">Camion</option>
         </select>
+        
         <select name="marca" id="marca">
           <option value="">Ford</option>
           <option value="">Peugeot</option>
@@ -59,27 +77,86 @@
         </div>
       </form>
     </section>
+    
+    <section class="recomendations">
+      <h3>Nuestros recomendados</h3>
+      
+      <div id="contenedor_carrucel">
+    
+        <div id="item_carrucel_1" class="item_carrucel">
+          <div class="tarjeta_carrucel">
+            <div class="container_img"></div>
+            <h4>Modelo</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem ad ducimus consequatur consectetur expedita odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore repellat saepe repellendus neque exercitationem quasi laudantium error! Fugiat corporis excepturi aliquid! Saepe totam officia, excepturi dignissimos distinctio delectus illo magni.
+            </p>
+          </div>
+
+          <div class="container_flechas_carrucel">
+            <a href="#item_carrucel_3">
+              <i class="fa-solid fa-caret-left"></i>
+            </a>
+            <a href="#item_carrucel_2">
+              <i class="fa-solid fa-caret-right"></i>
+            </a>
+          </div>
+        </div>
+      
+        <div id="item_carrucel_2" class="item_carrucel">
+          <div class="tarjeta_carrucel">
+            B
+          </div>
+
+          <div class="container_flechas_carrucel">
+            <a href="#item_carrucel_1">
+              <i class="fa-solid fa-caret-left"></i>
+            </a>
+            <a href="#item_carrucel_3">
+              <i class="fa-solid fa-caret-right"></i>
+            </a>
+          </div>
+        </div>
+      
+        <div id="item_carrucel_3" class="item_carrucel">
+          <div class="tarjeta_carrucel">
+            C
+          </div>
+
+          <div class="container_flechas_carrucel">
+            <a href="#item_carrucel_2">
+              <i class="fa-solid fa-caret-left"></i>
+            </a>
+            <a href="#item_carrucel_1">
+              <i class="fa-solid fa-caret-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    
+    </section>
 
     <section class="buy_with_us">
       <h3>¿Por que comprar con nosotros?</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, optio. Quas aliquam quisquam ipsum repudiandae, quis perspiciatis aspernatur sed possimus, laudantium iste voluptatem accusamus atque architecto voluptate eum molestiae odit?</p>
-      <a href="#">Nosotros</a>
-    </section>
-
+      <div class="bwu_description_container">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, optio. Quas aliquam quisquam ipsum repudiandae, quis perspiciatis aspernatur sed possimus, laudantium iste voluptatem accusamus atque architecto voluptate eum molestiae odit?</p>
+          <a href="#">Nosotros</a>
+        </div>
+      </section>
+      
     <section class="sell_with_us">
-      <h3>¿Queres vender tu auto?</h3>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nobis quod exercitationem illum saepe dolore provident aperiam? Consectetur numquam sunt, eveniet, molestias veniam cum impedit debitis illum laborum, quia asperiores.</p>
-      <img src="https://cdn.discordapp.com/attachments/1055959601633308705/1063921982762123396/Volkswagen.png" alt="">
-      <button>
-        <a href="tel:">Contactanos</a>
-      </button>
+      <div class="swu_container">
+        <h3>¿Queres vender tu auto?</h3>
+
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nobis quod exercitationem illum saepe dolore provident aperiam? Consectetur numquam sunt, eveniet, molestias veniam cum impedit debitis illum laborum, quia asperiores.</p>
+
+        <button>
+          <a href="tel:">Contactanos</a>
+        </button>
+      </div>
+
+      <img src="https://lh3.googleusercontent.com/ESDr-glwzmLrtw4f6tt5uR98KIVCxptlKYH5BeEf-tAHMZYQUwpXONGhJ_B1Ty8TzQYRRGYqce3Z7gmUEh5lOwLAdAd3vna47K9oHA" alt="imagen candado, venta segura">
     </section>
-
-   
-<div class="carrusel">
-<p>carrusel ejemplo</p>
-</div>
-
 
     </main>
 
@@ -104,10 +181,10 @@
 
       <nav class="nav-footer">
         <ul>
-          <li><a href="#">ofertas</a></li>
-          <li><a href="#">tiendas oficiales</a></li>
-          <li><a href="#">vender</a></li>
-          <li><a href="#">ayuda</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Vender</a></li>
+          <li><a href="#">Comprar</a></li>
+          <li><a href="#">Ayuda</a></li>
         </ul>
       </nav>
 
@@ -140,5 +217,6 @@
         <img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars" />
       </div>
     </footer>
+
   </body>
 </html>

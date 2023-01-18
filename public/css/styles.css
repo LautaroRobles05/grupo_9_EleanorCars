@@ -1,11 +1,23 @@
+/*COLORES 
+1) #5C5E60
+2) #6B6E70
+3) #A4A4A4
+4) #DBDBDB
+5) #D2D2D2
+6) #212016
+
+7) PEPER GRAY #8C8B89
+*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 header, footer {
-    background-color: grey;
+    background-color: #5C5E60;
 }
 
 ul{
@@ -31,28 +43,27 @@ header {
 }
 
 main {
-    height: 1200px;
+    /* height: 1200px; */
+    background-color: white;
+    padding: 10px 0 10px;
 }
 
 .burguer-menu {
-    width: 55px;
-    height: 55px;
-    margin-left: 10px;
     position: absolute;
-    left: 10px;
-    background-color: whitesmoke;
-    border-radius: 8px;
+    text-align: center;
+    left: 20px;
 }
 
 .fa-bars{
-    margin-top: 5px;
-    margin-left: 8px;
-    font-size: 45px;
-    color: grey;
+    font-size: 37px;
+    padding: 5px;
+    color: #212016;
+    background-color: #DBDBDB;
+    border-radius: 8px;
+    border: solid 2px #212016;
 }
 
 .logo {
-    /* margin-left: auto; */
     text-align: center;
 }
 
@@ -63,89 +74,212 @@ main {
 
 .logo p {
     line-height: 0px;
-    font-size: larger;
+    font-weight: 400;
+    font-style: italic;
 }
+
+.nav_header{
+    display: none;
+}
+
 /* -----------------------------------MAIN--------------------------------------- */
 
 .publicity{
+  margin: 0 10px;
+  padding: 10px;
   text-align: center;
+  background-color: #D2D2D2;
+}
+
+.publicity div {
+    background-color: beige;
+    width: min-content;
+    margin: auto;
+    border-radius: 20px 0 20px 0;
 }
 
 .publicity img{
   height: auto;
-  width: 60vw;
-  padding-top: 10px;
+  border: solid #212016 2px;
+  border-radius: 20px 0 20px 0;
+  width: 80vw;
+  max-width: 460px;
+}
+
+.publicity p {
+    padding: 5px;
+    margin: auto;
+    font-size: 16px;
 }
 
 .search-car{
-
-text-align: center;
+  text-align: center;
 }
+
 .form-search-car{
 display: flex;
 flex-direction: column;
 padding-top: 20px;
+padding-bottom: 20px;
 }
+
+main form select, 
+.button-filter{
+    border: solid 2px #212016;
+    color: #212016;
+    font-size: 18px;
+} 
+
 main form select{
     margin-bottom: 15px;
     width: 60vw;
-    margin-left: 20vw;
+    max-width: 350px;
+    margin: 10px auto 10px;
     text-align: center;
-    position: relative;
     border-radius: 5px;
-    height: 35px;
+    min-height: 35px;
+    height: 5vh;
+    max-height: 50px;
 }
+
 .button-filter{
     border-radius: 5px;
     height: 35px;
-    width: 50px;
-    line-height: 35px;
-}
-.buy_with_us{
-  text-align: center;
-  margin-top: 20px;
+    width: 35vw;
+    max-width: 200px;
 }
 
+.buy_with_us{
+    padding: 20px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    background: linear-gradient(110deg,#7ea298,white);
+}
+
+.buy_with_us h3{
+    font-style: italic;
+    font-weight: 700;
+    font-size: 31px;
+    width: 55%;
+  /* text-align: center;
+  margin-top: 20px; */
+}
+
+.bwu_description_container {
+    width: 70%;
+    text-align: center;
+    align-self: flex-end;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
 .buy_with_us a {
-  line-height: 40px;
-  color: -webkit-link;
+  color: #212016;
   cursor: pointer;
   text-decoration: underline;
 }
 
 .sell_with_us {
-  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sell_with_us p {
-  text-align: center;
+.swu_container p {
+    font-size: 17px;
+    margin: 5px 10px 0;
 }
 
-.sell_with_us button {
+.swu_container button {
   display: block;
+  margin: 10px auto;
+  border: none;padding: 3px;
+  border-radius: 4px;
 }
 
 .sell_with_us img{
-  margin-top: 20px;
   height: auto;
-  width: 60vw;
+  width: 150px;
 }
 /* -----------------------------------carrusel--------------------------------------- */
-.carrusel{
-  border:solid 1px; 
-  height: 150px;
-  margin-top: 30px;
-  text-align: center;
-  padding-top: 55px;
+
+.recomendations{
+    padding: 15px;
 }
+
+#contenedor_carrucel{
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.item_carrucel{ 
+    width: 100%;
+    height: 100%;
+    background-color: #7ea298;
+    position: relative;
+}
+
+.tarjeta_carrucel, .container_flechas_carrucel {
+    width: 100%;
+    height: 100%;
+}
+
+.container_flechas_carrucel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_flechas_carrucel i {
+    font-size: 40px;
+    width: 40px;
+    text-align: center;
+    margin: 20px;
+    background-color: #5C5E60;
+    color: #DBDBDB;
+    border-radius: 50%;
+}
+
+.tarjeta_carrucel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container_img{
+    border: #212016 solid 3px;
+    width: 60%;
+    min-width: 150px;
+    min-height: 100px;
+}
+
+.tarjeta_carrucel h4 {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.tarjeta_carrucel p{
+    width: 60%;
+    min-width: 150px;
+    text-align: justify;
+    overflow: hidden;
+}
+
 /* -----------------------------------carrusel--------------------------------------- */
 
 /* -----------------------------------FOOTER--------------------------------------- */
 footer {
-    height: 450px;
     padding: 10px 10px 10px 10px;
-    margin-top: 100px;
-
 }
 
 .container-social-media{
@@ -154,6 +288,9 @@ footer {
     font-size:x-large;
 }
 
+.container-social-media a{
+    margin: 10px;
+}
 
 .bookmark{
     width: 90%;
@@ -165,7 +302,12 @@ footer {
 }
 
 .nav-footer {
-    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.nav-footer ul{
+    display: flex;
+    justify-content: space-around;
 }
 
 .nav-footer ul li a:hover {
@@ -181,9 +323,74 @@ footer {
     text-align:justify;
 }
 
-footer .logo {
-    padding-top: 10px;
-    height: 70px;
+
+/* --------------------VISTA TABLET------------------------ */
+@media (min-width: 768px){
+    header{
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    .burguer-menu {
+        display: none;
+    }
+
+    .nav_header{
+        display: flex;
+        align-self: flex-end;
+    }
+
+    .nav_header ul {
+        display: flex;
+    }
+
+    .nav_header ul li{
+        margin-right: 25px;
+    }
+
+    /* ---------MAIN---------- */
+    .publicity div{
+        display: flex;
+    }
+
+    .publicity div{
+        width: 90%;
+    }
+
+    .publicity img{
+        max-width: 65%;
+    }
+    
+    main form select{
+        height: 80px;
+        max-width: 70%;
+    }
+    
+    .button-filter{
+        height: 45px;
+    }
+    
+    /* ---------CARRUCEL------------ */
+    
+    #contenedor_carrucel{
+        width: 80%;
+    }
+
+    .container_img {
+        width: 70%;
+    }
+
+    .tarjeta_carrucel p {
+        width: 80%;
+    }
+
+    .sell_with_us {
+        flex-direction: row;
+    }
 }
 
+/* --------------------VISTA DESKTOP------------------------ */
+@media (min-width: 1024px){
 
+}
