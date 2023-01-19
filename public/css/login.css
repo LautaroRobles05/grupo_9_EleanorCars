@@ -16,11 +16,10 @@ section
 section .img-container
 {
     position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 section .img-container:before
 {
@@ -46,21 +45,20 @@ section .img-container img
 section .content-box
 {
     display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
    
 }
 section .content-box .form
 {
     width: 100%;
-        padding: 40px;
-        background: rgb(255 255 255 / 0.9);
-        margin: 50px;
-        border-radius: 20px;
-    
+    padding: 40px;
+    background: rgb(255 255 255 / 0.9);
+    margin: 50px;
+    border-radius: 20px;
 }
 section .content-box .form h2
 {
