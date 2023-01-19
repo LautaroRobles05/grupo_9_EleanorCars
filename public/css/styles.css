@@ -375,6 +375,7 @@ footer {
     
     #contenedor_carrucel{
         width: 80%;
+        box-shadow: 0 0 10px 10px #5c5e60c8 ;
     }
 
     .container_img {
@@ -392,5 +393,41 @@ footer {
 
 /* --------------------VISTA DESKTOP------------------------ */
 @media (min-width: 1024px){
+    header{
+        padding: 0 15vw 5px;
+    }
 
+    .publicity img{
+        max-height: 320px;
+    }
+
+    .form-search-car{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15vh 20px 15vh;
+    }
+
+    main form select, .button-filter{
+        max-width: none;
+        max-height: none;
+        margin: 0;
+        border-radius: 15px;
+        height: 60px;
+        font-size: 22px;
+    }
+
+    main form select {
+        width: 23%;
+    }
+
+    .button-filter{
+        width: 170px;
+
+    }
+
+    main section {
+        width: 1024px;
+        margin: auto !important;
+    }
 }
