@@ -3,8 +3,7 @@
 ## INTEGRANTES:
 
 Santiago Vanzillotta  
-Ignacio Nicolás Moscatelli  
-Javier Pereyro  
+Ignacio Nicolás Moscatelli    
 Lautaro Alejandro Robles  
 
 ## REFERENTES:
