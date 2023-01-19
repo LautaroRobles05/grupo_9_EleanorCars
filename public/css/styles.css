@@ -210,7 +210,7 @@ main form select{
     padding: 15px;
 }
 
-#contenedor_carrucel{
+#carrucel_recomendations{
     width: 100%;
     height: 300px;
     margin: 20px auto;
@@ -373,7 +373,7 @@ footer {
     
     /* ---------CARRUCEL------------ */
     
-    #contenedor_carrucel{
+    #carrucel_recomendations{
         width: 80%;
         box-shadow: 0 0 10px 10px #5c5e60c8 ;
     }

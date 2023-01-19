@@ -22,35 +22,114 @@
         <img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars" />
         <p>Eleanor Cars</p>
       </div>
+
+      <nav class="nav_header">
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Vender</a></li>
+          <li><a href="#">Comprar</a></li>
+          <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+          <li><a href="#"><i class="fa-solid fa-user-tie"></i></a></li>
+        </ul>
+      </nav>
+
     </header>
 
     <main>
-      <section class="product-detail">
-        <h2>Producto</h2>
+      <section class="product_detail">
+        <h2>Nombre producto</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
           aspernatur asperiores laboriosam, iste exercitationem voluptate.
           Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
           cupiditate iste veritatis accusantium vel vitae molestias!
         </p>
-        <div class="carrusel">
-          <p>carrusel ejemplo</p>
-        </div>
-        <div class="previews">
-          <div class="arrow"><i class="fa-solid fa-arrow-left"></i></div>
-          <div class="div-previews"></div>
-          <div class="div-previews"></div>
-          <div class="div-previews"></div>
-          <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
-        </div>
 
-          <div class="price">$5000000</div>
-          <button class="reserve">Realizar reserva</button>
+        <div id="carrucel_detail">
+    
+          <div class="item_carrucel_detail" id="product_detail_1">
 
+            <div class="card_carrucel_detail">
+              IMAGEN A
+            </div>
+
+            <div class="carrucel_navegation">
+              <a href="#product_detail_3">
+                <i class="fa-solid fa-caret-left"></i>
+              </a>
+              <a href="#product_detail_1">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_2">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_3">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_2">
+                <i class="fa-solid fa-caret-right"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="item_carrucel_detail" id="product_detail_2">
+  
+            <div class="card_carrucel_detail">
+              IMAGEN B
+            </div>
+  
+            <div class="carrucel_navegation">
+              <a href="#product_detail_1">
+                <i class="fa-solid fa-caret-left"></i>
+              </a>
+              <a href="#product_detail_1">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_2">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_3">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_3">
+                <i class="fa-solid fa-caret-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="item_carrucel_detail" id="product_detail_3">
+  
+            <div class="card_carrucel_detail">
+              IMAGEN C
+            </div>
+  
+            <div class="carrucel_navegation">
+              <a href="#product_detail_2">
+                <i class="fa-solid fa-caret-left"></i>
+              </a>
+              <a href="#product_detail_1">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_2">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_3">
+                <img class="preview" src="" alt="">
+              </a>
+              <a href="#product_detail_1">
+                <i class="fa-solid fa-caret-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="price">$5.000.000</div>
+        <button class="reserve">Realizar reserva</button>
 
       </section>
 
-      <section class="specification-detail">
+      <!-- <section class="specification-detail">
         <div style="border: solid 1px">
           <h3 style="border: solid 1px">Especificaciones</h3>
           <table>
@@ -81,13 +160,66 @@
             <i class="fa-solid fa-plus"></i>
           </button>
         </div>
-      </section>
-      <section class="carrusel-detail">
-        <h3>Autos Similares</h3>
-        <div class="carrusel">
-          <p>carrusel ejemplo</p>
+      </section>-->
+
+      <section class="recomendations">
+        <h3>Autos similares</h3>
+        
+        <div id="carrucel_recomendations">
+      
+          <div id="item_carrucel_1" class="item_carrucel">
+            <div class="tarjeta_carrucel">
+              <div class="container_img"></div>
+              <h4>Modelo</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem ad ducimus consequatur consectetur expedita odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore repellat saepe repellendus neque exercitationem quasi laudantium error! Fugiat corporis excepturi aliquid! Saepe totam officia, excepturi dignissimos distinctio delectus illo magni.
+              </p>
+            </div>
+  
+            <div class="container_flechas_carrucel">
+              <a href="#item_carrucel_3">
+                <i class="fa-solid fa-caret-left"></i>
+              </a>
+              <a href="#item_carrucel_2">
+                <i class="fa-solid fa-caret-right"></i>
+              </a>
+            </div>
+          </div>
+        
+          <div id="item_carrucel_2" class="item_carrucel">
+            <div class="tarjeta_carrucel">
+              B
+            </div>
+  
+            <div class="container_flechas_carrucel">
+              <a href="#item_carrucel_1">
+                <i class="fa-solid fa-caret-left"></i>
+              </a>
+              <a href="#item_carrucel_3">
+                <i class="fa-solid fa-caret-right"></i>
+              </a>
+            </div>
+          </div>
+        
+          <div id="item_carrucel_3" class="item_carrucel">
+            <div class="tarjeta_carrucel">
+              C
+            </div>
+  
+            <div class="container_flechas_carrucel">
+              <a href="#item_carrucel_2">
+                <i class="fa-solid fa-caret-left"></i>
+              </a>
+              <a href="#item_carrucel_1">
+                <i class="fa-solid fa-caret-right"></i>
+              </a>
+            </div>
+          </div>
+  
         </div>
+      
       </section>
+
     </main>
 
     <footer>
@@ -111,10 +243,10 @@
 
       <nav class="nav-footer">
         <ul>
-          <li><a href="#">ofertas</a></li>
-          <li><a href="#">tiendas oficiales</a></li>
-          <li><a href="#">vender</a></li>
-          <li><a href="#">ayuda</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Vender</a></li>
+          <li><a href="#">Comprar</a></li>
+          <li><a href="#">Ayuda</a></li>
         </ul>
       </nav>
 
@@ -122,23 +254,24 @@
 
       <div class="terminos-y-condiciones">
         <p id="rights-reserved">
-          © 2022 Auto Online S.A. Todos los derechos reservados.
+            © 2022 Auto Online S.A. 
+            Todos los derechos reservados.
         </p>
 
         <p>
-          <a href="#">Políticas de Privacidad</a>
+            <a href="#">Políticas de Privacidad</a>
         </p>
-
+        
         <p>
-          <a href="#">Términos y Condiciones </a>
+            <a href="#">Términos y Condiciones </a>
         </p>
-
-        <p>
-          LA AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de
-          Órgano de Control de la Ley N° 25.326, tiene la atribución de atender
-          las denuncias y reclamos que interpongan quienes resulten afectados en
-          sus derechos por incumplimiento de las normas vigentes en materia de
-          protección de datos personales.
+        
+        <p >
+            LA AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de
+            Control de la Ley N° 25.326, tiene la atribución de atender las denuncias
+            y reclamos que interpongan quienes resulten afectados en sus derechos por
+            incumplimiento de las normas vigentes en materia de protección de datos
+            personales.
         </p>
       </div>
 
