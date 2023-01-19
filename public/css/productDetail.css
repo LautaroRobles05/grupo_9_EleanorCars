@@ -28,6 +28,17 @@
     color: #A4A4A4;
 }
 
+.previews{
+    display: flex;
+    justify-content: center;
+}
+
+.div-previews{
+    height:30px;
+    width: 60px;
+    border:solid 1px;
+}
+
 .price{
     border:solid 1px;
     width: min-content;
@@ -45,45 +56,84 @@
     padding: 8px 25px;
 }
 
+
+/* ---- TABLAS ESPECIFICACIONES ---- */
+
+.specification_detail{
+    background-color: #A4A4A4;
+    padding: 20px;
+    max-width:none;
+    width: 100%;
+}
+
+.specifications_container{
+    background-color: white;
+    border: solid 3px #6b6e70;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 10px white;
+    padding: 5px;
+    max-width: 900px;
+    max-height: 40vh;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.especification{
+    border: solid 3px #6b6e70;
+    border-radius: 20px;
+    max-width: 340px;
+    min-width: 240px;
+    width: 80vw;
+    margin: 10px;
+}
+
+.especification h4{
+    text-align: center;
+    border-bottom: solid 3px #6b6e70;
+}
+
+.table_container{
+    padding: 5px;
+}
+
+.especification table{
+    border: unset;
+    border-radius: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.especification table tr{
+    height: 30px;
+}
+
 .details{
-font-weight: bold;
+    font-weight: bold;
+    color: #6b6e70;
 }
 
 .data{
-    text-align: right;
-}
-
-table{
-    /* background-color: aqua; */
-    margin:auto;
- 
-    width: 90vw;
-    
-    /* display: flex; */
-    border-collapse: collapse;
+    text-align: center;
+    font-style: italic;
+    font-weight: 400;
 }
 
 .search-details{
     height:30px;
-    width: 30px;
-    
+    width: 30px; 
 }
 
 .show-more{
     text-align: center;
 }
-
-.previews{
-    display: flex;
-    justify-content: center;
+.show-more button{
+    border-radius: 5px;
+    border-bottom: solid 3px #6b6e70;
 }
-
-.div-previews{
-    height:30px;
-    width: 60px;
-    border:solid 1px;
-}
-
 
 /* -------CARRUCEL DETAIL -------- */
 
@@ -120,6 +170,12 @@ table{
 .preview{
     background-color: aliceblue;
     height: 45px;
-    width: 80px;
+    width: 20vw;
+    max-width: 100px;
     margin-top: 5px;
+}
+
+/* --------------------VISTA DESKTOP------------------------ */
+@media (min-width: 1024px){
+
 }
