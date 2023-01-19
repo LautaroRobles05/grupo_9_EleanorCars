@@ -4,6 +4,8 @@
   "description": "Santiago Vanzillotta  \r Ignacio Nicolás Moscatelli  \r Javier Pereyro  \r Lautaro Alejandro Robles  \r Alcides Catriel Almada Garay  \r Monica Alejandra Lopez Monsalve",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
