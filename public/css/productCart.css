@@ -1,27 +1,38 @@
+main{
+    /* border: solid 1px; */
+    background-image: radial-gradient(circle at 99.65% 73.15%, #e5d5f1 0, #e4cfe8 7.14%, #dfcadd 14.29%, #d8c4d1 21.43%, #cebec6 28.57%, #c2b7bb 35.71%, #b2b0b1 42.86%, #a1a8a7 50%, #8fa09f 57.14%, #7e999a 64.29%, #6f9297 71.43%, #618c95 78.57%, #558695 85.71%, #4d8195 92.86%, #477c95 100%);
+}
+main section img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+main section{
+    padding: 20px;
+}
 .div-cars-cart{
-    margin: 10vw;
-width: 80vw;
+margin:15px auto 15px;
+
 height: 150px;
 border:solid 1px;
 position: relative;
 padding: 10px;
+background-color: white;
+
 }
 .div-cars-cart-img{
     margin: auto;
     border-radius: 8px;
     border:solid 1px;
 height: 100px;
+padding: 2px;
 }
 
 .div-cars-cart-p{
     text-align: center;
 margin-top: 40px;
 }
-main section h2{
-    margin-left: 10vw;
-    margin-right: 10vw;
-    margin-top: 5vw;
-}
+
 .car-data-container{
     display: flex;
     justify-content: space-between;
@@ -63,25 +74,36 @@ main section h2{
         margin-right: 25px;
     }
     .car-data-container{
-        width: 40%;
+        width: 60%;
     }
     .div-cars-cart{
         display: flex;
-        height: 100px;
+        height: 150px;
+        max-width: 1024px;
+        margin:15px auto 15px;
+        align-items: center;
+        border-radius: 8px;
     }
     .div-cars-cart-img{
-        margin-left: 0px;
-        margin-right: 10px;
+  
         height: 80%;
-        width: 30%;
+        width: 35%;
     }
     .car-data1{
-        margin: auto;
-        margin-right: auto;
+        /* margin: auto; */
+        
     }
     .car-data2{
         width: 100%;
-        margin: auto;
-        margin-left: 100%;
+ 
+width: 100px;
+    }
+    main section{
+       max-width: 1024px; 
+        
+    }
+    main section h2{
+        margin:auto;
+      
     }
 }
