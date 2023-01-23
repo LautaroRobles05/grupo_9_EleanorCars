@@ -7,17 +7,25 @@
 6) #212016
 
 7) PEPER GRAY #8C8B89
+//2do try
+
+Fuentes/Fondo: #222831
+Fondo: #393E46
+Detalles: #0092CA
+Fuentes/Fondo: #EEEEEE
+
 */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 header, footer {
-    background-color: #5C5E60;
+    background-color: #222831;
+    color: #EEEEEE;
 }
 
 ul{
@@ -26,12 +34,20 @@ ul{
 
 a {
     text-decoration: none;
+    color: #EEEEEE;
 }
 
 a:visited {
-    color: initial;
+    color: #EEEEEE;
+}
+ 
+h3{
+    font-size: 32px;
 }
 
+h4{
+    font-size: 26px;
+}
 /* -----------------------------------HEADER--------------------------------------- */
 
 header {
@@ -43,9 +59,7 @@ header {
 }
 
 main {
-    /* height: 1200px; */
-    background-color: white;
-    padding: 10px 0 10px;
+    background-color: #EEEEEE;
 }
 
 .burguer-menu {
@@ -57,10 +71,10 @@ main {
 .fa-bars{
     font-size: 37px;
     padding: 5px;
-    color: #212016;
-    background-color: #DBDBDB;
+    color: #222831;
+    background-color: #EEEEEE;
     border-radius: 8px;
-    border: solid 2px #212016;
+    border: solid 2px #222831;
 }
 
 .logo {
@@ -75,7 +89,6 @@ main {
 .logo p {
     line-height: 0px;
     font-weight: 400;
-    font-style: italic;
 }
 
 .nav_header{
@@ -85,25 +98,21 @@ main {
 /* -----------------------------------MAIN--------------------------------------- */
 
 .publicity{
-  margin: 0 10px;
-  padding: 10px;
+  padding: 10px 0;
   text-align: center;
-  background-color: #D2D2D2;
+  background-color: #393E46;
 }
 
-.publicity div {
-    background-color: beige;
+.publicity > div {
     width: min-content;
     margin: auto;
-    border-radius: 20px 0 20px 0;
 }
 
+
 .publicity img{
-  height: auto;
-  border: solid #212016 2px;
-  border-radius: 20px 0 20px 0;
-  width: 80vw;
-  max-width: 460px;
+    height: auto;
+    width: 80vw;
+    max-width: 460px;  
 }
 
 .publicity p {
@@ -154,7 +163,8 @@ main form select{
     display: flex;
     align-items: start;
     flex-direction: column;
-    background: linear-gradient(110deg,#7ea298,white);
+    /* background: linear-gradient(110deg,#7ea298,white); */
+    background-color: #393E46;
 }
 
 .buy_with_us h3{
@@ -207,7 +217,12 @@ main form select{
 /* -----------------------------------carrusel--------------------------------------- */
 
 .recomendations{
+    background-color: #222831;
     padding: 15px;
+}
+
+.recomendations h3{
+    color: #EEEEEE;
 }
 
 #carrucel_recomendations{
@@ -298,7 +313,7 @@ footer {
     margin-top: 20px;
     margin-bottom: 10px;
     height: 1px;
-    background-color: black;
+    background-color: #EEEEEE;
 }
 
 .nav-footer {
@@ -355,13 +370,18 @@ footer {
     }
 
     .publicity div{
-        width: 90%;
+        width: 100%;
     }
 
-    .publicity img{
-        max-width: 65%;
+    .publicity div > div{
+        padding: 10px;
+        /* background-color: aqua; */
     }
-    
+
+    .publicity div > div img{
+        opacity: 0.1;
+    }
+
     main form select{
         height: 80px;
         max-width: 70%;
@@ -405,7 +425,7 @@ footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 15vh 20px 15vh;
+        padding: 5vh 20px 5vh;
     }
 
     main form select, .button-filter{
