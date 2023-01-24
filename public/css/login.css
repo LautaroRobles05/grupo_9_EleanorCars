@@ -50,6 +50,7 @@ section .content-box
     width: 100%;
     height: 100%;
     z-index: 1;
+    background-color: #222831;
    
 }
 section .content-box .form
@@ -66,7 +67,7 @@ section .content-box .form h2
     font-weight: 600;
     font-size: 24px;
     margin-bottom: 20px;
-    border-bottom: 4px solid #4593ff;
+    border-bottom: 4px solid #0092CA;
     display: inline-block;
     letter-spacing: 1px;
 }
@@ -98,11 +99,11 @@ section .content-box .form .input-box input
 }
 section .content-box .form .input-box input:focus
 {
-    border-color: #459fff;
+    border-color: #0092CA;
 }
 section .content-box .form .input-box input[type="submit"]
 {
-    background: #459fff;
+    background: #0092CA;
     color: #fff;
     outline: none;
     border: none;
@@ -111,7 +112,7 @@ section .content-box .form .input-box input[type="submit"]
 }
 section .content-box .form .input-box input[type="submit"]:hover
 {
-    background: #4593ff;
+    background: #0092CA;
 }
 section .content-box .form .remember
 {
@@ -126,7 +127,7 @@ section .content-box .form .input-box p
 }
 section .content-box .form .input-box p a 
 {
-    color: #4593ff;
+    color: #0092CA;
 }
 section .content-box .form .media-access
 {
@@ -174,7 +175,7 @@ section .content-box .form .social-media li:last-child img
 }
 section .content-box .form .social-media li:hover
 {
-    background-color: #4593ff;
+    background-color: #0092CA;
 }
 section .content-box .form .social-media li img
 {
