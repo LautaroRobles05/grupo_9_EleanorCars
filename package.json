@@ -4,8 +4,8 @@
   "description": "Santiago Vanzillotta  \r Ignacio Nicolás Moscatelli  \r Javier Pereyro  \r Lautaro Alejandro Robles  \r Alcides Catriel Almada Garay  \r Monica Alejandra Lopez Monsalve",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/LautaroRobles05/grupo_9_EleanorCars#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.2"
   }
 }

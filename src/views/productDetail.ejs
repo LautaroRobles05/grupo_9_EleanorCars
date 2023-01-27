@@ -15,25 +15,8 @@
   </head>
 
   <body>
-    <header>
-      <div class="burguer-menu"><i class="fa-solid fa-bars"></i></div>
-
-      <div class="logo">
-        <img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars"/>
-        <p>Eleanor Cars</p>
-      </div>
-
-      <nav class="nav_header">
-        <ul>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Vender</a></li>
-          <li><a href="#">Comprar</a></li>
-          <li><a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a></li>
-          <li><a href="/login"><i class="fa-solid fa-user-tie"></i></a></li>
-        </ul>
-      </nav>
-
-    </header>
+   
+    <%- include("./partials/header") %> 
 
     <main>
       <section class="product_detail">
@@ -287,62 +270,8 @@
 
     </main>
 
-    <footer>
-      <div class="container-social-media">
-        <a href="https://www.facebook.com/" target="_blank">
-          <i class="fa-brands fa-facebook"></i>
-        </a>
+    <%- include("./partials/footer") %> 
 
-        <a href="https://www.instagram.com/" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
 
-        <a href="https://twitter.com/" target="_blank">
-          <i class="fa-brands fa-twitter"></i>
-        </a>
-
-        <a href="https://www.youtube.com/" target="_blank">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-      </div>
-
-      <nav class="nav-footer">
-        <ul>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Vender</a></li>
-          <li><a href="#">Comprar</a></li>
-          <li><a href="#">Ayuda</a></li>
-        </ul>
-      </nav>
-
-      <div class="bookmark"></div>
-
-      <div class="terminos-y-condiciones">
-        <p id="rights-reserved">
-            © 2022 Auto Online S.A. 
-            Todos los derechos reservados.
-        </p>
-
-        <p>
-            <a href="#">Políticas de Privacidad</a>
-        </p>
-        
-        <p>
-            <a href="#">Términos y Condiciones </a>
-        </p>
-        
-        <p >
-            LA AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de
-            Control de la Ley N° 25.326, tiene la atribución de atender las denuncias
-            y reclamos que interpongan quienes resulten afectados en sus derechos por
-            incumplimiento de las normas vigentes en materia de protección de datos
-            personales.
-        </p>
-      </div>
-
-      <div class="logo">
-        <img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars" />
-      </div>
-    </footer>
   </body>
 </html>
