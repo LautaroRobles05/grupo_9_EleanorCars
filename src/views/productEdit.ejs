@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <link rel="stylesheet" href="/css/productEdit.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <%- include("./partials/header") %> 
+
+    <main>
+<div class="edit-modify">
+    <div class="div-edit-modify" action="">
+<img src="/images/mustang.png" alt="">
+    </div>
+    <form class="form-edit-modify" action="">
+        <h4>ID:25</h5>
+             <label for="">Nombre de producto: <input type="text" name="" id=""></label> 
+       <label for="">Descripcion del producto: <textarea class="textarea" name="" id="" cols="30" rows="10"></textarea></label>
+  <label for="">Imagen: <input type="file" name="" id=""></label>
+  <label for="">Categoria: <input type="text" name="" id=""></label>
+  <label for="">Color: <input type="text" name="" id=""></label>
+  <label for="">Precio: <input type="number" name="" id=""></label>
+
+<button class="aply-changes" type="submit">Aplicar cambios</button>
+<button class="dischard-changes" type="reset">Descartar cambios</button>
+
+
+</form>
+</div>
+    </main>
+
+   <%- include("./partials/footer") %> 
+</body>
+</html>

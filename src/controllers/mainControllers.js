@@ -10,6 +10,9 @@ let mainController = {
   productCart: (req, res) => {
     res.render("productCart");
   },
+  productEdit: (req, res) => {
+    res.render("productEdit");
+  },
   register: (req, res) => {
     res.render("register");
   },

@@ -1,0 +1,51 @@
+* {
+}
+
+main {
+  padding: 20px;
+}
+.edit-modify {
+  display: flex;
+  border: solid 1px;
+  width: 80%;
+  margin: auto;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+}
+/* aling item => alinea eje y */
+/* justify content => alinea eje x */
+/* segun si la direccion sobre tipo de eje que tengan(flex direction) */
+
+.div-edit-modify{
+  display: flex;
+  width: 50%;
+  padding: 15px;
+  align-items: center;
+}
+.form-edit-modify {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items:baseline;
+  flex-direction: column;
+  border-radius: 8px;
+  line-height: 30px;
+}
+img{
+  width: 100%;
+  height: min-content;
+}
+.textarea{
+  height: 40px;
+  border-radius: 8px;
+}
+.aply-changes, .dischard-changes{
+  align-self:center;
+  margin-top: 10px;
+  height: 30px;
+  border-radius: 8px;
+}
+main input{
+  border-radius: 8px;
+}
