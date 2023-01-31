@@ -24,6 +24,20 @@ Fuente Login y Register: #607d8b
     font-family: 'Poppins', sans-serif;
 }
 
+body::-webkit-scrollbar {
+    width: 11px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: #222831;        
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #0092CA;    /* color of the scroll thumb */
+    border-radius: 20px;
+    border: 3px solid #222831;
+}
+
 header, footer {
     background-color: #222831;
     color: #EEEEEE;
