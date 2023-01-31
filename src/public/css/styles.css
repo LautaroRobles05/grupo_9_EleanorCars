@@ -98,32 +98,24 @@ main {
 
 /* -----------------------------------MAIN--------------------------------------- */
 
-.publicity{
-  padding: 10px 0;
-  text-align: center;
-  background-color: #393E46;
-}
-
-.publicity > div {
-    width: min-content;
-    margin: auto;
-}
-
-
-.publicity img{
-    height: auto;
-    width: 80vw;
-    max-width: 460px;  
-}
-
-.publicity p {
-    padding: 5px;
-    margin: auto;
-    font-size: 16px;
-}
 
 .search-car{
   text-align: center;
+  padding: 30px 10px;
+  background-image: url('https://images.pexels.com/photos/7395207/pexels-photo-7395207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size:cover;
+  background-position: left center;
+  border-bottom: #222831 double 10px;
+}
+
+
+.search-car p{
+  padding: 20px 20px;
+  color: #DBDBDB;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #2228319f;
+  border-radius: 20px;
 }
 
 .form-search-car{
@@ -138,7 +130,23 @@ main form select,
     border: solid 2px #212016;
     color: #212016;
     font-size: 18px;
+    transition: background-color 600ms;
 } 
+
+main form select, .button-filter{
+    background-color: unset;
+    color: white;
+    font-weight: 700;
+}
+
+main form select:hover{
+    background-color: #2228319b;
+}
+
+main form select option{
+    background-color: #0092CA;
+    /* transition: display 50px; */
+}
 
 main form select{
     margin-bottom: 15px;
@@ -146,26 +154,35 @@ main form select{
     max-width: 350px;
     margin: 10px auto 10px;
     text-align: center;
-    border-radius: 5px;
     min-height: 35px;
-    height: 5vh;
-    max-height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    border: #0091ca9b solid 3px;
+}
+
+.button-filter:hover{
+    background-color: #0091ca9b;
 }
 
 .button-filter{
-    border-radius: 5px;
     height: 35px;
     width: 35vw;
     max-width: 200px;
+    border-radius: 10px;
+    border: #222831 solid 3px;
 }
 
+.banner-carretera {
+    display: none;
+}
+    
 .buy_with_us{
     padding: 20px;
     display: flex;
     align-items: start;
     flex-direction: column;
-    /* background: linear-gradient(110deg,#7ea298,white); */
     background-color: #393E46;
+    color: #EEEEEE;
 }
 
 .buy_with_us h3{
@@ -190,6 +207,7 @@ main form select{
   color: #212016;
   cursor: pointer;
   text-decoration: underline;
+  color: #0092CA;
 }
 
 .sell_with_us {
@@ -207,13 +225,16 @@ main form select{
 .swu_container button {
   display: block;
   margin: 10px auto;
-  border: none;padding: 3px;
+  border: none;
+  background-color: #517c8d;
+  padding: 3px;
   border-radius: 4px;
 }
 
 .sell_with_us img{
   height: auto;
   width: 150px;
+  filter: grayscale(0.8);
 }
 /* -----------------------------------carrusel--------------------------------------- */
 
@@ -237,7 +258,7 @@ main form select{
 .item_carrucel{ 
     width: 100%;
     height: 100%;
-    background-color: #7ea298;
+    background-color: #EEEEEE;
     position: relative;
 }
 
@@ -366,27 +387,14 @@ footer {
     }
 
     /* ---------MAIN---------- */
-    .publicity div{
-        display: flex;
-    }
-
-    .publicity div{
-        width: 100%;
-    }
-
-    .publicity div > div{
-        padding: 10px;
-        /* background-color: aqua; */
-    }
-
-    .publicity div > div img{
-        opacity: 0.1;
+ 
+    .search-car{
+        background-image: url('https://images.pexels.com/photos/13756523/pexels-photo-13756523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     }
 
     main form select{
-        height: 80px;
         max-width: 70%;
-    }
+    }   
     
     .button-filter{
         height: 45px;
@@ -418,8 +426,14 @@ footer {
         padding: 0 15vw 5px;
     }
 
-    .publicity img{
-        max-height: 320px;
+    .search-car{
+        background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+        /* background-image: url('/images/interior-clasico.jpg'); */
+        background-position: top;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .form-search-car{
@@ -450,5 +464,25 @@ footer {
     main section {
         width: 1024px;
         margin: auto !important;
+    }
+
+    .banner-primera-plana{
+        display: block;
+        height: 300px;
+        border-top: #222831 double 10px;
+        border-bottom: #222831 double 10px;
+        background-image: url('/images/flota-de-autos.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+
+    .banner-carretera{
+        display: block;
+        height: 250px;
+        border-top: #EEEEEE double 10px;
+        border-bottom: #222831 double 10px;
+        background-image: url('/images/mustang-carretera.jpg');
+        background-position: center;
+        background-size: cover;
     }
 }
