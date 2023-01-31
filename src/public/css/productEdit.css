@@ -16,8 +16,27 @@ main {
 /* aling item => alinea eje y */
 /* justify content => alinea eje x */
 /* segun si la direccion sobre tipo de eje que tengan(flex direction) */
-
-.div-edit-modify{
+main {
+  background-image: radial-gradient(
+    circle at 99.65% 73.15%,
+    #e5d5f1 0,
+    #e4cfe8 7.14%,
+    #dfcadd 14.29%,
+    #d8c4d1 21.43%,
+    #cebec6 28.57%,
+    #c2b7bb 35.71%,
+    #b2b0b1 42.86%,
+    #a1a8a7 50%,
+    #8fa09f 57.14%,
+    #7e999a 64.29%,
+    #6f9297 71.43%,
+    #618c95 78.57%,
+    #558695 85.71%,
+    #4d8195 92.86%,
+    #477c95 100%
+  );
+}
+.div-edit-modify {
   display: flex;
   width: 50%;
   padding: 15px;
@@ -27,25 +46,41 @@ main {
   display: flex;
   width: 50%;
   height: 100%;
-  align-items:baseline;
+  align-items: baseline;
   flex-direction: column;
   border-radius: 8px;
   line-height: 30px;
 }
-img{
+img {
   width: 100%;
   height: min-content;
 }
-.textarea{
+.textarea {
   height: 40px;
   border-radius: 8px;
 }
-.aply-changes, .dischard-changes{
-  align-self:center;
+.aply-changes,
+.dischard-changes {
+  align-self: center;
   margin-top: 10px;
   height: 30px;
   border-radius: 8px;
 }
-main input{
+main input {
   border-radius: 8px;
+  width: 100%;
+}
+
+@media (max-width: 767px){
+.edit-modify{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.form-edit-modify{
+  width: 100%;
+}
+.textarea{
+  width: 100%;
+}
 }
