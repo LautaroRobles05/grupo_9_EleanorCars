@@ -231,6 +231,10 @@ footer {
     text-align:justify;
 }
 
+#rights-reserved {
+    text-align: center;
+}
+
 
 /* --------------------VISTA TABLET------------------------ */
 @media (min-width: 768px){

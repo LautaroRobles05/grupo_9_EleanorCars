@@ -8,7 +8,7 @@ const PORT = 3009;
 app.set('view engine','ejs');
 app.set('views', './src/views');
 
-app.use(express.static("./src/public")); 
+app.use(express.static("./public")); 
 
 app.use(mainRoutes);
 

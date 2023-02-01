@@ -8,6 +8,7 @@
     background-size:cover;
     background-position: left center;
     border-bottom: #222831 double 10px;
+    margin-top: 0px;
   }
   
   
@@ -206,7 +207,9 @@
     }
 
     main section {
-        margin: auto !important;
+        /* margin: auto !important; */
+        margin: 69px 0px;
+        box-shadow: 0 0 29px 4px #5c5e60c8;
     }
 
     .banner-primera-plana{
@@ -221,11 +224,12 @@
 
     .banner-carretera{
         display: block;
-        height: 250px;
+        height: 50vh;
         border-top: #EEEEEE double 10px;
         border-bottom: #222831 double 10px;
         background-image: url('/images/mustang-carretera.jpg');
         background-position: center;
         background-size: cover;
+        margin-bottom: 0px;
     }
 }
