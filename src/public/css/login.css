@@ -1,94 +1,7 @@
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* -----------------------------------HEADER--------------------------------------- */
-ul{
-    list-style-type: none;
-}
-
-a {
-    text-decoration: none;
-    color: #EEEEEE;
-}
-
-a:visited {
-    color: #EEEEEE;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 90px;
-    background-color: #393E46;
-    /* background: linear-gradient(180deg, #0d0d0d, #2d597ee0); */
-    background: linear-gradient(180deg, #22283159, #222831);
-    
-}
 
 main {
     background-color: #EEEEEE;
 }
-
-.burguer-menu {
-    position: absolute;
-    text-align: center;
-    left: 20px;
-}
-
-.fa-bars{
-    font-size: 37px;
-    padding: 5px;
-    color: #222831;
-    background-color: #EEEEEE;
-    border-radius: 8px;
-    border: solid 2px #222831;
-}
-
-.logo {
-    text-align: center;
-    color: #EEEEEE;
-}
-
-.logo img{
-    height: 45px;
-    width: 80px;
-}
-
-.logo p {
-    line-height: 0px;
-    font-weight: 400;
-}
-
-.nav_header{
-    display: none;
-}
-
-/* ----------------------------------------------------------HEADER---------------------------------------------------------- */
-
-body::-webkit-scrollbar 
-{
-    width: 11px;
-}
-
-body::-webkit-scrollbar-track 
-{
-    background: #222831;        
-}
-
-body::-webkit-scrollbar-thumb 
-{
-    background-color: #0092CA;    /* color of the scroll thumb */
-    border-radius: 20px;
-    border: 3px solid #222831;
-}
-
 
 section
 {
@@ -139,6 +52,7 @@ section .content-box
     /* background: linear-gradient(179deg, #2d597ee0, transparent); */
    
 }
+
 section .content-box .form
 {
     width: 100%;
@@ -275,35 +189,6 @@ section .content-box .form .input-box .back-home
 
 @media (min-width: 768px)
 {
-    header
-    {
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 15px;
-        
-    }
-
-    .burguer-menu 
-    {
-        display: none;
-    }
-
-    .nav_header
-    {
-        display: flex;
-        align-self: flex-end;
-    }
-
-    .nav_header ul 
-    {
-        display: flex;
-    }
-
-    .nav_header ul li
-    {
-        margin-right: 25px;
-        
-    }
 
     section .img-container 
     {
@@ -350,24 +235,5 @@ section .content-box .form .input-box .back-home
     section .content-box .form .media-access
     {
         margin: 60px 0 10px;
-    }
-    .logo img,
-    .nav_header ul li a
-    {
-        transition: all 0.3s ease;
-        
-    }
-    .logo img:hover
-    {
-        height: 50px;
-        width: 85px;
-        background: transparent;
-        
-    }
-    .nav_header ul li a:hover
-    {
-        padding: 3px 6px;
-        background: rgb(43, 43, 43);
-        border-radius: 10px;
     }
 }

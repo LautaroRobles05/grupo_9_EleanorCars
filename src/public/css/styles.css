@@ -63,6 +63,7 @@ h3{
 h4{
     font-size: 26px;
 }
+
 /* -----------------------------------HEADER--------------------------------------- */
 
 header {
@@ -71,11 +72,12 @@ header {
     justify-content: center;
     position: relative;
     height: 90px;
+    background-color: #393E46;
+    /* background: linear-gradient(180deg, #0d0d0d, #2d597ee0); */
+    background: linear-gradient(180deg, #22283159, #222831);
+    
 }
 
-main {
-    background-color: #EEEEEE;
-}
 
 .burguer-menu {
     position: absolute;
@@ -94,11 +96,12 @@ main {
 
 .logo {
     text-align: center;
+    color: #EEEEEE;
 }
 
 .logo img{
     height: 45px;
-    width: 55px;
+    width: 80px;
 }
 
 .logo p {
@@ -110,156 +113,8 @@ main {
     display: none;
 }
 
-/* -----------------------------------MAIN--------------------------------------- */
-
-
-.search-car{
-  text-align: center;
-  padding: 30px 10px;
-  background-image: url('https://images.pexels.com/photos/7395207/pexels-photo-7395207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size:cover;
-  background-position: left center;
-  border-bottom: #222831 double 10px;
-}
-
-
-.search-car p{
-  padding: 20px 20px;
-  color: #DBDBDB;
-  text-transform: uppercase;
-  font-weight: 700;
-  background-color: #2228319f;
-  border-radius: 20px;
-}
-
-.form-search-car{
-display: flex;
-flex-direction: column;
-padding-top: 20px;
-padding-bottom: 20px;
-}
-
-main form select, 
-.button-filter{
-    border: solid 2px #212016;
-    color: #212016;
-    font-size: 18px;
-    transition: background-color 600ms;
-} 
-
-main form select, .button-filter{
-    background-color: unset;
-    color: white;
-    font-weight: 700;
-}
-
-main form select:hover{
-    background-color: #2228319b;
-}
-
-main form select option{
-    background-color: #0092CA;
-    /* transition: display 50px; */
-}
-
-main form select{
-    margin-bottom: 15px;
-    width: 60vw;
-    max-width: 350px;
-    margin: 10px auto 10px;
-    text-align: center;
-    min-height: 35px;
-    padding: 10px;
-    border-radius: 10px;
-    border: #0091ca9b solid 3px;
-}
-
-.button-filter:hover{
-    background-color: #0091ca9b;
-}
-
-.button-filter{
-    height: 35px;
-    width: 35vw;
-    max-width: 200px;
-    border-radius: 10px;
-    border: #222831 solid 3px;
-}
-
-.banner-carretera {
-    display: none;
-}
-    
-.buy_with_us{
-    padding: 20px;
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    background-color: #393E46;
-    color: #EEEEEE;
-}
-
-.buy_with_us h3{
-    font-style: italic;
-    font-weight: 700;
-    font-size: 31px;
-    width: 55%;
-  /* text-align: center;
-  margin-top: 20px; */
-}
-
-.bwu_description_container {
-    width: 70%;
-    text-align: center;
-    align-self: flex-end;
-    font-weight: 400;
-    font-style: italic;
-}
-
-
-.buy_with_us a {
-  color: #212016;
-  cursor: pointer;
-  text-decoration: underline;
-  color: #0092CA;
-}
-
-.sell_with_us {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.swu_container p {
-    font-size: 17px;
-    margin: 5px 10px 0;
-}
-
-.swu_container button {
-  display: block;
-  margin: 10px auto;
-  border: none;
-  background-color: #517c8d;
-  padding: 3px;
-  border-radius: 4px;
-}
-
-.sell_with_us img{
-  height: auto;
-  width: 150px;
-  filter: grayscale(0.8);
-}
 /* -----------------------------------carrusel--------------------------------------- */
 
-.recomendations{
-    background-color: #222831;
-    padding: 15px;
-}
-
-.recomendations h3{
-    color: #EEEEEE;
-}
 
 #carrucel_recomendations{
     width: 100%;
@@ -328,6 +183,8 @@ main form select{
 
 /* -----------------------------------carrusel--------------------------------------- */
 
+
+
 /* -----------------------------------FOOTER--------------------------------------- */
 footer {
     padding: 10px 10px 10px 10px;
@@ -377,43 +234,36 @@ footer {
 
 /* --------------------VISTA TABLET------------------------ */
 @media (min-width: 768px){
-    header{
+    header
+    {
         justify-content: space-between;
         align-items: center;
         padding: 10px 15px;
+        
     }
 
-    .burguer-menu {
+    .burguer-menu 
+    {
         display: none;
     }
 
-    .nav_header{
+    .nav_header
+    {
         display: flex;
         align-self: flex-end;
     }
 
-    .nav_header ul {
+    .nav_header ul 
+    {
         display: flex;
     }
 
-    .nav_header ul li{
-        margin-right: 25px;
+    .nav_header ul li
+    {
+        margin-right: 25px; 
     }
 
-    /* ---------MAIN---------- */
- 
-    .search-car{
-        background-image: url('https://images.pexels.com/photos/13756523/pexels-photo-13756523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    }
 
-    main form select{
-        max-width: 70%;
-    }   
-    
-    .button-filter{
-        height: 45px;
-    }
-    
     /* ---------CARRUCEL------------ */
     
     #carrucel_recomendations{
@@ -428,75 +278,28 @@ footer {
     .tarjeta_carrucel p {
         width: 80%;
     }
-
-    .sell_with_us {
-        flex-direction: row;
-    }
 }
 
 /* --------------------VISTA DESKTOP------------------------ */
 @media (min-width: 1024px){
-    header{
-        padding: 0 15vw 5px;
+    .logo img,
+    .nav_header ul li a
+    {
+        transition: all 0.3s ease;
+        
+    }
+    .logo img:hover
+    {
+        height: 50px;
+        width: 85px;
+        background: transparent;
+        
     }
 
-    .search-car{
-        background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-        /* background-image: url('/images/interior-clasico.jpg'); */
-        background-position: top;
-        height: 50vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .form-search-car{
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5vh 20px 5vh;
-    }
-
-    main form select, .button-filter{
-        max-width: none;
-        max-height: none;
-        margin: 0;
-        border-radius: 15px;
-        height: 60px;
-        font-size: 22px;
-    }
-
-    main form select {
-        width: 23%;
-    }
-
-    .button-filter{
-        width: 170px;
-
-    }
-
-    main section {
-        width: 1024px;
-        margin: auto !important;
-    }
-
-    .banner-primera-plana{
-        display: block;
-        height: 300px;
-        border-top: #222831 double 10px;
-        border-bottom: #222831 double 10px;
-        background-image: url('/images/flota-de-autos.jpg');
-        background-position: center;
-        background-size: cover;
-    }
-
-    .banner-carretera{
-        display: block;
-        height: 250px;
-        border-top: #EEEEEE double 10px;
-        border-bottom: #222831 double 10px;
-        background-image: url('/images/mustang-carretera.jpg');
-        background-position: center;
-        background-size: cover;
+    .nav_header ul li a:hover
+    {
+        padding: 3px 6px;
+        background: rgb(43, 43, 43);
+        border-radius: 10px;
     }
 }
