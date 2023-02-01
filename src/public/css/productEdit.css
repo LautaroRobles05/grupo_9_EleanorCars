@@ -12,6 +12,10 @@ main {
   border-radius: 8px;
   padding: 10px;
   background-color: white;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
 }
 /* aling item => alinea eje y */
 /* justify content => alinea eje x */
@@ -58,7 +62,9 @@ img {
 .textarea {
   height: 40px;
   border-radius: 8px;
+  border: 1px solid #607d8b
 }
+
 .aply-changes,
 .dischard-changes {
   align-self: center;
@@ -66,9 +72,55 @@ img {
   height: 30px;
   border-radius: 8px;
 }
-main input {
+/* main input {
   border-radius: 8px;
   width: 100%;
+} */
+main .form-edit-modify label
+{
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #607d8b;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+main .form-edit-modify .input-box
+{
+margin-bottom: 20px;
+}
+
+main .form-edit-modify .input-box
+{
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid #607d8b;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #607d8b;
+  background: transparent;
+  border-radius: 6px;
+}
+
+main .form-edit-modify .input-box:focus
+{
+    border-color: #0092CA;
+}
+main .form-edit-modify .input-box input[type="submit"]
+{
+    background: #0092CA;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+main .form-edit-modify .input-box input[type="submit"]:hover
+{
+    background: #4593ff;
 }
 
 @media (max-width: 767px){

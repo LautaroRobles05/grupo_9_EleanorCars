@@ -1,4 +1,4 @@
-*
+/* *
 {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 /* -----------------------------------HEADER--------------------------------------- */
-ul{
+/* ul{
     list-style-type: none;
 }
 
@@ -26,9 +26,7 @@ header {
     position: relative;
     height: 90px;
     background-color: #393E46;
-    /* background: linear-gradient(180deg, #0d0d0d, #2d597ee0); */
     background: linear-gradient(180deg, #22283159, #222831);
-    
 }
 
 main {
@@ -71,7 +69,7 @@ main {
 
 /* ----------------------------------------------------------HEADER---------------------------------------------------------- */
 
-body::-webkit-scrollbar 
+/* body::-webkit-scrollbar 
 {
     width: 11px;
 }
@@ -83,10 +81,10 @@ body::-webkit-scrollbar-track
 
 body::-webkit-scrollbar-thumb 
 {
-    background-color: #0092CA;    /* color of the scroll thumb */
+    background-color: #0092CA;    
     border-radius: 20px;
     border: 3px solid #222831;
-}
+}   */
 
 section
 {
@@ -141,9 +139,9 @@ section .content-box .form
     width: 100%;
     padding: 20px;
     background: rgb(255 255 255 / 0.9);
-    margin: 0px 38px;
-    border-radius: 20px;
-   
+    margin: 0px 34px;
+    border-radius: 6px;
+    box-shadow: 0 0px 20px 4px #5c5e60c8
 }
 section .content-box .form h2
 {
@@ -151,7 +149,7 @@ section .content-box .form h2
     font-weight: 600;
     font-size: 24px;
     margin-bottom: 20px;
-    border-bottom: 4px solid #4593ff;
+    border-bottom: 4px solid #0092CA;
     display: inline-block;
     letter-spacing: 1px;
 }
@@ -179,15 +177,15 @@ section .content-box .form .input-box input
     letter-spacing: 1px;
     color: #607d8b;
     background: transparent;
-    border-radius: 30px;
+    border-radius: 6px;
 }
 section .content-box .form .input-box input:focus
 {
-    border-color: #459fff;
+    border-color: #0092CA;
 }
 section .content-box .form .input-box input[type="submit"]
 {
-    background: #459fff;
+    background: #0092CA;
     color: #fff;
     outline: none;
     border: none;
@@ -211,7 +209,7 @@ section .content-box .form .input-box p
 }
 section .content-box .form .input-box p a 
 {
-    color: #4593ff;
+    color: #0092CA;
 }
 section .content-box .form .input-box .back-home
 {
@@ -220,7 +218,7 @@ section .content-box .form .input-box .back-home
 
 @media (min-width: 768px)
 {
-    header
+    /* header
     {
         justify-content: space-between;
         align-items: center;
@@ -248,7 +246,7 @@ section .content-box .form .input-box .back-home
     {
         margin-right: 25px;
         
-    }
+    } */
     
     section .img-container 
     {
@@ -287,7 +285,7 @@ section .content-box .form .input-box .back-home
     {
         padding: 30px;
     }
-    .nav_header ul li a
+    /* .nav_header ul li a
     {
         transition: all 0.5s ease;
     }
@@ -297,5 +295,5 @@ section .content-box .form .input-box .back-home
         padding: 3px 6px;
         background: #000;
         border-radius: 10px;
-    }
+    } */
 }

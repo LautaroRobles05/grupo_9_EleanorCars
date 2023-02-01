@@ -59,7 +59,8 @@ section .content-box .form
     padding: 40px;
     background: rgb(255 255 255 / 0.9);
     margin: 50px;
-    border-radius: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0px 20px 4px #5c5e60c8
 }
 section .content-box .form h2
 {
@@ -95,7 +96,7 @@ section .content-box .form .input-box input
     letter-spacing: 1px;
     color: #607d8b;
     background: transparent;
-    border-radius: 30px;
+    border-radius: 6px;
 }
 section .content-box .form .input-box input:focus
 {
@@ -133,8 +134,9 @@ section .content-box .form .media-access
 {
     color: #607d8b;
     text-align: center;
-    margin: 80px 0 10px;
+    margin: 50px 0 10px;
     font-weight: 500;
+    font-size: 20px;
 }
 section .content-box .form .social-media
 {
