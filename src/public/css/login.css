@@ -305,8 +305,6 @@ section .content-box .form .input-box .back-home
         
     }
 
-    
-
     section .img-container 
     {
         position: relative;
@@ -352,15 +350,23 @@ section .content-box .form .input-box .back-home
     {
         margin: 60px 0 10px;
     }
+    .logo img,
     .nav_header ul li a
     {
-        transition: all 0.5s ease;
+        transition: all 0.3s ease;
+        
     }
-
+    .logo img:hover
+    {
+        height: 50px;
+        width: 85px;
+        background: transparent;
+        
+    }
     .nav_header ul li a:hover
     {
         padding: 3px 6px;
-        background: #000;
+        background: rgb(43, 43, 43);
         border-radius: 10px;
     }
 }
