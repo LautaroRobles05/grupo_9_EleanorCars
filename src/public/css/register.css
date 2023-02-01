@@ -255,6 +255,7 @@ section .content-box .form .input-box .back-home
         position: relative;
         width: 50%;
         height: 100%;
+        box-shadow: 0 26px 16px 10px #5c5e60c8
     }
     section .content-box 
     {
