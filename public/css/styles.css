@@ -78,7 +78,6 @@ header {
     
 }
 
-
 .burguer-menu {
     position: absolute;
     text-align: center;
@@ -131,12 +130,12 @@ header {
     position: relative;
 }
 
-.tarjeta_carrucel, .container_flechas_carrucel {
+.tarjeta_carrucel, .container_nav_carrucel {
     width: 100%;
     height: 100%;
 }
 
-.container_flechas_carrucel {
+.container_nav_carrucel {
     position: absolute;
     top: 0;
     display: flex;
@@ -144,7 +143,7 @@ header {
     align-items: center;
 }
 
-.container_flechas_carrucel i {
+.container_nav_carrucel i {
     font-size: 40px;
     width: 40px;
     text-align: center;
@@ -152,6 +151,11 @@ header {
     background-color: #5C5E60;
     color: #DBDBDB;
     border-radius: 50%;
+}
+
+.container_nav_carrucel .link_tarjeta{
+    width: 100%;
+    height: 100%;
 }
 
 .tarjeta_carrucel{

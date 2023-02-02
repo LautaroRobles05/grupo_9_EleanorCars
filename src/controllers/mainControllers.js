@@ -19,6 +19,9 @@ let mainController = {
   login: (req, res) => {
     res.render("login");
   },
+  notFound: (req, res) => {
+    res.render("notFound");
+  } 
 };
 
 module.exports = mainController;

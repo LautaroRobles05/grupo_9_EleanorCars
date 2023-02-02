@@ -1,0 +1,21 @@
+.notFound{
+    margin: 6% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notFound h1{
+    font-size: 43px;
+    text-align: center;
+    color: #EEEEEE;
+    background-color: #0091cab5;
+    padding: 10px;
+}
+
+@media(min-width: 768px){
+    .notFound h1{
+        font-size: 53px;
+        padding: 30px;
+    }
+}

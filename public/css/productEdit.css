@@ -1,6 +1,3 @@
-* {
-}
-
 main {
   padding: 20px;
 }
@@ -40,6 +37,7 @@ main {
     #477c95 100%
   );
 }
+
 .div-edit-modify {
   display: flex;
   width: 50%;
@@ -123,6 +121,14 @@ main .form-edit-modify .input-box input[type="submit"]:hover
     background: #4593ff;
 }
 
+.content-box form{
+  width: 100%;
+}
+
+.input-box > input{
+  width: 100%;
+}
+
 @media (max-width: 767px){
 .edit-modify{
   display: flex;
@@ -135,4 +141,5 @@ main .form-edit-modify .input-box input[type="submit"]:hover
 .textarea{
   width: 100%;
 }
+
 }

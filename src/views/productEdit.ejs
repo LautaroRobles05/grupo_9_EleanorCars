@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css"/>
     <link rel="stylesheet" href="/css/productEdit.css"/>
+    <link rel="stylesheet" href="/css/login.css">
     
     <title>Document</title>
 
@@ -26,30 +27,44 @@
                 <div class="content-box">   
                     <form class="form-edit-modify" action="">
                         <h4>ID:25</h5>
-                        <label for="">Nombre de producto: 
-                            <input class="input-box" type="text" name="" id="">
-                        </label> 
-                        <label for="">Descripcion del producto: <br>
-                            <textarea class="textarea" name="" id="" cols="30" rows="10"></textarea>
-                        </label>
-                        <label for="">Imagen: 
+
+                        <div class="input-box">
+                            <span>Nombre de producto</span>
+                            <input type="text" name="">
+                        </div>
+                        
+                        <div class="input-box">
+                            <span>Descripcion del producto</span>
+                            <input type="text" name="">
+                        </div>
+
+                        <label for="">Imagen
                             <input class="input-box" type="file" name="" id="">
                         </label>
-                        <label for="">Categoria: 
-                            <input class="input-box" type="text" name="" id="">
-                        </label>
-                        <label for="">Color: 
-                            <input class="input-box" type="text" name="" id="">
-                        </label>
-                        <label for="">Precio: 
-                            <input class="input-box" type="number" name="" id="">
-                        </label>
+
                         <div class="input-box">
-                            <input type="submit" value="Aplicar cambios" name="">
+                            <span>Categoria</span>
+                            <input type="text" name="">
                         </div>
+
                         <div class="input-box">
-                            <input type="submit" value="Descartar cambios" name="">
+                            <span>Color</span>
+                            <input type="text" name="">
                         </div>
+
+                        <div class="input-box">
+                            <span>Precio</span>
+                            <input type="text" name="">
+                        </div>
+
+                        <div class="input-box">
+                            <input type="submit" value="Aplicar" name="">
+                        </div>
+
+                        <div class="input-box">
+                            <input type="reset" value="Descartar" name="">
+                        </div>
+
 
                         <!-- <button class="aply-changes" type="submit">Aplicar cambios</button>
                         <button class="dischard-changes" type="reset">Descartar cambios</button> -->

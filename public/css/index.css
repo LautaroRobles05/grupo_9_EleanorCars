@@ -6,7 +6,7 @@
     padding: 30px 10px;
     background-image: url('https://images.pexels.com/photos/7395207/pexels-photo-7395207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-size:cover;
-    background-position: left center;
+    background-position: center;
     border-bottom: #222831 double 10px;
     margin-top: 0px;
   }
@@ -175,7 +175,7 @@
 
     .search-car{
         background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-        background-position: 0px 40%;
+        background-position: center 40%;
         height: 50vh;
         display: flex;
         flex-direction: column;
