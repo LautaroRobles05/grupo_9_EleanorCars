@@ -1,6 +1,7 @@
 
 main {
     background-color: #EEEEEE;
+
 }
 
 section
@@ -48,8 +49,16 @@ section .content-box
     height: 100%;
     z-index: 1;
     /* background-color: #222831; */
-    background: linear-gradient(179deg, #222831, transparent);
+    /* background: linear-gradient(179deg, #222831, transparent); */
     /* background: linear-gradient(179deg, #2d597ee0, transparent); */
+
+    background-image: linear-gradient(
+        0deg,
+        #222831 2%,
+        #393E46 10%,
+        #607d8b 35%,
+        #0092CA 70%
+      );
    
 }
 
