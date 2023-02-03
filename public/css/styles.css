@@ -79,7 +79,11 @@ header {
     height: 90px;
     background-color: #393E46;
     /* background: linear-gradient(180deg, #0d0d0d, #2d597ee0); */
-    background: linear-gradient(180deg, #22283159, #222831);
+    /* background: linear-gradient(180deg, #22283159, #222831); */
+    background-image: linear-gradient(
+    #666f84 0%,
+    #221e0e 60%
+  );
     
 }
 
