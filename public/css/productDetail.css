@@ -139,11 +139,16 @@
     border-radius: 6px;
 }
 
-#desplegar {
+.specifications_drop_down{
+    position: relative;
+    height: fit-content;
+}
+
+#drop_down {
     display: none;
 }
 
-#desplegar:checked + label{
+#drop_down:checked + div{
     overflow:visible;
     height: fit-content;
 }
@@ -209,13 +214,34 @@
     width: 30px; 
 }
 
-.show-more{
-    text-align: center;
+.show-more:hover{
+    background-color: #222831;
+    color: #393E46;
 }
-.show-more button{
+
+.show-more:active{
+    background-color: #222831;
+    color: #393E46;
+    opacity: 0.7;
+}
+
+.show-more{
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 5px 10px;
     border-radius: 5px;
     border-bottom: solid 3px #6b6e70;
+    background-color: #0092CA;
+    font-size: 25px;
+    color: white;
+    transition: all 250ms;
 }
+
 
 .recomendations {
     padding: 15px;

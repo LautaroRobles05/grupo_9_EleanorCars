@@ -38,7 +38,7 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid #222831;
 }
 
-header, footer {
+footer {
     background-color: #222831;
     color: #EEEEEE;
 }
@@ -82,7 +82,7 @@ header {
     /* background: linear-gradient(180deg, #22283159, #222831); */
     background-image: linear-gradient(
     #666f84 0%,
-    #221e0e 60%
+    #222831 60%
   );
     
 }
