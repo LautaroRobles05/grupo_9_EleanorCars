@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Nombre auto</title>
 
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/productDetail.css" />
@@ -16,12 +16,19 @@
 
   <body>
    
-    <%- include("./partials/header") %> 
+    <%- include("../partials/header") %> 
 
     <main>
       <section class="product_detail">
         <div class="descripcion">
-          <h2>Nombre producto</h2>
+          <div class="title_product">
+            <h2>Nombre producto</h2>
+
+            <div class="product_modify_delete">
+              <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
+              <a href=""><i class="fa-solid fa-trash"></i></a>
+            </div>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
             aspernatur asperiores laboriosam, iste exercitationem voluptate.
@@ -81,13 +88,13 @@
               </a>
             </div>
           </div>
-
+          
           <div class="item_carrucel_detail" id="product_detail_3">
-  
+            
             <div class="card_carrucel_detail">
               IMAGEN C
             </div>
-  
+            
             <div class="carrucel_navegation">
               <a href="#product_detail_2">
                 <i class="fa-solid fa-caret-left"></i>
@@ -112,11 +119,13 @@
           <div class="price">$5.000.000</div>
           <button class="reserve">Realizar reserva</button>
         </div>
-
+        
       </section>
-
+      
       <section class="specification_detail">
-        <div class="specifications_container">
+        <input type="checkbox" id="desplegar">
+
+        <label class="specifications_container" for="desplegar">
 
           <div class="especification">
             <h4>Especificaciones 1</h4>
@@ -201,26 +210,26 @@
               </table>
             </div>
           </div>
-        </div>
-
-        <div class="show-more">
+        </label>
+        
+        <!-- <div class="show-more">
           <button class="search-details">
             <i class="fa-solid fa-plus"></i>
           </button>
-        </div>
+        </div> -->
       </section>
 
       <section class="recomendations">
         <div>
           <h3>Autos similares</h3>
           
-          <%- include('partials/carrucel') %> 
+          <%- include('../partials/carrucel') %> 
         </div>
       </section>
 
     </main>
 
-    <%- include("./partials/footer") %> 
+    <%- include("../partials/footer") %> 
 
 
   </body>

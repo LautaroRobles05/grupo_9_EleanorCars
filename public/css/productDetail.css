@@ -10,15 +10,35 @@
 */
 
 .product_detail{
+    color:#EEEEEE;
     padding: 20px;
     max-width: 1100px;
     margin: auto;
 }
 
-.product_detail h2{
-    color: #6b6e70;
+.title_product{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title_product h2{
+    /* color: #6b6e70; */
     font-weight: 700;
-    font-size: 40px;
+    font-size: 25px;
+    margin: 0px;
+}
+
+.product_modify_delete i:hover{
+    padding: 5px;
+    background-color: #222831;
+    color: #607d8b;
+    border-radius: 5px;
+}
+
+.product_modify_delete i{
+    /* color: #6b6e70; */
+    transition: all 300ms;
 }
 
 .product_detail p{
@@ -27,7 +47,8 @@
     margin-bottom: 30px;
     font-style: italic;
     font-weight: 100;
-    color: #A4A4A4;
+    font-size: 18px;
+    /* color: #A4A4A4; */
 }
 
 /* -------CARRUCEL DETAIL -------- */
@@ -42,6 +63,10 @@
 .item_carrucel_detail{
     display: flex;
     flex-direction:column;
+}
+
+.card_carrucel_detail, .preview{
+    border: 2px solid #EEEEEE;
 }
 
 .card_carrucel_detail{
@@ -104,20 +129,31 @@
 /* ---- TABLAS ESPECIFICACIONES ---- */
 
 .specification_detail{
-    background-color: #A4A4A4;
     padding: 20px;
     max-width:none;
     width: 100%;
 }
 
+.specifications_container, .especification{
+    border: solid 1px  #222831;
+    border-radius: 6px;
+}
+
+#desplegar {
+    display: none;
+}
+
+#desplegar:checked + label{
+    overflow:visible;
+    height: fit-content;
+}
+
 .specifications_container{
     background-color: white;
-    border: solid 3px #6b6e70;
-    border-radius: 20px;
     box-shadow: 0 0 20px 10px white;
     padding: 5px;
     max-width: 900px;
-    max-height: 40vh;
+    height: 400px;
     margin: auto;
     overflow: hidden;
     display: flex;
@@ -126,16 +162,15 @@
 }
 
 .especification{
-    border: solid 3px #6b6e70;
-    border-radius: 20px;
     min-width: 240px;
     flex-grow: 1;
     margin: 10px;
 }
 
 .especification h4{
+    font-size: 23px;
     text-align: center;
-    border-bottom: solid 3px #6b6e70;
+    border-bottom: solid 3px  #222831;
 }
 
 .table_container{
@@ -153,9 +188,14 @@
     height: 30px;
 }
 
+.details, .data{
+    font-size: 18px;
+}
+
 .details{
     font-weight: bold;
-    color: #6b6e70;
+    color: #000000;
+    padding-left: 10px;
 }
 
 .data{
@@ -178,9 +218,7 @@
 }
 
 .recomendations {
-    background-color: #222831;
     padding: 15px;
-    border-top: double 10px #6b6e70;
 }
 
 .recomendations > div {
@@ -189,15 +227,36 @@
 }
 
 .recomendations h3 {
-    color: #EEEEEE;
+    color: #222831;
 }
 
 /* --------------------VISTA LAPTOP------------------------ */
 
 @media (min-width: 768px){
+    .title_product h2{
+        font-size: 40px;
+    }
+
+    .title_product i{
+        font-size: large;
+    }
+    
+    .product_detail p{
+        font-size: 20px;
+    }
+
     .especification{
         min-width: 330px;
     }
+
+    .especification h4{
+        font-size: 25px;
+    }
+
+    .details, .data{
+        font-size: 20px;
+    }
+
 }
 
 /* --------------------VISTA DESKTOP------------------------ */
@@ -220,16 +279,14 @@
     }
 
     .product_detail h2{
-        color: #6b6e70;
         font-weight: 700;
         font-size: 40px;
         text-align: center;
-        margin-bottom: 20px;
     }
     
     .product_detail p{
         padding: 0 40px;
         text-align: justify;
-        margin-bottom: 20px;
+        margin: 20px 0 0;
     }
 }

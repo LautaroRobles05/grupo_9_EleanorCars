@@ -43,6 +43,11 @@ header, footer {
     color: #EEEEEE;
 }
 
+
+main {
+    background: linear-gradient(179deg, #222831, transparent);
+}
+
 ul{
     list-style-type: none;
 }

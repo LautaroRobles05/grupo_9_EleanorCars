@@ -5,13 +5,13 @@ let mainController = {
     res.render("index");
   },
   productDetail: (req, res) => {
-    res.render("productDetail");
-  },
-  productCart: (req, res) => {
-    res.render("productCart");
+    res.render("products/productDetail");
   },
   productEdit: (req, res) => {
-    res.render("productEdit");
+    res.render("products/productEdit");
+  },
+  productCart: (req, res) => {
+    res.render("user/productCart");
   },
   register: (req, res) => {
     res.render("register");

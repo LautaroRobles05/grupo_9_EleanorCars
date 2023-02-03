@@ -6,8 +6,7 @@ Juntarse, para resolver dudas que pueda tener un compañero (no es una juntada g
 
 ## Hacer más.
 
-Trabajar de manera individual.
-
+Mas reuniones, esporadicas
 Delegar las tareas.
 
 ## Continuar haciendo.
@@ -16,8 +15,9 @@ Comunicacion.
 
 ## Hacer menos.
 
-Tiempo de reuniones (podria conllevar a mas reuniones, pero mas esporadicas, tal vez sin tanto detalle).
-
 ## Dejar de hacer.
 
-Esperar a tener una confirmacion del grupo entero a cerca de un tema. Realizar la consulta y sin perder mucho tiempo, intentar avanzar con la tarea.
+
+## Observaciones
+Las daily, es medio inviable ya que es suplantada por la comunicacion por whats app. Cambios y tareas realizadas son informadas en el momento que son realizadas, con lo disminuido del grupo es facil llevar registro.
+La delegacion de tareas se vuelve complicado por lo acopladas que son las tareas. 
