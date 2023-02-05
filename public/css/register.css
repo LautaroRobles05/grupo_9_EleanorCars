@@ -133,13 +133,6 @@ section .content-box
     z-index: 1;
     /* background: linear-gradient(179deg, #222831, transparent); */
     /* background: linear-gradient(179deg, #2d597ee0, transparent); */
-    background-image: linear-gradient(
-        0deg,
-        #222831 2%,
-        #393E46 10%,
-        #607d8b 35%,
-        #0092CA 70%
-      );
 }
 section .content-box .form
 {
@@ -260,7 +253,8 @@ section .content-box .form .input-box .back-home
         position: relative;
         width: 50%;
         height: 100%;
-        box-shadow: 0 26px 16px 10px #5c5e60c8
+        box-shadow: 4px -7px 33px 2px #262626d6;
+        z-index: 2
     }
     section .content-box 
     {
@@ -268,7 +262,14 @@ section .content-box .form .input-box .back-home
         justify-content: center;
         align-items: center;
         width: 50%;
-        height: 100%;   
+        height: 100%;
+        background-image: linear-gradient(
+        0deg,
+        #222831 2%,
+        #393E46 10%,
+        #607d8b 35%,
+        #0092CA 70%
+      );   
     }
     section .content-box .form 
     {
