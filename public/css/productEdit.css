@@ -3,55 +3,53 @@ main {
 }
 .edit-modify {
   display: flex;
-  border: solid 1px;
   width: 80%;
   margin: auto;
   border-radius: 8px;
   padding: 10px;
-  background-color: white;
   position: relative;
   width: 100%;
   display: flex;
+  justify-content: space-around;
 }
 /* aling item => alinea eje y */
 /* justify content => alinea eje x */
 /* segun si la direccion sobre tipo de eje que tengan(flex direction) */
 main {
-  background-image: radial-gradient(
-    circle at 99.65% 73.15%,
-    #e5d5f1 0,
-    #e4cfe8 7.14%,
-    #dfcadd 14.29%,
-    #d8c4d1 21.43%,
-    #cebec6 28.57%,
-    #c2b7bb 35.71%,
-    #b2b0b1 42.86%,
-    #a1a8a7 50%,
-    #8fa09f 57.14%,
-    #7e999a 64.29%,
-    #6f9297 71.43%,
-    #618c95 78.57%,
-    #558695 85.71%,
-    #4d8195 92.86%,
-    #477c95 100%
-  );
+  background-image: linear-gradient( 
+    0deg, 
+    #222831 2%, 
+    #393E46 10%, 
+    #607d8b 35%, 
+    #0092CA 70% 
+    )
+}
+
+.car-id {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
 }
 
 .div-edit-modify {
   display: flex;
-  width: 90%;
+  width: 50%;
   padding: 15px;
   align-items: center;
 }
 .form-edit-modify {
   display: flex;
-  width: 50%;
+  width: 100%;
   height: 100%;
   align-items: baseline;
   flex-direction: column;
   border-radius: 8px;
   line-height: 30px;
+  padding: 20px;
+  box-shadow: 0 0px 20px 4px #5c5e60c8;
+  background: rgb(255, 255, 255, 0.6);
 }
+
 img {
   width: 100%;
   height: min-content;
@@ -78,12 +76,14 @@ main .form-edit-modify label
   font-size: 16px;
   margin-bottom: 5px;
   display: inline-block;
-  color: #607d8b;
+  /* color: #607d8b; */
+  color: #000;
   font-weight: 300;
   letter-spacing: 1px;
 }
 
-main .form-edit-modify .input-box
+main .form-edit-modify .input-box,
+main .form-edit-modify .input-submit
 {
 margin-bottom: 20px;
 }
@@ -91,44 +91,107 @@ margin-bottom: 20px;
 main .form-edit-modify .input-box
 {
   width: 100%;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   outline: none;
   font-weight: 400;
-  border: 1px solid #607d8b;
   font-size: 16px;
   letter-spacing: 1px;
-  color: #607d8b;
+  /* color: #607d8b; */
+  color: #000;
   background: transparent;
-  border-radius: 6px;
 }
 
-main .form-edit-modify .input-box:focus
+main .form-edit-modify .input-submit
 {
-    border-color: #0092CA;
+  width: 100%;
+  /* padding: 10px 20px; */
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+  /* color: #607d8b; */
+  color: #000;
+  background: transparent;
+  text-align: center;
 }
-main .form-edit-modify .input-box input[type="submit"]
+
+main .form-edit-modify .input-box input
 {
-    background: #0092CA;
-    color: #fff;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px 20px;
+  /* border: 1px solid #607d8b; */
+  border: 1px solid #000;
+  border-radius: 4px;
+  outline: none;
+  background: transparent;
+  /* color: #607d8b; */
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.5s all ease;
 }
-main .form-edit-modify .input-box input[type="submit"]:hover
+
+main .form-edit-modify .input-submit input
 {
-    background: #4593ff;
+  width: 100%;
+  padding: 10px 20px;
+  /* border: 1px solid #607d8b; */
+  border: 1px solid #000;
+  border-radius: 4px;
+  outline: none;
+  background: transparent;
+  /* color: #607d8b; */
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 1px;
+  width: 50%;
+}
+
+main .form-edit-modify .input-box input:focus
+{
+  /* border-color: #0092CA; */
+  border-color: transparent;
+  background-color: #f5f1f1
+}
+
+main .form-edit-modify .input-submit input[type="submit"]
+{
+  background: #0092CA;
+  color: #000;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.5s ease;
+}
+
+main .form-edit-modify .input-submit input[type="reset"]
+{
+  background: #0092CA;
+  color: #000;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.5s ease;
+}
+
+main .form-edit-modify .input-submit input:hover
+{
+  background: #357de0; 
+  color: #fff;
 }
 
 .content-box form{
   width: 100%;
 }
 
-.input-box > input{
-  width: 100%;
-}
 
-@media (max-width: 767px){
+
+
+@media (max-width: 768px){
 .edit-modify{
   display: flex;
   flex-direction: column;
@@ -139,6 +202,10 @@ main .form-edit-modify .input-box input[type="submit"]:hover
   width: 100%;
 }
 .textarea{
+  width: 100%;
+}
+
+.edit-modify .div-edit-modify {
   width: 100%;
 }
 

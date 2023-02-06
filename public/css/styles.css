@@ -241,7 +241,7 @@ footer {
 
 .terminos-y-condiciones p {
     margin-bottom: 15px;
-    text-align:justify;
+    text-align: center;
 }
 
 #rights-reserved {
@@ -316,7 +316,7 @@ footer {
     .nav_header ul li a:hover
     {
         padding: 3px 6px;
-        background: rgb(43, 43, 43);
+        background: rgb(0, 0, 0);
         border-radius: 10px;
     }
 }

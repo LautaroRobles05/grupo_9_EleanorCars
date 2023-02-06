@@ -1,18 +1,10 @@
 main {
-  /* border: solid 1px; */
-  /* background-image: radial-gradient(
-    circle at 46.55% 10.61%,
-    #abcdff 0,
-    #666f84 50%,
-    #221e0e 100%
-  ); */
-
-  background-image: linear-gradient(
-    0deg,
-    #222831 2%,
-    #393e46 10%,
-    #607d8b 35%,
-    #0092ca 70%
+  background-image: linear-gradient( 
+    0deg, 
+    #9ca2ac 2%, 
+    #757e8c 10%, 
+    #607d8b 35%, 
+    #0092ca 70% 
   );
 }
 main section img {
@@ -42,9 +34,7 @@ main section {
   padding: 2px;
 }
 
-p {
-  font-size: 20px;
-}
+
 .div-cars-cart-p {
   text-align: center;
   margin-top: 40px;
@@ -61,6 +51,7 @@ p {
 }
 .car-search-error {
   text-align: center;
+  margin-bottom: 40px
 }
 .car-search-button {
   margin-top: 10px;
@@ -70,6 +61,11 @@ p {
   background-color: #0092ca;
   color: white;
   border: solid 2px;
+  transition: 0.5s all ease;
+}
+
+.car-search-button:hover {
+  background-color: #2073e6;
 }
 
 h2 {
@@ -91,9 +87,9 @@ h3,
 .p {
   color: #5c5e60;
 }
-p {
+/* p {
   font-style: italic;
-}
+} */
 .ups-h2 {
   color: white;
 }
