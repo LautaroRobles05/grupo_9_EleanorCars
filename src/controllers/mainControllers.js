@@ -11,7 +11,7 @@ let mainController = {
     res.render("products/productEdit");
   },
   productCart: (req, res) => {
-    res.render("user/productCart");
+    res.render("products/productCart");
   },
   register: (req, res) => {
     res.render("register");
