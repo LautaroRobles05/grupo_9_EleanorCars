@@ -1,0 +1,19 @@
+.mati-boton
+{
+    width: 20vw;
+    transition: 0.5s all ease;
+    min-width: 150px;
+    animation: matias 1.5s infinite;
+}
+
+@keyframes matias 
+{
+    0% { rotate: -360deg};
+    25% {transform: translateY(-200px); opacity: 100%; };
+    /* 100% {opacity: 0%;} */
+}
+
+.mati-boton:hover
+{
+    width: 25vw;
+}

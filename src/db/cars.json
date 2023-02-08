@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "maker": "GMC",
+    "model": "Rally Wagon 1500",
+    "year": 1993,
+    "img": "/images/mustang2.png",
+    "price": 20539773,
+    "doors": 5,
+    "trunk": 197,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "Gasolina",
+      "rpm": 6053,
+      "asceleration": 11,
+      "displacement": 2.8
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "tube",
+      "width": 205,
+      "side": 20,
+      "diameter": 21,
+      "load_index": 95,
+      "vel_index": "Y",
+      "m_s": true
+    },
+    "window": {
+      "type": "drop",
+      "characteristics": "Antirreflejo",
+      "sunroof": false
+    }
+  },
+  {
+    "id": 2,
+    "maker": "Nissan",
+    "model": "Pathfinder",
+    "year": 2012,
+    "img": "/images/mustang2.png",
+    "price": 4878052,
+    "doors": 5,
+    "trunk": 113,
+    "trunk_windshield": true,
+    "engine": {
+      "gas_type": "Gasolina",
+      "rpm": 5622,
+      "asceleration": 8,
+      "displacement": 2.9
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "tubless",
+      "width": 145,
+      "side": 50,
+      "diameter": 16,
+      "load_index": 109,
+      "vel_index": "F",
+      "m_s": false
+    },
+    "window": {
+      "type": "center",
+      "characteristics": "Termico",
+      "sunroof": true
+    }
+  },
+  {
+    "id": 3,
+    "maker": "Volvo",
+    "model": "XC70",
+    "year": 2011,
+    "img": "/images/mustang2.png",
+    "price": 20106178,
+    "doors": 5,
+    "trunk": 257,
+    "trunk_windshield": true,
+    "engine": {
+      "gas_type": "Electrico",
+      "rpm": 6016,
+      "asceleration": 10,
+      "displacement": 4.1
+    },
+    "wheel": {
+      "maker": "Pirelli",
+      "type": "center",
+      "width": 285,
+      "side": 35,
+      "diameter": 18,
+      "load_index": 95,
+      "vel_index": "C",
+      "m_s": false
+    },
+    "window": { "type": "tubless", "characteristics": "AI", "sunroof": false }
+  },
+  {
+    "id": 4,
+    "maker": "Infiniti",
+    "model": "FX",
+    "year": 2003,
+    "img": "/images/mustang2.png",
+    "price": 4891353,
+    "doors": 6,
+    "trunk": 198,
+    "trunk_windshield": true,
+    "engine": {
+      "gas_type": "Disel",
+      "rpm": 5991,
+      "asceleration": 10,
+      "displacement": 3.9
+    },
+    "wheel": {
+      "maker": "Pirelli",
+      "type": "type",
+      "width": 285,
+      "side": 55,
+      "diameter": 16,
+      "load_index": 62,
+      "vel_index": "N",
+      "m_s": true
+    },
+    "window": {
+      "type": "center",
+      "characteristics": "Hidrofobo",
+      "sunroof": false
+    }
+  },
+  {
+    "id": 5,
+    "maker": "Buick",
+    "model": "Skylark",
+    "year": 1991,
+    "img": "/images/mustang2.png",
+    "price": 5973738,
+    "doors": 5,
+    "trunk": 281,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "Electrico",
+      "rpm": 6133,
+      "asceleration": 5,
+      "displacement": 5.0
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "drop",
+      "width": 335,
+      "side": 55,
+      "diameter": 11,
+      "load_index": 101,
+      "vel_index": "O",
+      "m_s": false
+    },
+    "window": { "type": "tubless", "characteristics": "AI", "sunroof": true }
+  },
+  {
+    "id": 6,
+    "maker": "Mercury",
+    "model": "Villager",
+    "year": 1993,
+    "img": "/images/mustang2.png",
+    "price": 4099781,
+    "doors": 5,
+    "trunk": 263,
+    "trunk_windshield": true,
+    "engine": {
+      "gas_type": "Electrico",
+      "rpm": 5518,
+      "asceleration": 4,
+      "displacement": 3.2
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "tube",
+      "width": 315,
+      "side": 40,
+      "diameter": 20,
+      "load_index": 68,
+      "vel_index": "F",
+      "m_s": true
+    },
+    "window": { "type": "type", "characteristics": "Termico", "sunroof": false }
+  },
+  {
+    "id": 7,
+    "maker": "Infiniti",
+    "model": "J",
+    "year": 1994,
+    "img": "/images/mustang2.png",
+    "price": 18696698,
+    "doors": 7,
+    "trunk": 54,
+    "trunk_windshield": true,
+    "engine": {
+      "gas_type": "GNC",
+      "rpm": 6041,
+      "asceleration": 6,
+      "displacement": 4.2
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "tubless",
+      "width": 325,
+      "side": 55,
+      "diameter": 19,
+      "load_index": 120,
+      "vel_index": "P",
+      "m_s": false
+    },
+    "window": { "type": "tube", "characteristics": "Ninguno", "sunroof": false }
+  },
+  {
+    "id": 8,
+    "maker": "Scion",
+    "model": "xD",
+    "year": 2011,
+    "img": "/images/mustang2.png",
+    "price": 10883163,
+    "doors": 6,
+    "trunk": 126,
+    "trunk_windshield": true,
+    "engine": {
+      "gas_type": "GNC",
+      "rpm": 5658,
+      "asceleration": 7,
+      "displacement": 3.7
+    },
+    "wheel": {
+      "maker": "Pirelli",
+      "type": "type",
+      "width": 145,
+      "side": 20,
+      "diameter": 16,
+      "load_index": 90,
+      "vel_index": "Y",
+      "m_s": false
+    },
+    "window": { "type": "drop", "characteristics": "Ninguno", "sunroof": false }
+  },
+  {
+    "id": 9,
+    "maker": "Mercedes-Benz",
+    "model": "CLK-Class",
+    "year": 1998,
+    "img": "/images/mustang2.png",
+    "price": 11952707,
+    "doors": 5,
+    "trunk": 150,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "GNC",
+      "rpm": 6075,
+      "asceleration": 8,
+      "displacement": 2.4
+    },
+    "wheel": {
+      "maker": "Pirelli",
+      "type": "tube",
+      "width": 305,
+      "side": 65,
+      "diameter": 20,
+      "load_index": 86,
+      "vel_index": "V",
+      "m_s": false
+    },
+    "window": {
+      "type": "tubless",
+      "characteristics": "Hidrofobo",
+      "sunroof": true
+    }
+  },
+  {
+    "id": 10,
+    "maker": "Chevrolet",
+    "model": "Corvette",
+    "year": 1989,
+    "img": "/images/mustang2.png",
+    "price": 22922770,
+    "doors": 6,
+    "trunk": 298,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "Gasolina",
+      "rpm": 5587,
+      "asceleration": 12,
+      "displacement": 1.6
+    },
+    "wheel": {
+      "maker": "Pirelli",
+      "type": "center",
+      "width": 325,
+      "side": 80,
+      "diameter": 19,
+      "load_index": 63,
+      "vel_index": "X",
+      "m_s": false
+    },
+    "window": { "type": "tube", "characteristics": "Termico", "sunroof": false }
+  },
+  {
+    "id": 11,
+    "maker": "Volkswagen",
+    "model": "Golf",
+    "year": 1994,
+    "img": "/images/mustang2.png",
+    "price": 3487040,
+    "doors": 7,
+    "trunk": 300,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "Electrico",
+      "rpm": 6033,
+      "asceleration": 11,
+      "displacement": 2.9
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "type",
+      "width": 285,
+      "side": 55,
+      "diameter": 16,
+      "load_index": 63,
+      "vel_index": "M",
+      "m_s": false
+    },
+    "window": { "type": "type", "characteristics": "HUD", "sunroof": true }
+  },
+  {
+    "id": 12,
+    "maker": "Mercedes-Benz",
+    "model": "G-Class",
+    "year": 2004,
+    "img": "/images/mustang2.png",
+    "price": 23344489,
+    "doors": 4,
+    "trunk": 216,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "Disel",
+      "rpm": 5694,
+      "asceleration": 9,
+      "displacement": 3.2
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "tube",
+      "width": 215,
+      "side": 45,
+      "diameter": 15,
+      "load_index": 65,
+      "vel_index": "Q",
+      "m_s": true
+    },
+    "window": { "type": "drop", "characteristics": "HUD", "sunroof": true }
+  },
+  {
+    "id": 13,
+    "maker": "Subaru",
+    "model": "Impreza",
+    "year": 2007,
+    "img": "/images/mustang2.png",
+    "price": 8117911,
+    "doors": 4,
+    "trunk": 184,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "Electrico",
+      "rpm": 5978,
+      "asceleration": 4,
+      "displacement": 3.3
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "drop",
+      "width": 285,
+      "side": 55,
+      "diameter": 10,
+      "load_index": 83,
+      "vel_index": "F",
+      "m_s": false
+    },
+    "window": { "type": "tubless", "characteristics": "AI", "sunroof": false }
+  },
+  {
+    "id": 14,
+    "maker": "Toyota",
+    "model": "Camry",
+    "year": 2008,
+    "img": "/images/mustang2.png",
+    "price": 4189495,
+    "doors": 6,
+    "trunk": 136,
+    "trunk_windshield": false,
+    "engine": {
+      "gas_type": "Disel",
+      "rpm": 5606,
+      "asceleration": 10,
+      "displacement": 3.3
+    },
+    "wheel": {
+      "maker": "Goodyear",
+      "type": "drop",
+      "width": 195,
+      "side": 50,
+      "diameter": 10,
+      "load_index": 66,
+      "vel_index": "W",
+      "m_s": true
+    },
+    "window": { "type": "tube", "characteristics": "AI", "sunroof": false }
+  },
+  {
+    "id": 15,
+    "maker": "Chevrolet",
+    "model": "Malibu",
+    "year": 2001,
+    "img": "/images/mustang2.png",
+    "price": 4083318,
+    "doors": 4,
+    "trunk": 199,
+    "trunk_windshield": true,
+    "engine": {
+      "gas_type": "Electrico",
+      "rpm": 5772,
+      "asceleration": 13,
+      "displacement": 2.2
+    },
+    "wheel": {
+      "maker": "Pirelli",
+      "type": "type",
+      "width": 175,
+      "side": 35,
+      "diameter": 17,
+      "load_index": 81,
+      "vel_index": "F",
+      "m_s": true
+    },
+    "window": {
+      "type": "center",
+      "characteristics": "Tintado",
+      "sunroof": true
+    }
+  }
+]

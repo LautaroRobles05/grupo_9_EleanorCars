@@ -1,0 +1,37 @@
+main 
+{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+    background-image: linear-gradient(
+        0deg,
+        #222831 2%,
+        #393E46 10%,
+        #607d8b 35%,
+        #0092CA 70%
+    );
+}
+
+main .cart-list-item
+{
+    padding: 15px;
+    margin: 20px;
+    max-width: 260px;
+    width: 80vw;
+    background-color: #e3e4e5;
+    border-radius: 6px;
+    box-shadow: 0px 0px 18px 4px #0000007a;
+}
+
+main .cart-list-item .car-img
+{
+    width: -webkit-fill-available;
+}
+
+@media (min-width: 1024px){
+    main .cart-list-item
+    {
+        max-width: 350px;
+    }
+}
