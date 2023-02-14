@@ -27,12 +27,12 @@
             
 
             <div class="product_modify_delete">
-              <a href="/products/edit/<%= auto.id %>"><i class="fa-regular fa-pen-to-square"></i></a>
+              <form action="/products/edit/<%= auto.id %>">
+                <button type="submit" style="all: unset;"><i class="fa-regular fa-pen-to-square"></i></button>
+              </form>
 
              <form action="/products/<%= auto.id %>?_method=DELETE" method="post">
-                <!-- <input type="submit" value="borrar" style="background-color: brown;"> -->
-                <button type="submit" value="borrar" style="all: unset;"><i class="fa-solid fa-trash"></i></button>
-                
+                <button type="submit" style="all: unset;"><i class="fa-solid fa-trash"></i></button>
               </form>
             </div>
           </div>

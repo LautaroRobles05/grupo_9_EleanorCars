@@ -29,6 +29,14 @@
     margin: 0px;
 }
 
+.product_modify_delete{
+    display: flex;
+}
+
+.product_modify_delete form{
+    margin: 4px;
+}
+
 .product_modify_delete i:hover{
     padding: 5px;
     background-color: #222831;

@@ -24,6 +24,10 @@ app.use(express.static("./public"));
 app.use('/', mainRoutes);
 app.use('/products', productRoutes)
 
+app.use((req,res,next) => {
+  res.status(404).render('notFound')
+})
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto http://localhost:${PORT}`);
 });
