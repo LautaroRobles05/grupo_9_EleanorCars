@@ -1,80 +1,64 @@
-const fs = require('fs');
-const path = require('path');
-const autosPath = path.join(__dirname, '../db/cars.json');
+const fs = require("fs");
+const path = require("path");
+const autosPath = path.join(__dirname, "../db/cars.json");
+const products = JSON.parse(fs.readFileSync(autosPath, "utf-8"));
 
 let productControllers = {
-
-  getCars: () => {
-    return JSON.parse(fs.readFileSync(autosPath, 'utf-8'));
-  },
-
+  
   list: (req, res) => {
-    res.render('products/list', {
-      title: 'Listado de productos',
-      carsList: productControllers.getCars()
-    });
+    res.render("products/list", {carsList: products,});
   },
 
   productEdit: (req, res) => {
     let autoId = req.params.id;
-        let auto = productControllers.getCars().find(auto => auto.id == autoId);
-        
-        res.render('products/edit', {
-            title: 'Mi auto',
-            car: auto
-        });
+    let auto = products.find(auto => auto.id == autoId);
+
+    res.render("products/edit", {car: auto});
   },
   productUpdate: (req, res) => {
     let autoId = req.params.id;
-    let cars = productControllers.getCars();
-
-    cars.forEach((auto, index) => {
-        if (auto.id == autoId) {        
-        
-            auto.price = Number(req.body.price);
- 
-            cars[index] = auto;
-        }
-    });
-    console.log(req.body);
-    fs.writeFileSync(autosPath, JSON.stringify(cars, null, ' '));
+    let auto = products.find(auto => auto.id == autoId);
+    let image = req.file ? req.file.filename : auto.image;
     
-    res.redirect('/products');
-},
 
+    auto.maker = req.body.maker || auto.maker;
+		auto.price = Number(req.body.price)|| auto.price;
+		auto.model = req.body.model|| auto.model;
+		auto.year = req.body.year|| auto.year;
+		auto.doors = req.body.doors|| auto.doors;
+		auto.image = image
+
+    fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
+
+    res.redirect("/products");
+  },
 
   productDetail: (req, res) => {
     let autoId = req.params.id;
-    let auto = productControllers.getCars().find(auto => auto.id == autoId);
-   
-    res.render("products/detail",{auto});
+    let auto = products.find((auto) => auto.id == autoId);
+
+    res.render("products/detail", { auto });
   },
 
   productCart: (req, res) => {
     res.render("products/cart");
   },
 
- 
-  create:(req, res) => {
+  create: (req, res) => {
     res.render("products/create");
   },
-  upload:(req, res) => {
+  upload: (req, res) => {
     let newAuto = req.body;
-    let listaAutos = productControllers.getCars();
-
     let images = [];
-        
-    if (req.files) {
-        req.files.forEach(file => {
-            images.push(
-                file.filename
-            );
-        });
-    } else {
-      console.log('alo else')
-        images=("mustang2.png");
-    }
 
+    if (req.files) {
+      req.files.forEach((file) => {
+        images.push(file.filename);
+      });
+    } else {
+      console.log("alo else");
+      images = "mustang2.png";
+    }
 
     let auto = {
       id: Date.now(),
@@ -83,23 +67,23 @@ let productControllers = {
       img: images,
       year: newAuto.year,
       color: newAuto.color,
-      price: Number(newAuto.price)
-    }
-    
-    listaAutos.push(auto);
-    
-    fs.writeFileSync(autosPath, JSON.stringify(listaAutos, null, ' '));
+      price: Number(newAuto.price),
+    };
+
+    products.push(auto);
+
+    fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
 
     res.redirect("/products");
   },
 
-  delete:(req, res) => {
+  delete: (req, res) => {
     let autoId = req.params.id;
-    let auto = productControllers.getCars().filter(auto => auto.id != autoId);
+    let auto = products.filter((auto) => auto.id != autoId);
 
-    fs.writeFileSync(autosPath, JSON.stringify(auto, null, ' '));
+    fs.writeFileSync(autosPath, JSON.stringify(auto, null, " "));
     res.redirect("/products");
-  }
-}
+  },
+};
 
 module.exports = productControllers;
