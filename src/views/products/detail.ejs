@@ -23,11 +23,17 @@
       <section class="product_detail">
         <div class="descripcion">
           <div class="title_product">
-            <h2>Nombre producto</h2>
+            <h2><%= auto.model %> <%= auto.maker %> <%= auto.year %></h2>
+            
 
             <div class="product_modify_delete">
-              <a href="/productEdit"><i class="fa-regular fa-pen-to-square"></i></a>
-              <a href="/productEdit"><i class="fa-solid fa-trash"></i></a>
+              <a href="/products/edit/<%= auto.id %>"><i class="fa-regular fa-pen-to-square"></i></a>
+
+             <form action="/products/<%= auto.id %>?_method=DELETE" method="post">
+                <!-- <input type="submit" value="borrar" style="background-color: brown;"> -->
+                <button type="submit" value="borrar" style="all: unset;"><i class="fa-solid fa-trash"></i></button>
+                
+              </form>
             </div>
           </div>
           <p>
@@ -41,11 +47,12 @@
         <div class="images_detail" id="carrucel_detail">
     
           <div class="item_carrucel_detail" id="product_detail_1">
-
+<!-- 
             <div class="card_carrucel_detail">
-              IMAGEN A
-            </div>
-
+            
+              
+            </div> -->
+            <img class="card_carrucel_detail" src="/images/products/<%= auto.img %>" alt="">
             <div class="carrucel_navegation">
               <a href="#product_detail_3">
                 <i class="fa-solid fa-caret-left"></i>
@@ -54,7 +61,7 @@
                 <img class="preview" src="" alt="">
               </a>
               <a href="#product_detail_2">
-                <img class="preview" src="" alt="">
+                <img class="preview" src="/images/matiboton.png" alt="">
               </a>
               <a href="#product_detail_3">
                 <img class="preview" src="" alt="">
@@ -67,10 +74,10 @@
           
           <div class="item_carrucel_detail" id="product_detail_2">
   
-            <div class="card_carrucel_detail">
+            <!-- <div class="card_carrucel_detail">
               IMAGEN B
-            </div>
-  
+            </div> -->
+            <img class="card_carrucel_detail" src="/images/matiboton.png" alt="">
             <div class="carrucel_navegation">
               <a href="#product_detail_1">
                 <i class="fa-solid fa-caret-left"></i>
@@ -117,7 +124,7 @@
         </div>
         
         <div class="products_tags">
-          <div class="price">$5.000.000</div>
+          <div class="price">$<%= auto.price %></div>
           <button class="reserve">Realizar reserva</button>
         </div>
         
