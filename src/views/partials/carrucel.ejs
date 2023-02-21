@@ -1,63 +1,28 @@
   <div id="carrucel_recomendations">
   
-    <div id="item_carrucel_1" class="item_carrucel">
+    <% for(let i = 0; i < recomendedCars.length ; i++){ %>
+
+    <div id="item_carrucel_<%= i %>" class="item_carrucel">
       <div class="tarjeta_carrucel">
-        <div class="container_img"></div>
-        <h4>Modelo A</h4>
+        <img class="container_img" src="/images/products/<%=recomendedCars[i].img %>" alt="imagen-<%= recomendedCars[i].maker %>-<%= recomendedCars[i].model %>-<%= recomendedCars[i].year %>">
+        <!-- <div class="container_img"></div> -->
+        <h4><%= recomendedCars[i].maker %> <%= recomendedCars[i].model %> <%= recomendedCars[i].year %></h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem ad ducimus consequatur consectetur expedita odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore repellat saepe repellendus neque exercitationem quasi laudantium error! Fugiat corporis excepturi aliquid! Saepe totam officia, excepturi dignissimos distinctio delectus illo magni.
         </p>
       </div>
 
       <div class="container_nav_carrucel">
-        <a href="#item_carrucel_3">
+        <a href="#item_carrucel_<%= i == 0 ? (recomendedCars.length - 1) : (i - 1) %>">
           <i class="fa-solid fa-caret-left"></i>
         </a>
-        <a class="link_tarjeta" href="/products/detail"></a>
-        <a href="#item_carrucel_2">
+        <a class="link_tarjeta" href="/products/detail/<%= recomendedCars[i].id %>"></a>
+        <a href="#item_carrucel_<%= (i + 1) == recomendedCars.length ? 0 : (i + 1)%>">
           <i class="fa-solid fa-caret-right"></i>
         </a>
       </div>
     </div>
+
+    <% } %>
   
-    <div id="item_carrucel_2" class="item_carrucel">
-      <div class="tarjeta_carrucel">
-        <div class="container_img"></div>
-        <h4>Modelo B</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem ad ducimus consequatur consectetur expedita odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore repellat saepe repellendus neque exercitationem quasi laudantium error! Fugiat corporis excepturi aliquid! Saepe totam officia, excepturi dignissimos distinctio delectus illo magni.
-        </p>
-      </div>
-
-      <div class="container_nav_carrucel">
-        <a href="#item_carrucel_1">
-          <i class="fa-solid fa-caret-left"></i>
-        </a>
-        <a class="link_tarjeta" href="/productDetail"></a>
-        <a href="#item_carrucel_3">
-          <i class="fa-solid fa-caret-right"></i>
-        </a>
-      </div>
-    </div>
-  
-    <div id="item_carrucel_3" class="item_carrucel">
-      <div class="tarjeta_carrucel">
-        <div class="container_img"></div>
-        <h4>Modelo C</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem ad ducimus consequatur consectetur expedita odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore repellat saepe repellendus neque exercitationem quasi laudantium error! Fugiat corporis excepturi aliquid! Saepe totam officia, excepturi dignissimos distinctio delectus illo magni.
-        </p>
-      </div>
-
-      <div class="container_nav_carrucel">
-        <a href="#item_carrucel_2">
-          <i class="fa-solid fa-caret-left"></i>
-        </a>
-        <a class="link_tarjeta" href="/productDetail"></a>
-        <a href="#item_carrucel_1">
-          <i class="fa-solid fa-caret-right"></i>
-        </a>
-      </div>
-    </div>
-
   </div>

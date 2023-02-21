@@ -1,21 +1,28 @@
 const fs = require("fs");
 const path = require("path");
 const autosPath = path.join(__dirname, "../db/cars.json");
-const products = JSON.parse(fs.readFileSync(autosPath, "utf-8"));
 
 let productControllers = {
-  
+  getProducts: () => {
+    let products = JSON.parse(fs.readFileSync(autosPath, "utf-8"));
+    return products;
+  },
+
   list: (req, res) => {
-    res.render("products/list", {carsList: products,});
+    let products = productControllers.getProducts();
+    res.render("products/list", {carsList: products});
   },
 
   productEdit: (req, res) => {
+    let products = productControllers.getProducts();
     let autoId = req.params.id;
     let auto = products.find(auto => auto.id == autoId);
 
     res.render("products/edit", {car: auto});
   },
+
   productUpdate: (req, res) => {
+    let products = productControllers.getProducts();
     let autoId = req.params.id;
     let auto = products.find(auto => auto.id == autoId);
     let image = req.file ? req.file.filename : auto.image;
@@ -34,10 +41,17 @@ let productControllers = {
   },
 
   productDetail: (req, res) => {
+    let products = productControllers.getProducts();
     let autoId = req.params.id;
     let auto = products.find((auto) => auto.id == autoId);
 
-    res.render("products/detail", { auto });
+    let recomendedCars = []
+
+    for(let i = 0; i < 3; i++){
+      recomendedCars.push(products[Math.floor(Math.random() * products.length)])
+    }
+
+    res.render("products/detail", { auto, recomendedCars });
   },
 
   productCart: (req, res) => {
@@ -47,6 +61,7 @@ let productControllers = {
   create: (req, res) => {
     res.render("products/create");
   },
+
   upload: (req, res) => {
     let newAuto = req.body;
     let images = [];

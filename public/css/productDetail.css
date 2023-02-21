@@ -69,6 +69,7 @@
 }
 
 .item_carrucel_detail{
+    height: 100%;
     display: flex;
     flex-direction:column;
 }
@@ -78,13 +79,13 @@
 }
 
 .card_carrucel_detail{
-    height: 240px;
+    max-height: 240px;
+    width: 100%;
+    max-width: fit-content;
     background-color: black;
     margin-bottom: 10px;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    align-self: center;
 }
 
 .carrucel_navegation{
