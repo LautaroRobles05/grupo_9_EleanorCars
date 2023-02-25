@@ -14,10 +14,10 @@ router.get("/detail/:id",productControllers.productDetail);
 
 router.get("/cart",productControllers.productCart);
 
- router.get("/edit/:id",productControllers.productEdit);
- router.put("/edit/:id",productControllers.productUpdate);
+router.get("/edit/:id",productControllers.productEdit);
+router.put("/edit/:id",productControllers.productUpdate);
 
- router.delete("/:id",productControllers.delete)
+router.delete("/:id",productControllers.delete)
 
 
 module.exports = router;

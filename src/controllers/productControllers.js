@@ -37,7 +37,7 @@ let productControllers = {
 
     fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
 
-    res.redirect("/products");
+    res.redirect("/products/detail/" + autoId);
   },
 
   productDetail: (req, res) => {
@@ -63,6 +63,7 @@ let productControllers = {
   },
 
   upload: (req, res) => {
+    let products = productControllers.getProducts();
     let newAuto = req.body;
     let images = [];
 
@@ -71,7 +72,6 @@ let productControllers = {
         images.push(file.filename);
       });
     } else {
-      console.log("alo else");
       images = "mustang2.png";
     }
 
@@ -94,6 +94,7 @@ let productControllers = {
 
   delete: (req, res) => {
     let autoId = req.params.id;
+    let products = productControllers.getProducts();
     let auto = products.filter((auto) => auto.id != autoId);
 
     fs.writeFileSync(autosPath, JSON.stringify(auto, null, " "));
