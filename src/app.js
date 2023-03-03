@@ -12,6 +12,7 @@ app.use(methodOverride('_method'));
 
 const mainRoutes = require('./routes/mainRoutes')
 const productRoutes = require('./routes/productRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 const PORT = 3009;
 
@@ -21,8 +22,10 @@ app.set('views', './src/views');
 
 app.use(express.static("./public")); 
 
+
+app.use('/products', productRoutes);
+app.use('/user', userRoutes);
 app.use('/', mainRoutes);
-app.use('/products', productRoutes)
 
 app.use((req,res,next) => {
   res.status(404).render('notFound')

@@ -24,26 +24,62 @@
         <div class="content-box">
             <div class="form">
                 <h2>CREA TU CUENTA</h2>
-                <form action="">
+                <form method="post" action="/user/register">
+
+                  
                     <div class="input-box">
                         <span>Nombre</span>
-                        <input type="text" name="">
+                        <input type="text" name="firstName" value="<%= locals.oldBody ? oldBody.firstName : null %>">
+                        <% if (locals.errors && errors.firstName) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.firstName.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="input-box">
                         <span>Apellido</span>
-                        <input type="text" name="">
+                        <input type="text" name="lastName" value="<%= locals.oldBody ? oldBody.lastName : null %>">
+                        <% if (locals.errors && errors.lastName) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.lastName.msg %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="input-box">
+                        <span>Email</span>
+                        <input type="email" name="email" value="<%= locals.oldBody ? oldBody.email : null %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.email.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="input-box">
                         <span>Nombre de usuario</span>
-                        <input type="text" name="">
+                        <input type="text" name="userName" value="<%= locals.oldBody ? oldBody.userName : null %>">
+                        <% if (locals.errors && errors.userName) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.userName.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="input-box">
                         <span>Contraseña</span>
-                        <input type="password" name="">
+                        <input type="password" name="password">
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.password.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="input-box">
                         <span>Confirmar Contraseña</span>
-                        <input type="password" name="">
+                        <input type="password" name="confirmPassword">
+                        <% if (locals.errors && errors.confirmPassword) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.confirmPassword.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="remember">
                         <label for=""><input type="checkbox" name=""> Recordarme</label>
