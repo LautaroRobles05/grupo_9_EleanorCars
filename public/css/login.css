@@ -227,8 +227,22 @@ section .content-box .form .input-box .back-home
         font-weight: 500;
     }
 }
+@media (min-width: 844px){
+    section {
+        position: relative;
+        width: 100%;
+        height: 180vh;
+        display: flex;
+    }
+}
 @media (min-width: 1439px)
 {
+    section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+    }
     section .content-box .form
     {
         width: 50%;
