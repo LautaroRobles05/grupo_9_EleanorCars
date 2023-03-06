@@ -3,12 +3,19 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const methodOverride = require('method-override');
+const session = require('express-session')
 
 
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({
+  secret: "Es re secreto!",
+  resave: false,
+  saveUninitialized: true
+}));
+
 
 const mainRoutes = require('./routes/mainRoutes')
 const productRoutes = require('./routes/productRoutes')

@@ -11,6 +11,15 @@ router.post("/register",rules,userControllers.processRegister);
 router.get("/login",userControllers.login);
 router.post("/login",rules,userControllers.loginProcess);
 
+router.get("/profile",userControllers.profile);
+
+router.get("/profile/edit",userControllers.editProfile);
+// router.post("/profile/edit",userControllers.editProcess);
+
+
+
+
+
 module.exports = router;
 
 

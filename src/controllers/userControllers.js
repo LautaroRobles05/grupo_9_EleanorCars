@@ -22,6 +22,7 @@ let userController = {
     if(!resultValidation.isEmpty()){
         return res.render("register", {errors: resultValidation.mapped(), oldBody: req.body})
     }
+
     let users = userController.getUsers();
     let newUser = {  
         "id": Date.now(),
@@ -45,15 +46,34 @@ let userController = {
   login: (req, res) => {
     res.render("login");
   },
-  loginProcess:(req, res) => {
-    res.JSON({
-      msg: "Estas logeado",
-      data: req.body
-  });
-    
 
-    // res.send("Enviaste solcitud de logeo,");
+  loginProcess:(req, res) => {
+    let users = userController.getUsers();
+    let user = users.find(user => user.email == req.body.email);
+    
+    if(user){
+      let check = bcrypt.compareSync(req.body.password, user.password);
+      
+      if(check){
+        
+        delete user.password;
+        req.session.userLogged = user;
+        return res.redirect('/user/profile');
+        
+      }
+    }
+    
+    return res.render("login", {errors: {msg:"Email o contraseña incorrectos."} });
+      
   },
+
+  profile: (req, res) => {
+    return res.render('userProfile', {user : req.session.userLogged})
+  },
+  editProfile:(req, res) => {
+    res.render('editProfile', {user : req.session.userLogged})
+  },
+  
 
 };
 

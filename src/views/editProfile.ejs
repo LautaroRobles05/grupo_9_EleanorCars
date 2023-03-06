@@ -27,39 +27,62 @@
                 <form action="">
                     <div class="input-box">
                         <span>Nombre</span>
-                        <input type="text" name="firstName" value="<%= user.first_name %>" disabled>
+                        <input type="text" name="firstName" value="<%= user.first_name %>" >
                     </div>
                     <div class="input-box">
                         <span>Apellido</span>
-                        <input type="text" name="lastName" value="<%= user.last_name %>" disabled>
+                        <input type="text" name="lastName" value="<%= user.last_name %>" >
                     </div>
                     <div class="input-box">
                         <span>E-mail</span>
-                        <input type="text" name="email" value="<%= user.email %>" disabled>
+                        <input type="text" name="email" value="<%= user.email %>" >
                     </div>
+                    <!-- <div class="input-box">
+                        <span>Imagen de perfil</span>
+                        <input type="file" name="userImage">
+                    </div> -->
                     <div class="input-box">
                         <span>DNI</span>
-                        <input type="text" name="dni" value="<%= user.dni %>" disabled>
+                        <input type="text" name="dni" value="<%= user.dni %>" >
                     </div>
                     <div class="input-box">
                         <span>Género</span>
-                        <input type="text" name="gender" value="<%= user.gender %>" disabled>
+                        <br>
+                        <!-- <input type="text" name="userGender"> -->
+                        <select name="gender" id="" >
+                            <% 
+                            let generos = ['Masculino','Femenino','Otro'];
+                            %>
+
+                            <% for(let genero in generos ) { %>
+                                <% if (generos[genero] == user.gender) { %>
+                                    <option value="<%= generos[genero] %>" selected> <%= generos[genero] %> </option>
+                                
+                                <% } else {%>    
+                                    <option value="<%= generos[genero] %>"> <%= generos[genero] %> </option>
+
+                                <% } %>
+                            <% } %>
                         </select>
                     </div>
+
                     <div class="input-box">
                         <span>Fecha de nacimiento</span>
-                        <input type="text" name="bornDate" value="<%= user.bornDate %>" disabled>
+                        <input type="date" name="bornDate" value="<%= user.bornDate %>">
                     </div>
+
+                    <!-- <div class="input-box">
+                        <span>Fecha de nacimiento</span>
+                        <input type="text" name="bornDate"  value="<%= user.bornDate %>">
+                    </div> -->
+
                     <div class="input-box">
                         <span>Teléfono personal</span>
-                        <input type="number" name="phone" value="<%= user.phone %>" disabled>
+                        <input type="number" name="phone"  value="<%= user.phone %>">
                     </div>
                     
-                    
                     <div class="input-box">
-                        <a href="/user/profile/edit">
-                            <input type="button" value="Editar">
-                        </a>
+                        <input type="submit" value="Guardar" name="">
                     </div>
                    
                 </form>
