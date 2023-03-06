@@ -10,6 +10,8 @@ router.post("/register",rules,userControllers.processRegister);
 
 router.get("/login",userControllers.login);
 //router.post("/login",rules,userControllers.login);
+router.get("/profile",userControllers.profile);
+
 
 module.exports = router;
 

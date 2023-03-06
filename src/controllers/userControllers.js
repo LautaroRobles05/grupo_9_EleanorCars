@@ -43,6 +43,9 @@ let userController = {
   login: (req, res) => {
     res.render("login");
   },
+  profile: (req, res) => {
+    res.render('userProfile');
+  }
 
 };
 

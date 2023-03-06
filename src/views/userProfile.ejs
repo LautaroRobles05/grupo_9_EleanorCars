@@ -4,13 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/userProfile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/58f19d8ff4.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
 </head>
 
 <body>
     <%- include('./partials/header') %>
 <main>
-<img src="/images/user/<%= newUser.imagen %>" alt="">
+    <section>
+        <div class="img-container">
+            <img src="/images/user/profile-icon-png-898.png" alt="">
+        </div>
+        <div class="content-box">
+            <div class="form">
+                <h2>PERFIL USUARIO</h2>
+                <form action="">
+                    <div class="input-box">
+                        <span>Nombre</span>
+                        <input type="text" name="firstName">
+                    </div>
+                    <div class="input-box">
+                        <span>Apellido</span>
+                        <input type="text" name="lastName">
+                    </div>
+                    <div class="input-box">
+                        <span>E-mail</span>
+                        <input type="text" name="email">
+                    </div>
+                    <div class="input-box">
+                        <span>Imagen de perfil</span>
+                        <input type="file" name="userImage">
+                    </div>
+                    <div class="input-box">
+                        <span>DNI</span>
+                        <input type="text" name="userDni">
+                    </div>
+                    <div class="input-box">
+                        <span>Género</span>
+                        <input type="text" name="userGender">
+                    </div>
+                    <div class="input-box">
+                        <span>Fecha de nacimiento</span>
+                        <input type="text" name="bornData">
+                    </div>
+                    <div class="input-box">
+                        <span>Teléfono personal</span>
+                        <input type="number" name="userPhone">
+                    </div>
+                    
+                    <div class="input-box">
+                        <input type="submit" value="Editar" name="">
+                    </div>
+                   
+                </form>
+
+    </section>
+
+
 
 
 

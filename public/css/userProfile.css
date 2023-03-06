@@ -1,0 +1,245 @@
+
+
+section
+{
+    position: relative;
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    background-image: linear-gradient(
+        0deg,
+        #222831 2%,
+        #393E46 10%,
+        #607d8b 35%,
+        #0092CA 70%
+      );
+}
+section .img-container {
+    display: none;
+}
+/* section .img-container
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+section .img-container:before
+{
+   content: ''; 
+   position: absolute; 
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(225deg, #0d0d0de7, #464747);
+   z-index: 1;
+   mix-blend-mode: screen;
+}
+section .img-container img
+{
+   position: absolute;
+   top: 0;
+   left: 0; 
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+} */
+section .content-box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(179deg, #222831, transparent); */
+    /* background: linear-gradient(179deg, #2d597ee0, transparent); */
+}
+section .content-box .form
+{
+    width: 100%;
+    padding: 20px;
+    background: rgb(255 255 255 / 0.9);
+    margin: 0px 34px;
+    border-radius: 6px;
+    box-shadow: 0 0px 20px 4px #5c5e60c8
+}
+section .content-box .form h2
+{
+    color: #607d8b;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #0092CA;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+section .content-box .form .input-box
+{
+    margin-bottom: 20px;
+}
+section .content-box .form .input-box span
+{
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #607d8b;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+section .content-box .form .input-box input
+{
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #607d8b;
+    background: transparent;
+    border-radius: 6px;
+}
+section .content-box .form .input-box input:focus
+{
+    border-color: #0092CA;
+}
+section .content-box .form .input-box input[type="submit"]
+{
+    background: #0092CA;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+section .content-box .form .input-box input[type="submit"]:hover
+{
+    background: #4593ff;
+}
+section .content-box .form .remember
+{
+    margin-bottom: 10px;
+    color: #607d8b;
+    font-weight: 400;
+    font-size: 14px;
+}
+section .content-box .form .input-box p
+{
+    color: #607d8b;
+}
+section .content-box .form .input-box p a 
+{
+    color: #0092CA;
+}
+section .content-box .form .input-box .back-home
+{
+    display: none;
+}
+
+@media (min-width: 768px)
+{
+    section
+    {
+        position: relative;
+        width: 100%;
+        height: 160vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+    }
+    section .img-container
+    {       
+        display: block;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 30%;
+        height: 20%;
+        box-shadow: 4px -7px 33px 2px #262626d6;
+    }
+    section .img-container img
+    {
+        position: absolute;
+        top: 0;
+        left: 0; 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    section .content-box 
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90%;
+      
+    }
+    section .content-box .form 
+    {
+        width: 100%; 
+    }
+    
+}
+
+@media (min-width: 844px){
+    section {
+        position: relative;
+        width: 100%;
+        height: 240vh;
+        display: flex;
+        
+    }
+}
+
+@media (min-width: 1023px)
+{
+    section
+    {
+        position: relative;
+        width: 100%;
+        height: 160vh;
+        display: flex;
+        align-items: center;
+        padding: 40px;
+    }
+    section .img-container 
+    {
+        position: relative;
+        width: 30%;
+        height: 25%;
+        box-shadow: 4px -7px 33px 2px #262626d6;
+    }
+    section .content-box .form
+    {
+        width: 70%;
+    }
+    section .content-box .form .input-box .back-home
+    {
+        display: block;
+        margin-top: 5px;
+    }
+    section .content-box .form
+    {
+        padding: 30px;
+    }
+}
+@media (min-width: 1439px)
+{
+    section .content-box .form
+    {
+        width: 50%;
+    }
+    section .img-container 
+    {
+        position: relative;
+        width: 20%;
+        height: 25%;
+        box-shadow: 4px -7px 33px 2px #262626d6;
+    }
+}
