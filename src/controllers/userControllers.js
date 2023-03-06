@@ -2,16 +2,18 @@ const fs = require("fs");
 const path = require("path");
 const usersPath = path.join(__dirname, "../db/users.json");
 const {validationResult} = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 
 let userController = {
-    getUsers: () => {
-        return JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
-    },
+  getUsers: () => {
+      return JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
+  },
 
   register: (req, res) => {
     res.render("register");
   },
+
   processRegister: (req,res) =>{
     //return res.send(req.body);
     
@@ -23,11 +25,11 @@ let userController = {
     let users = userController.getUsers();
     let newUser = {  
         "id": Date.now(),
-        "first_name": req.body.firstName || "Sin nombre",
-        "last_name": req.body.lastName || 0,
-        "user_name": req.body.userName || 0,
-        "email": req.body.email || 0,
-        "password": req.body.password || 0,
+        "first_name": req.body.firstName,
+        "last_name": req.body.lastName,
+        "user_name": req.body.userName,
+        "email": req.body.email,
+        "password": bcrypt.hashSync(req.body.password,10),
         "category": false,
         "imagen": "/profile-icon-png-898.png"
     }
@@ -42,6 +44,15 @@ let userController = {
   },
   login: (req, res) => {
     res.render("login");
+  },
+  loginProcess:(req, res) => {
+    res.JSON({
+      msg: "Estas logeado",
+      data: req.body
+  });
+    
+
+    // res.send("Enviaste solcitud de logeo,");
   },
 
 };

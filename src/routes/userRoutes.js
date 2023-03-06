@@ -9,7 +9,7 @@ router.get("/register",userControllers.register);
 router.post("/register",rules,userControllers.processRegister);
 
 router.get("/login",userControllers.login);
-//router.post("/login",rules,userControllers.login);
+router.post("/login",rules,userControllers.loginProcess);
 
 module.exports = router;
 

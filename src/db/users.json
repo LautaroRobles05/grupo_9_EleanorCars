@@ -163,5 +163,15 @@
   "password": "asdadsasdasd",
   "category": false,
   "imagen": "/profile-icon-png-898.png"
+ },
+ {
+  "id": 1678131541060,
+  "first_name": "Ignacio",
+  "last_name": "Moscatelli",
+  "user_name": "YsoyYo",
+  "email": "yo@123.com",
+  "password": "$2a$10$onkAjSgul1Lg2r84FSrmL.PHKiqYBRTrhpUBUaja8.qm43gBoya9O",
+  "category": false,
+  "imagen": "/profile-icon-png-898.png"
  }
 ]
