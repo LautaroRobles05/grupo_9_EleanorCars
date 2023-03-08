@@ -4,22 +4,28 @@ const path = require("path");
 const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session')
+const cookies = require('cookie-parser');
+const userSessionMiddleware = require('./middlewares/userSessionMiddleware');
 
 
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cookies());
 app.use(session({
   secret: "Es re secreto!",
   resave: false,
   saveUninitialized: true
 }));
+app.use(userSessionMiddleware);
+
 
 
 const mainRoutes = require('./routes/mainRoutes')
 const productRoutes = require('./routes/productRoutes')
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
+
 
 const PORT = 3009;
 

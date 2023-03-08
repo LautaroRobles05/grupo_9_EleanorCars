@@ -53,7 +53,7 @@
     padding: 0 40px;
     text-align: center;
     margin-bottom: 30px;
-    font-style: italic;
+    font-style: normal;
     font-weight: 100;
     font-size: 16px;
     /* color: #A4A4A4; */
@@ -144,7 +144,6 @@
 }
 
 .specifications_container, .especification{
-    border: solid 1px  #222831;
     border-radius: 6px;
 }
 
@@ -163,9 +162,9 @@
 }
 
 .specifications_container{
-    background-color: white;
-    box-shadow: 0 0 20px 10px white;
-    padding: 5px;
+    background-color: #00000052;
+    /* box-shadow: 0 0 20px 10px white; */
+    padding: 6px;
     max-width: 900px;
     height: 240px;
     margin: auto;
@@ -185,6 +184,7 @@
     font-size: 23px;
     text-align: center;
     border-bottom: solid 3px  #222831;
+    color: #bdbdbd;
 }
 
 .table_container{
@@ -204,18 +204,20 @@
 
 .details, .data{
     font-size: 18px;
+    color: #bdbdbd;
 }
 
 .details{
     font-weight: bold;
-    color: #000000;
+    
     padding-left: 10px;
 }
 
 .data{
     text-align: center;
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
+    
 }
 
 .search-details{
@@ -238,7 +240,7 @@
     width: max-content;
     height: max-content;
     position: absolute;
-    bottom: -20px;
+    bottom: -40px;
     left: 0;
     right: 0;
     margin: auto;

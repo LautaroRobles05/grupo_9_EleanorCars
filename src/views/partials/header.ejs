@@ -15,11 +15,19 @@
         <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
       </li>
       <li>
-        <a href="/user/login"><i class="fa-solid fa-user-tie"></i></a>
-      </li>
-      <li>
         <a href="/products/create"><i class="fa-solid fa-user-gear"></i></a>
       </li>
+      <% if (locals.userLogged) { %>
+        <li>
+          <a href="/user/profile"><i class="fa-solid fa-user-tie"></i> Hi <%= locals.userLogged.userName  %>
+          </a>
+        </li>
+      <% } else { %>
+        <li>
+          <a href="/user/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </a>
+        </li>
+      <% } %>
     </ul>
   </nav>
 </header>

@@ -24,14 +24,14 @@
         <div class="content-box">
             <div class="form">
                 <h2>PERFIL USUARIO</h2>
-                <form action="">
+                <form method = "post" action="/user/profile/edit">
                     <div class="input-box">
                         <span>Nombre</span>
-                        <input type="text" name="firstName" value="<%= user.first_name %>" >
+                        <input type="text" name="firstName" value="<%= user.firstName %>" >
                     </div>
                     <div class="input-box">
                         <span>Apellido</span>
-                        <input type="text" name="lastName" value="<%= user.last_name %>" >
+                        <input type="text" name="lastName" value="<%= user.lastName %>" >
                     </div>
                     <div class="input-box">
                         <span>E-mail</span>

@@ -23,7 +23,7 @@
       <section class="product_detail">
         <div class="descripcion">
           <div class="title_product">
-            <h2><%= auto.model %> <%= auto.maker %> <%= auto.year %></h2>
+            <h2><%= auto.maker %>-<%= auto.model %></h2>
             
 
             <div class="product_modify_delete">
@@ -142,28 +142,27 @@
                 <table>
                   <tr>
                     <td class="details">Marca</td>
-                    <td class="data">Ford</td>
+                    <td class="data"><%= auto.maker %></td>
                   </tr>
                   <tr>
                     <td class="details">Modelo</td>
-                    <td class="data">Mustang</td>
+                    <td class="data"><%= auto.model %></td>
                   </tr>
                   <tr>
                     <td class="details">Año</td>
-                    <td class="data">2020</td>
+                    <td class="data"><%= auto.year %></td>
                   </tr>
                   <tr>
                     <td class="details">Color</td>
-                    <td class="data">Gris</td>
+                    <td class="data"><%= auto.color %></td>
                   </tr>
                   <tr>
                     <td class="details">Puertas</td>
-                    <td class="data">2</td>
+                    <td class="data"><%= auto.doors %></td>
                   </tr>
                 </table>
               </div>
             </div>
-            
             <div class="especification">
               <h4>Especificaciones 2</h4>
               <div class="table_container">

@@ -3,18 +3,22 @@ const upload = require("../middlewares/multer");
 const router = express.Router();
 const userControllers = require('../controllers/userControllers')
 const rules = require('../middlewares/validatorMiddleware');
+const guestMiddleware = require ('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 
-router.get("/register",userControllers.register);
+router.get("/register", guestMiddleware, userControllers.register);
 router.post("/register",rules,userControllers.processRegister);
 
-router.get("/login",userControllers.login);
+router.get("/login", guestMiddleware, userControllers.login);
 router.post("/login",rules,userControllers.loginProcess);
 
-router.get("/profile",userControllers.profile);
+router.get("/profile",authMiddleware, userControllers.profile);
+router.get("/logout",userControllers.logout);
 
 router.get("/profile/edit",userControllers.editProfile);
-// router.post("/profile/edit",userControllers.editProcess);
+router.post("/profile/edit",userControllers.editProcess);
+
 
 
 

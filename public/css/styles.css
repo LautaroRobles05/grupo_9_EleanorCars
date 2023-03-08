@@ -45,7 +45,14 @@ footer {
 
 
 main {
-    background: linear-gradient(179deg, #222831, transparent);
+    /* background: linear-gradient(179deg, #222831, transparent); */
+    background-image: linear-gradient(
+        0deg,
+        #222831 2%,
+        #393E46 10%,
+        #607d8b 35%,
+        #0092CA 70%
+    )
 }
 
 ul{

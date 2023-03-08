@@ -24,14 +24,13 @@
         <div class="content-box">
             <div class="form">
                 <h2>PERFIL USUARIO</h2>
-                <form action="">
                     <div class="input-box">
                         <span>Nombre</span>
-                        <input type="text" name="firstName" value="<%= user.first_name %>" disabled>
+                        <input type="text" name="firstName" value="<%= user.firstName %>" disabled>
                     </div>
                     <div class="input-box">
                         <span>Apellido</span>
-                        <input type="text" name="lastName" value="<%= user.last_name %>" disabled>
+                        <input type="text" name="lastName" value="<%= user.lastName %>" disabled>
                     </div>
                     <div class="input-box">
                         <span>E-mail</span>
@@ -60,9 +59,13 @@
                         <a href="/user/profile/edit">
                             <input type="button" value="Editar">
                         </a>
-                    </div>
-                   
-                </form>
+                    </div> 
+                    <div class="input-box">
+                        <a href="/user/logout">
+                            <input type="button" value="Log-out">
+                        </a>
+                    </div> 
+                
 
     </section>
 
