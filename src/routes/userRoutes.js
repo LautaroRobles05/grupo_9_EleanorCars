@@ -16,7 +16,7 @@ router.post("/login",rules,userControllers.loginProcess);
 router.get("/profile",authMiddleware, userControllers.profile);
 router.get("/logout",userControllers.logout);
 
-router.get("/profile/edit",userControllers.editProfile);
+router.get("/profile/edit",authMiddleware,userControllers.editProfile);
 router.post("/profile/edit",userControllers.editProcess);
 
 

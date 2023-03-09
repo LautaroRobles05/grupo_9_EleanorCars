@@ -81,12 +81,15 @@ let userController = {
 
   logout: (req, res) => {
     req.session.destroy();
-    res.clearCookie('remember')
+    res.clearCookie('remember');
     return res.redirect('/');
   },
 
   editProfile: (req, res) => {
-    res.render("editProfile", { user: req.session.userLogged });
+    let users = userController.getUsers();
+    let user = users.find((usuario) => usuario.id == req.session.userLogged.id);
+
+    res.render("editProfile", { user });
   },
 
   editProcess: (req, res) => {
@@ -104,9 +107,20 @@ let userController = {
     user.phone = req.body.phone || user.phone;
 
     fs.writeFileSync(usersPath, JSON.stringify(users, null, " "));
+    
     delete user.password;
-    req.session.userLogged = user;
-    console.log(req.session.userLogged);
+
+    // req.session.userLogged = user;
+    if(req.cookies.remember){
+      res.clearCookie('remember');
+      res.cookie(
+        "remember",
+        user,
+        { maxAge: 60000 }
+      )
+    }
+    
+    console.log("session",req.session.userLogged);
 
     return res.redirect("/user/profile");
   },
