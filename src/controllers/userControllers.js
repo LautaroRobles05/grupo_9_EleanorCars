@@ -76,7 +76,10 @@ let userController = {
   },
 
   profile: (req, res) => {
-    return res.render("userProfile", { user: req.session.userLogged });
+    let users = userController.getUsers();
+    let user = users.find((usuario) => usuario.id == req.session.userLogged.id);
+
+    return res.render("userProfile", { user });
   },
 
   logout: (req, res) => {
@@ -120,7 +123,7 @@ let userController = {
       )
     }
     
-    console.log("session",req.session.userLogged);
+    // console.log("session",req.session.userLogged);
 
     return res.redirect("/user/profile");
   },
