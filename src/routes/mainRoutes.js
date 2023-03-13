@@ -4,8 +4,6 @@ const mainController = require('../controllers/mainControllers')
 
 router.get("/", mainController.home);
 
-
-
 router.get("/notFound",mainController.notFound);
 
 

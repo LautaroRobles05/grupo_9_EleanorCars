@@ -25,15 +25,16 @@ let productControllers = {
     let products = productControllers.getProducts();
     let autoId = req.params.id;
     let auto = products.find(auto => auto.id == autoId);
-    let image = req.file ? req.file.filename : auto.image;
-    
+    let image = req.files ? req.files[0].filename : auto.img[0];
+
 
     auto.maker = req.body.maker || auto.maker;
 		auto.price = Number(req.body.price)|| auto.price;
 		auto.model = req.body.model|| auto.model;
 		auto.year = req.body.year|| auto.year;
 		auto.doors = req.body.doors|| auto.doors;
-		auto.image = image
+		auto.img = image;
+
 
     fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
 

@@ -15,7 +15,7 @@ router.get("/detail/:id",productControllers.productDetail);
 router.get("/cart",productControllers.productCart);
 
 router.get("/edit/:id",productControllers.productEdit);
-router.put("/edit/:id",productControllers.productUpdate);
+router.put("/edit/:id",upload.any('img'),productControllers.productUpdate);
 
 router.delete("/:id",productControllers.delete)
 

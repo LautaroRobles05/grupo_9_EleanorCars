@@ -523,5 +523,15 @@
    "sunroof": false
   },
   "available": true
+ },
+ {
+  "id": 1678737175779,
+  "maker": "Re piola",
+  "model": "Rapidisimo",
+  "year": "2020",
+  "color": "rojito",
+  "price": 10000,
+  "doors": "4",
+  "img": "products-1678738763206-.jpeg"
  }
 ]

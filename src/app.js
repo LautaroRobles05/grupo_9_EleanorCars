@@ -1,10 +1,11 @@
 
 const express = require("express");
-const path = require("path");
 const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session')
 const cookies = require('cookie-parser');
+
+
 const userSessionMiddleware = require('./middlewares/userSessionMiddleware');
 
 

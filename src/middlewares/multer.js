@@ -3,10 +3,15 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '../../public/images/products'));
+        let multerRoutes = req.originalUrl.includes('product') ? 'products' : 'users';
+        let pathImg = path.join(__dirname, `../../public/images/${multerRoutes}`);
+        cb(null, pathImg);
     },
     filename: (req, file, cb) => {
-        cb(null, `product${Date.now()}${path.extname(file.originalname)}`);
+        let multerRoutes = req.originalUrl.includes('product') ? 'products' : 'users';
+        let nameImg = `${multerRoutes}-${Date.now()}-${path.extname(file.originalname)}`; 
+
+        cb(null, nameImg );
     }
 })
 
