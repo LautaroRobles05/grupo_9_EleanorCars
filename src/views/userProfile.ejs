@@ -18,9 +18,15 @@
     <%- include('./partials/header') %>
 <main>
     <section>
-        <div class="img-container">
-            <img src="/images/user/profile-icon-png-898.png" alt="">
-        </div>
+        <% if (user.img) { %>
+            <div class="img-container">
+                <img src="/images/user/<%= user.img  %>" alt="">
+            </div>
+        <% } else { %>
+            <div class="img-container">
+                <img src="/images/user/profile-icon-png-898.png" alt="">
+            </div>
+        <% } %>
         <div class="content-box">
             <div class="form">
                 <h2>PERFIL USUARIO</h2>

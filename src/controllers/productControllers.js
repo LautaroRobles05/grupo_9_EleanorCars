@@ -25,17 +25,21 @@ let productControllers = {
     let products = productControllers.getProducts();
     let autoId = req.params.id;
     let auto = products.find(auto => auto.id == autoId);
-    let image = req.files ? req.files[0].filename : auto.img[0];
-
-
+  
+    let image = req.files[0] ? req.files[0].filename : auto.img;
+    // if(auto && req.files[0].filename) {
+    //   fs.unlinkSync(path.join(__dirname, "../../public/images/products/" + auto.img));
+    // }
+    
+    
     auto.maker = req.body.maker || auto.maker;
 		auto.price = Number(req.body.price)|| auto.price;
 		auto.model = req.body.model|| auto.model;
 		auto.year = req.body.year|| auto.year;
 		auto.doors = req.body.doors|| auto.doors;
-		auto.img = image;
-
-
+		auto.img = image
+    
+    
     fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
 
     res.redirect("/products/detail/" + autoId);
@@ -68,8 +72,8 @@ let productControllers = {
     let newAuto = req.body;
     let images = [];
 
-    if (req.files) {
-      req.files.forEach((file) => {
+    if (req.files[0]) {
+      req.file.forEach((file) => {
         images.push(file.filename);
       });
     } else {

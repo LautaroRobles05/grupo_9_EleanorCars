@@ -531,7 +531,16 @@
   "year": "2020",
   "color": "rojito",
   "price": 10000,
-  "doors": "4",
-  "img": "products-1678738763206-.jpeg"
+  "doors": "5",
+  "img": "products-1678744020467-.jpeg"
+ },
+ {
+  "id": 1678743546251,
+  "maker": "ferrari",
+  "model": "picuru",
+  "img": "mustang2.png",
+  "year": "2009",
+  "color": "verde",
+  "price": 123123132
  }
 ]

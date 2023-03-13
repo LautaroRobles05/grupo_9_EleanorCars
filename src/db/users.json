@@ -238,16 +238,47 @@
  },
  {
   "id": 1678131541060,
-  "firstName": "Julia",
+  "firstName": "Julia12",
   "lastName": "LOL123",
   "userName": "YsoyYo",
   "email": "yo@123.com",
-  "gender": "Femenino",
-  "bornDate": "2000-03-30",
+  "gender": "Masculino",
+  "bornDate": "2000-03-09",
   "dni": "42494055",
   "phone": "1534567890",
   "password": "$2a$10$onkAjSgul1Lg2r84FSrmL.PHKiqYBRTrhpUBUaja8.qm43gBoya9O",
   "category": false,
-  "imagen": "/profile-icon-png-898.png"
+  "imagen": "/profile-icon-png-898.png",
+  "img": "user-1678745015433-.jpg"
+ },
+ {
+  "id": 1678745858054,
+  "firstName": "Lautaro",
+  "lastName": "Robles",
+  "userName": "laucharobles5",
+  "email": "lautaro.robles1992@gmail.com",
+  "password": "$2a$10$QX2MN6GYj9auCv.i1ADjf.RS5XWP8QW19ZKuR5ioMBvTCWHOBnvqC",
+  "category": false,
+  "imagen": "/profile-icon-png-898.png",
+  "gender": "Masculino",
+  "bornDate": "2023-03-15",
+  "dni": "36926640",
+  "phone": "1231231231",
+  "img": "user-1678746660450-.jpg"
+ },
+ {
+  "id": 1678746191338,
+  "firstName": "Pepe",
+  "lastName": "Marianito",
+  "userName": "pepemarianito",
+  "email": "vos@123.com",
+  "password": "$2a$10$52y1XF3nPldTydwy2fbGXO0wZwguuaNY3VT2Z9pyCsKzW8EDjCZl6",
+  "category": false,
+  "imagen": "profile-icon-png-898.png",
+  "gender": "Otro",
+  "bornDate": "2023-03-31",
+  "dni": "6345363456346",
+  "phone": "23423423423",
+  "img": "user-1678746678280-.jpeg"
  }
 ]
