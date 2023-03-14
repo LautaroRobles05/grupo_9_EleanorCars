@@ -415,7 +415,7 @@
   "window": {
    "type": "center",
    "characteristics": "AI",
-   "sunroof": true
+   "sunroof": false
   },
   "available": false
  },
@@ -523,24 +523,5 @@
    "sunroof": false
   },
   "available": true
- },
- {
-  "id": 1678737175779,
-  "maker": "Re piola",
-  "model": "Rapidisimo",
-  "year": "2020",
-  "color": "rojito",
-  "price": 10000,
-  "doors": "5",
-  "img": "products-1678744020467-.jpeg"
- },
- {
-  "id": 1678743546251,
-  "maker": "ferrari",
-  "model": "picuru",
-  "img": "mustang2.png",
-  "year": "2009",
-  "color": "verde",
-  "price": 123123132
  }
 ]
