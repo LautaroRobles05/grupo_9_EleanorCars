@@ -15,6 +15,8 @@ Comunicacion.
 
 ## Hacer menos.
 
+Reuniones de muchas horas
+
 ## Dejar de hacer.
 
 
