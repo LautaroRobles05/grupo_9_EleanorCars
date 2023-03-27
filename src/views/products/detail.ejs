@@ -168,25 +168,25 @@
               <div class="table_container">
                 <table>
                   <tr>
-                    <td class="details">Marca</td>
-                    <td class="data">Ford</td>
+                    <td class="details">Tipo Motor</td>
+                    <td class="data"><%= auto.engine.gas_type %></td>
                   </tr>
                   <tr>
-                    <td class="details">Modelo</td>
-                    <td class="data">Mustang</td>
+                    <td class="details">RPM</td>
+                    <td class="data"><%= auto.engine.rpm %></td>
                   </tr>
                   <tr>
-                    <td class="details">Año</td>
-                    <td class="data">2020</td>
+                    <td class="details">Cilindrada</td>
+                    <td class="data"><%= auto.engine.displacement %></td>
                   </tr>
                   <tr>
-                    <td class="details">Color</td>
-                    <td class="data">Gris</td>
+                    <td class="details">Kilometraje</td>
+                    <td class="data"><%= auto.km %>km</td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td class="details">Puertas</td>
                     <td class="data">2</td>
-                  </tr>
+                  </tr> -->
                 </table>
               </div>
             </div>
@@ -196,24 +196,28 @@
               <div class="table_container">
                 <table>
                   <tr>
-                    <td class="details">Marca</td>
-                    <td class="data">Ford</td>
+                    <td class="details">Marca Rueda</td>
+                    <td class="data"><%= auto.wheel.maker %></td>
                   </tr>
                   <tr>
-                    <td class="details">Modelo</td>
-                    <td class="data">Mustang</td>
+                    <td class="details">Tipo de Rueda</td>
+                    <td class="data"><%= auto.wheel.type %></td>
                   </tr>
                   <tr>
-                    <td class="details">Año</td>
-                    <td class="data">2020</td>
+                    <td class="details">Ancho Rueda</td>
+                    <td class="data"><%= auto.wheel.width %>mm</td>
                   </tr>
                   <tr>
-                    <td class="details">Color</td>
-                    <td class="data">Gris</td>
+                    <td class="details">Techo Corredizo</td>
+                    <% if (auto.window.sunroof) { %>
+                      <td class="data">Si</td>
+                    <% } else { %>
+                      <td class="data">No</td>
+                    <% } %>
                   </tr>
                   <tr>
-                    <td class="details">Puertas</td>
-                    <td class="data">2</td>
+                    <td class="details">Tipo de Vidrio</td>
+                    <td class="data"><%= auto.window.type %></td>
                   </tr>
                 </table>
               </div>

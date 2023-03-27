@@ -30,13 +30,13 @@ let userController = {
     let users = userController.getUsers();
     let newUser = {
       id: Date.now(),
-      first_name: req.body.firstName,
-      last_name: req.body.lastName,
-      user_name: req.body.userName,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      userName: req.body.userName,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 10),
       category: false,
-      imagen: "/profile-icon-png-898.png",
+      imagen: "profile-icon-png-898.png",
     };
 
     users.push(newUser);
@@ -44,7 +44,7 @@ let userController = {
     fs.writeFileSync(usersPath, JSON.stringify(users, null, " "));
 
     //res.redirect("/");
-    res.redirect("user/profile");
+    res.redirect("/user/login");
   },
   login: (req, res) => {
     res.render("login");
@@ -98,8 +98,7 @@ let userController = {
   editProcess: (req, res) => {
     let users = userController.getUsers();
     let user = users.find((usuario) => usuario.id == req.session.userLogged.id);
-    // console.log(user);
-    // let image = req.file ? req.file.filename : auto.image;
+    let image = req.file ? req.file.filename : user.img;
     
     user.firstName = req.body.firstName || user.firstName;
     user.lastName = req.body.lastName || user.lastName;
@@ -108,6 +107,7 @@ let userController = {
     user.bornDate = req.body.bornDate || user.bornDate;
     user.dni = req.body.dni || user.dni;
     user.phone = req.body.phone || user.phone;
+    user.img = image;
 
     fs.writeFileSync(usersPath, JSON.stringify(users, null, " "));
     
@@ -125,7 +125,7 @@ let userController = {
     
     // console.log("session",req.session.userLogged);
 
-    return res.redirect("/user/profile");
+    return res.render("userProfile", {user});
   },
 };
 
