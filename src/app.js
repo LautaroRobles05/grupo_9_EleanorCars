@@ -22,7 +22,11 @@ app.use(session({
 app.use(userSessionMiddleware);
 
 
+//rutas api
+const ApiProductRoutes = require('./routes/api/ApiProductRoutes')
+const ApiUserRoutes = require('./routes/api/ApiUserRoutes')
 
+//rutas 
 const mainRoutes = require('./routes/mainRoutes')
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes');
