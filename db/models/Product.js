@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
        },
 
        year: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
        },
 
@@ -52,13 +52,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         
-        img: DataTypes.VARCHAR(100),
+        img: DataTypes.STRING(100),
 
-        manufacturingYear: DataTypes.DATE,
+        manufacturingYear: DataTypes.DATEONLY,
         
         transmission: DataTypes.INTEGER,
         
-        equipment: DataTypes.VARCHAR(500)
+        equipment: DataTypes.STRING(500)
        
     }
 
@@ -69,6 +69,25 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     let Product = sequelize.define(alias, cols, config);
+
+    Product.associate = function(models) {
+        Product.belongsTo(models.VehicleTypes, {
+            as: 'vehicleType',
+            foreignKey: 'vehicleType_id'
+        });
+        Product.belongsTo(models.Models, {
+            as: 'model',
+            foreignKey: 'model_id'
+        });
+        Product.belongsTo(models.gasTypes, {
+            as: 'gasType',
+            foreignKey: 'gasType_id'
+        });
+        Product.belongsTo(models.Colors, {
+            as: 'color',
+            foreignKey: 'color_id'
+        });
+    }
 
     return Product;
 }

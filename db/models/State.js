@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         state: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
         },
         country_id: {
             type: dataTypes.INTEGER,
@@ -24,5 +24,11 @@ module.exports = (sequelize, dataTypes) => {
 
     let States = sequelize.define(alias,cols,config)
 
+    State.associate = function (models) {
+        State.hasMany(models.Users, {
+            as: 'users',
+            foreignKey: 'state_id'
+        });
+    }
     return States;
 }

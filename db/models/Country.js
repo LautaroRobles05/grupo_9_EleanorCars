@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'Makers'
+    const alias = 'Countrys'
     const cols = {
 
         id: {
@@ -8,22 +8,18 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-
-        maker: {
-            type: dataTypes.VARCHAR(50),
-            allowNull: false
+        country: {
+            type: dataTypes.STRING(50),
         },
-
- 
     }
-
-    const config = {
+     const config = {
         timestamps: true,
         paranoid: true,
         underscore: true
     }
 
-    let Makers = sequelize.define(alias,cols,config)
+    let Countrys = sequelize.define(alias,cols,config)
 
-    return Makers;
+    return Countrys;
 }
+        

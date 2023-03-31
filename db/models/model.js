@@ -10,11 +10,11 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         model: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
             allowNull: false
         },
 
-        maker_id: {
+        brand_id: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
@@ -27,7 +27,17 @@ module.exports = (sequelize, dataTypes) => {
         underscore: true
     }
 
-    let Models = sequelize.define(alias,cols,config)
+    let Model = sequelize.define(alias,cols,config)
 
+    Model.associate = function(models) {
+        Model.hasMany(models.Products, {
+            as: 'modelProducts',
+            foreignKey: 'model_id'
+        });
+        Model.belongsTo(models.Brand, {
+            as: 'brand',
+            foreignKey: 'brand_id'
+        });
+    }
     return Models;
 }

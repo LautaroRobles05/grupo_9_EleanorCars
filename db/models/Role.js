@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
           role: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
         },
           
     }
@@ -19,6 +19,13 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let Roles = sequelize.define(alias,cols,config)
+
+    Role.associate = function (models) {
+        Role.hasMany(models.Users, {
+            as: 'users',
+            foreignKey: 'rol_id'
+        })
+    }
 
     return Roles;
 }

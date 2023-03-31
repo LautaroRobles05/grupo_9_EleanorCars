@@ -10,9 +10,14 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         color: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
             allowNull: false
         },
+
+        value: {
+            type: dataTypes.STRING,
+            allowNull: false
+        }
 
  
     }
@@ -23,7 +28,13 @@ module.exports = (sequelize, dataTypes) => {
         underscore: true
     }
 
-    let Colors = sequelize.define(alias,cols,config)
+    let Color = sequelize.define(alias,cols,config)
 
+    Color.associate = function(models) {
+        Color.hasMany(models.Products, {
+            as: 'colorProduct',
+            foreignKey: 'color_id'
+        });
+    } 
     return Colors;
 }

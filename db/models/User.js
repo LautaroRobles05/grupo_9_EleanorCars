@@ -10,28 +10,28 @@ module.exports = (sequelize, dataTypes) => {
             },
 
         name: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
             allowNull: false
         },
 
         lastName: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
             allowNull: false
         },
         
         email: {
-            type: dataTypes.VARCHAR(100),
+            type: dataTypes.STRING(100),
             allowNull: false,
             unique: true
         },
 
         password: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
             allowNull: false,
         },
 
         nickName: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
             allowNull: false,
             unique: true
         },
@@ -41,15 +41,15 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
 
-        img: dataTypes.VARCHAR(100),
+        img: dataTypes.STRING(100),
 
         gender_id: dataTypes.INTEGER,
 
-        phone: dataTypes.VARCHAR(50),
+        phone: dataTypes.STRING(50),
     
         dni: dataTypes.INTEGER,
 
-        bornDate: dataTypes.DATE,
+        bornDate: dataTypes.DATEONLY,
 
         state_id: dataTypes.INTEGER, //A CHEQUEAR...
  
@@ -62,6 +62,23 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let User = sequelize.define(alias,cols,config)
+
+    User.associate = function (models) {
+        User.belongsTo(models.Roles, {
+            as: 'role',
+            foreignKey: 'rol_id'
+        });
+        User.belongsTo(models.States, {
+            as: 'state',
+            foreignKey: 'state_id'
+        });
+        User.belongsTo(models.Genders, {
+            as: 'gender',
+            foreignKey: 'gender_id'
+        });
+
+        
+    }
 
     return User;
 }

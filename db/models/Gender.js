@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         gender: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
         },
     }
      const config = {
@@ -19,6 +19,13 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let Genders = sequelize.define(alias,cols,config)
+
+    Gender.associate = function (models) {
+        Gender.hasMany(models.Users, {
+            as: 'users',
+            foreignKey: 'gender_id'
+        })
+    }
 
     return Genders;
 }

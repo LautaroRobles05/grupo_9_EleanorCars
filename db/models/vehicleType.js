@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'VehicleType'
+    const alias = 'VehicleTypes'
     const cols = {
 
         id: {
@@ -10,7 +10,7 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         tipo: {
-            type: dataTypes.VARCHAR(50),
+            type: dataTypes.STRING(50),
             allowNull: false
         },
 
@@ -24,6 +24,13 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     let VehicleType = sequelize.define(alias,cols,config)
+
+    VehicleType.associate = function(models) {
+        VehicleType.hasMany(models.Products, {
+            as: 'products',
+            foreignKey: 'vehicleType_id'
+        })
+    }
 
     return VehicleType;
 }
