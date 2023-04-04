@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'Brands'
+    const alias = 'GasTypes'
     const cols = {
 
         id: {
@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
 
-        brand: {
+        tipo: {
             type: dataTypes.STRING(50),
             allowNull: false
         },
@@ -18,18 +18,18 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const config = {
-        timestamps: true,
+        timestamps: false,
         paranoid: true,
         underscore: true
     }
 
-    let Brand = sequelize.define(alias,cols,config)
+    let GasType = sequelize.define(alias,cols,config)
 
-    Brand.associate = function(models) {
-        Brand.hasMany(models.Models, {
-            as: 'models',
-            foreignKey: 'model_id'
+    GasType.associate = function(models) {
+        GasType.hasMany(models.Products, {
+            as: 'productGasType',
+            foreignKey: 'gasType_id'
         });
     }
-    return Makers;
+    return GasType;
 }

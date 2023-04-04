@@ -1,32 +1,33 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'Genders'
+    const alias = 'Roles'
     const cols = {
-
-        id: {
+         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
-        gender: {
+          role: {
             type: dataTypes.STRING(50),
         },
+          
     }
-     const config = {
-        timestamps: true,
+       const config = {
+        timestamps: false,
         paranoid: true,
         underscore: true
     }
 
-    let Genders = sequelize.define(alias,cols,config)
+    let Role = sequelize.define(alias,cols,config)
 
-    Gender.associate = function (models) {
-        Gender.hasMany(models.Users, {
+    Role.associate = function (models) {
+        Role.hasMany(models.Users, {
             as: 'users',
-            foreignKey: 'gender_id'
+            foreignKey: 'rol_id'
         })
     }
 
-    return Genders;
+    return Role;
 }
-        
+
+    

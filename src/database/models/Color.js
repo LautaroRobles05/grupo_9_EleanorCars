@@ -14,16 +14,16 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
 
-        value: {
-            type: dataTypes.STRING,
-            allowNull: false
-        }
+        // value: {
+        //     type: dataTypes.STRING,
+        //     allowNull: false
+        // }
 
  
     }
 
     const config = {
-        timestamps: true,
+        timestamps: false,
         paranoid: true,
         underscore: true
     }
@@ -36,5 +36,5 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'color_id'
         });
     } 
-    return Colors;
+    return Color;
 }

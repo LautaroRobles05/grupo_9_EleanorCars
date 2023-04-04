@@ -24,7 +24,7 @@ app.use(userSessionMiddleware);
 
 //rutas api
 const ApiProductRoutes = require('./routes/api/ApiProductRoutes')
-const ApiUserRoutes = require('./routes/api/ApiUserRoutes')
+//const ApiUserRoutes = require('./routes/api/ApiUserRoutes')
 
 //rutas 
 const mainRoutes = require('./routes/mainRoutes')
@@ -40,7 +40,10 @@ app.set('views', './src/views');
 
 app.use(express.static("./public")); 
 
+//Rutas Apis
+app.use('/api/products', ApiProductRoutes);
 
+//Rutas
 app.use('/products', productRoutes);
 app.use('/user', userRoutes);
 app.use('/', mainRoutes);

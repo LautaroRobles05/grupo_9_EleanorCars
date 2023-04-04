@@ -40,7 +40,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false
        },
-
        
        vehicleType_id: {
            type: DataTypes.INTEGER,
@@ -63,8 +62,9 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const config = {
-        timestamps: true,
-        underscored: true,
+        timestamps: false,
+        
+        //underscored: true,
         paranoid: true
     }
 
@@ -75,11 +75,11 @@ module.exports = (sequelize, DataTypes) => {
             as: 'vehicleType',
             foreignKey: 'vehicleType_id'
         });
-        Product.belongsTo(models.Models, {
+        Product.belongsTo(models.CarModels, {
             as: 'model',
             foreignKey: 'model_id'
         });
-        Product.belongsTo(models.gasTypes, {
+        Product.belongsTo(models.GasTypes, {
             as: 'gasType',
             foreignKey: 'gasType_id'
         });

@@ -17,12 +17,12 @@ module.exports = (sequelize, dataTypes) => {
     }
 
         const config = {
-        timestamps: true,
+        timestamps: false,
         paranoid: true,
         underscore: true
     }
 
-    let States = sequelize.define(alias,cols,config)
+    let State = sequelize.define(alias,cols,config)
 
     State.associate = function (models) {
         State.hasMany(models.Users, {
@@ -30,5 +30,5 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'state_id'
         });
     }
-    return States;
+    return State;
 }

@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
         },
     }
      const config = {
-        timestamps: true,
+        timestamps: false,
         paranoid: true,
         underscore: true
     }

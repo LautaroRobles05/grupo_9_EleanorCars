@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'Models'
+    const alias = 'CarModels'
     const cols = {
 
         id: {
@@ -22,22 +22,22 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const config = {
-        timestamps: true,
+        timestamps: false,
         paranoid: true,
         underscore: true
     }
 
-    let Model = sequelize.define(alias,cols,config)
+    let CarModel = sequelize.define(alias,cols,config)
 
-    Model.associate = function(models) {
-        Model.hasMany(models.Products, {
+    CarModel.associate = function(models) {
+        CarModel.hasMany(models.Products, {
             as: 'modelProducts',
             foreignKey: 'model_id'
         });
-        Model.belongsTo(models.Brand, {
+        CarModel.belongsTo(models.Brands, {
             as: 'brand',
             foreignKey: 'brand_id'
         });
     }
-    return Models;
+    return CarModel;
 }
