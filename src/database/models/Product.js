@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
        },
 
        year: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.DATE,
         allowNull: false
        },
 
@@ -51,10 +51,15 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         
-        img: DataTypes.STRING(100),
+        //img: DataTypes.STRING(100),
 
-        manufacturingYear: DataTypes.DATEONLY,
+        // manufacturingYear: DataTypes.DATE,
         
+        manufacturingYear: {
+            type: DataTypes.DATE,
+            allowNull: true
+        },
+
         transmission: DataTypes.INTEGER,
         
         equipment: DataTypes.STRING(500)

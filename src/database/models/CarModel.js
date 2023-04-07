@@ -34,6 +34,7 @@ module.exports = (sequelize, dataTypes) => {
             as: 'modelProducts',
             foreignKey: 'model_id'
         });
+
         CarModel.belongsTo(models.Brands, {
             as: 'brand',
             foreignKey: 'brand_id'

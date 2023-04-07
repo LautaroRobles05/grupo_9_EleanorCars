@@ -1,5 +1,5 @@
-const {Products} = require('../../database/models');
-const { Op } = require("sequelize");
+const {Products, VehicleTypes, CarModels, Brands} = require('../../database/models');
+//const { Op } = require("sequelize");
 
 module.exports = {
 
@@ -38,7 +38,55 @@ module.exports = {
 
         //res.render("products/list", {carsList: products});
       },
-    
+      
+      index: async (req,res) => {
+
+          
+          try {
+              
+            let models = await CarModels.findAll({
+                // include : 'brand'
+            });
+
+            let brands = await Brands.findAll();
+            let vehicleTypes = await VehicleTypes.findAll();
+            let recomendedCars = await Products.findAll({
+                where: {
+                    
+                }
+            });
+
+            res.render('index',{
+                vehicleTypes,
+                models,
+                brands,
+                recomendedCars : []
+            });
+
+
+            // res.json({
+            //     metadata: {
+            //         resultado: 200,
+            //         mensaje: "Retorno index con sus informacion requerida"
+            //     },
+            //     vehicleTypes,
+            //     models
+            // })
+
+        } catch (error) {
+            res.json({
+                metadata:{
+                    mensaje: "index inaccesible"
+                },
+                error
+            })
+        }
+      },
+
+      find: (req,res) => {
+        let {} = req.body
+      },
+
     //   productEdit: (req, res) => {
     //     let products = productControllers.getProducts();
     //     let autoId = req.params.id;
@@ -93,35 +141,71 @@ module.exports = {
     //     res.render("products/create");
     //   },
     
-    //   upload: (req, res) => {
-    //     let products = productControllers.getProducts();
-    //     let newAuto = req.body;
-    //     let images = [];
+
+      upload: async (req, res) => {
+
+        try {
+            
+            let {
+                model_id,
+                year,
+                km,
+                color_id,
+                price,
+                vehicleType_id,
+                gasType_id,
+                manufacturingYear,
+                transmission,
+                doors,
+                equipment
+            } = req.body;
+        
+
+            let product = {
+                model_id,
+                year,
+                km,
+                color_id,
+                price,
+                vehicleType_id,
+                gasType_id,
+                manufacturingYear,
+                transmission,
+                doors,
+                equipment
+            }
+
+        
+            await Products.create(product)
+
+            res.json({
+                metadata: {
+                    resultado: 200,
+                    mensaje: "Creacion de producto exitosa"
+                },
+                product
+            })
+
+        } catch(error) {
+            res.json({
+                metadata:{
+                    mensaje: "Lista productos inaccesible"
+                },
+                error
+            })
+        }
+
+        // let images = [];
     
-    //     if (req.files[0]) {
-    //       req.file.forEach((file) => {
-    //         images.push(file.filename);
-    //       });
-    //     } else {
-    //       images = "mustang2.png";
-    //     }
+        // if (req.files[0]) {
+        //   req.file.forEach((file) => {
+        //     images.push(file.filename);
+        //   });
+        // } else {
+        //   images = "mustang2.png";
+        // }
     
-    //     let auto = {
-    //       id: Date.now(),
-    //       maker: newAuto.maker,
-    //       model: newAuto.model,
-    //       img: images,
-    //       year: newAuto.year,
-    //       color: newAuto.color,
-    //       price: Number(newAuto.price),
-    //     };
-    
-    //     products.push(auto);
-    
-    //     fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
-    
-    //     res.redirect("/products");
-    //   },
+      },
     
     //   delete: (req, res) => {
     //     let autoId = req.params.id;

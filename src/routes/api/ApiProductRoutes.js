@@ -1,20 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const productController = require('../../controllers/api/ApiProductControllers')
+const apiProductControllers = require('../../controllers/api/ApiProductControllers')
 
-router.get('/', productController.list)
+router.get('/', apiProductControllers.list)
 
-// router.get('/create', productControllers.create)
-//router.post('/create',upload.any('img'), productControllers.upload)
+router.get('/index',apiProductControllers.index)
+router.get('/find',apiProductControllers.find)
 
-// router.get("/detail/:id",productControllers.productDetail);
+// router.get('/create', apiProductControllers.create)
+router.post('/create', apiProductControllers.upload)
 
-// router.get("/cart",productControllers.productCart);
+// router.get("/detail/:id",apiProductControllers.productDetail);
 
-// router.get("/edit/:id",productControllers.productEdit);
-// router.put("/edit/:id",upload.any('img'), productControllers.productUpdate);
+// router.get("/cart",apiProductControllers.productCart);
 
-// router.delete("/:id",productControllers.delete)
+// router.get("/edit/:id",apiProductControllers.productEdit);
+// router.put("/edit/:id",upload.any('img'), apiProductControllers.productUpdate);
+
+// router.delete("/:id",apiProductControllers.delete)
 
 
 module.exports = router;
