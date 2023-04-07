@@ -13,12 +13,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(50),
             allowNull: false
         },
-
- 
     }
 
     const config = {
-        timestamps: false,
+        timestamps: true,
         paranoid: true,
         underscore: true
     }

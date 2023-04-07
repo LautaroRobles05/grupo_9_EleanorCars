@@ -62,14 +62,15 @@ module.exports = (sequelize, DataTypes) => {
 
         transmission: DataTypes.INTEGER,
         
-        equipment: DataTypes.STRING(500)
-       
+        equipment: DataTypes.STRING(500),
+
+        createdAt: DataTypes.DATE,
+        deletedAt: DataTypes.DATE,
+        updatedAt: DataTypes.DATE,
     }
 
     const config = {
-        timestamps: false,
-        
-        //underscored: true,
+        timestamps: true,
         paranoid: true
     }
 

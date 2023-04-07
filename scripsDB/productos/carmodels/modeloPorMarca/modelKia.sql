@@ -1,0 +1,10 @@
+insert into carmodels (brand_id, model) values (21, 'cee''d');
+insert into carmodels (brand_id, model) values (21, 'EV6');
+insert into carmodels (brand_id, model) values (21, 'Niro');
+insert into carmodels (brand_id, model) values (21, 'Picanto');
+insert into carmodels (brand_id, model) values (21, 'Rio');
+insert into carmodels (brand_id, model) values (21, 'Sorento');
+insert into carmodels (brand_id, model) values (21, 'Soul');
+insert into carmodels (brand_id, model) values (21, 'Sportage');
+insert into carmodels (brand_id, model) values (21, 'Stinger');
+insert into carmodels (brand_id, model) values (21, 'Stonic');
