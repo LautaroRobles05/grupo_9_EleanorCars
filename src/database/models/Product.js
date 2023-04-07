@@ -66,12 +66,14 @@ module.exports = (sequelize, DataTypes) => {
 
         createdAt: DataTypes.DATE,
         deletedAt: DataTypes.DATE,
-        updatedAt: DataTypes.DATE,
+        
     }
 
     const config = {
         timestamps: true,
-        paranoid: true
+        updatedAt: false,
+        paranoid: true,
+        updatedAt: false
     }
 
     let Product = sequelize.define(alias, cols, config);

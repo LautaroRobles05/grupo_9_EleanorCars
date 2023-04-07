@@ -13,9 +13,9 @@ module.exports = {
         include: {
           all: true,
           nested: true,
-          attributes: { exclude: ["id", "createdAt", "updatedAt", "deletedAt"] },
+          attributes: { exclude: ["id"] },
         },
-        attributes: { exclude: ["id", "createdAt", "updatedAt","deletedAt"] },
+        attributes: { exclude: ["id"] },
         limit: 20,
       });
 
