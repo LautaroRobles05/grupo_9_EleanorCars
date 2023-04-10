@@ -23,7 +23,7 @@
       <section class="product_detail">
         <div class="descripcion">
           <div class="title_product">
-            <h2><%= auto.maker %>-<%= auto.model %></h2>
+            <h2><%= auto.model.brand.name %>-<%= auto.model.name %></h2>
             
 
             <div class="product_modify_delete">
@@ -52,7 +52,7 @@
             
               
             </div> -->
-            <img class="card_carrucel_detail" src="/images/products/<%= auto.img %>" alt="">
+            <img class="card_carrucel_detail" src="/images/products/mustang2.png" alt="">
             <div class="carrucel_navegation">
               <a href="#product_detail_3">
                 <i class="fa-solid fa-caret-left"></i>
@@ -142,11 +142,11 @@
                 <table>
                   <tr>
                     <td class="details">Marca</td>
-                    <td class="data"><%= auto.maker %></td>
+                    <td class="data"><%= auto.model.brand.name %></td>
                   </tr>
                   <tr>
                     <td class="details">Modelo</td>
-                    <td class="data"><%= auto.model %></td>
+                    <td class="data"><%= auto.model.name %></td>
                   </tr>
                   <tr>
                     <td class="details">Año</td>
@@ -154,7 +154,7 @@
                   </tr>
                   <tr>
                     <td class="details">Color</td>
-                    <td class="data"><%= auto.color %></td>
+                    <td class="data"><%= auto.color.name %></td>
                   </tr>
                   <tr>
                     <td class="details">Puertas</td>
@@ -169,15 +169,15 @@
                 <table>
                   <tr>
                     <td class="details">Tipo Motor</td>
-                    <td class="data"><%= auto.engine.gas_type %></td>
+                    <td class="data"><%= auto.gasType.tipo %></td>
                   </tr>
                   <tr>
-                    <td class="details">RPM</td>
-                    <td class="data"><%= auto.engine.rpm %></td>
+                    <td class="details">Año de Fabricacion</td>
+                    <td class="data"><%= auto.manufacturingYear %></td>
                   </tr>
                   <tr>
-                    <td class="details">Cilindrada</td>
-                    <td class="data"><%= auto.engine.displacement %></td>
+                    <td class="details">Transmision</td>
+                    <td class="data"><%= auto.transmission %></td>
                   </tr>
                   <tr>
                     <td class="details">Kilometraje</td>
@@ -192,32 +192,11 @@
             </div>
 
             <div class="especification">
-              <h4>Especificaciones 3</h4>
+              <h4>Equipamiento</h4>
               <div class="table_container">
                 <table>
                   <tr>
-                    <td class="details">Marca Rueda</td>
-                    <td class="data"><%= auto.wheel.maker %></td>
-                  </tr>
-                  <tr>
-                    <td class="details">Tipo de Rueda</td>
-                    <td class="data"><%= auto.wheel.type %></td>
-                  </tr>
-                  <tr>
-                    <td class="details">Ancho Rueda</td>
-                    <td class="data"><%= auto.wheel.width %>mm</td>
-                  </tr>
-                  <tr>
-                    <td class="details">Techo Corredizo</td>
-                    <% if (auto.window.sunroof) { %>
-                      <td class="data">Si</td>
-                    <% } else { %>
-                      <td class="data">No</td>
-                    <% } %>
-                  </tr>
-                  <tr>
-                    <td class="details">Tipo de Vidrio</td>
-                    <td class="data"><%= auto.window.type %></td>
+                    <td class="data"><%= auto.equipment %></td>
                   </tr>
                 </table>
               </div>

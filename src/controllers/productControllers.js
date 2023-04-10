@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const autosPath = path.join(__dirname, "../db/cars.json");
+const { Op } = require("sequelize");
 
 const {
   Products,
@@ -25,9 +26,10 @@ let productControllers = {
         include: {
           all: true,
           nested: true,
-          attributes: { exclude: ["id"] },
+          attributes: 
+          { exclude: ["id"] },
         },
-        attributes: { exclude: ["id"] },
+      
         limit: 20,
       });
 
@@ -75,20 +77,41 @@ let productControllers = {
 
     res.redirect("/products/detail/" + autoId);
   },
-
-  productDetail: (req, res) => {
-    let products = productControllers.getProducts();
-    let autoId = req.params.id;
-    let auto = products.find((auto) => auto.id == autoId);
-
-    let recomendedCars = []
-
-    for(let i = 0; i < 3; i++){
-      recomendedCars.push(products[Math.floor(Math.random() * products.length)])
+  productDetail: async (req, res) => {
+  
+    try{
+      let product = await Products.findByPk(req.params.id, {
+        include: {
+            all: true,
+            nested: true,
+            attributes: { exclude: ["id"] },
+        }
+      });
+      let products = await Products.findAll({
+        include: {
+          all: true,
+          nested: true,
+          attributes: 
+          { exclude: ["id"] },
+        },
+        where: {
+          vehicleType_id: product.vehicleType_id, 
+          id: {[Op.ne]: product.id}
+         },
+      
+        limit: 5
+      })
+     return res.render("products/detail", { auto: product, recomendedCars:products });
+    } catch (error) {
+        res.json({
+            metadata: {
+              mensaje: "No se encontro el producto",
+            },
+            error,
+        });
     }
-
-    res.render("products/detail", { auto, recomendedCars });
   },
+ 
 
   productCart: (req, res) => {
     res.render("products/cart");
