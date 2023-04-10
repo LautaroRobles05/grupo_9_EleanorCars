@@ -113,11 +113,33 @@ module.exports = {
           id: req.params.id
         }
       })
-      res.json({msg: 'archivo borrado'})
+      res.json({msg: 'producto borrado'})
     } catch (error) {
       res.json({
         metadata: {
           mensaje: "No se pudo eliminar el producto",
+        },
+        error,
+    });
+    }
+  },
+  productEdit: async (req, res) => {
+    try {
+      let product = await Products.findByPk(req.params.id);
+      await product.update({
+        
+        year:req.body.year,
+        km:req.body.km,
+        price:req.body.price,
+        equipment:req.body.equipment,
+
+      })
+      res.json({msg: 'producto actualizado'})
+
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "No se pudo editar el producto",
         },
         error,
     });

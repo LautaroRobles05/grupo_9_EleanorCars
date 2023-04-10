@@ -2,15 +2,46 @@ const fs = require("fs");
 const path = require("path");
 const autosPath = path.join(__dirname, "../db/cars.json");
 
-let productControllers = {
-  getProducts: () => {
-    let products = JSON.parse(fs.readFileSync(autosPath, "utf-8"));
-    return products;
-  },
+const {
+  Products,
+  VehicleTypes,
+  CarModels,
+  Brands,
+} = require("../database/models");
 
-  list: (req, res) => {
-    let products = productControllers.getProducts();
-    res.render("products/list", {carsList: products});
+let productControllers = {
+  // getProducts: () => {
+  //   let products = JSON.parse(fs.readFileSync(autosPath, "utf-8"));
+  //   return products;
+  // },
+
+  // list: (req, res) => {
+  //   let products = productControllers.getProducts();
+  //   res.render("products/list", {carsList: products});
+  // },
+  list: async (req, res) => {
+    try {
+      let products = await Products.findAll({
+        include: {
+          all: true,
+          nested: true,
+          attributes: { exclude: ["id"] },
+        },
+        attributes: { exclude: ["id"] },
+        limit: 20,
+      });
+
+      res.render("products/list", {carsList: products});
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "Lista productos inaccesible",
+        },
+        error,
+      });
+    }
+
+    //res.render("products/list", {carsList: products});
   },
 
   productEdit: (req, res) => {
