@@ -39,35 +39,6 @@ module.exports = {
 
     //res.render("products/list", {carsList: products});
   },
-
-  index: async (req, res) => {
-    try {
-      let models = await CarModels.findAll({
-        // include : 'brand'
-      });
-
-      let brands = await Brands.findAll();
-      let vehicleTypes = await VehicleTypes.findAll();
-      let recomendedCars = await Products.findAll({
-        where: {},
-      });
-
-      res.render("index", {
-        vehicleTypes,
-        models,
-        brands,
-        recomendedCars: [],
-      });
-
-    } catch (error) {
-      res.json({
-        metadata: {
-          mensaje: "index inaccesible",
-        },
-        error,
-      });
-    }
-  },
   upload: async (req, res) => {
     try {
       let {
@@ -142,7 +113,7 @@ module.exports = {
           id: req.params.id
         }
       })
-      return res.json({msg: 'archivo borrado'})
+      res.json({msg: 'archivo borrado'})
     } catch (error) {
       res.json({
         metadata: {
