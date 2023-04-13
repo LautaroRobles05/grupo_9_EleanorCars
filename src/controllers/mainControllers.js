@@ -1,5 +1,8 @@
 const fs = require("fs");
+const { required } = require("nodemon/lib/config");
 const path = require("path");
+const {VehicleTypes, CarModels, Brands, Products} = require("../database/models");
+const { log } = require("console");
 const autosPath = path.join(__dirname, "../db/cars.json");
 
 let mainController = {
@@ -8,17 +11,30 @@ let mainController = {
     return products;
   },
 
-  home: (req, res) => {
-    let products = mainController.getProducts();
-    let recomendedCars = []
-
-    for(let i = 0; i < 3; i++){
-      recomendedCars.push(products[Math.floor(Math.random() * products.length)])
-    }
+  home: async (req, res) => {
+    try {
+      let recomendedCars = await Products.findAll({
+        include: {
+          all: true,
+          nested: true,
+          attributes: 
+          { exclude: ["id"] },
+        },
+      limit: 5
+    });
+      let vehicleTypes = await VehicleTypes.findAll({
+    });
+      let brands = await Brands.findAll({
+    });
+      let models = await CarModels.findAll({
+    });
 
     res.render("index", {
-      recomendedCars
+      recomendedCars, vehicleTypes, brands, models
     });
+    } catch (error) {
+      res.json({error})
+    }
   },
 
   register: (req, res) => {

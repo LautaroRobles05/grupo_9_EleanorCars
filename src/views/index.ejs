@@ -39,13 +39,13 @@
 
         <select name="brand" id="brand">
           <% for( let brand of brands ) { %>
-            <option value="<%= brand.id %>"><%= brand.brand %></option>
+            <option value="<%= brand.id %>"><%= brand.name %></option>
           <% } %>
         </select>
 
         <select name="model" id="model">
             <% for( let model of models ) { %>
-              <option value="<%= model.id %>"> <%= model.model %> </option>
+              <option value="<%= model.id %>"> <%= model.name %> </option>
             <% } %>
         </select>
         

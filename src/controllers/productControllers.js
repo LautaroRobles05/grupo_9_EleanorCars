@@ -7,6 +7,8 @@ const {
   Products,
   VehicleTypes,
   CarModels,
+  Colors,
+  GasTypes,
   Brands,
 } = require("../database/models");
 
@@ -46,36 +48,50 @@ let productControllers = {
     //res.render("products/list", {carsList: products});
   },
 
-  productEdit: (req, res) => {
-    let products = productControllers.getProducts();
-    let autoId = req.params.id;
-    let auto = products.find(auto => auto.id == autoId);
-
-    res.render("products/edit", {car: auto});
+  productEdit: async (req, res) => {
+    try {
+      let product = await Products.findByPk(req.params.id, {
+        include: {
+          all: true,
+          nested: true,
+          attributes: { exclude: ["id"] },
+        }
+      });
+      
+      res.render("products/edit", { car: product });
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "No se encontro el producto",
+        },
+        error,
+      });
+    }
   },
-
-  productUpdate: (req, res) => {
-    let products = productControllers.getProducts();
-    let autoId = req.params.id;
-    let auto = products.find(auto => auto.id == autoId);
-  
-    let image = req.files[0] ? req.files[0].filename : auto.img;
-    // if(auto && req.files[0].filename) {
-    //   fs.unlinkSync(path.join(__dirname, "../../public/images/products/" + auto.img));
-    // }
-    
-    
-    auto.maker = req.body.maker || auto.maker;
-		auto.price = Number(req.body.price)|| auto.price;
-		auto.model = req.body.model|| auto.model;
-		auto.year = req.body.year|| auto.year;
-		auto.doors = req.body.doors|| auto.doors;
-		auto.img = image
-    
-    
-    fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
-
-    res.redirect("/products/detail/" + autoId);
+    productUpdate: async (req, res) => {
+    try {
+      let product = await Products.findByPk(req.params.id);
+      await product.update({
+        
+        year:req.body.year,
+        km:req.body.km,
+        price: req.body.price,
+        doors: req.body.doors,
+        transmission: req.body.transmission,
+        manufacturingYear: req.body.manufacturingYear,
+        equipment:req.body.equipment,
+        
+      })
+      return res.redirect("/products/detail/" + product.id);
+      
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "No se pudo editar el producto",
+        },
+        error,
+      });
+    }
   },
   productDetail: async (req, res) => {
   
@@ -118,46 +134,79 @@ let productControllers = {
   },
 
   create: (req, res) => {
+
+    // let tipoDeVehiculo = VehicleTypes.findAll
+            
     res.render("products/create");
   },
+  upload: async (req, res) => {
+    try {
+      let {
+        model_id,
+        year,
+        km,
+        color_id,
+        price,
+        vehicleType_id,
+        gasType_id,
+        manufacturingYear,
+        transmission,
+        doors,
+        equipment,
+      } = req.body;
 
-  upload: (req, res) => {
-    let products = productControllers.getProducts();
-    let newAuto = req.body;
-    let images = [];
+    //  let images = [];
+    //   if (req.files[0]) {
+    //   req.file.forEach((file) => {
+    //     images.push(file.filename);
+    //   });
+    // } else {
+    //   images = "mustang2.png";
+    // }
 
-    if (req.files[0]) {
-      req.file.forEach((file) => {
-        images.push(file.filename);
+      let product = {
+        model_id,
+        year,
+        km,
+        color_id,
+        price,
+        vehicleType_id,
+        gasType_id,
+        manufacturingYear,
+        transmission,
+        doors,
+        equipment,
+      };
+
+      await Products.create(product);
+
+      return res.redirect ('/products')
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "Lista productos inaccesible",
+        },
+        error,
       });
-    } else {
-      images = "mustang2.png";
     }
-
-    let auto = {
-      id: Date.now(),
-      maker: newAuto.maker,
-      model: newAuto.model,
-      img: images,
-      year: newAuto.year,
-      color: newAuto.color,
-      price: Number(newAuto.price),
-    };
-
-    products.push(auto);
-
-    fs.writeFileSync(autosPath, JSON.stringify(products, null, " "));
-
-    res.redirect("/products");
   },
-
-  delete: (req, res) => {
-    let autoId = req.params.id;
-    let products = productControllers.getProducts();
-    let auto = products.filter((auto) => auto.id != autoId);
-
-    fs.writeFileSync(autosPath, JSON.stringify(auto, null, " "));
-    res.redirect("/products");
+ 
+   delete: async (req, res) => {
+    try{
+      await Products.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      res.redirect("/products");
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "No se pudo eliminar el producto",
+        },
+        error,
+    });
+    }
   },
 };
 

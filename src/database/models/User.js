@@ -2,11 +2,11 @@ module.exports = (sequelize, dataTypes) => {
     const alias = 'Users'
     const cols = {
 
-            id: {
-                type: dataTypes.INTEGER,
-                primaryKey: true,
-                autoIncrement: true,
-                allowNull: false
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
             },
 
         name: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
 
-        nickName: {
+        nickname: {
             type: dataTypes.STRING(50),
             allowNull: false,
             unique: true

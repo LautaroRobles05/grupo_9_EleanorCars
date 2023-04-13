@@ -3,6 +3,8 @@ const path = require("path");
 const usersPath = path.join(__dirname, "../db/users.json");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const {Users} = require("../database/models");
+const { request } = require("https");
 
 
 let userController = {
@@ -15,36 +17,39 @@ let userController = {
     res.render("register");
   },
 
-  processRegister: (req, res) => {
+  processRegister: async(req, res) => {
     //return res.send(req.body);
+    try {
+      let resultValidation = validationResult(req);
 
-    let resultValidation = validationResult(req);
-
-    if (!resultValidation.isEmpty()) {
+     if (!resultValidation.isEmpty()) {
       return res.render("register", {
         errors: resultValidation.mapped(),
         oldBody: req.body,
       });
     }
+   await Users.create({
+        name: req.body.firstName,
 
-    let users = userController.getUsers();
-    let newUser = {
-      id: Date.now(),
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      userName: req.body.userName,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-      category: false,
-      imagen: "profile-icon-png-898.png",
-    };
+        lastName: req.body.lastName,
+        
+        email: req.body.email,
 
-    users.push(newUser);
+        password: bcrypt.hashSync(req.body.password, 10),
 
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, " "));
+        nickname: req.body.nickname,
 
-    //res.redirect("/");
-    res.redirect("/user/login");
+        rol_id: 1,
+
+        img: "default-icom.png"
+ 
+    })
+
+    res.redirect("/");
+    } catch (error) {
+      res.json({error})
+  }
+  
   },
   login: (req, res) => {
     res.render("login");

@@ -22,8 +22,6 @@ router.post("/profile/edit",upload.single('img') ,userControllers.editProcess);
 
 
 
-
-
 module.exports = router;
 
 
