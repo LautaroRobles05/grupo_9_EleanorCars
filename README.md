@@ -4,7 +4,8 @@
 
 Santiago Vanzillotta  
 Ignacio Nicolás Moscatelli    
-Lautaro Alejandro Robles  
+Lautaro Alejandro Robles
+Edgardo Miranda
 
 ## REFERENTES:
 
