@@ -4,7 +4,8 @@ const usersPath = path.join(__dirname, "../db/users.json");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const {Users} = require("../database/models");
-const { ValidationError } = require("sequelize");
+const  ValidationError  = require("../errors/ValidationError");
+
 
 
 let userController = {
@@ -75,7 +76,7 @@ let userController = {
           }
           res.redirect("/user/profile");
         } else {
-          throw new ValidationError(' contraseña incorrectos')
+          throw new ValidationError('Email o contraseña incorrectos')
         }
       } else {
         throw new ValidationError('Email o contraseña incorrectos')
