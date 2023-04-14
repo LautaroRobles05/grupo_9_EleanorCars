@@ -16,6 +16,8 @@ section
 }
 section .img-container {
     display: none;
+    background-color: whitesmoke;
+    border-radius: 12px;
 }
 /* section .img-container
 {

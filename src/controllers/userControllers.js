@@ -44,7 +44,7 @@ let userController = {
 
         rol_id: 1,
 
-        img: "default-icom.png"
+        img: "default-icon.png"
  
     })
 
