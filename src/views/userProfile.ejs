@@ -48,7 +48,11 @@
                     </div>
                     <div class="input-box">
                         <span>Género</span>
-                        <input type="text" name="gender" value="<%= user.gender %>" disabled>
+                        <% if (user.gender) { %>
+                            <input type="text" name="gender" value="<%= user.gender.name %>" disabled>
+                        <% } else {%>
+                                <input type="text" name="gender" value="" disabled>
+                            <% } %>
                         </select>
                     </div>
                     <div class="input-box">

@@ -1,6 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-const autosPath = path.join(__dirname, "../db/cars.json");
 const { Op } = require("sequelize");
 
 const {
@@ -72,16 +69,20 @@ let productControllers = {
     try {
       let product = await Products.findByPk(req.params.id);
       await product.update({
-        
-        year:req.body.year,
-        km:req.body.km,
-        price: req.body.price,
-        doors: req.body.doors,
-        transmission: req.body.transmission,
-        manufacturingYear: req.body.manufacturingYear,
-        equipment:req.body.equipment,
-        
-      })
+          year:req.body.year,
+          km:req.body.km,
+          price: req.body.price,
+          doors: req.body.doors,
+          transmission: req.body.transmission,
+          manufacturingYear: req.body.manufacturingYear,
+          equipment:req.body.equipment,
+        },
+        {
+          where: {
+            id: req.params.id
+          } 
+        }
+      ) 
       return res.redirect("/products/detail/" + product.id);
       
     } catch (error) {

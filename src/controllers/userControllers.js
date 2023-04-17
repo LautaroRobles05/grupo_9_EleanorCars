@@ -1,19 +1,13 @@
-const fs = require("fs");
-const path = require("path");
-const usersPath = path.join(__dirname, "../db/users.json");
+
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const {Users} = require("../database/models");
+const {Users, Genders} = require("../database/models");
 const  ValidationError  = require("../errors/ValidationError");
 
-
+let timestamps = ['createdAt', 'deletedAt']
 
 let userController = {
   
-  getUsers: () => {
-    return JSON.parse(fs.readFileSync(usersPath, "utf-8"));
-  },
-
   register: (req, res) => {
     res.render("register");
   },
@@ -92,11 +86,23 @@ let userController = {
   },
 
   profile: async (req, res) => {
-    let user = await Users.findOne({
-      where:{email:req.session.userLogged.email}
-    })
-    return res.render("userProfile", { user });
-  },
+    try {
+        let user = await Users.findOne({
+          include: [{
+            // all: true,
+            // nested: true,
+            association: 'gender',
+            attributes: {
+              exclude: ['id', ...timestamps] //spread operator de timestamps linea 9
+            }
+          }],
+          where:{email:req.session.userLogged.email}
+        })
+        return res.render('userProfile', { user });
+      } catch (error) {
+        res.json({error})
+      }
+    },
 
   logout: (req, res) => {
     req.session.destroy();
@@ -104,45 +110,86 @@ let userController = {
     return res.redirect('/');
   },
 
-  editProfile: (req, res) => {
-    let users = userController.getUsers();
-    let user = users.find((usuario) => usuario.id == req.session.userLogged.id);
+  editProfile: async (req, res) => {
+      try{
+        let user = await Users.findOne({
+          include: [{
+            association: 'gender',
+            attributes: {
+              exclude: timestamps //array timestamps linea 9
+            }
+          }],
+          where: { email:req.session.userLogged.email }
+        })
 
-    res.render("editProfile", { user });
+        let generos = await Genders.findAll({
+          attributes: {
+            exclude: timestamps //array timestamps linea 9
+          }
+        })
+        res.render ("editProfile", { user, generos });
+      } catch (error) {
+        res.json({error})
+      }
+      
   },
 
-  editProcess: (req, res) => {
-    let users = userController.getUsers();
-    let user = users.find((usuario) => usuario.id == req.session.userLogged.id);
-    let image = req.file ? req.file.filename : user.img;
-    
-    user.firstName = req.body.firstName || user.firstName;
-    user.lastName = req.body.lastName || user.lastName;
-    user.email = req.body.email || user.email;
-    user.gender = req.body.gender || user.gender;
-    user.bornDate = req.body.bornDate || user.bornDate;
-    user.dni = req.body.dni || user.dni;
-    user.phone = req.body.phone || user.phone;
-    user.img = image;
+  editProcess: async (req, res) => {
+    // try {
+      let user = req.session.userLogged
+      // let image = req.file ? req.file.filename : user.img;
 
-    fs.writeFileSync(usersPath, JSON.stringify(users, null, " "));
-    
-    delete user.password;
+      await Users.update({
 
-    // req.session.userLogged = user;
-    if(req.cookies.remember){
+        name: req.body.name || user.name,
+        lastName: req.body.lastName || user.lastName,
+        // puede llegar a romper por conflictos en db con email repetido (revisar)
+        gender_id: req.body.gender || (user.gender ? user.gender.id : null),
+        bornDate: req.body.bornDate || user.bornDate,
+        dni: req.body.dni || user.dni,
+        phone: req.body.phone || user.phone,
+        // img: image
+      },
+      {
+        where: {
+          id: user.id
+        }
+      })
+      console.log(req.body)
+      delete user.password;
+
+      if(req.cookies.remember){
+        res.clearCookie('remember');
+        res.cookie(
+          "remember",
+          user,
+          { maxAge: 60000 }
+        )
+      }
+      return res.redirect("/user/profile");
+    // } catch (error) {
+    //   res.json({error})
+    // }
+  },
+  delete: async (req, res) => {
+    try{
+      await Users.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      req.session.destroy();
       res.clearCookie('remember');
-      res.cookie(
-        "remember",
-        user,
-        { maxAge: 60000 }
-      )
+      res.redirect("/");
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "No se pudo eliminar el usuario",
+        },
+        error,
+    });
     }
-    
-    // console.log("session",req.session.userLogged);
-
-    return res.render("userProfile", {user});
-  },
-};
+  }
+}
 
 module.exports = userController;
