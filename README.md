@@ -5,6 +5,7 @@
 Santiago Vanzillotta  
 Ignacio Nicolás Moscatelli    
 Lautaro Alejandro Robles  
+Edgardo Miranda
 
 ## REFERENTES:
 
