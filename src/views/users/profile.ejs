@@ -11,16 +11,16 @@
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>Mi Perfíl</title>
 </head>
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 <main>
     <section>
         <% if (user.img) { %>
             <div class="img-container">
-                <img src="/images/user/<%= user.img  %>" alt="">
+                <img src="/images/users/<%= user.img  %>" alt="">
             </div>
         <% } else { %>
             <div class="img-container">
@@ -41,6 +41,15 @@
                     <div class="input-box">
                         <span>E-mail</span>
                         <input type="text" name="email" value="<%= user.email %>" disabled>
+                    </div>
+                    <div class="input-box">
+                        <span>Provincia</span>
+                        <% if (user.state) { %>
+                            <input type="text" name="state" value="<%= user.state.name %>" disabled>
+                        <% } else {%>
+                                <input type="text" name="state" value="" disabled>
+                            <% } %>
+                        </select>
                     </div>
                     <div class="input-box">
                         <span>DNI</span>
@@ -89,7 +98,7 @@
 
 
 
-    <%- include("./partials/footer") %> 
+    <%- include("../partials/footer") %> 
 </body>
 
 </html>

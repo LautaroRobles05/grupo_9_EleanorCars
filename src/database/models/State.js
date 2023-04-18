@@ -10,10 +10,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: {
             type: dataTypes.STRING(50),
-        },
-        country_id: {
-            type: dataTypes.INTEGER,
-        },
+        }
     }
 
         const config = {

@@ -11,15 +11,15 @@
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>Editar Prefíl</title>
 </head>
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 <main>
     <section>
         <div class="img-container">
-            <img src="/images/user/<%= user.img  %>" alt="">
+            <img src="/images/users/<%= user.img  %>" alt="">
         </div>
         <div class="content-box">
             <div class="form">
@@ -46,10 +46,28 @@
                         <span>Imagen de perfil</span>
                         <input type="file" name="userImage">
                     </div> -->
+
+                    <div class="input-box">
+                        <span>Provincia</span>
+                        <br>
+                        <select name="state" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            
+                            <% for(let provincia of provincias) { %>
+                                <% if (user.state && (provincia.id == user.state.id)){ %>
+                                        <option value="<%= provincia.id %>" selected> <%= provincia.name %> </option>
+                                    <% } else {%>    
+                                        <option value="<%= provincia.id %>"> <%= provincia.name %> </option>
+                                    <% } %>
+                            <% } %>
+                        </select>
+                    </div>
+
                     <div class="input-box">
                         <span>DNI</span>
                         <input type="text" name="dni" value="<%= user.dni %>" >
                     </div>
+
                     <div class="input-box">
                         <span>Género</span>
                         <br>
@@ -105,7 +123,7 @@
 
 
 
-    <%- include("./partials/footer") %> 
+    <%- include("../partials/footer") %> 
 </body>
 
 </html>

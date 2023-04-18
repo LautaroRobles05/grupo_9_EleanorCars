@@ -1,13 +1,25 @@
 
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const {Users, Genders} = require("../database/models");
+const {Users, Genders, States} = require("../database/models");
 const  ValidationError  = require("../errors/ValidationError");
 
 let timestamps = ['createdAt', 'deletedAt']
 
 let userController = {
   
+  list: async (req,res)=>{
+    try {
+      let users = await Users.findAll({
+        limit: 20
+      });
+
+      res.render("users/list",{users});
+    } catch (error) {
+      res.json({error});
+    }
+  },
+
   register: (req, res) => {
     res.render("register");
   },
@@ -18,14 +30,13 @@ let userController = {
       let resultValidation = validationResult(req);
       
      if (!resultValidation.isEmpty()) {
-      console.log(resultValidation)
       return res.render("register", {
         errors: resultValidation.mapped(),
         oldBody: req.body,
       });
 
     }
-   await Users.create({
+    await Users.create({
         name: req.body.firstName,
 
         lastName: req.body.lastName,
@@ -44,10 +55,10 @@ let userController = {
 
     res.redirect("/user/login");
     } catch (error) {
-      res.json({error})
-  }
-  
+      res.json({error});
+    }
   },
+
   login: (req, res) => {
     res.render("login");
   },
@@ -57,7 +68,6 @@ let userController = {
       let usuario = await Users.findOne({
         where:{email:req.body.email}
       })
-     // console.log(usuario)
       if (usuario) {
         let check = bcrypt.compareSync(req.body.password, usuario.password);
         
@@ -93,12 +103,18 @@ let userController = {
             // nested: true,
             association: 'gender',
             attributes: {
-              exclude: ['id', ...timestamps] //spread operator de timestamps linea 9
+              include: ['name'] //spread operator de timestamps linea 9
+            }
+          },{
+            association: 'state',
+            attributes: {
+              include: ['name'] //spread operator de timestamps linea 9
             }
           }],
           where:{email:req.session.userLogged.email}
         })
-        return res.render('userProfile', { user });
+        // return res.json({user});
+        return res.render('users/profile', { user });
       } catch (error) {
         res.json({error})
       }
@@ -117,8 +133,12 @@ let userController = {
             association: 'gender',
             attributes: {
               exclude: timestamps //array timestamps linea 9
-            }
-          }],
+            }},{
+            association: 'state',
+            attributes: {
+              exclude: timestamps //array timestamps linea 9
+            }}
+          ],
           where: { email:req.session.userLogged.email }
         })
 
@@ -127,7 +147,14 @@ let userController = {
             exclude: timestamps //array timestamps linea 9
           }
         })
-        res.render ("editProfile", { user, generos });
+
+        let provincias = await States.findAll({
+          attributes: {
+            exclude: timestamps //array timestamps linea 9
+          }
+        })
+
+        res.render ("users/edit", { user, generos , provincias});
       } catch (error) {
         res.json({error})
       }
@@ -135,7 +162,7 @@ let userController = {
   },
 
   editProcess: async (req, res) => {
-    // try {
+    try {
       let user = req.session.userLogged
       // let image = req.file ? req.file.filename : user.img;
 
@@ -144,6 +171,7 @@ let userController = {
         name: req.body.name || user.name,
         lastName: req.body.lastName || user.lastName,
         // puede llegar a romper por conflictos en db con email repetido (revisar)
+        state_id: req.body.state || (user.state ? user.state.id : null),
         gender_id: req.body.gender || (user.gender ? user.gender.id : null),
         bornDate: req.body.bornDate || user.bornDate,
         dni: req.body.dni || user.dni,
@@ -155,7 +183,6 @@ let userController = {
           id: user.id
         }
       })
-      console.log(req.body)
       delete user.password;
 
       if(req.cookies.remember){
@@ -167,9 +194,9 @@ let userController = {
         )
       }
       return res.redirect("/user/profile");
-    // } catch (error) {
-    //   res.json({error})
-    // }
+    } catch (error) {
+      res.json({error})
+    }
   },
   delete: async (req, res) => {
     try{
