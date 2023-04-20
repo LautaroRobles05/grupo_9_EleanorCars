@@ -2,6 +2,7 @@ const { Op } = require("sequelize");
 
 const {
   Products,
+  Images,
   VehicleTypes,
   CarModels,
   Colors,
@@ -32,7 +33,7 @@ let productControllers = {
         limit: 20,
       });
 
-      res.render("products/list", {carsList: products});
+     res.render("products/list", {carsList: products});
     } catch (error) {
       res.json({
         metadata: {
@@ -134,11 +135,25 @@ let productControllers = {
     res.render("products/cart");
   },
 
-  create: (req, res) => {
+  create: async (req, res) => {
+    try {
+      let brands = await Brands.findAll();
+      let models = await CarModels.findAll();
+      let colors = await Colors.findAll();
+      let gasType = await GasTypes.findAll();
+      let vehicleTypes = await VehicleTypes.findAll();
+      let transmissions = ['Manual','Automatico'];
+      let doors = [3,5];
+      res.render("products/create",{brands,models,colors,gasType,vehicleTypes,transmissions,doors});
 
-    // let tipoDeVehiculo = VehicleTypes.findAll
-            
-    res.render("products/create");
+    } catch (error) {
+      res.json({
+          metadata: {
+            mensaje: "No se encontro el producto",
+          },
+          error,
+      });
+    }   
   },
   upload: async (req, res) => {
     try {
@@ -148,6 +163,7 @@ let productControllers = {
         km,
         color_id,
         price,
+        img,
         vehicleType_id,
         gasType_id,
         manufacturingYear,
@@ -156,21 +172,13 @@ let productControllers = {
         equipment,
       } = req.body;
 
-    //  let images = [];
-    //   if (req.files[0]) {
-    //   req.file.forEach((file) => {
-    //     images.push(file.filename);
-    //   });
-    // } else {
-    //   images = "mustang2.png";
-    // }
-
       let product = {
         model_id,
         year,
         km,
         color_id,
         price,
+        img,
         vehicleType_id,
         gasType_id,
         manufacturingYear,
@@ -179,7 +187,28 @@ let productControllers = {
         equipment,
       };
 
-      await Products.create(product);
+     
+
+
+
+
+      
+      Products.create(product)
+        .then((response)=>{
+         let id = response.id;
+         
+         let imgProduct = []
+         let listaImagenes= req.files
+         listaImagenes.forEach(img => {
+           let dataImg = {
+             product_id:id,
+             name:img.filename
+           }
+           imgProduct.push(dataImg)
+           
+         });
+         Images.bulkCreate(imgProduct);
+        })
 
       return res.redirect ('/products')
     } catch (error) {

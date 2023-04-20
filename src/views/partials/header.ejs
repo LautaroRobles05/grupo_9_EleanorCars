@@ -15,8 +15,9 @@
         <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
       </li>
       <li>
-        <a href="/products/create"><i class="fa-solid fa-user-gear"></i></a>
+        <a href="/products/create"><i class="fa-solid fa-circle-plus"></i></a>
       </li>
+      <!-- <i class="fa-solid fa-user-gear"></i> usuario con engranaje--> 
       <% if (locals.userLogged) { %>
         <li>
           <a href="/user/profile"><i class="fa-solid fa-user-tie"></i> Hi <%= locals.userLogged.nickname  %>
