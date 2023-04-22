@@ -1,9 +1,0 @@
-insert into carmodels (brand_id, model) values (38, '2008');
-insert into carmodels (brand_id, model) values (38, '208');
-insert into carmodels (brand_id, model) values (38, '3008');
-insert into carmodels (brand_id, model) values (38, '308');
-insert into carmodels (brand_id, model) values (38, '408');
-insert into carmodels (brand_id, model) values (38, '5008');
-insert into carmodels (brand_id, model) values (38, '508');
-insert into carmodels (brand_id, model) values (38, 'Rifter');
-insert into carmodels (brand_id, model) values (38, 'Traveller');
