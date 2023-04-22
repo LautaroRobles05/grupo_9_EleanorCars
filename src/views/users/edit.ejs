@@ -11,23 +11,29 @@
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>Editar Prefíl</title>
 </head>
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 <main>
     <section>
-        <div class="img-container">
-            <img src="/images/user/<%= user.img  %>" alt="">
-        </div>
+        <% if (user.img) { %>
+            <div class="img-container">
+                <img src="/images/users/<%= user.img.name  %>" alt="">
+            </div>
+        <% } else { %>
+            <div class="img-container">
+                <img src="/images/users/default-icon.png" alt="">
+            </div>
+        <% } %>
         <div class="content-box">
             <div class="form">
                 <h2>PERFIL USUARIO</h2>
-                <form method = "post" action="/user/profile/edit" enctype="multipart/form-data">
+                <form method = "post" action="/user/profile/edit?_method=PUT" enctype="multipart/form-data">
                     <div class="input-box">
                         <span>Nombre</span>
-                        <input type="text" name="firstName" value="<%= user.firstName %>" >
+                        <input type="text" name="name" value="<%= user.name %>" >
                     </div>
                     <div class="input-box">
                         <span>Apellido</span>
@@ -40,33 +46,47 @@
                     </div>
                     <div class="input-box">
                         <span>E-mail</span>
-                        <input type="text" name="email" value="<%= user.email %>" >
+                        <input type="text" name="email" value="<%= user.email %>" disabled>
                     </div>
                     <!-- <div class="input-box">
                         <span>Imagen de perfil</span>
                         <input type="file" name="userImage">
                     </div> -->
+
+                    <div class="input-box">
+                        <span>Provincia</span>
+                        <br>
+                        <select name="state" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            
+                            <% for(let provincia of provincias) { %>
+                                <% if (user.state && (provincia.id == user.state.id)){ %>
+                                        <option value="<%= provincia.id %>" selected> <%= provincia.name %> </option>
+                                    <% } else {%>    
+                                        <option value="<%= provincia.id %>"> <%= provincia.name %> </option>
+                                    <% } %>
+                            <% } %>
+                        </select>
+                    </div>
+
                     <div class="input-box">
                         <span>DNI</span>
                         <input type="text" name="dni" value="<%= user.dni %>" >
                     </div>
+
                     <div class="input-box">
                         <span>Género</span>
                         <br>
                         <!-- <input type="text" name="userGender"> -->
                         <select name="gender" id="" >
-                            <% 
-                            let generos = ['Masculino','Femenino','Otro'];
-                            %>
-
-                            <% for(let genero in generos ) { %>
-                                <% if (generos[genero] == user.gender) { %>
-                                    <option value="<%= generos[genero] %>" selected> <%= generos[genero] %> </option>
-                                
-                                <% } else {%>    
-                                    <option value="<%= generos[genero] %>"> <%= generos[genero] %> </option>
-
-                                <% } %>
+                            <option value="" disabled selected>Seleccionar</option>
+                            
+                            <% for(let genero of generos) { %>
+                                <% if (user.gender && (genero.id == user.gender.id)){ %>
+                                        <option value="<%= genero.id %>" selected> <%= genero.name %> </option>
+                                    <% } else {%>    
+                                        <option value="<%= genero.id %>"> <%= genero.name %> </option>
+                                    <% } %>
                             <% } %>
                         </select>
                     </div>
@@ -91,6 +111,11 @@
                     </div>
                    
                 </form>
+                <form action="/user/<%= user.id %>?_method=DELETE" method="post">
+                    <div class="input-box delete">
+                        <input type="submit" value="Eliminar Cuenta" name="">
+                    </div>
+                </form>
 
     </section>
 
@@ -104,7 +129,7 @@
 
 
 
-    <%- include("./partials/footer") %> 
+    <%- include("../partials/footer") %> 
 </body>
 
 </html>

@@ -11,20 +11,20 @@
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>Mi Perfíl</title>
 </head>
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 <main>
     <section>
         <% if (user.img) { %>
             <div class="img-container">
-                <img src="/images/user/<%= user.img  %>" alt="">
+                <img src="/images/users/<%= user.img.name  %>" alt="">
             </div>
         <% } else { %>
             <div class="img-container">
-                <img src="/images/user/profile-icon-png-898.png" alt="">
+                <img src="/images/users/default-icon.png" alt="">
             </div>
         <% } %>
         <div class="content-box">
@@ -32,7 +32,7 @@
                 <h2>PERFIL USUARIO</h2>
                     <div class="input-box">
                         <span>Nombre</span>
-                        <input type="text" name="firstName" value="<%= user.firstName %>" disabled>
+                        <input type="text" name="firstName" value="<%= user.name %>" disabled>
                     </div>
                     <div class="input-box">
                         <span>Apellido</span>
@@ -43,12 +43,25 @@
                         <input type="text" name="email" value="<%= user.email %>" disabled>
                     </div>
                     <div class="input-box">
+                        <span>Provincia</span>
+                        <% if (user.state) { %>
+                            <input type="text" name="state" value="<%= user.state.name %>" disabled>
+                        <% } else {%>
+                                <input type="text" name="state" value="" disabled>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="input-box">
                         <span>DNI</span>
                         <input type="text" name="dni" value="<%= user.dni %>" disabled>
                     </div>
                     <div class="input-box">
                         <span>Género</span>
-                        <input type="text" name="gender" value="<%= user.gender %>" disabled>
+                        <% if (user.gender) { %>
+                            <input type="text" name="gender" value="<%= user.gender.name %>" disabled>
+                        <% } else {%>
+                                <input type="text" name="gender" value="" disabled>
+                            <% } %>
                         </select>
                     </div>
                     <div class="input-box">
@@ -85,7 +98,7 @@
 
 
 
-    <%- include("./partials/footer") %> 
+    <%- include("../partials/footer") %> 
 </body>
 
 </html>

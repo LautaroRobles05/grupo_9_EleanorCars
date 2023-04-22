@@ -1,0 +1,9 @@
+insert into carmodels (id, model, brand_id) values (1, 'EcoSport', 14);
+insert into carmodels (id, model, brand_id) values (2, 'Explorer', 14);
+insert into carmodels (id, model, brand_id) values (3, 'Fiesta', 14);
+insert into carmodels (id, model, brand_id) values (4, 'Focus', 14);
+insert into carmodels (id, model, brand_id) values (5, 'Grand', 14);
+insert into carmodels (id, model, brand_id) values (6, 'Tourneo', 14);
+insert into carmodels (id, model, brand_id) values (7, 'Connect', 14);
+insert into carmodels (id, model, brand_id) values (8, 'Kuga', 14);
+insert into carmodels (id, model, brand_id) values (9, 'Mustang', 14);

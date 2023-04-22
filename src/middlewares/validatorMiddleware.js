@@ -21,7 +21,7 @@ const rules = [
   body("email")
     .notEmpty().withMessage("Ingresa un email").bail()
     .isEmail().withMessage("Debe tener formato de email"),  
-  body("userName")
+  body("nickname")
     .isLength({ min: 4 })
     .withMessage("Por lo menos necesito 4 caracteres"),
   body("password")

@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="/css/login.css"> -->
     
-    <title>Editar :id</title>
+    <title>Crear producto</title>
 
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
@@ -34,32 +34,129 @@
                     </div>
 
                     <div class="input-box">
-                        <span>Marca de producto</span>
-                        <input type="text" name="maker" >
+                        <span>Marca</span>
+                        <br>
+                        <select name="brand" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let brand of brands) { %>
+                                <option value="<%= brand.id %>"> <%= brand.name %> </option>
+
+                            <% } %>
+                        </select>
+                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
+                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
                     </div>
                     
                     <div class="input-box">
-                        <span>Modelo del producto</span>
-                        <input type="text" name="model" >
+                        <span>Modelo</span>
+                        <br>
+                        <select name="model_id" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let model of models) { %>
+                                <option value="<%= model.id %>"> <%= model.name %> </option>
+
+                            <% } %>
+                        </select>
+                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
+                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
                     </div>
+
 
                     <label for="">Imagen
                         <input class="input-box" type="file" name="img" id="" multiple>
                     </label>
 
                     <div class="input-box">
-                        <span>Año</span>
-                        <input type="text" name="year">
+                        <span>Color</span>
+                        <br>
+                        <select name="color_id" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let color of colors) { %>
+                                <option value="<%= color.id %>"> <%= color.name %> </option>
+
+                            <% } %>
+                        </select>
+                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
+                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
                     </div>
 
                     <div class="input-box">
-                        <span>Color</span>
-                        <input type="text" name="color">
+                        <span>Tipo de combustible</span>
+                        <br>
+                        <select name="gasType_id" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let gas of gasType) { %>
+                                <option value="<%= gas.id %>"> <%= gas.tipo %> </option>
+
+                            <% } %>
+                        </select>
+                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
+                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
                     </div>
 
+                    <div class="input-box">
+                        <span>Tipo de vehiculo</span>
+                        <br>
+                        <select name="vehicleType_id" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let type of vehicleTypes) { %>
+                                <option value="<%= type.id %>"> <%= type.tipo %> </option>
+
+                            <% } %>
+                        </select>
+                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
+                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
+                    </div>
+
+                    
+                    
+                    <div class="input-box">
+                        <span>Puertas</span>
+                        <br>
+                        <select name="doors" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let door of doors) { %>
+                                <option value="<%= door %>"> <%= door %> </option>
+
+                            <% } %>
+                        </select>
+                    </div>
+                    
+                    <div class="input-box">
+                        <span>Transmision</span>
+                        <br>
+                        <select name="transmission" id="" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let transmission of transmissions) { %>
+                                <option value="<%= transmission %>"> <%= transmission %> </option>
+
+                            <% } %>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span>Año</span>
+                        <input type="text" name="year" >
+                    </div>
+                    
                     <div class="input-box">
                         <span>Precio</span>
                         <input type="number" name="price" >
+                    </div>
+
+                    <div class="input-box">
+                        <span>Kilometraje</span>
+                        <input type="number" name="km" >
+                    </div>
+                    
+                    <div class="input-box">
+                        <span>Año de Fabricacion</span>
+                        <input type="number" name="manufacturingYear" >
+                    </div>
+
+                    <div class="input-box">
+                        <span>Equipamiento</span>
+                        <input type="textarea" name="equipment" >
                     </div>
 
                     <div class="input-submit">

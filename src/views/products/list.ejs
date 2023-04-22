@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Productos</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100;1,400;1,700&display=swap"
@@ -31,11 +31,18 @@
 
           
             <article class="cart-list-item">
-              <a href="/products/detail/<%= auto.id %>">    <img class="car-img" src="/images/products/<%= auto.img %>" alt="imagen auto">  </a> 
+              <a href="/products/detail/<%= auto.id %>">    
+                <% if (auto.productImages[0]) { %>
+                  <img class="car-img" src="/images/products/<%= auto.productImages[0].name %>" alt="imagen auto">  
+                  <% } else { %>
+                        <img class="car-img" src="/images/products/default-troll-img.jpeg" alt="">
+                <% } %>
+                
+              </a> 
             <h3 class="img-title"><%= auto.maker %></h3>
-            <p>MODELO: <%= auto.model %></p>
+            <p>MODELO: <%= auto.model.name %></p>
             <p>AÑO: <%= auto.year %> </p>
-            <p>MARCA: <%= auto.maker %> </p>
+            <p>MARCA: <%= auto.model.brand.name %> </p>
             <p>PRECIO: 💰 $<%= auto.price %></p>
         </article> 
      

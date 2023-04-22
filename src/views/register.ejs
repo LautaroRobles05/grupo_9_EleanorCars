@@ -56,10 +56,10 @@
                     </div>
                     <div class="input-box">
                         <span>Nombre de usuario</span>
-                        <input type="text" name="userName" value="<%= locals.oldBody ? oldBody.userName : null %>">
-                        <% if (locals.errors && errors.userName) { %>
+                        <input type="text" name="nickname" value="<%= locals.oldBody ? oldBody.nickname : null %>">
+                        <% if (locals.errors && errors.nickname) { %>
                             <div class="text-danger" style="color: red;">
-                               <%= errors.userName.msg %>
+                               <%= errors.nickname.msg %>
                             </div>
                         <% } %>
                     </div>

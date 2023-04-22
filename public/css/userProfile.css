@@ -16,6 +16,8 @@ section
 }
 section .img-container {
     display: none;
+    background-color: whitesmoke;
+    border-radius: 12px;
 }
 /* section .img-container
 {
@@ -127,6 +129,14 @@ section .content-box .form .remember
     color: #607d8b;
     font-weight: 400;
     font-size: 14px;
+}
+section .content-box .form .delete input[type="submit"]
+{
+    background-color: #d4332a ;
+}
+section .content-box .form .delete input[type="submit"]:hover
+{
+    background-color: #931a14 ;
 }
 section .content-box .form .input-box p
 {

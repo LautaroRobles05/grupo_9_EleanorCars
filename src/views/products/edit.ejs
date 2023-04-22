@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="/css/login.css"> -->
     
-    <title>Editar :id</title>
+    <title>Editar <%= car.model.brand.name %>-<%= car.model.name %></title>
 
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
@@ -30,37 +30,58 @@
               
                     <form class="form-edit-modify" method="post" action="/products/edit/<%= car.id %>?_method=PUT" enctype="multipart/form-data">
                     <div class="car-id">
-                        <h4>ID:25</h4>
+                        <h4>ID: <%= car.id %></h4>
                     </div>
 
                     <div class="input-box">
                         <span>Marca de producto</span>
-                        <input type="text" name="maker" value="<%= car.maker %>">
+                        <input type="text" name="brand" value="<%= car.model.brand.name %>">
                     </div>
                     
                     <div class="input-box">
                         <span>Modelo del producto</span>
-                        <input type="text" name="model" value="<%= car.model %>">
+                        <input type="text" name="model" value="<%= car.model.name %>">
                     </div>
 
                     <label for="">Imagen
                         <input class="input-box" type="file" name="img" id="" multiple>
                     </label>
-
+                    
                     <div class="input-box">
                         <span>Año</span>
                         <input type="text" name="year" value="<%= car.year %>">
                     </div>
-
+                    
                     <div class="input-box">
                         <span>Puertas</span>
                         <input type="text" name="doors" value="<%= car.doors %>">
                     </div>
-
+                    
                     <div class="input-box">
                         <span>Precio</span>
                         <input type="number" name="price" value="<%= car.price %>">
                     </div>
+
+                    <div class="input-box">
+                        <span>Kilometraje</span>
+                        <input type="number" name="km" value="<%= car.km %>">
+                    </div>
+                    
+                    <div class="input-box">
+                        <span>Año de Fabricacion</span>
+                        <input type="number" name="manufacturingYear" value="<%= car.manufacturingYear %>">
+                    </div>
+
+                    <div class="input-box">
+                        <span>Transmision</span>
+                        <input type="text" name="transmission" value="<%= car.transmission %>">
+                    </div>
+
+                    <div class="input-box">
+                        <span>Equipamiento</span>
+                        <input type="textarea" name="equipment" value="<%= car.equipment %>">
+                    </div>
+
 
                     <div class="input-submit">
                         <input type="submit" value="Aplicar" name="">

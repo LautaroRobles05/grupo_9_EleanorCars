@@ -14,12 +14,18 @@
       <li>
         <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
       </li>
-      <li>
-        <a href="/products/create"><i class="fa-solid fa-user-gear"></i></a>
-      </li>
+      <!-- <i class="fa-solid fa-user-gear"></i> usuario con engranaje--> 
       <% if (locals.userLogged) { %>
+        <% if (locals.userLogged.rol_id == 2) { %>
+            <li>
+              <a href="/products/create"><i class="fa-solid fa-circle-plus"></i></a>
+            </li>
+            <li>
+              <a href="/user/list"><i class="fa-solid fa-users"></i></a>
+            </li>
+          <% } %>
         <li>
-          <a href="/user/profile"><i class="fa-solid fa-user-tie"></i> Hi <%= locals.userLogged.userName  %>
+          <a href="/user/profile"><i class="fa-solid fa-user-tie"></i> Hi <%= locals.userLogged.nickname  %>
           </a>
         </li>
       <% } else { %>

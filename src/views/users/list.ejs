@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado Usuarios</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/productList.css" />
+
+    <script
+      src="https://kit.fontawesome.com/58f19d8ff4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  
+  <body>
+    <%- include ('../partials/header') %>
+    <main>
+        <% users.forEach(user => {%>
+
+          <article class="cart-list-item">
+            <a href="/user/profile/<%= user.id %>">
+
+            <% if (user.img) { %>
+              <img class="car-img" src="/images/users/<%= user.img.name %>" alt="imagen usuario">
+              <% } else { %>
+                 <img class="car-img" src="/images/users/default-icon.png" alt="imagen usuario">
+              <% } %>
+              
+            </a> 
+            <h3 class="img-title"><%= user.nickname %></h3>
+            <p>NOMBRE: <%= user.name %></p>
+            <p>APELLIDO: <%= user.lastName %> </p>
+            <p>EMAIL: <%= user.email %> </p>
+          </article> 
+     
+        <% }) %>
+    </main>
+    <%- include ('../partials/footer') %>
+  </body>
+</html>
