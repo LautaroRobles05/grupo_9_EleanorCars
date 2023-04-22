@@ -41,8 +41,6 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
 
-        img: dataTypes.STRING(100),
-
         gender_id: dataTypes.INTEGER,
 
         phone: dataTypes.STRING(50),
@@ -75,6 +73,10 @@ module.exports = (sequelize, dataTypes) => {
         User.belongsTo(models.Genders, {
             as: 'gender',
             foreignKey: 'gender_id'
+        });
+        User.hasOne(models.UserImages, {
+            as: 'img',
+            foreignKey: 'user_id'
         });
 
         

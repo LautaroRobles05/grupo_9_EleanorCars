@@ -4,7 +4,11 @@
 
     <div id="item_carrucel_<%= i %>" class="item_carrucel">
       <div class="tarjeta_carrucel">
-        <img class="container_img" src="/images/products/<%=recomendedCars[i].img %>" alt="imagen-<%= recomendedCars[i].model.brand.name %>-<%= recomendedCars[i].model.name %>-<%= recomendedCars[i].year %>">
+        <% if (recomendedCars[i].img) { %>
+          <img class="container_img" src="/images/products/<%=recomendedCars[i].img.name %>" alt="imagen-<%= recomendedCars[i].model.brand.name %>-<%= recomendedCars[i].model.name %>-<%= recomendedCars[i].year %>">
+          <% } else { %>
+            <img class="container_img" src="/images/products/image-missing.jpg" alt="">
+          <% } %>
         <!-- <div class="container_img"></div> -->
         <h4><%= recomendedCars[i].model.brand.name %> <%= recomendedCars[i].model.name %> <%= recomendedCars[i].year %></h4>
         <p>

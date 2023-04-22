@@ -25,16 +25,17 @@
           <div class="title_product">
             <h2><%= auto.model.brand.name %>-<%= auto.model.name %></h2>
             
-
-            <div class="product_modify_delete">
-              <form action="/products/edit/<%= auto.id %>">
-                <button type="submit" style="all: unset;"><i class="fa-regular fa-pen-to-square"></i></button>
-              </form>
-
-             <form action="/products/<%= auto.id %>?_method=DELETE" method="post">
-                <button type="submit" style="all: unset;"><i class="fa-solid fa-trash"></i></button>
-              </form>
-            </div>
+            <% if (locals.userLogged && (locals.userLogged.rol_id == 2)) { %>
+              <div class="product_modify_delete">
+                <form action="/products/edit/<%= auto.id %>">
+                  <button type="submit" style="all: unset;"><i class="fa-regular fa-pen-to-square"></i></button>
+                </form>
+  
+               <form action="/products/<%= auto.id %>?_method=DELETE" method="post">
+                  <button type="submit" style="all: unset;"><i class="fa-solid fa-trash"></i></button>
+                </form>
+              </div>
+            <% } %>
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam

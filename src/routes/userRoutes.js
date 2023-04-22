@@ -5,9 +5,10 @@ const userControllers = require('../controllers/userControllers')
 const rules = require('../middlewares/validatorMiddleware');
 const guestMiddleware = require ('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 
-router.get("/list", userControllers.list);
+router.get("/list", adminMiddleware, userControllers.list);
 
 router.get("/register", guestMiddleware, userControllers.register);
 router.post("/register",rules,userControllers.processRegister);

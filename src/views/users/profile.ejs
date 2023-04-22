@@ -20,11 +20,11 @@
     <section>
         <% if (user.img) { %>
             <div class="img-container">
-                <img src="/images/users/<%= user.img  %>" alt="">
+                <img src="/images/users/<%= user.img.name  %>" alt="">
             </div>
         <% } else { %>
             <div class="img-container">
-                <img src="/images/user/profile-icon-png-898.png" alt="">
+                <img src="/images/users/default-icon.png" alt="">
             </div>
         <% } %>
         <div class="content-box">

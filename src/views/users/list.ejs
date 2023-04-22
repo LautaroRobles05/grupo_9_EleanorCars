@@ -30,7 +30,15 @@
         <% users.forEach(user => {%>
 
           <article class="cart-list-item">
-            <a href="/user/profile/<%= user.id %>"><img class="car-img" src="/images/users/<%= user.img %>" alt="imagen usuario"></a> 
+            <a href="/user/profile/<%= user.id %>">
+
+            <% if (user.img) { %>
+              <img class="car-img" src="/images/users/<%= user.img.name %>" alt="imagen usuario">
+              <% } else { %>
+                 <img class="car-img" src="/images/users/default-icon.png" alt="imagen usuario">
+              <% } %>
+              
+            </a> 
             <h3 class="img-title"><%= user.nickname %></h3>
             <p>NOMBRE: <%= user.name %></p>
             <p>APELLIDO: <%= user.lastName %> </p>

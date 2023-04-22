@@ -1,7 +1,7 @@
 
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const {Users, Genders, States} = require("../database/models");
+const {Users, Genders, States, UserImages} = require("../database/models");
 const  ValidationError  = require("../errors/ValidationError");
 
 let timestamps = ['createdAt', 'deletedAt']
@@ -11,6 +11,12 @@ let userController = {
   list: async (req,res)=>{
     try {
       let users = await Users.findAll({
+        include: [{
+          association: 'img',
+          attributes: {
+            include: ['name'] //spread operator de timestamps linea 9
+          }
+        }],
         limit: 20
       });
 
@@ -48,9 +54,6 @@ let userController = {
         nickname: req.body.nickname,
 
         rol_id: 1,
-
-        img: "default-icon.png"
- 
     })
 
     res.redirect("/user/login");
@@ -74,6 +77,8 @@ let userController = {
         if (check) {
           delete usuario.password;
           req.session.userLogged = usuario;
+
+          console.log('BUSCANDO EL ROL', usuario.rol_id);
           
           if (req.body.remember) {
             res.cookie("remember", usuario, { maxAge: 60000 });
@@ -99,8 +104,6 @@ let userController = {
     try {
         let user = await Users.findOne({
           include: [{
-            // all: true,
-            // nested: true,
             association: 'gender',
             attributes: {
               include: ['name'] //spread operator de timestamps linea 9
@@ -110,10 +113,16 @@ let userController = {
             attributes: {
               include: ['name'] //spread operator de timestamps linea 9
             }
+          },
+          {
+            association: 'img',
+            attributes: {
+              include: ['name'] //spread operator de timestamps linea 9
+            }
           }],
           where:{email:req.session.userLogged.email}
         })
-        // return res.json({user});
+        // console.log('sesion de profile', user)
         return res.render('users/profile', { user });
       } catch (error) {
         res.json({error})
@@ -133,12 +142,18 @@ let userController = {
             association: 'gender',
             attributes: {
               exclude: timestamps //array timestamps linea 9
-            }},{
+            }},
+            {
             association: 'state',
             attributes: {
               exclude: timestamps //array timestamps linea 9
-            }}
-          ],
+            }},
+            {
+            association: 'img',
+            attributes: {
+              include: ['name']
+            }
+          }],
           where: { email:req.session.userLogged.email }
         })
 
@@ -164,9 +179,20 @@ let userController = {
   editProcess: async (req, res) => {
     try {
       let user = req.session.userLogged
-      // let image = req.file ? req.file.filename : user.img;
-
-      await Users.update({
+      // console.log('hola soy el usuario', user)
+      if(req.file){ 
+        await UserImages.destroy({
+          where: {
+            user_id: user.id
+          }
+        })
+        await UserImages.create({
+          name: req.file.filename,
+          user_id: user.id
+        })
+      }
+      
+       await Users.update({
 
         name: req.body.name || user.name,
         lastName: req.body.lastName || user.lastName,
@@ -176,13 +202,25 @@ let userController = {
         bornDate: req.body.bornDate || user.bornDate,
         dni: req.body.dni || user.dni,
         phone: req.body.phone || user.phone,
-        // img: image
       },
       {
         where: {
           id: user.id
         }
       })
+      
+      // let user = {
+      //   name: req.body.name || oldSession.name,
+      //   lastName: req.body.lastName || oldSession.lastName,
+      //   // puede llegar a romper por conflictos en db con email repetido (revisar)
+      //   state_id: req.body.state || (oldSession.state ? oldSession.state.id : null),
+      //   gender_id: req.body.gender || (oldSession.gender ? oldSession.gender.id : null),
+      //   bornDate: req.body.bornDate || oldSession.bornDate,
+      //   dni: req.body.dni || oldSession.dni,
+      //   phone: req.body.phone || oldSession.phone,
+      //   img: image
+      // }
+
       delete user.password;
 
       if(req.cookies.remember){
