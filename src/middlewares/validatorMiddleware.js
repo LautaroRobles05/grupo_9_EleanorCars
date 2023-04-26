@@ -27,10 +27,12 @@ const rules = [
   body("password")
   .isLength({ min: 8 })
     .withMessage("Por lo menos necesito 8 caracteres"),
-body("confirmPassword")
-      .isLength({ min: 8 })
-      .withMessage("Por lo menos necesito 8 caracteres")
-      .bail(),
+  body("confirmPassword")
+    .custom((value,{ req })=>{
+      return value === req.body.password
+    })
+    .withMessage("Las contraseñas deben coincidir")
+    .bail(),
 ];
 
 

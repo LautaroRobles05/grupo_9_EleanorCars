@@ -49,7 +49,7 @@
                         <span>Email</span>
                         <input type="email" name="email" value="<%= locals.oldBody ? oldBody.email : null %>">
                         <% if (locals.errors && errors.email) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.email.msg %>
                             </div>
                         <% } %>
@@ -58,7 +58,7 @@
                         <span>Nombre de usuario</span>
                         <input type="text" name="nickname" value="<%= locals.oldBody ? oldBody.nickname : null %>">
                         <% if (locals.errors && errors.nickname) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.nickname.msg %>
                             </div>
                         <% } %>
