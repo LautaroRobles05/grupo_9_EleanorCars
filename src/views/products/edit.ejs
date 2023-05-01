@@ -35,12 +35,30 @@
 
                     <div class="input-box">
                         <span>Marca de producto</span>
-                        <input type="text" name="brand" value="<%= car.model.brand.name %>">
+                        <br>
+                        <select name="brand_id" id="brand_id" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            <% for(let brand of brands) { %>
+                                <% if (brand.id == car.model.brand_id) { %>
+                                    <option value="<%= brand.id %>" selected> <%= brand.name %> </option>
+                                    <% } else { %>
+                                        <option value="<%= brand.id %>"> <%= brand.name %> </option>
+                                    <% } %>
+                            <% } %>
+                        </select>
                     </div>
                     
                     <div class="input-box">
                         <span>Modelo del producto</span>
-                        <input type="text" name="model" value="<%= car.model.name %>">
+                        <br>
+                        <select name="model_id" id="model_id" >
+                            <!-- <option value="" disabled selected>Seleccionar</option> -->
+                            <% for(let model of models) { %>
+                                <% if (model.id == car.model_id) { %>
+                                    <option value="<%= model.id %>" selected> <%= model.name %> </option>
+                                    <% } %>
+                            <% } %>
+                        </select>
                     </div>
 
                     <label for="">Imagen
@@ -100,5 +118,8 @@
     </main>
 
     <%- include("../partials/footer") %> 
+    <script src="/js/cargaFormularioEdit.js"></script>
+    <script src="/js/updateMarcaModelo.js"></script>
+
 </body>
 </html>

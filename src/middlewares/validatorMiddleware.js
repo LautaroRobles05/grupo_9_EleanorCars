@@ -1,9 +1,7 @@
 const { body } = require("express-validator");
 
-const passwordRegex =
-  /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/ //expresión regular para validar la contraseña
 
-// Usa la regla "matches" para validar la contraseña
 
 const rules = [
   body("firstName")
@@ -26,7 +24,12 @@ const rules = [
     .withMessage("Por lo menos necesito 4 caracteres"),
   body("password")
   .isLength({ min: 8 })
-    .withMessage("Por lo menos necesito 8 caracteres"),
+    .withMessage("Por lo menos necesito 8 caracteres")
+    .bail()
+    .custom((value, {req}) => {
+      return regex.test(value)
+    })
+    .withMessage ('Deberá tener letras mayúsculas, minúsculas, un número y un carácter especial'),
   body("confirmPassword")
     .custom((value,{ req })=>{
       return value === req.body.password

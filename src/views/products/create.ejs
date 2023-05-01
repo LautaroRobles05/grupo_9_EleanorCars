@@ -36,11 +36,10 @@
                     <div class="input-box">
                         <span>Marca</span>
                         <br>
-                        <select name="brand" id="" >
+                        <select name="brand_id" id="brand_id" >
                             <option value="" disabled selected>Seleccionar</option>
                             <% for(let brand of brands) { %>
                                 <option value="<%= brand.id %>"> <%= brand.name %> </option>
-
                             <% } %>
                         </select>
                         <!-- Otro<input type="checkbox" name="Otro" id=""> -->
@@ -50,12 +49,8 @@
                     <div class="input-box">
                         <span>Modelo</span>
                         <br>
-                        <select name="model_id" id="" >
+                        <select name="model_id" id="model_id" >
                             <option value="" disabled selected>Seleccionar</option>
-                            <% for(let model of models) { %>
-                                <option value="<%= model.id %>"> <%= model.name %> </option>
-
-                            <% } %>
                         </select>
                         <!-- Otro<input type="checkbox" name="Otro" id=""> -->
                         <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
@@ -176,5 +171,6 @@
     </main>
 
     <%- include("../partials/footer") %> 
+    <script src="/js/updateMarcaModelo.js"></script>
 </body>
 </html>

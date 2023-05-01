@@ -48,6 +48,13 @@ let productControllers = {
 
   productEdit: async (req, res) => {
     try {
+      let brands = await Brands.findAll();
+      let models = await CarModels.findAll();
+      let colors = await Colors.findAll();
+      let gasType = await GasTypes.findAll();
+      let vehicleTypes = await VehicleTypes.findAll();
+      let transmissions = ['Manual','Automatico'];
+      let doors = [3,5];
       let product = await Products.findByPk(req.params.id, {
         include: {
           all: true,
@@ -56,7 +63,7 @@ let productControllers = {
         }
       });
       
-      res.render("products/edit", { car: product });
+      res.render("products/edit", { car: product, brands,models,colors,gasType,vehicleTypes,transmissions,doors });
     } catch (error) {
       res.json({
         metadata: {

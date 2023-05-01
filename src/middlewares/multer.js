@@ -14,8 +14,24 @@ const storage = multer.diskStorage({
 
         cb(null, nameImg );
     }
-})
+});
 
-const upload = multer({storage});
+
+const fileFilter = function(req, file, cb) {
+
+    let formatos = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
+    let dato = formatos.includes(file.mimetype)
+    console.log('dato', dato)
+    // Permitir sólo archivos de imagen con extensiones .jpg, .jpeg y .png
+    if (dato) {
+        console.log('entro')
+      cb(null, true);
+    } else {
+        console.log('no entro')
+      cb(null, false);
+    }
+  }
+
+const upload = multer({storage, fileFilter});
 
 module.exports = upload;

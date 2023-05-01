@@ -4,9 +4,11 @@ const apiProductControllers = require('../../controllers/api/ApiProductControlle
 
 router.get('/', apiProductControllers.list)
 
-
 // router.get('/create', apiProductControllers.create)
 router.post('/create', apiProductControllers.upload)
+
+//ruta de prueba para select de create
+router.get('/marca_modelo/:id', apiProductControllers.prueba)
 
 router.get("/detail/:id",apiProductControllers.detail);
 
