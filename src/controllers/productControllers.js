@@ -1,4 +1,4 @@
-const { Op } = require("sequelize");
+const { Op, Model } = require("sequelize");
 
 const {
   Products,
@@ -10,16 +10,10 @@ const {
   Brands,
 } = require("../database/models");
 
-let productControllers = {
-  // getProducts: () => {
-  //   let products = JSON.parse(fs.readFileSync(autosPath, "utf-8"));
-  //   return products;
-  // },
+const wordFormatter = require('../../wordFormatter.js')
 
-  // list: (req, res) => {
-  //   let products = productControllers.getProducts();
-  //   res.render("products/list", {carsList: products});
-  // },
+let productControllers = {
+ 
   list: async (req, res) => {
     try {
       let products = await Products.findAll({
@@ -33,7 +27,8 @@ let productControllers = {
         limit: 20,
       });
 
-     res.render("products/list", {carsList: products});
+
+      res.render("products/list", {carsList: products});
     } catch (error) {
       res.json({
         metadata: {
@@ -164,11 +159,15 @@ let productControllers = {
   },
   upload: async (req, res) => {
     try {
+      
       let {
         model_id,
+        nuevaMarca,
+        nuevoModelo,
         year,
         km,
         color_id,
+        nuevoColor,
         price,
         img,
         vehicleType_id,
@@ -178,6 +177,65 @@ let productControllers = {
         doors,
         equipment,
       } = req.body;
+
+
+      if(model_id == 0){ //Selecion otro en Input Marca
+
+          // Peticion a BD para saber si la marca se repite
+          let marca = await Brands.findOne({
+            where: {
+              name: wordFormatter(nuevaMarca)
+            }
+          });
+
+
+          // Si la Marca no se repite se Crea
+          if(!marca){
+            marca = await Brands.create({
+              name: wordFormatter(nuevaMarca)
+            })
+          } 
+
+          // Peticion a BD para saber si el Modelo se repite //(con la misma Marca)
+          let modelo = await CarModels.findOne({
+            where: {
+              name: wordFormatter(nuevoModelo),
+              // model_id: marca.id
+            }
+          });
+
+
+          // Si el Modelo no se repite se Crea
+          if(!modelo){
+            modelo = await CarModels.create({
+              name : wordFormatter(nuevoModelo),
+              brand_id: marca.id
+            })
+          }
+
+          model_id = modelo.id
+      } 
+
+
+      if (color_id == 0){ //Selecion otro en Input color
+        // Peticion a BD para saber si el color existe
+        let color = await Colors.findOne({
+          where: {
+            name: wordFormatter(nuevoColor)
+          }
+        });
+
+
+        // Si el Color no se repite se Crea
+        if(!color){
+          color = await Colors.create({
+            name: wordFormatter(nuevoColor)
+          })
+        }
+
+        color_id = color.id
+      }
+
 
       let product = {
         model_id,
@@ -194,11 +252,6 @@ let productControllers = {
         equipment,
       };
 
-     
-
-
-
-
       
       Products.create(product)
         .then((response)=>{
@@ -209,7 +262,7 @@ let productControllers = {
          listaImagenes.forEach(img => {
            let dataImg = {
              product_id:id,
-             name:img.filename
+             name: img.filename
            }
            imgProduct.push(dataImg)
            
@@ -218,6 +271,7 @@ let productControllers = {
         })
 
       return res.redirect ('/products')
+
     } catch (error) {
       res.json({
         metadata: {
@@ -248,3 +302,5 @@ let productControllers = {
 };
 
 module.exports = productControllers;
+
+

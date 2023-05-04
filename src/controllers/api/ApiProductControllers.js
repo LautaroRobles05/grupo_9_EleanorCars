@@ -45,7 +45,8 @@ module.exports = {
       let products = await Brands.findByPk(req.params.id, {
         include: {
           all: true,
-        },
+        }
+         
       });
 
       res.json(
