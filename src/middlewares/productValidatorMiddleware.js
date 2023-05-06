@@ -1,23 +1,70 @@
-const { body } = require("express-validator");
+const { body, check } = require("express-validator");
+
+const mime = require('mime-types')
 
 const rules = [
+
+
+    // body('img').custom((value, { req }) => {
+    //     if (req.files.length == 0) {
+    //         console.log(req.files)
+    //         
+
+    //       throw new Error('Debe enviar una imagen');
+    //     }
+    //     const image = req.files[0].mimetype;
+    //     console.log(image)
+    //     const allowedFormats = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
+    //     if (!allowedFormats.includes(image)) {
+    //      
+    //       throw new Error('El formato de la imagen no es válido');
+    //     }
+    //     
+        
+    //     // Si llegamos aquí, la imagen es válida
+    //    return true;}),
     body("brand_id")
         .notEmpty()
         .withMessage('Seleccione un campo')
+        .bail()
         .isNumeric()
         .withMessage('Seleccione una marca valida'),
+    body("nuevaMarca").custom((value,{req})=>{
+        if (req.body.brand_id==0) {
+           if (value.length < 2) {
+             throw new Error('El campo debe tener minimo de dos caracteres');
+           } 
+        }
+        return true
+        }),
     body("model_id")
         .notEmpty()
         .withMessage('Seleccione un campo')
         .bail()
         .isNumeric()
         .withMessage('Seleccione un modelo valido'),
+    body("nuevoModelo").custom((value,{req})=>{
+        if (req.body.model_id == 0) {
+           if (value.length < 2) {
+             throw new Error('El campo debe tener minimo de dos caracteres');
+           } 
+        }
+        return true
+        }),
     body("color_id")
         .notEmpty()
         .withMessage('Seleccione un campo')
         .bail()
         .isNumeric()
         .withMessage('Seleccione un color valido'),
+    body("nuevoColor").custom((value,{req})=>{
+        if (req.body.color_id == 0) {
+           if (value.length < 3) {
+             throw new Error('El campo debe tener minimo de tres caracteres');
+           } 
+        }
+        return true
+        }),
     body("gasType_id")
         .notEmpty()
         .withMessage('Seleccione un campo')

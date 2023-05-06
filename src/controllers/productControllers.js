@@ -1,5 +1,5 @@
 const { Op, Model } = require("sequelize");
-
+const { validationResult } = require("express-validator");
 const {
   Products,
   Images,
@@ -54,10 +54,9 @@ let productControllers = {
         include: {
           all: true,
           nested: true,
-          attributes: { exclude: ["id"] },
         }
       });
-      
+      //res.json(product)
       res.render("products/edit", { car: product, brands,models,colors,gasType,vehicleTypes,transmissions,doors });
     } catch (error) {
       res.json({
@@ -70,8 +69,23 @@ let productControllers = {
   },
     productUpdate: async (req, res) => {
     try {
+  
+      let resultValidation = validationResult(req);
+      
+      if (!resultValidation.isEmpty()) {
+        return res.render("products/edit", {
+          errors: resultValidation.mapped(),
+          oldBody: req.body,
+        });
+      }
+
+
       let product = await Products.findByPk(req.params.id);
       await product.update({
+          model_id: req.body.model_id,
+          vehicleType_id:req.body.vehicleType_id,
+          gasType_id:req.body.gasType_id,
+          color_id:req.body.color_id,
           year:req.body.year,
           km:req.body.km,
           price: req.body.price,
@@ -86,6 +100,32 @@ let productControllers = {
           } 
         }
       ) 
+
+    //verificacion de carga de imagenes
+    if (req.files.length != 0) {
+      Images.destroy({
+        where: {
+          product_id: req.params.id
+        }
+      })
+      let imgProduct = []
+      let listaImagenes= req.files
+      listaImagenes.forEach(img => {
+        let dataImg = {
+          product_id:req.params.id,
+          name: img.filename
+        }
+        imgProduct.push(dataImg)
+        
+      });
+      Images.bulkCreate(imgProduct);  
+    }  
+
+      
+     
+       
+      
+      
       return res.redirect("/products/detail/" + product.id);
       
     } catch (error) {
@@ -158,8 +198,27 @@ let productControllers = {
     }   
   },
   upload: async (req, res) => {
+
     try {
       
+      let resultValidation = validationResult(req);
+      
+      if (!resultValidation.isEmpty()) {
+        let brands = await Brands.findAll();
+        let models = await CarModels.findAll();
+        let colors = await Colors.findAll();
+        let gasType = await GasTypes.findAll();
+        let vehicleTypes = await VehicleTypes.findAll();
+        let transmissions = ['Manual','Automatico'];
+        let doors = [3,5];
+        console.log(resultValidation)
+        return res.render("products/create", {
+          errors: resultValidation.mapped(),
+          oldBody: req.body,
+          brands,models,colors,gasType,vehicleTypes,transmissions,doors
+        });
+      }
+
       let {
         model_id,
         nuevaMarca,
