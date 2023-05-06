@@ -54,9 +54,10 @@ let productControllers = {
         include: {
           all: true,
           nested: true,
+          attributes: { exclude: ["id"] },
         }
       });
-      //res.json(product)
+      
       res.render("products/edit", { car: product, brands,models,colors,gasType,vehicleTypes,transmissions,doors });
     } catch (error) {
       res.json({
@@ -204,18 +205,26 @@ let productControllers = {
       let resultValidation = validationResult(req);
       
       if (!resultValidation.isEmpty()) {
+
         let brands = await Brands.findAll();
         let models = await CarModels.findAll();
         let colors = await Colors.findAll();
         let gasType = await GasTypes.findAll();
         let vehicleTypes = await VehicleTypes.findAll();
+
         let transmissions = ['Manual','Automatico'];
         let doors = [3,5];
-        console.log(resultValidation)
+       
         return res.render("products/create", {
           errors: resultValidation.mapped(),
           oldBody: req.body,
-          brands,models,colors,gasType,vehicleTypes,transmissions,doors
+          brands,
+          models,
+          colors,
+          gasType,
+          vehicleTypes,
+          transmissions,
+          doors
         });
       }
 
@@ -238,7 +247,7 @@ let productControllers = {
       } = req.body;
 
 
-      if(model_id == 0){ //Selecion otro en Input Marca
+      if(model_id == 0){ //Selecion opción ¨Otro¨ (este llega con value = 0) en Input Marca
 
           // Peticion a BD para saber si la marca se repite
           let marca = await Brands.findOne({
@@ -338,6 +347,7 @@ let productControllers = {
         },
         error,
       });
+      
     }
   },
  

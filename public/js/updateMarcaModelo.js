@@ -6,8 +6,6 @@ brand.addEventListener('change', actualizarMarcas);
 
 async function actualizarMarcas () {
     const brandId = this.value;
-    // console.log(brandId);
-    // console.log(!brandId);
     if(brandId != 0){
         const res = await fetch(`http://localhost:3009/api/products/marca_modelo/${brandId}`)
         const data = await res.json()

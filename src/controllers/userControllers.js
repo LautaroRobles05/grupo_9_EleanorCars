@@ -101,7 +101,7 @@ let userController = {
           delete usuario.password;
           req.session.userLogged = usuario;
 
-          console.log('BUSCANDO EL ROL', usuario.rol_id);
+          
           
           if (req.body.remember) {
             res.cookie("remember", usuario, { maxAge: 60000 });
@@ -145,7 +145,7 @@ let userController = {
           }],
           where:{email:req.session.userLogged.email}
         })
-        // console.log('sesion de profile', user)
+       
         return res.render('users/profile', { user });
       } catch (error) {
         res.json({error})
@@ -202,7 +202,7 @@ let userController = {
   editProcess: async (req, res) => {
     try {
       let user = req.session.userLogged
-      // console.log('hola soy el usuario', user)
+      
       if(req.file){ 
         await UserImages.destroy({
           where: {

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Obtener el ID del producto de la ruta
     const idProducto = rutaActual.split("/")[3];
 
-    console.log(idProducto);
+    
     
     
     
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch(`http://localhost:3009/api/products/marca_modelo/${brandId}`)
     const data = await res.json()
     let models = data.models
-    console.log(models)
+    
 
     modelo.innerHTML = ``
     if(models.length){

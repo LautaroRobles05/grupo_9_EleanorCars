@@ -91,7 +91,7 @@ const rules = [
         .withMessage('Seleccione un tipo de transmisión valido'),
     body("year")
         .notEmpty()
-        .withMessage('Seleccione un campo')
+        .withMessage('El campo no debe estar vacío')
         .bail()
         .isNumeric()
         .withMessage('Seleccione una fecha valida'),
@@ -99,13 +99,13 @@ const rules = [
         // .withMessage('El vehículo debe ser mayor o igual al año 2000'),
     body("price")
         .notEmpty()
-        .withMessage('Seleccione un campo')
+        .withMessage('El campo no debe estar vacío')
         .bail()
         .isNumeric()
         .withMessage('El precio debe ser un número'),
     body("km")
         .notEmpty()
-        .withMessage('Seleccione un campo')
+        .withMessage('El campo no debe estar vacío')
         .bail()
         .isNumeric()
         .withMessage('El km debe ser un número'),
@@ -113,7 +113,7 @@ const rules = [
         // .withMessage('No aceptamos kilometrajes mayores a 150.000km'),
     body("manufacturingYear")
         .notEmpty()
-        .withMessage('Seleccione un campo')
+        .withMessage('El campo no debe estar vacío')
         .bail()
         .isNumeric()
         .withMessage('Seleccione un tipo de transmisión valido'),

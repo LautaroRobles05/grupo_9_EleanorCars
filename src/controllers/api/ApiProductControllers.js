@@ -19,7 +19,7 @@ module.exports = {
         limit: 20,
       });
 
-      // console.log(products);
+      
 
       res.json({
         metadata: {

@@ -27,7 +27,6 @@ const rules = [
     .withMessage("Por lo menos necesito 8 caracteres")
     .bail()
     .custom((value, {req}) => {
-      console.log('hola soy la falopa ------------------------------------------------------')
       return regex.test(value)
     })
     .withMessage ('Deberá tener letras mayúsculas, minúsculas, un número y un carácter especial'),
