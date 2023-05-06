@@ -29,7 +29,7 @@ const rules = [
     .custom((value, {req}) => {
       return regex.test(value)
     })
-    .withMessage ('Deberá tener letras mayúsculas, minúsculas, un número y un carácter especial'),
+    .withMessage ('La contraseña deberá tener letras mayúsculas, minúsculas, un número y un carácter especial'),
   body("confirmPassword")
     .custom((value,{ req })=>{
       return value === req.body.password

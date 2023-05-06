@@ -28,16 +28,16 @@
             
             <div class="content-box">   
               
-                    <form class="form-edit-modify" method="post" action="/products/create" enctype="multipart/form-data">
+                    <form class="form-edit-modify" id="form" method="post" action="/products/create" enctype="multipart/form-data">
                     <div class="car-id">
                         <h4>CREAR PRODUCTO</h4>
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divBrand">
                         <span>Marca</span>
                         <br>
                         <select name="brand_id" id="brand_id" >
-                            <option value="hola" disabled selected>Seleccionar</option>
+                            <option value=1 disabled selected>Seleccionar</option>
                             <% for(let brand of brands) { %>
                                 <% if (locals.oldBody && locals.oldBody.brand_id == brand.id) { %>
                                     <option value="<%= brand.id %>" selected> <%= brand.name %> </option>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="input-box" id="nuevaMarca" style="display: none;">
-                        <input type="text" name="nuevaMarca" placeholder="Si no encontras tu marca. Creala aca." 
+                        <input type="text" name="nuevaMarca" id="nuevaMarca" placeholder="Si no encontras tu marca. Creala aca." 
                         value="<%= locals.oldBody ? oldBody.nuevaMarca : null %>">
 
                         <!-- //Feedback de errores  -->
@@ -72,7 +72,7 @@
                         <% } %>
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divModel_id">
                         <span>Modelo</span>
                         <br>
 
@@ -115,12 +115,12 @@
                         <input class="input-box" type="file" name="img" id="" accept="image/png, image/jpg, image/jpeg, image/gif" multiple>
                     </label>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divColor_id">
                         <span>Color</span>
                         <br>
                         <select name="color_id" id="color_id" >
 
-                            <option value="hola" disabled selected>Seleccionar</option>
+                            <option value="selected" disabled selected>Seleccionar</option>
                             <% for(let color of colors) { %>
                                 <% if (locals.oldBody && locals.oldBody.color_id == color.id) { %>
                                     <option value="<%= color.id %>" selected> <%= color.name %> </option>
@@ -159,11 +159,11 @@
 
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divGasType_id">
                         <span>Tipo de combustible</span>
                         <br>
                         
-                        <select name="gasType_id" id="" >
+                        <select name="gasType_id" id="gasType_id" >
                             <option value="" disabled selected>Seleccionar</option>
                             
                             <% for(let gas of gasType) { %>
@@ -186,11 +186,11 @@
                     </div>
 
 
-                    <div class="input-box">
+                    <div class="input-box" id="divVehicleType_id">
                         <span>Tipo de vehiculo</span>
                         <br>
 
-                        <select name="vehicleType_id" id="" >
+                        <select name="vehicleType_id" id="vehicleType_id" >
                             <option value="" disabled selected>Seleccionar</option>
                             
                             <% for(let type of vehicleTypes) { %>
@@ -215,11 +215,11 @@
 
                     
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divDoors">
                         <span>Puertas</span>
                         <br>
 
-                        <select name="doors" id="" >
+                        <select name="doors" id="doors" >
                             <option value="" disabled selected>Seleccionar</option>
                             
                             <% for(let door of doors) { %>
@@ -241,11 +241,11 @@
 
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divTransmission">
                         <span>Transmision</span>
                         <br>
 
-                        <select name="transmission" id="" >
+                        <select name="transmission" id="transmission" >
                             <option value="" disabled selected>Seleccionar</option>
                             
                             <% for(let transmission of transmissions) { %>
@@ -268,9 +268,9 @@
 
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divYear">
                         <span>Año</span>
-                        <input type="text" name="year" value="<%= locals.oldBody ? oldBody.year : null %>">
+                        <input type="text" name="year" id="year" value="<%= locals.oldBody ? oldBody.year : null %>">
 
                         <!-- //Feedback de errores  -->
                         <% if (locals.errors && errors.year) { %>
@@ -281,9 +281,9 @@
 
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divPrice">
                         <span>Precio</span>
-                        <input type="number" name="price" value="<%= locals.oldBody ? oldBody.price : null %>">
+                        <input type="number" name="price" id="price" value="<%= locals.oldBody ? oldBody.price : null %>">
 
                         <!-- //Feedback de errores  -->
                         <% if (locals.errors && errors.price) { %>
@@ -294,9 +294,9 @@
 
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divPrice">
                         <span>Kilometraje</span>
-                        <input type="number" name="km" value="<%= locals.oldBody ? oldBody.km : null %>">
+                        <input type="number" name="km" id="km" value="<%= locals.oldBody ? oldBody.km : null %>">
 
                         <!-- //Feedback de errores  -->
                         <% if (locals.errors && errors.km) { %>
@@ -307,9 +307,9 @@
 
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divManufacturingYear">
                         <span>Año de Fabricacion</span>
-                        <input type="number" name="manufacturingYear" value="<%= locals.oldBody ? oldBody.manufacturingYear : null %>">
+                        <input type="number" name="manufacturingYear" id="manufacturingYear" value="<%= locals.oldBody ? oldBody.manufacturingYear : null %>">
 
                         <!-- //Feedback de errores  -->
                         <% if (locals.errors && errors.manufacturingYear) { %>
@@ -320,9 +320,9 @@
 
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divEquipment">
                         <span>Equipamiento</span>
-                        <input type="textarea" name="equipment" value="<%= locals.oldBody ? oldBody.equipment : null %>">
+                        <input type="textarea" name="equipment" id="equipment" value="<%= locals.oldBody ? oldBody.equipment : null %>">
 
                         <!-- //Feedback de errores  -->
                         <% if (locals.errors && errors.equipment) { %>
@@ -348,6 +348,7 @@
 
     <%- include("../partials/footer") %>
 
+    <!-- <script src="/js/productValidation.js"></script> -->
     <script src="/js/cargarOtro.js"></script>
     <script src="/js/updateMarcaModelo.js"></script>
 </body>

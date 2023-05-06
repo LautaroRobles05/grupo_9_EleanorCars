@@ -26,15 +26,16 @@
         <div class="content-box">
             <div class="form">
                 <h2>INGRESÁ</h2>
-                <form method="post" action="/user/login" >
-                    <div class="input-box">
+                <form method="post" action="/user/login" id="form">
+                    
+                    <div class="input-box" id="divEmail">
                         <span>Email</span>
-                        <input type="email" name="email">
+                        <input type="email" name="email" id="email">
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divPassword">
                         <span>Contraseña</span>
-                        <input type="password" name="password">
+                        <input type="password" name="password" id="password">
                         <% if (locals.errors) { %>
                             <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.msg %>
@@ -64,5 +65,7 @@
             </div>
         </div>
     </section>
+
+    <script src="/js/loginValidator.js"></script>
 </body>
 </html>

@@ -48,6 +48,12 @@ let productControllers = {
       let colors = await Colors.findAll();
       let gasType = await GasTypes.findAll();
       let vehicleTypes = await VehicleTypes.findAll();
+      let images = await Images.findOne({
+        where: {
+          product_id: req.params.id
+        }
+      });
+      
       let transmissions = ['Manual','Automatico'];
       let doors = [3,5];
       let product = await Products.findByPk(req.params.id, {
@@ -56,9 +62,8 @@ let productControllers = {
           nested: true,
           attributes: { exclude: ["id"] },
         }
-      });
-      
-      res.render("products/edit", { car: product, brands,models,colors,gasType,vehicleTypes,transmissions,doors });
+      })
+      res.render("products/edit", { car: product, brands,models,colors,gasType,vehicleTypes,transmissions,doors, images });
     } catch (error) {
       res.json({
         metadata: {
@@ -74,9 +79,40 @@ let productControllers = {
       let resultValidation = validationResult(req);
       
       if (!resultValidation.isEmpty()) {
+
+        let brands = await Brands.findAll();
+      let models = await CarModels.findAll();
+      let colors = await Colors.findAll();
+      let gasType = await GasTypes.findAll();
+      let vehicleTypes = await VehicleTypes.findAll();
+      let images = await Images.findOne({
+        where: {
+          product_id: req.params.id
+        }
+      });
+      
+      let transmissions = ['Manual','Automatico'];
+      let doors = [3,5];
+      let product = await Products.findByPk(req.params.id, {
+        include: {
+          all: true,
+          nested: true,
+          attributes: { exclude: ["id"] },
+        }
+      })
+
         return res.render("products/edit", {
           errors: resultValidation.mapped(),
           oldBody: req.body,
+          car: product, 
+          brands,
+          models,
+          colors,
+          gasType,
+          vehicleTypes,
+          transmissions,
+          doors,
+          images
         });
       }
 

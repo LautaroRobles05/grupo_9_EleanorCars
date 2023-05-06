@@ -23,7 +23,11 @@
     <main>
         <div class="edit-modify">
             <div class="div-edit-modify" action="">
-                <img src="/images/products/<%= car.img %>" alt="">
+                <% if (images) { %>
+                    <img src="/images/products/<%= images.name %>" alt="">
+                <% } else { %>
+                    <img src="/images/products/image-missing.jpg" alt="">
+                <% } %>
             </div>
             
             <div class="content-box">   
@@ -39,8 +43,7 @@
                         <select name="brand_id" id="brand_id" >
                             
                             <% for(let brand of brands) { %>
-                                
-
+                             
                                 <% if (car.model.brand_id==brand.id) { %>
                                     <option value="<%= brand.id %>" selected> <%= brand.name %> </option>
                                     <% } else { %>
@@ -48,10 +51,17 @@
                                         
                                  <% } %>
 
-
                             <% } %>
-                            <!-- <option value="0">Otro</option> -->
+                                        
                         </select>
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.brand_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.brand_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <div class="input-box" id="nuevaMarca" style="display: none;">
@@ -63,7 +73,6 @@
                         <br>
                         <select name="model_id" id="model_id" >
                           
-
                             <% for(let model of models) { %>
                                 
 
@@ -75,9 +84,16 @@
                                     <% } %>
 
                             <% } %>
-                           
-                            
+
                         </select>
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.model_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.model_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     <div class="input-box" id="nuevoModelo" style="display: none;">
                         <input type="text" name="nuevoModelo" placeholder="Crea tu modelo aca.">
@@ -96,24 +112,46 @@
                                         <option value="<%= type.id %>"> <%= type.tipo %> </option>
                                  <% } %>
 
-
                             <% } %>
                         </select>
-                   
+                        
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.vehicleType_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.vehicleType_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <label for="">Imagen
-                        <input class="input-box" type="file" name="img" id="" multiple>
+                        <input class="input-box" type="file" name="img" id="" accept="image/png, image/jpg, image/jpeg, image/gif" multiple>
                     </label>
                     
                     <div class="input-box">
                         <span>Año</span>
                         <input type="text" name="year" value="<%= car.year %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.year) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.year.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
                     <div class="input-box">
                         <span>Precio</span>
                         <input type="number" name="price" value="<%= car.price %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.price) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.price.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <div class="input-box">
@@ -128,7 +166,16 @@
                                         <option value="<%= door %>"> <%= door %> </option>
                                  <% } %>
                             <% } %>
+
                         </select>
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.doors) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.doors.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
                  
@@ -136,11 +183,27 @@
                     <div class="input-box">
                         <span>Kilometraje</span>
                         <input type="number" name="km" value="<%= car.km %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.km) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.km.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
                     <div class="input-box">
                         <span>Año de Fabricacion</span>
                         <input type="number" name="manufacturingYear" value="<%= car.manufacturingYear %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.manufacturingYear) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.manufacturingYear.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <div class="input-box">
@@ -156,7 +219,16 @@
                                 <option value="<%= transmission1 %>"> <%= transmission1 %> </option>
                                 <% } %>
                             <% } %>
+
                         </select>
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.transmission) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.transmission.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                
                     
@@ -173,8 +245,16 @@
                                 <option value="<%= gas.id %>"> <%= gas.tipo %> </option>
                                 <% } %>
                             <% } %>
+
                         </select>
-        
+                        
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.gasType_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.gasType_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     <div class="input-box">
                         <span>Color</span>
@@ -191,12 +271,27 @@
                             <!-- <option value="0">Otro</option> -->
 
                         </select>
-           
+                        
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.color_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.color_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <div class="input-box">
                         <span>Equipamiento</span>
                         <input type="textarea" name="equipment" value="<%= car.equipment %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.equipment) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.equipment.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
 
