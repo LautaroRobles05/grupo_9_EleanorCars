@@ -115,7 +115,8 @@ main .form-edit-modify .input-submit
   text-align: center;
 }
 
-main .form-edit-modify .input-box input
+main .form-edit-modify .input-box input,
+main .form-edit-modify .input-box select
 {
   width: 100%;
   padding: 10px 20px;
@@ -188,7 +189,13 @@ main .form-edit-modify .input-submit input:hover
   width: 100%;
 }
 
-
+main .edit-modify .content-box .input-box button{
+  width: 8%;
+}
+main .edit-modify .content-box .input-box button + input[type = "text"]{
+  margin-top: 10px;
+  width: 90%;
+} 
 
 
 @media (max-width: 768px){

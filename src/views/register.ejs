@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script
-      src="https://kit.fontawesome.com/58f19d8ff4.js"
-      crossorigin="anonymous"
+    src="https://kit.fontawesome.com/58f19d8ff4.js"
+    crossorigin="anonymous"
     ></script>
+  
     <title>Register</title>
 </head>
 
@@ -24,57 +25,62 @@
         <div class="content-box">
             <div class="form">
                 <h2>CREA TU CUENTA</h2>
-                <form method="post" action="/user/register">
+                <form method="post" action="/user/register" id="form">
 
                   
-                    <div class="input-box">
+                    <div class="input-box" id="divFirstName">
                         <span>Nombre</span>
-                        <input type="text" name="firstName" value="<%= locals.oldBody ? oldBody.firstName : null %>">
+                        <input type="text" name="firstName" id="firstName" value="<%= locals.oldBody ? oldBody.firstName : null %>">
                         <% if (locals.errors && errors.firstName) { %>
                             <div class="text-danger" style="color: red;">
                                <%= errors.firstName.msg %>
                             </div>
                         <% } %>
                     </div>
-                    <div class="input-box">
+
+                    <div class="input-box" id="divLastName">
                         <span>Apellido</span>
-                        <input type="text" name="lastName" value="<%= locals.oldBody ? oldBody.lastName : null %>">
+                        <input type="text" name="lastName" id="lastName" value="<%= locals.oldBody ? oldBody.lastName : null %>">
                         <% if (locals.errors && errors.lastName) { %>
                             <div class="text-danger" style="color: red;">
                                <%= errors.lastName.msg %>
                             </div>
                         <% } %>
                     </div>
-                    <div class="input-box">
+
+                    <div class="input-box" id="divEmail">
                         <span>Email</span>
-                        <input type="email" name="email" value="<%= locals.oldBody ? oldBody.email : null %>">
+                        <input type="email" name="email" id="email" value="<%= locals.oldBody ? oldBody.email : null %>">
                         <% if (locals.errors && errors.email) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.email.msg %>
                             </div>
                         <% } %>
                     </div>
-                    <div class="input-box">
+
+                    <div class="input-box" id="divNickname">
                         <span>Nombre de usuario</span>
-                        <input type="text" name="nickname" value="<%= locals.oldBody ? oldBody.nickname : null %>">
+                        <input type="text" name="nickname" id="nickname" value="<%= locals.oldBody ? oldBody.nickname : null %>">
                         <% if (locals.errors && errors.nickname) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.nickname.msg %>
                             </div>
                         <% } %>
                     </div>
-                    <div class="input-box">
+
+                    <div class="input-box" id="divPassword">
                         <span>Contraseña</span>
-                        <input type="password" name="password">
+                        <input type="password" name="password" id="password">
                         <% if (locals.errors && errors.password) { %>
                             <div class="text-danger" style="color: red;">
                                <%= errors.password.msg %>
                             </div>
                         <% } %>
                     </div>
-                    <div class="input-box">
+
+                    <div class="input-box" id="divConfPassword">
                         <span>Confirmar Contraseña</span>
-                        <input type="password" name="confirmPassword">
+                        <input type="password" name="confirmPassword" id="confirmPassword">
                         <% if (locals.errors && errors.confirmPassword) { %>
                             <div class="text-danger" style="color: red;">
                                <%= errors.confirmPassword.msg %>
@@ -82,15 +88,17 @@
                         <% } %>
                     </div>
                     <div class="input-box">
-                        <input type="submit" value="Registrate" name="">
+                        <input type="submit" value="Registrate" name="" id="submit">
                     </div>
                     <div class="input-box">
-                        <p>¿Ya tenes una cuenta? <a href="/login">Ingresa</a></p>
+                        <p>¿Ya tenes una cuenta? <a href="/user/login">Ingresa</a></p>
                         <!-- <p class="back-home">¿Quieres regresar al inicio? <a href="/">Regresa</a></p> -->
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+    <script src="/js/registerValidation.js"></script>
 </body>
 </html>

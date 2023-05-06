@@ -19,7 +19,7 @@ module.exports = {
         limit: 20,
       });
 
-      // console.log(products);
+      
 
       res.json({
         metadata: {
@@ -38,6 +38,25 @@ module.exports = {
     }
 
     //res.render("products/list", {carsList: products});
+  },
+ 
+  prueba: async (req,res) => {
+    try {
+      let products = await Brands.findByPk(req.params.id, {
+        include: {
+          all: true,
+        }
+         
+      });
+
+      res.json(
+        products
+      );
+
+    } catch (error) {
+      res.json(error)
+    }
+
   },
   upload: async (req, res) => {
     try {

@@ -22,7 +22,9 @@ module.exports = (sequelize, dataTypes) => {
         email: {
             type: dataTypes.STRING(100),
             allowNull: false,
-            unique: true
+            unique: {
+                msg : "El correo electrónico ya está registrado, por favor ingrese uno diferente."
+            }
         },
 
         password: {
@@ -33,7 +35,9 @@ module.exports = (sequelize, dataTypes) => {
         nickname: {
             type: dataTypes.STRING(50),
             allowNull: false,
-            unique: true
+            unique:  {
+                msg : "Nombre de usuario no disponible, por favor ingrese uno diferente."
+            }
         },
 
         rol_id: {
@@ -56,7 +60,7 @@ module.exports = (sequelize, dataTypes) => {
     const config = {
         timestamps: true,
         updatedAt: false,
-        underscore: true
+        underscore: true,
     }
 
     let User = sequelize.define(alias,cols,config)

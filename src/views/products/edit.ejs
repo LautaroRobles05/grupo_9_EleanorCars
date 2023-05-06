@@ -23,7 +23,11 @@
     <main>
         <div class="edit-modify">
             <div class="div-edit-modify" action="">
-                <img src="/images/products/<%= car.img %>" alt="">
+                <% if (images) { %>
+                    <img src="/images/products/<%= images.name %>" alt="">
+                <% } else { %>
+                    <img src="/images/products/image-missing.jpg" alt="">
+                <% } %>
             </div>
             
             <div class="content-box">   
@@ -34,52 +38,260 @@
                     </div>
 
                     <div class="input-box">
-                        <span>Marca de producto</span>
-                        <input type="text" name="brand" value="<%= car.model.brand.name %>">
+                        <span>Marca</span>
+                        <br>
+                        <select name="brand_id" id="brand_id" >
+                            
+                            <% for(let brand of brands) { %>
+                             
+                                <% if (car.model.brand_id==brand.id) { %>
+                                    <option value="<%= brand.id %>" selected> <%= brand.name %> </option>
+                                    <% } else { %>
+                                    <option value="<%= brand.id %>"> <%= brand.name %> </option>
+                                        
+                                 <% } %>
+
+                            <% } %>
+                                        
+                        </select>
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.brand_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.brand_id.msg %>
+                            </div>
+                        <% } %>
+
+                    </div>
+
+                    <div class="input-box" id="nuevaMarca" style="display: none;">
+                        <input type="text" name="nuevaMarca" placeholder="Si no encontras tu marca. Creala aca.">
                     </div>
                     
                     <div class="input-box">
-                        <span>Modelo del producto</span>
-                        <input type="text" name="model" value="<%= car.model.name %>">
+                        <span>Modelo</span>
+                        <br>
+                        <select name="model_id" id="model_id" >
+                          
+                            <% for(let model of models) { %>
+                                
+
+                                <% if (car.model_id==model.id) { %>
+                                    <option value="<%= model.id %>" selected> <%= model.name %> </option>
+                                    <% } else if (car.model.brand_id==model.brand_id) { %>
+                                        <option value="<%= model.id %>"> <%= model.name %> </option>
+                                   
+                                    <% } %>
+
+                            <% } %>
+
+                        </select>
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.model_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.model_id.msg %>
+                            </div>
+                        <% } %>
+
+                    </div>
+                    <div class="input-box" id="nuevoModelo" style="display: none;">
+                        <input type="text" name="nuevoModelo" placeholder="Crea tu modelo aca.">
+                    </div>
+                
+                    <div class="input-box">
+                        <span>Tipo de vehiculo</span>
+                        <br>
+                        <select name="vehicleType_id" id="" >
+                            
+                            <% for(let type of vehicleTypes) { %>
+                                
+                                <% if (car.vehicleType_id==type.id) { %>
+                                    <option value="<%= type.id %>" selected> <%= type.tipo %> </option>
+                                    <% } else { %>
+                                        <option value="<%= type.id %>"> <%= type.tipo %> </option>
+                                 <% } %>
+
+                            <% } %>
+                        </select>
+                        
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.vehicleType_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.vehicleType_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <label for="">Imagen
-                        <input class="input-box" type="file" name="img" id="" multiple>
+                        <input class="input-box" type="file" name="img" id="" accept="image/png, image/jpg, image/jpeg, image/gif" multiple>
                     </label>
                     
                     <div class="input-box">
                         <span>Año</span>
                         <input type="text" name="year" value="<%= car.year %>">
-                    </div>
-                    
-                    <div class="input-box">
-                        <span>Puertas</span>
-                        <input type="text" name="doors" value="<%= car.doors %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.year) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.year.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
                     <div class="input-box">
                         <span>Precio</span>
                         <input type="number" name="price" value="<%= car.price %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.price) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.price.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
+
+                    <div class="input-box">
+                        <span>Puertas</span>
+                        <br>
+                        <select name="doors" id="" >
+                            
+                            <% for(let door of doors) { %>
+                                <% if (car.doors==door) { %>
+                                    <option value="<%= door %>" selected> <%= door %> </option>
+                                    <% } else { %>
+                                        <option value="<%= door %>"> <%= door %> </option>
+                                 <% } %>
+                            <% } %>
+
+                        </select>
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.doors) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.doors.msg %>
+                            </div>
+                        <% } %>
+
+                    </div>
+                    
+                 
 
                     <div class="input-box">
                         <span>Kilometraje</span>
                         <input type="number" name="km" value="<%= car.km %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.km) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.km.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
                     <div class="input-box">
                         <span>Año de Fabricacion</span>
                         <input type="number" name="manufacturingYear" value="<%= car.manufacturingYear %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.manufacturingYear) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.manufacturingYear.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <div class="input-box">
                         <span>Transmision</span>
-                        <input type="text" name="transmission" value="<%= car.transmission %>">
+                        <br>
+                        <select name="transmission" id="" >
+                           
+                            <% for(let transmission1 of transmissions) { %>
+                                <% if (car.transmission==transmission1) { %>
+                                    <option value="<%= transmission1 %>" selected> <%= transmission1 %> </option>
+                                        
+                                    <% } else { %>
+                                <option value="<%= transmission1 %>"> <%= transmission1 %> </option>
+                                <% } %>
+                            <% } %>
+
+                        </select>
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.transmission) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.transmission.msg %>
+                            </div>
+                        <% } %>
+
+                    </div>
+               
+                    
+                    <div class="input-box">
+                        <span>Tipo de combustible</span>
+                        <br>
+                        <select name="gasType_id" id="" >
+                           
+                            <% for(let gas of gasType) { %>
+                                <% if (car.gasType_id==gas.id) { %>
+                                <option value="<%= gas.id %>" selected> <%= gas.tipo %> </option>
+                                    
+                                <% }else { %>
+                                <option value="<%= gas.id %>"> <%= gas.tipo %> </option>
+                                <% } %>
+                            <% } %>
+
+                        </select>
+                        
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.gasType_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.gasType_id.msg %>
+                            </div>
+                        <% } %>
+
+                    </div>
+                    <div class="input-box">
+                        <span>Color</span>
+                        <br>
+                        <select name="color_id" id="color_id" >
+                           
+                            <% for(let color of colors) { %>
+                                <% if (car.color_id==color.id) { %>
+                                    <option value="<%= color.id %>" selected> <%= color.name %> </option>
+                                <% } else { %>
+                                <option value="<%= color.id %>"> <%= color.name %> </option>
+                                <% } %>
+                            <% } %>
+                            <!-- <option value="0">Otro</option> -->
+
+                        </select>
+                        
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.color_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.color_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <div class="input-box">
                         <span>Equipamiento</span>
                         <input type="textarea" name="equipment" value="<%= car.equipment %>">
+
+                         <!-- //Feedback de errores  -->
+                         <% if (locals.errors && errors.equipment) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.equipment.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
 
@@ -92,13 +304,14 @@
                     </div>
 
 
-                    <!-- <button class="aply-changes" type="submit">Aplicar cambios</button>
-                    <button class="dischard-changes" type="reset">Descartar cambios</button> -->
                 </form>
             </div> 
         </div>
     </main>
 
     <%- include("../partials/footer") %> 
+ 
+    <!-- <script src="/js/cargarOtro.js"></script> -->
+    <script src="/js/updateMarcaModelo.js"></script>
 </body>
 </html>

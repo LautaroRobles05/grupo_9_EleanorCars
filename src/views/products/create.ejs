@@ -28,135 +28,309 @@
             
             <div class="content-box">   
               
-                    <form class="form-edit-modify" method="post" action="/products/create" enctype="multipart/form-data">
+                    <form class="form-edit-modify" id="form" method="post" action="/products/create" enctype="multipart/form-data">
                     <div class="car-id">
                         <h4>CREAR PRODUCTO</h4>
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divBrand">
                         <span>Marca</span>
                         <br>
-                        <select name="brand" id="" >
-                            <option value="" disabled selected>Seleccionar</option>
+                        <select name="brand_id" id="brand_id" >
+                            <option value=1 disabled selected>Seleccionar</option>
                             <% for(let brand of brands) { %>
+                                <% if (locals.oldBody && locals.oldBody.brand_id == brand.id) { %>
+                                    <option value="<%= brand.id %>" selected> <%= brand.name %> </option>
+                                <% } else { %>
                                 <option value="<%= brand.id %>"> <%= brand.name %> </option>
-
+                                <% } %>
                             <% } %>
+                            <% if (locals.oldBody && locals.oldBody.brand_id == 0) { %>
+                                <option value="0" selected>Otro</option>
+                            <% } else { %>
+                                <option value="0">Otro</option>
+                                <% } %>
                         </select>
-                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
-                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.brand_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.brand_id.msg %>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div class="input-box" id="nuevaMarca" style="display: none;">
+                        <input type="text" name="nuevaMarca" id="nuevaMarca" placeholder="Si no encontras tu marca. Creala aca." 
+                        value="<%= locals.oldBody ? oldBody.nuevaMarca : null %>">
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.nuevaMarca) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.nuevaMarca.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divModel_id">
                         <span>Modelo</span>
                         <br>
-                        <select name="model_id" id="" >
-                            <option value="" disabled selected>Seleccionar</option>
-                            <% for(let model of models) { %>
-                                <option value="<%= model.id %>"> <%= model.name %> </option>
 
+                        <select name="model_id" id="model_id" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            
+                            <% for(let model of models) { %>
+                                <% if (locals.oldBody && oldBody.model_id == model.id) { %>
+                                    <option value="<%= model.id %>" selected> <%= model.name %> </option>
+                                    <% } else if (locals.oldBody && locals.oldBody.brand_id == model.brand_id) { %>
+                                        <option value="<%= model.id %>"> <%= model.name %> </option>
+                                    <% } %>
                             <% } %>
+
                         </select>
-                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
-                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.model_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.model_id.msg %>
+                            </div>
+                        <% } %>
+
+                    </div>
+
+                    <div class="input-box" id="nuevoModelo" style="display: none;">
+                        <input type="text" name="nuevoModelo" placeholder="Crea tu modelo aca." 
+                        value="<%= locals.oldBody ? oldBody.nuevoModelo : null %>">
+                        
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.nuevoModelo) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.nuevoModelo.msg %>
+                            </div>
+                        <% } %>
                     </div>
 
 
                     <label for="">Imagen
-                        <input class="input-box" type="file" name="img" id="" multiple>
+                        <input class="input-box" type="file" name="img" id="" accept="image/png, image/jpg, image/jpeg, image/gif" multiple>
                     </label>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divColor_id">
                         <span>Color</span>
                         <br>
-                        <select name="color_id" id="" >
-                            <option value="" disabled selected>Seleccionar</option>
-                            <% for(let color of colors) { %>
-                                <option value="<%= color.id %>"> <%= color.name %> </option>
+                        <select name="color_id" id="color_id" >
 
+                            <option value="selected" disabled selected>Seleccionar</option>
+                            <% for(let color of colors) { %>
+                                <% if (locals.oldBody && locals.oldBody.color_id == color.id) { %>
+                                    <option value="<%= color.id %>" selected> <%= color.name %> </option>
+                                <% } else { %>
+                                <option value="<%= color.id %>"> <%= color.name %> </option>
+                                <% } %>
                             <% } %>
+                            <% if (locals.oldBody && locals.oldBody.color_id == 0) { %>
+                                <option value="0" selected>Otro</option>
+                            <% } else { %>
+                                <option value="0">Otro</option>
+                                <% } %>
+
                         </select>
-                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
-                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.color_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.color_id.msg %>
+                            </div>
+                        <% } %>
+                    
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="nuevoColor" style="display: none;">
+
+                        <input type="text" name="nuevoColor" placeholder="Si no encontras tu color. Crealo aca."
+                        value="<%= locals.oldBody ? oldBody.nuevoColor : null %>">
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.nuevoColor) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.nuevoColor.msg %>
+                            </div>
+                        <% } %>
+
+                    </div>
+
+                    <div class="input-box" id="divGasType_id">
                         <span>Tipo de combustible</span>
                         <br>
-                        <select name="gasType_id" id="" >
+                        
+                        <select name="gasType_id" id="gasType_id" >
                             <option value="" disabled selected>Seleccionar</option>
+                            
                             <% for(let gas of gasType) { %>
+                                <% if (locals.oldBody && locals.oldBody.gasType_id == gas.id) { %>
+                                    <option value="<%= gas.id %>" selected> <%= gas.tipo %> </option>
+                                <% } else { %>
                                 <option value="<%= gas.id %>"> <%= gas.tipo %> </option>
-
+                                <% } %>
                             <% } %>
+
                         </select>
-                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
-                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
+                        
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.gasType_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.gasType_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
-                    <div class="input-box">
+
+                    <div class="input-box" id="divVehicleType_id">
                         <span>Tipo de vehiculo</span>
                         <br>
-                        <select name="vehicleType_id" id="" >
+
+                        <select name="vehicleType_id" id="vehicleType_id" >
                             <option value="" disabled selected>Seleccionar</option>
+                            
                             <% for(let type of vehicleTypes) { %>
+                                <% if (locals.oldBody && locals.oldBody.vehicleType_id == type.id) { %>
+                                    <option value="<%= type.id %>" selected> <%= type.tipo %> </option>
+                                <% } else { %>
                                 <option value="<%= type.id %>"> <%= type.tipo %> </option>
+                                <% } %>
 
                             <% } %>
+
                         </select>
-                        <!-- Otro<input type="checkbox" name="Otro" id=""> -->
-                        <!-- <input type="text" name="brand" id="" disabled style="display: none;"> -->
+                       
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.vehicleType_id) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.vehicleType_id.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divDoors">
                         <span>Puertas</span>
                         <br>
-                        <select name="doors" id="" >
-                            <option value="" disabled selected>Seleccionar</option>
-                            <% for(let door of doors) { %>
-                                <option value="<%= door %>"> <%= door %> </option>
 
+                        <select name="doors" id="doors" >
+                            <option value="" disabled selected>Seleccionar</option>
+                            
+                            <% for(let door of doors) { %>
+                                <% if (locals.oldBody && locals.oldBody.doors == door) { %>
+                                    <option value="<%= door %>" selected> <%= door %> </option>
+                                <% } else { %>
+                                <option value="<%= door %>"> <%= door %> </option>
+                                <% } %>
                             <% } %>
+
                         </select>
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.doors) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.doors.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divTransmission">
                         <span>Transmision</span>
                         <br>
-                        <select name="transmission" id="" >
+
+                        <select name="transmission" id="transmission" >
                             <option value="" disabled selected>Seleccionar</option>
+                            
                             <% for(let transmission of transmissions) { %>
+                                <% if (locals.oldBody && locals.oldBody.transmission == transmission) { %>
+                                    <option value="<%= transmission %>" selected> <%= transmission %> </option>
+                                <% } else { %>
                                 <option value="<%= transmission %>"> <%= transmission %> </option>
+                                <% } %>
 
                             <% } %>
+
                         </select>
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.transmission) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.transmission.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divYear">
                         <span>Año</span>
-                        <input type="text" name="year" >
+                        <input type="text" name="year" id="year" value="<%= locals.oldBody ? oldBody.year : null %>">
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.year) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.year.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divPrice">
                         <span>Precio</span>
-                        <input type="number" name="price" >
+                        <input type="number" name="price" id="price" value="<%= locals.oldBody ? oldBody.price : null %>">
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.price) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.price.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divPrice">
                         <span>Kilometraje</span>
-                        <input type="number" name="km" >
+                        <input type="number" name="km" id="km" value="<%= locals.oldBody ? oldBody.km : null %>">
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.km) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.km.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     
-                    <div class="input-box">
+                    <div class="input-box" id="divManufacturingYear">
                         <span>Año de Fabricacion</span>
-                        <input type="number" name="manufacturingYear" >
+                        <input type="number" name="manufacturingYear" id="manufacturingYear" value="<%= locals.oldBody ? oldBody.manufacturingYear : null %>">
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.manufacturingYear) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.manufacturingYear.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" id="divEquipment">
                         <span>Equipamiento</span>
-                        <input type="textarea" name="equipment" >
+                        <input type="textarea" name="equipment" id="equipment" value="<%= locals.oldBody ? oldBody.equipment : null %>">
+
+                        <!-- //Feedback de errores  -->
+                        <% if (locals.errors && errors.equipment) { %>
+                            <div class="text-danger" style="color: red;">
+                               <%= errors.equipment.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
 
                     <div class="input-submit">
@@ -167,14 +341,15 @@
                         <input type="reset" value="Descartar" name="">
                     </div>
 
-
-                    <!-- <button class="aply-changes" type="submit">Aplicar cambios</button>
-                    <button class="dischard-changes" type="reset">Descartar cambios</button> -->
                 </form>
             </div> 
         </div>
     </main>
 
-    <%- include("../partials/footer") %> 
+    <%- include("../partials/footer") %>
+
+    <!-- <script src="/js/productValidation.js"></script> -->
+    <script src="/js/cargarOtro.js"></script>
+    <script src="/js/updateMarcaModelo.js"></script>
 </body>
 </html>

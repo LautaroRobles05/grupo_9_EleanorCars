@@ -1,5 +1,5 @@
-const { Op } = require("sequelize");
-
+const { Op, Model } = require("sequelize");
+const { validationResult } = require("express-validator");
 const {
   Products,
   Images,
@@ -10,16 +10,10 @@ const {
   Brands,
 } = require("../database/models");
 
-let productControllers = {
-  // getProducts: () => {
-  //   let products = JSON.parse(fs.readFileSync(autosPath, "utf-8"));
-  //   return products;
-  // },
+const wordFormatter = require('../../wordFormatter.js')
 
-  // list: (req, res) => {
-  //   let products = productControllers.getProducts();
-  //   res.render("products/list", {carsList: products});
-  // },
+let productControllers = {
+ 
   list: async (req, res) => {
     try {
       let products = await Products.findAll({
@@ -33,7 +27,8 @@ let productControllers = {
         limit: 20,
       });
 
-     res.render("products/list", {carsList: products});
+
+      res.render("products/list", {carsList: products});
     } catch (error) {
       res.json({
         metadata: {
@@ -48,15 +43,27 @@ let productControllers = {
 
   productEdit: async (req, res) => {
     try {
+      let brands = await Brands.findAll();
+      let models = await CarModels.findAll();
+      let colors = await Colors.findAll();
+      let gasType = await GasTypes.findAll();
+      let vehicleTypes = await VehicleTypes.findAll();
+      let images = await Images.findOne({
+        where: {
+          product_id: req.params.id
+        }
+      });
+      
+      let transmissions = ['Manual','Automatico'];
+      let doors = [3,5];
       let product = await Products.findByPk(req.params.id, {
         include: {
           all: true,
           nested: true,
           attributes: { exclude: ["id"] },
         }
-      });
-      
-      res.render("products/edit", { car: product });
+      })
+      res.render("products/edit", { car: product, brands,models,colors,gasType,vehicleTypes,transmissions,doors, images });
     } catch (error) {
       res.json({
         metadata: {
@@ -68,8 +75,54 @@ let productControllers = {
   },
     productUpdate: async (req, res) => {
     try {
+  
+      let resultValidation = validationResult(req);
+      
+      if (!resultValidation.isEmpty()) {
+
+        let brands = await Brands.findAll();
+      let models = await CarModels.findAll();
+      let colors = await Colors.findAll();
+      let gasType = await GasTypes.findAll();
+      let vehicleTypes = await VehicleTypes.findAll();
+      let images = await Images.findOne({
+        where: {
+          product_id: req.params.id
+        }
+      });
+      
+      let transmissions = ['Manual','Automatico'];
+      let doors = [3,5];
+      let product = await Products.findByPk(req.params.id, {
+        include: {
+          all: true,
+          nested: true,
+          attributes: { exclude: ["id"] },
+        }
+      })
+
+        return res.render("products/edit", {
+          errors: resultValidation.mapped(),
+          oldBody: req.body,
+          car: product, 
+          brands,
+          models,
+          colors,
+          gasType,
+          vehicleTypes,
+          transmissions,
+          doors,
+          images
+        });
+      }
+
+
       let product = await Products.findByPk(req.params.id);
       await product.update({
+          model_id: req.body.model_id,
+          vehicleType_id:req.body.vehicleType_id,
+          gasType_id:req.body.gasType_id,
+          color_id:req.body.color_id,
           year:req.body.year,
           km:req.body.km,
           price: req.body.price,
@@ -84,6 +137,32 @@ let productControllers = {
           } 
         }
       ) 
+
+    //verificacion de carga de imagenes
+    if (req.files.length != 0) {
+      Images.destroy({
+        where: {
+          product_id: req.params.id
+        }
+      })
+      let imgProduct = []
+      let listaImagenes= req.files
+      listaImagenes.forEach(img => {
+        let dataImg = {
+          product_id:req.params.id,
+          name: img.filename
+        }
+        imgProduct.push(dataImg)
+        
+      });
+      Images.bulkCreate(imgProduct);  
+    }  
+
+      
+     
+       
+      
+      
       return res.redirect("/products/detail/" + product.id);
       
     } catch (error) {
@@ -156,12 +235,43 @@ let productControllers = {
     }   
   },
   upload: async (req, res) => {
+
     try {
+      
+      let resultValidation = validationResult(req);
+      
+      if (!resultValidation.isEmpty()) {
+
+        let brands = await Brands.findAll();
+        let models = await CarModels.findAll();
+        let colors = await Colors.findAll();
+        let gasType = await GasTypes.findAll();
+        let vehicleTypes = await VehicleTypes.findAll();
+
+        let transmissions = ['Manual','Automatico'];
+        let doors = [3,5];
+       
+        return res.render("products/create", {
+          errors: resultValidation.mapped(),
+          oldBody: req.body,
+          brands,
+          models,
+          colors,
+          gasType,
+          vehicleTypes,
+          transmissions,
+          doors
+        });
+      }
+
       let {
         model_id,
+        nuevaMarca,
+        nuevoModelo,
         year,
         km,
         color_id,
+        nuevoColor,
         price,
         img,
         vehicleType_id,
@@ -171,6 +281,65 @@ let productControllers = {
         doors,
         equipment,
       } = req.body;
+
+
+      if(model_id == 0){ //Selecion opción ¨Otro¨ (este llega con value = 0) en Input Marca
+
+          // Peticion a BD para saber si la marca se repite
+          let marca = await Brands.findOne({
+            where: {
+              name: wordFormatter(nuevaMarca)
+            }
+          });
+
+
+          // Si la Marca no se repite se Crea
+          if(!marca){
+            marca = await Brands.create({
+              name: wordFormatter(nuevaMarca)
+            })
+          } 
+
+          // Peticion a BD para saber si el Modelo se repite //(con la misma Marca)
+          let modelo = await CarModels.findOne({
+            where: {
+              name: wordFormatter(nuevoModelo),
+              // model_id: marca.id
+            }
+          });
+
+
+          // Si el Modelo no se repite se Crea
+          if(!modelo){
+            modelo = await CarModels.create({
+              name : wordFormatter(nuevoModelo),
+              brand_id: marca.id
+            })
+          }
+
+          model_id = modelo.id
+      } 
+
+
+      if (color_id == 0){ //Selecion otro en Input color
+        // Peticion a BD para saber si el color existe
+        let color = await Colors.findOne({
+          where: {
+            name: wordFormatter(nuevoColor)
+          }
+        });
+
+
+        // Si el Color no se repite se Crea
+        if(!color){
+          color = await Colors.create({
+            name: wordFormatter(nuevoColor)
+          })
+        }
+
+        color_id = color.id
+      }
+
 
       let product = {
         model_id,
@@ -187,11 +356,6 @@ let productControllers = {
         equipment,
       };
 
-     
-
-
-
-
       
       Products.create(product)
         .then((response)=>{
@@ -202,7 +366,7 @@ let productControllers = {
          listaImagenes.forEach(img => {
            let dataImg = {
              product_id:id,
-             name:img.filename
+             name: img.filename
            }
            imgProduct.push(dataImg)
            
@@ -211,6 +375,7 @@ let productControllers = {
         })
 
       return res.redirect ('/products')
+
     } catch (error) {
       res.json({
         metadata: {
@@ -218,6 +383,7 @@ let productControllers = {
         },
         error,
       });
+      
     }
   },
  
@@ -241,3 +407,5 @@ let productControllers = {
 };
 
 module.exports = productControllers;
+
+

@@ -33,15 +33,15 @@ let userController = {
   processRegister: async(req, res) => {
     //return res.send(req.body);
     try {
-      let resultValidation = validationResult(req);
+    let resultValidation = validationResult(req);
       
-     if (!resultValidation.isEmpty()) {
+    if (!resultValidation.isEmpty()) {
       return res.render("register", {
         errors: resultValidation.mapped(),
         oldBody: req.body,
       });
-
     }
+
     await Users.create({
         name: req.body.firstName,
 
@@ -57,8 +57,31 @@ let userController = {
     })
 
     res.redirect("/user/login");
-    } catch (error) {
-      res.json({error});
+    } catch (error) { //Errores BD
+
+      //return res.json(error)
+
+
+      let resultValidation = validationResult(req);
+      
+      let listaErrores  = error.errors.map((error)=>{
+        let errorFormateado = {
+          value : req.body[error.path],
+          msg: error.message,
+          param: error.path,
+          location: 'body',
+        }
+        
+        return errorFormateado;
+      });
+
+      resultValidation.errors = listaErrores;
+
+      return res.render("register", {
+        errors: resultValidation.mapped(),
+        oldBody: req.body,
+      });
+      
     }
   },
 
@@ -78,7 +101,7 @@ let userController = {
           delete usuario.password;
           req.session.userLogged = usuario;
 
-          console.log('BUSCANDO EL ROL', usuario.rol_id);
+          
           
           if (req.body.remember) {
             res.cookie("remember", usuario, { maxAge: 60000 });
@@ -122,7 +145,7 @@ let userController = {
           }],
           where:{email:req.session.userLogged.email}
         })
-        // console.log('sesion de profile', user)
+       
         return res.render('users/profile', { user });
       } catch (error) {
         res.json({error})
@@ -179,7 +202,7 @@ let userController = {
   editProcess: async (req, res) => {
     try {
       let user = req.session.userLogged
-      // console.log('hola soy el usuario', user)
+      
       if(req.file){ 
         await UserImages.destroy({
           where: {

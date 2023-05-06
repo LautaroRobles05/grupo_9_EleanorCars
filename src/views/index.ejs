@@ -32,21 +32,23 @@
       <form class="form-search-car" action="/">
         
         <select  name="tipo" id="tipo">
+          <option value="" disabled selected>Tipo Vehículo</option>
+
           <% for( let vehicleType of vehicleTypes ) { %>
             <option value="<%= vehicleType.id %>"><%= vehicleType.tipo %></option>
           <% } %>
         </select>
 
-        <select name="brand" id="brand">
+        <select name="brand_id" id="brand_id">
+          <option value="" disabled selected>Marca</option>
+
           <% for( let brand of brands ) { %>
             <option value="<%= brand.id %>"><%= brand.name %></option>
           <% } %>
         </select>
 
-        <select name="model" id="model">
-            <% for( let model of models ) { %>
-              <option value="<%= model.id %>"> <%= model.name %> </option>
-            <% } %>
+        <select name="model_id" id="model_id">
+          <option value="" disabled selected>Modelo</option>
         </select>
         
 
@@ -95,6 +97,6 @@
       
     <%- include("./partials/footer") %> 
 
-    <script src="/js/search.js"></script>
+    <script src="/js/updateMarcaModelo.js"></script>
   </body>
 </html>
