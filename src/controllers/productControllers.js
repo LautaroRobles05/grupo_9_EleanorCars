@@ -184,12 +184,12 @@ let productControllers = {
             attributes: { exclude: ["id"] },
         }
       });
+
       let products = await Products.findAll({
         include: {
           all: true,
           nested: true,
-          attributes: 
-          { exclude: ["id"] },
+          attributes: { exclude: ["id"] },
         },
         where: {
           vehicleType_id: product.vehicleType_id, 
@@ -198,7 +198,11 @@ let productControllers = {
       
         limit: 5
       })
-     return res.render("products/detail", { auto: product, recomendedCars:products });
+
+      product.productImages = product.productImages.slice(0,4);
+
+     return res.render("products/detail", { auto: product, recomendedCars: products });
+
     } catch (error) {
         res.json({
             metadata: {

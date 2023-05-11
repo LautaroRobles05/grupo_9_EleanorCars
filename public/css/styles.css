@@ -142,7 +142,7 @@ header {
 .item_carrucel{ 
     width: 100%;
     height: 100%;
-    background-color: #EEEEEE;
+    /* background-color: #EEEEEE; */
     position: relative;
 }
 
@@ -165,9 +165,9 @@ header {
     width: 40px;
     text-align: center;
     margin: 20px;
-    background-color: #5C5E60;
     color: #DBDBDB;
-    border-radius: 50%;
+    /* background-color: #5C5E60; */
+    /* border-radius: 50%; */
 }
 
 .container_nav_carrucel .link_tarjeta{
@@ -181,12 +181,14 @@ header {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    color: #DBDBDB;
 }
 
 .container_img{
     min-width: 150px;
     max-width: fit-content;
     min-height: 100px;
+    border-radius: 5%;
 }
 
 .tarjeta_carrucel h4 {
@@ -197,7 +199,7 @@ header {
 .tarjeta_carrucel p{
     width: 60%;
     min-width: 150px;
-    text-align: justify;
+    text-align: center;
     overflow: hidden;
 }
 
@@ -292,7 +294,7 @@ footer {
     
     #carrucel_recomendations{
         width: 80%;
-        box-shadow: 0 0 10px 10px #5c5e60c8 ;
+        /* box-shadow: 0 0 10px 10px #5c5e60c8 ; */
     }
 
     .container_img {
@@ -325,5 +327,10 @@ footer {
         padding: 3px 6px;
         background: rgb(0, 0, 0);
         border-radius: 10px;
+    }
+
+    .container_nav_carrucel i {
+        font-size: 70px;
+        width: 70px;
     }
 }

@@ -70,7 +70,10 @@
 
                     <div class="input-box" id="divPassword">
                         <span>Contraseña</span>
-                        <input type="password" name="password" id="password">
+                        <div style="position: relative;">
+                            <input type="password" name="password" id="password">
+                            <i class="fas fa-eye-slash" id="togglePassword"></i>
+                        </div>
                         <% if (locals.errors && errors.password) { %>
                             <div class="text-danger" style="color: red;">
                                <%= errors.password.msg %>
@@ -80,7 +83,10 @@
 
                     <div class="input-box" id="divConfPassword">
                         <span>Confirmar Contraseña</span>
-                        <input type="password" name="confirmPassword" id="confirmPassword">
+                        <div style="position: relative;">
+                            <input type="password" name="confirmPassword" id="confirmPassword">
+                            <i class="fas fa-eye-slash" id="toggleConfirmPassword"></i>
+                        </div>
                         <% if (locals.errors && errors.confirmPassword) { %>
                             <div class="text-danger" style="color: red;">
                                <%= errors.confirmPassword.msg %>
@@ -99,6 +105,7 @@
         </div>
     </section>
 
+    <script src="/js/showPw.js"></script>
     <script src="/js/registerValidation.js"></script>
 </body>
 </html>

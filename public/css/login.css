@@ -98,6 +98,11 @@ section .content-box .form .input-box input
     background: transparent;
     border-radius: 6px;
 }
+
+section .content-box .form .input-box div input#password{
+    padding-right: 40px;
+}
+
 section .content-box .form .input-box input:focus
 {
     border-color: #0092CA;
@@ -187,6 +192,13 @@ section .content-box .form .social-media li img
 section .content-box .form .input-box .back-home
 {
     display: none;
+}
+
+#togglePassword {
+    margin: 13px;
+    color: #0092CA;
+    position: absolute;
+    right: 0px;
 }
 
 @media (min-width: 768px)

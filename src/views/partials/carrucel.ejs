@@ -4,16 +4,28 @@
 
     <div id="item_carrucel_<%= i %>" class="item_carrucel">
       <div class="tarjeta_carrucel">
-        <% if (recomendedCars[i].img) { %>
-          <img class="container_img" src="/images/products/<%=recomendedCars[i].img.name %>" alt="imagen-<%= recomendedCars[i].model.brand.name %>-<%= recomendedCars[i].model.name %>-<%= recomendedCars[i].year %>">
+        <% if (recomendedCars[i].productImages.length) { %>
+          <img class="container_img" src="/images/products/<%=recomendedCars[i].productImages[0].name %>" alt="imagen-<%= recomendedCars[i].model.brand.name %>-<%= recomendedCars[i].model.name %>-<%= recomendedCars[i].year %>">
           <% } else { %>
             <img class="container_img" src="/images/products/image-missing.jpg" alt="">
           <% } %>
         <!-- <div class="container_img"></div> -->
         <h4><%= recomendedCars[i].model.brand.name %> <%= recomendedCars[i].model.name %> <%= recomendedCars[i].year %></h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem ad ducimus consequatur consectetur expedita odit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore repellat saepe repellendus neque exercitationem quasi laudantium error! Fugiat corporis excepturi aliquid! Saepe totam officia, excepturi dignissimos distinctio delectus illo magni.
-        </p>
+        
+        <% if (recomendedCars[i].model.description) {%>
+
+          <p><%= recomendedCars[i].model.description %></p>
+
+        <% } else {%>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            aspernatur asperiores laboriosam, iste exercitationem voluptate.
+            Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
+            cupiditate iste veritatis accusantium vel vitae molestias!
+          </p>
+
+        <% } %>
       </div>
 
       <div class="container_nav_carrucel">

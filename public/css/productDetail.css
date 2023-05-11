@@ -9,6 +9,10 @@
 7) PEPER GRAY #8C8B89
 */
 
+main{
+    padding-bottom: 25px;
+}
+
 .product_detail{
     color:#EEEEEE;
     padding: 20px;
@@ -75,14 +79,14 @@
 }
 
 .card_carrucel_detail, .preview{
-    border: 2px solid #EEEEEE;
+    /* border: 2px solid #EEEEEE; */
+    border-radius: 5%;
 }
 
 .card_carrucel_detail{
     max-height: 240px;
     width: 100%;
     max-width: fit-content;
-    background-color: black;
     margin-bottom: 10px;
     color: white;
     align-self: center;

@@ -17,18 +17,20 @@ let mainController = {
           attributes: 
           { exclude: ["id"] },
         },
-      limit: 5
-    });
-      let vehicleTypes = await VehicleTypes.findAll({
-    });
-      let brands = await Brands.findAll({
-    });
-      let models = await CarModels.findAll({
-    });
+        limit: 5
+      });
 
-    res.render("index", {
-      recomendedCars, vehicleTypes, brands, models
-    });
+
+      let vehicleTypes = await VehicleTypes.findAll({});
+
+      let brands = await Brands.findAll({});
+
+      let models = await CarModels.findAll({});
+
+
+      res.render("index", {
+        recomendedCars, vehicleTypes, brands, models
+      });
     } catch (error) {
       res.json({error})
     }

@@ -34,91 +34,66 @@
               </div>
             <% } %>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-            aspernatur asperiores laboriosam, iste exercitationem voluptate.
-            Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
-            cupiditate iste veritatis accusantium vel vitae molestias!
-          </p>
+
+          <% if (auto.model.description) {%>
+
+            <p><%= auto.model.description %></p>
+          <% } else {%>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              aspernatur asperiores laboriosam, iste exercitationem voluptate.
+              Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
+              cupiditate iste veritatis accusantium vel vitae molestias!
+            </p>
+
+          <% } %>
         </div>
 
         <div class="images_detail" id="carrucel_detail">
+          
+          <% if (!auto.productImages.length) { %>
+            
+            <img class="card_carrucel_detail" src="/images/products/image-missing.jpg" alt="">
+
+          <%} else { %>
+            
+            <% auto.productImages.forEach((element,index) => { %>
+                
+              <div class="item_carrucel_detail" id="product_detail_<%= index %>">
     
-          <div class="item_carrucel_detail" id="product_detail_1">
-<!-- 
-            <div class="card_carrucel_detail">
-            
-              
-            </div> -->
-            <img class="card_carrucel_detail" src="/images/products/default-troll-img.jpeg" alt="">
-            <div class="carrucel_navegation">
-              <a href="#product_detail_3">
-                <i class="fa-solid fa-caret-left"></i>
-              </a>
-              <a href="#product_detail_1">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <i class="fa-solid fa-caret-right"></i>
-              </a>
-            </div>
-          </div>
-          
-          <div class="item_carrucel_detail" id="product_detail_2">
+                <img class="card_carrucel_detail" src="/images/products/<%= element.name %>" alt="">
+    
+                <% if (auto.productImages.length != 1) { %>
   
-            <div class="card_carrucel_detail">
-              IMAGEN B
-            </div>
-            <!-- <img class="card_carrucel_detail" src="/images/matiboton.png" alt=""> -->
-            <div class="carrucel_navegation">
-              <a href="#product_detail_1">
-                <i class="fa-solid fa-caret-left"></i>
-              </a>
-              <a href="#product_detail_1">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <i class="fa-solid fa-caret-right"></i>
-              </a>
-            </div>
-          </div>
-          
-          <div class="item_carrucel_detail" id="product_detail_3">
-            
-            <div class="card_carrucel_detail">
-              IMAGEN C
-            </div>
-            
-            <div class="carrucel_navegation">
-              <a href="#product_detail_2">
-                <i class="fa-solid fa-caret-left"></i>
-              </a>
-              <a href="#product_detail_1">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_1">
-                <i class="fa-solid fa-caret-right"></i>
-              </a>
-            </div>
-          </div>
+                  <div class="carrucel_navegation">
+    
+                    <a href="#product_detail_<%= index == 0 ? 3 : index - 1 %>">
+                      <i class="fa-solid fa-caret-left"></i>
+                    </a>
+    
+                    <% for (let j = 0; j < auto.productImages.length; j++) {%>
+                      <% if (j != index) {%>
+                        
+                      <a href="#product_detail_<%= j %>">
+                        <img class="preview" src="/images/products/<%= auto.productImages[j].name %>" alt="">
+                      </a>
+    
+                      <% } %>
+                    <% } %>
+    
+                    <a href="#product_detail_<%= index == (auto.productImages.length - 1 )? 0 : index + 1 %>">
+                      <i class="fa-solid fa-caret-right"></i>
+                    </a>
+    
+                  </div>
+                  
+                <% } %>
+              </div>
+            <% });%>
+
+          <% } %>        
+                    
         </div>
         
         <div class="products_tags">
@@ -155,8 +130,8 @@
                     <td class="data"><%= auto.color.name %></td>
                   </tr>
                   <tr>
-                    <td class="details">Puertas</td>
-                    <td class="data"><%= auto.doors %></td>
+                    <td class="details">Tipo</td>
+                    <td class="data"><%= auto.vehicleType.tipo %></td>
                   </tr>
                 </table>
               </div>
@@ -180,6 +155,10 @@
                   <tr>
                     <td class="details">Kilometraje</td>
                     <td class="data"><%= auto.km %>km</td>
+                  </tr>
+                  <tr>
+                    <td class="details">Puertas</td>
+                    <td class="data"><%= auto.doors %></td>
                   </tr>
                   <!-- <tr>
                     <td class="details">Puertas</td>
@@ -208,13 +187,15 @@
 
       </section>
 
-      <section class="recomendations">
-        <div>
-          <h3>Autos similares</h3>
-          
-          <%- include('../partials/carrucel') %> 
-        </div>
-      </section>
+      <% if (recomendedCars.length) { %>
+        <section class="recomendations">
+          <div>
+            <h3>Autos similares</h3>
+            
+            <%- include('../partials/carrucel') %> 
+          </div>
+        </section>
+      <% } %>
 
     </main>
 

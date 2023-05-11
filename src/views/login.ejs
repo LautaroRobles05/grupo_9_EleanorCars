@@ -35,7 +35,12 @@
 
                     <div class="input-box" id="divPassword">
                         <span>Contraseña</span>
-                        <input type="password" name="password" id="password">
+
+                        <div style="position: relative;">
+                            <input type="password" name="password" id="password">
+                            <i class="fas fa-eye-slash" id="togglePassword"></i>
+                        </div>
+
                         <% if (locals.errors) { %>
                             <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.msg %>
@@ -67,5 +72,6 @@
     </section>
 
     <script src="/js/loginValidator.js"></script>
+    <script src="/js/showPw.js"></script>
 </body>
 </html>
