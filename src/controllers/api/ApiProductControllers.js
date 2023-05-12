@@ -5,6 +5,8 @@ const {
   Brands,
 } = require("../../database/models");
 //const { Op } = require("sequelize");
+const Sequelize = require("sequelize");
+
 
 module.exports = {
   list: async (req, res) => {
@@ -15,11 +17,8 @@ module.exports = {
           nested: true,
           attributes: { exclude: ["id"] },
         },
-        attributes: { exclude: ["id"] },
         limit: 20,
       });
-
-      
 
       res.json({
         metadata: {
@@ -39,8 +38,26 @@ module.exports = {
 
     //res.render("products/list", {carsList: products});
   },
+
+  last: async (req, res) => { //consulta a la db por el ultimo producto creado
+    try {
+      const lastProduct = await Products.findOne({
+        order: [['createdAt', 'DESC']]
+      });
+  
+      res.json(({
+        metadata: {
+          resultado: 200,
+          mensaje: "Consulta de ultimo producto creado exitosa!",
+        },
+        lastProduct,
+      }))
+    } catch (error) {
+      res.json(error);
+    }
+  },
  
-  prueba: async (req,res) => {
+  getModel: async (req,res) => {
     try {
       let products = await Brands.findByPk(req.params.id, {
         include: {
@@ -58,6 +75,74 @@ module.exports = {
     }
 
   },
+  
+  count: async (req, res) => { //metodo para consulta de cantidad de productos
+    try {
+      let products = await Products.count()
+      console.log(products)
+      res.json(({
+        metadata: {
+          resultado: 200,
+          mensaje: "Consulta de cantidad de productos exitosa!",
+        },
+        products,
+      }))
+
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  categories: async (req, res) => { //metodo para consulta de cantidad de categorias
+    try {
+      let categories = await VehicleTypes.count()
+      console.log(categories)
+      res.json(({
+        metadata: {
+          resultado: 200,
+          mensaje: "Consulta de cantidad de categorias exitosa!",
+        },
+        categories,
+      }))
+
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  countTypes: async (req, res) => { //metodo para consulta de cantidad de productos segun tipo de vehículo
+  
+    try {
+
+      let categoriesCount = await VehicleTypes.count()
+      let productsCount = await Products.count()
+      let types = await VehicleTypes.findAll({
+        include: {
+          all: true,
+        },
+      })
+      
+      let objeto = {}
+    
+      types.forEach(types => {
+        objeto[types.tipo] = {
+          id: types.id,
+          tipo: types.tipo,
+          productCount: types.products.length
+        }
+      })
+      
+      objeto.count = productsCount
+      objeto.categories = categoriesCount
+
+      res.json(objeto)
+
+    } catch (error) {
+      res.json(error)
+    }
+
+},
+
   upload: async (req, res) => {
     try {
       let {

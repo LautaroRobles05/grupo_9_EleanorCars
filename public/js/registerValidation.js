@@ -55,6 +55,8 @@ function validarInputs () {
                 divFirstName.insertBefore(errorFirstName, divFirstName.lastChild) //accedemos al ultimo hijo del div para colocar el error
                 
             }
+        } else {
+            errorFirstName.remove()
         }
 
         let errorLastName = document.querySelector('.errorLastName')
@@ -68,6 +70,8 @@ function validarInputs () {
                 errorLastName.style.fontSize = 'small'
                 divLastName.insertBefore(errorLastName, divLastName.lastChild)
             }
+        } else {
+            errorLastName.remove()
         }
 
         let errorEmail = document.querySelector('.errorEmail')
@@ -81,6 +85,8 @@ function validarInputs () {
                 errorEmail.style.fontSize = 'small'
                 divEmail.insertBefore(errorEmail, divEmail.lastChild)
             }
+        } else {
+            errorEmail.remove()
         }
         
         let errorNickname = document.querySelector('.errorNickname')
@@ -94,6 +100,8 @@ function validarInputs () {
                 errorNickname.style.fontSize = 'small'
                 divNickname.insertBefore(errorNickname, divNickname.lastChild)
             }
+        } else {
+            errorNickname.remove()
         }
 
         let errorPassword = document.querySelector('.errorPassword')
@@ -107,6 +115,8 @@ function validarInputs () {
                 errorPassword.style.fontSize = 'small'
                 divPassword.insertBefore(errorPassword, divPassword.lastChild)
             }
+        } else {
+            errorPassword.remove()
         }
 
         let errorConfPassword = document.querySelector('.errorConfPassword')
@@ -120,12 +130,12 @@ function validarInputs () {
                 errorConfPassword.style.fontSize = 'small'
                 divConfPassword.insertBefore(errorConfPassword, divConfPassword.lastChild)
             }
-        }
+        } 
 
         if(errores.length > 0) { //verificamos que la longitud del array sea mayor que 0
-            errores = [] //reseteamos el array de errores para volver a checkear información
+            errores = []
+            console.log('hola estoy en el prevent') //reseteamos el array de errores para volver a checkear información
             e.preventDefault() //evitamos envio de formulario
-            
-        }
+        } 
     })
 }
