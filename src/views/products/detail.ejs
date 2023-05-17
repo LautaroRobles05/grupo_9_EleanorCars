@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/productDetail.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   </head>
 
   <body>
@@ -95,6 +96,23 @@
           <% } %>        
                     
         </div>
+        <!-- <div class="images_detail" id="carrucel_detail">
+          <div class="slider-for">
+            <% if (!auto.productImages.length) { %>
+            
+              <img class="card_carrucel_detail" src="/images/products/image-missing.jpg" alt="">
+  
+            <%} else { %>
+              
+              <% auto.productImages.forEach((element,index) => { %>
+                <img class="card_carrucel_detail" src="/images/products/image-missing.jpg" alt="">
+              <% }) %>
+            <% } %>
+          </div>
+          <div class="slider-nav">
+
+          </div>
+        </div> -->
         
         <div class="products_tags">
           <div class="price">$<%= auto.price %></div>
@@ -200,7 +218,24 @@
     </main>
 
     <%- include("../partials/footer") %> 
-
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+      });
+    </script>
   </body>
 </html>

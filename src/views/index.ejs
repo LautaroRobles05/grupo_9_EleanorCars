@@ -29,9 +29,9 @@
 
       <p>Tu auto ideal, a un solo click de distancia.</p>
       
-      <form class="form-search-car" action="/">
+      <form class="form-search-car" method="get" action="/products/search">
         
-        <select  name="tipo" id="tipo">
+        <select  name="tipo" id="tipo" >
           <option value="" disabled selected>Tipo Vehículo</option>
 
           <% for( let vehicleType of vehicleTypes ) { %>
@@ -39,7 +39,7 @@
           <% } %>
         </select>
 
-        <select name="brand_id" id="brand_id">
+        <select name="brand_id" id="brand_id" >
           <option value="" disabled selected>Marca</option>
 
           <% for( let brand of brands ) { %>
@@ -47,7 +47,7 @@
           <% } %>
         </select>
 
-        <select name="model_id" id="model_id">
+        <select name="model_id" id="model_id" >
           <option value="" disabled selected>Modelo</option>
         </select>
         

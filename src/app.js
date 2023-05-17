@@ -30,6 +30,8 @@ const ApiUserRoutes = require('./routes/api/ApiUserRoutes')
 const mainRoutes = require('./routes/mainRoutes')
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes');
+const cartRoute = require('./routes/cartRoute');
+
 
 
 const PORT = 3009;
@@ -46,6 +48,7 @@ app.use('/api/users', ApiUserRoutes);
 
 
 //Rutas
+app.use('/cart', cartRoute)
 app.use('/products', productRoutes);
 app.use('/user', userRoutes);
 app.use('/', mainRoutes);

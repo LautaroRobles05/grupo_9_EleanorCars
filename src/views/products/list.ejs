@@ -27,6 +27,8 @@
   <body>
     <%- include ('../partials/header') %>
     <main>
+
+
         <% carsList.forEach(auto => {%>
 
           
@@ -44,6 +46,7 @@
             <p>AÑO: <%= auto.year %> </p>
             <p>MARCA: <%= auto.model.brand.name %> </p>
             <p>PRECIO: 💰 $<%= auto.price %></p>
+            <button class="agregar_producto" data-id = "<%=auto.id %>">Agregar al carrito</button>
         </article> 
      
         <% }) %>

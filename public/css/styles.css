@@ -60,7 +60,7 @@ ul{
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #EEEEEE;
 }
 
@@ -113,10 +113,18 @@ header {
     text-align: center;
     color: #EEEEEE;
 }
-
+/* corrige el problema del logo en el cart */
+img
+{
+    vertical-align: baseline !important;
+}
 .logo img{
     height: 45px;
     width: 80px;
+}
+/* corrige el problema del texto del logo en el cart */
+p  {
+    margin-bottom: 0rem !important;
 }
 
 .logo p {
@@ -276,18 +284,35 @@ footer {
     .nav_header
     {
         display: flex;
-        align-self: flex-end;
+        /* corrige el problema de la posicion del ul en nav del cart */
+        align-self: flex-end !important;
     }
 
     .nav_header ul 
     {
         display: flex;
+        margin-bottom: 0px;
     }
 
     .nav_header ul li
     {
         margin-right: 25px; 
+        position: relative;
     }
+
+    .nav_header ul li .carritoCantidad {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: red;
+        color: white;
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 18px;
+      }
 
 
     /* ---------CARRUCEL------------ */

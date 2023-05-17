@@ -3,7 +3,7 @@
 
   <div class="logo">
     <a href="/"><img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars" /></a>
-    <p>Eleanor Cars</p>
+    <p class="logo_name">Eleanor Cars</p>
   </div>
 
   <nav class="nav_header">
@@ -11,8 +11,8 @@
       <li><a href="/notFound">Nosotros</a></li>
       <li><a href="/notFound">Vender</a></li>
       <li><a href="/products">Comprar</a></li>
-      <li>
-        <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+      <li class="cart">
+        <a href="/cart"><i class="fa-solid fa-cart-shopping"></i><span id="carritoCantidad" class="carritoCantidad">0</span></a>
       </li>
       <!-- <i class="fa-solid fa-user-gear"></i> usuario con engranaje--> 
       <% if (locals.userLogged) { %>

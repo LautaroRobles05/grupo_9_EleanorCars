@@ -41,6 +41,31 @@ let productControllers = {
     //res.render("products/list", {carsList: products});
   },
 
+  findProduct: async (req, res) => {
+    try {
+     let products = await Products.findAll({
+      include: {
+        all: true,
+        nested: true,
+        attributes: { exclude: ["id"] }
+      },
+      limit: 20,
+      
+      where: {
+        vehicleType_id: req.query.tipo,
+      }
+     })
+    
+     if (products.length > 0){
+      res.render("products/list", {carsList: products})
+     } else {
+      res.render("notFound")
+     }
+    } catch (error) {
+      res.render('notFound')
+    }
+  },
+
   productEdit: async (req, res) => {
     try {
       let brands = await Brands.findAll();

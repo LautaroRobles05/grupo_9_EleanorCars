@@ -115,25 +115,27 @@ module.exports = {
     try {
 
       let categoriesCount = await VehicleTypes.count()
+      let productos = await Products.findAll()
       let productsCount = await Products.count()
       let types = await VehicleTypes.findAll({
         include: {
           all: true,
+          
         },
       })
-      
       let objeto = {}
     
       types.forEach(types => {
         objeto[types.tipo] = {
           id: types.id,
           tipo: types.tipo,
-          productCount: types.products.length
+          productCount: types.products.length,
         }
       })
       
       objeto.count = productsCount
       objeto.categories = categoriesCount
+      objeto.products = productos
 
       res.json(objeto)
 
@@ -194,10 +196,13 @@ module.exports = {
   detail: async (req, res) => {
       try{
         let product = await Products.findByPk(req.params.id, {
+            attributes: { 
+              exclude: ["createdAt", "deletedAt"] 
+            },
             include: {
                 all: true,
                 nested: true,
-                attributes: { exclude: ["id"] },
+                attributes: { exclude: ["id", "createdAt", "deletedAt"] },
             }
         });
         return res.json(product)
@@ -248,5 +253,5 @@ module.exports = {
         error,
     });
     }
-  }
+  },
 };

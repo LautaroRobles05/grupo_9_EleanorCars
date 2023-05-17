@@ -10,6 +10,10 @@ router.get('/count', ApiUserController.count)
 //consulta ulitmo usuario creado
 router.get('/last', ApiUserController.last)
 
+//consulta por detalle de usuario
+router.get('/detail/:id', ApiUserController.userDetail)
+
+
 
 
 
