@@ -128,6 +128,17 @@ img
     height: 45px;
     width: 80px;
 }
+
+img.profile_img
+{
+    height: 33px;
+    position: absolute;
+    margin-left: 4px;
+    width: 33px;
+    border-radius: 50%;
+    top: -4px;
+    object-fit: cover
+}
 /* corrige el problema del texto del logo en el cart */
 p  {
     margin-bottom: 0rem !important;
@@ -174,14 +185,57 @@ p  {
     align-items: center;
 }
 
-.container_nav_carrucel i {
+/* .container_nav_carrucel i {
     font-size: 40px;
     width: 40px;
     text-align: center;
     margin: 20px;
     color: #DBDBDB;
-    /* background-color: #5C5E60; */
-    /* border-radius: 50%; */
+    background-color: #5C5E60;
+    border-radius: 50%;
+} */
+
+/* .slick-arrow
+{
+    width: 30px;
+    height: 30px;
+    font-size: 1px;
+    color: transparent;
+    position: absolute;
+    top: 189px;
+    right: 0px;
+} */
+
+
+
+
+.slick-next 
+{
+    width: 39px;
+    height: 39px;
+    font-size: 1px;
+    color: transparent;
+    position: absolute;
+    top: 12px;
+    right: 0px;
+    background: url(../images/flecha-hacia-abajo.png);
+    background-size: 100%;
+    transform: rotate(180deg);
+    border: none;
+} 
+
+.slick-prev 
+{
+    width: 39px;
+    height: 39px;
+    font-size: 1px;
+    color: transparent;
+    position: relative;
+    top: 12px;
+    left: 0px;
+    background: url(../images/flecha-hacia-abajo.png);
+    background-size: 100%;
+    border: none;
 }
 
 .container_nav_carrucel .link_tarjeta{
@@ -203,6 +257,7 @@ p  {
     max-width: fit-content;
     min-height: 100px;
     border-radius: 3%;
+    width: 250px;
 }
 
 .tarjeta_carrucel h4 {
@@ -332,7 +387,7 @@ footer {
     }
 
     .container_img {
-        width: 70%;
+        width: 50%;
     }
 
     .tarjeta_carrucel p {
@@ -366,5 +421,13 @@ footer {
     .container_nav_carrucel i {
         font-size: 70px;
         width: 70px;
+    }
+
+    .container_img {
+        width: 30%;
+    }
+
+    section.recomendations div.fade ul.slick-dots {
+        display: none !important
     }
 }

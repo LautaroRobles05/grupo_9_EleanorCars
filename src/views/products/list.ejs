@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/productList.css" />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
@@ -32,7 +34,7 @@
         <% carsList.forEach(auto => {%>
 
           
-            <article class="cart-list-item">
+        <article class="cart-list-item" data-aos="zoom-in" data-aos-duration="1500">
               <a href="/products/detail/<%= auto.id %>">    
                 <% if (auto.productImages[0]) { %>
                   <img class="car-img" src="/images/products/<%= auto.productImages[0].name %>" alt="imagen auto">  
@@ -52,6 +54,8 @@
         <% }) %>
     </main>
     <%- include ('../partials/footer') %>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/aos.js"></script>
     <script src="/js/formateoPrecio.js"></script>
   </body>
 </html>

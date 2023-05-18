@@ -92,6 +92,12 @@ let userController = {
   loginProcess: async (req, res) => {
     try {
       let usuario = await Users.findOne({
+        include: [{
+          association: 'img',
+          attributes: {
+            include: ['name'] //spread operator de timestamps linea 9
+          }
+        }],
         where:{email:req.body.email}
       })
       if (usuario) {
@@ -100,8 +106,6 @@ let userController = {
         if (check) {
           delete usuario.password;
           req.session.userLogged = usuario;
-
-          
           
           if (req.body.remember) {
             res.cookie("remember", usuario, { maxAge: 60000 });

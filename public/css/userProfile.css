@@ -81,7 +81,25 @@ section .content-box .form h2
 section .content-box .form .input-box
 {
     margin-bottom: 20px;
+
 }
+
+section .content-box .form .input-box select
+{
+    width: 100%;
+    padding: 10px 20px;
+    /* border: 1px solid #607d8b; */
+    border: 1px solid #607d8b;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    /* color: #607d8b; */
+    color: #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: 0.5s all ease;
+}
+
 section .content-box .form .input-box span
 {
     font-size: 16px;

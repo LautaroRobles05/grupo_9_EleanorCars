@@ -1,4 +1,4 @@
-  <div id="carrucel_recomendations">
+  <div class ="fade" id="carrucel_recomendations" data-aos="fade-up" data-aos-duration="1500">
   
     <% for(let i = 0; i < recomendedCars.length ; i++){ %>
 
@@ -28,7 +28,7 @@
         <% } %>
       </div>
 
-      <div class="container_nav_carrucel">
+      <!-- <div class="container_nav_carrucel">
         <a href="#item_carrucel_<%= i == 0 ? (recomendedCars.length - 1) : (i - 1) %>">
           <i class="fa-solid fa-caret-left"></i>
         </a>
@@ -36,7 +36,7 @@
         <a href="#item_carrucel_<%= (i + 1) == recomendedCars.length ? 0 : (i + 1)%>">
           <i class="fa-solid fa-caret-right"></i>
         </a>
-      </div>
+      </div> -->
     </div>
 
     <% } %>

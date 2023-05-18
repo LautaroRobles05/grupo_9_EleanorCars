@@ -225,7 +225,7 @@ let productControllers = {
       })
 
       product.productImages = product.productImages.slice(0,4);
-
+      
      return res.render("products/detail", { auto: product, recomendedCars: products });
 
     } catch (error) {

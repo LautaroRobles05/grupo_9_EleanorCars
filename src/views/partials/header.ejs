@@ -24,10 +24,15 @@
               <a href="/user/list"><i class="fa-solid fa-users"></i></a>
             </li>
           <% } %>
-        <li>
-          <a href="/user/profile"><i class="fa-solid fa-user-tie"></i> Hi <%= locals.userLogged.nickname  %>
-          </a>
-        </li>
+          <!-- <i class="fa-solid fa-user-tie"></i> -->
+          <% if (locals.userLogged.img) { %>
+            <li>
+              <a href="/user/profile">Hi <%= locals.userLogged.nickname  %> <img class="profile_img" src="/images/users/<%=locals.userLogged.img.name  %>" alt="">
+              </a>
+            </li>
+          <% } else {%>
+            <a href="/user/profile">Hi <%= locals.userLogged.nickname  %></a>
+            <% } %>
       <% } else { %>
         <li>
           <a href="/user/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>

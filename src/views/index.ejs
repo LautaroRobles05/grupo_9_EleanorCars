@@ -8,6 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link rel="stylesheet" href="/css/styles.css"/>
     <link rel="stylesheet" href="/css/index.css">
@@ -25,7 +27,7 @@
     
 
     <main>      
-      <section class="search-car">
+      <section class="search-car" data-aos="fade-up" data-aos-duration="1500">
 
       <p>Tu auto ideal, a un solo click de distancia.</p>
       
@@ -60,15 +62,15 @@
       </form>
     </section>
 
-    <section class="recomendations">
+    <section class="recomendations" data-aos="fade-up" data-aos-duration="1500">
       <h3>Nuestros recomendados</h3>
       <%- include('partials/carrucel') %> 
     </section>
 
 
-    <section class="banner-primera-plana"></section>
+    <section class="banner-primera-plana" data-aos="fade-up" data-aos-duration="1500"></section>
 
-    <section class="buy_with_us">
+    <section class="buy_with_us" data-aos="fade-up" data-aos-duration="1500">
       <h3>¿Por que comprar con nosotros?</h3>
       <div class="bwu_description_container">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, optio. Quas aliquam quisquam ipsum repudiandae, quis perspiciatis aspernatur sed possimus, laudantium iste voluptatem accusamus atque architecto voluptate eum molestiae odit?</p>
@@ -77,7 +79,7 @@
     </section>
     
     
-    <section class="sell_with_us">
+    <section class="sell_with_us" data-aos="fade-up" data-aos-duration="1500">
       <div class="swu_container">
         <h4>¿Queres vender tu auto?</h4>
 
@@ -91,12 +93,16 @@
       <img src="https://lh3.googleusercontent.com/ESDr-glwzmLrtw4f6tt5uR98KIVCxptlKYH5BeEf-tAHMZYQUwpXONGhJ_B1Ty8TzQYRRGYqce3Z7gmUEh5lOwLAdAd3vna47K9oHA" alt="imagen candado, venta segura">
     </section>
 
-    <section class="banner-carretera"></section>
+    <section class="banner-carretera" data-aos="fade-up" data-aos-duration="1500"></section>
 
     </main>
       
     <%- include("./partials/footer") %> 
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/aos.js"></script>
     <script src="/js/updateMarcaModelo.js"></script>
+    <script src="/js/slickCarrusel.js"></script>
   </body>
 </html>
