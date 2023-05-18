@@ -45,12 +45,13 @@
             <p>MODELO: <%= auto.model.name %></p>
             <p>AÑO: <%= auto.year %> </p>
             <p>MARCA: <%= auto.model.brand.name %> </p>
-            <p>PRECIO: 💰 $<%= auto.price %></p>
+            <p>PRECIO: 💰 <p class="price"><%= auto.price %></p></p>
             <button class="agregar_producto" data-id = "<%=auto.id %>">Agregar al carrito</button>
         </article> 
      
         <% }) %>
     </main>
     <%- include ('../partials/footer') %>
+    <script src="/js/formateoPrecio.js"></script>
   </body>
 </html>

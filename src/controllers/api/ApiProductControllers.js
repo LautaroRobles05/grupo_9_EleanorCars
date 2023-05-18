@@ -93,6 +93,19 @@ module.exports = {
     }
   },
 
+  categories1: async (req,res) => {
+    let categorias = await VehicleTypes.findAll()
+    res.json(({
+      metadata: {
+        resultado: 200,
+        mensaje: "Consulta de cantidad de categorias exitosa!",
+      },
+      data: {
+        categorias
+      },
+    }))
+  },
+
   categories: async (req, res) => { //metodo para consulta de cantidad de categorias
     try {
       let categories = await VehicleTypes.count()

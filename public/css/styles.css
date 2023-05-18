@@ -24,6 +24,12 @@ Fuente Login y Register: #607d8b
     font-family: 'Poppins', sans-serif;
 }
 
+/* main section 
+{
+    width: 80vw;
+    margin: auto;
+} */
+
 body::-webkit-scrollbar {
     width: 11px;
 }
@@ -196,7 +202,7 @@ p  {
     min-width: 150px;
     max-width: fit-content;
     min-height: 100px;
-    border-radius: 5%;
+    border-radius: 3%;
 }
 
 .tarjeta_carrucel h4 {
@@ -209,6 +215,9 @@ p  {
     min-width: 150px;
     text-align: center;
     overflow: hidden;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 100%) -9%, rgb(255 255 255 / -10%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* -----------------------------------carrusel--------------------------------------- */

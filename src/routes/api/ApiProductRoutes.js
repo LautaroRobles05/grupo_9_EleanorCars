@@ -13,6 +13,9 @@ router.post('/create', apiProductControllers.upload);
 //ruta para ver el total de productos 
 router.get('/count', apiProductControllers.count);
 
+router.get('/categories1', apiProductControllers.categories1);
+
+
 //ruta para ver cantidad de productos en base a tipo de vehículo, cantidad de productos totales y detalle de productos
 router.get('/count/types', apiProductControllers.countTypes);
 

@@ -53,6 +53,7 @@ main {
 img {
   width: 100%;
   height: min-content;
+  border-radius: 10px
 }
 .textarea {
   height: 40px;

@@ -115,8 +115,10 @@
         </div> -->
         
         <div class="products_tags">
-          <div class="price">$<%= auto.price %></div>
-          <button class="reserve">Realizar reserva</button>
+          <div class="price" id="price"><%= auto.price %></div>
+          <form action="/cart">
+            <button class="reserve" type="submit">Realizar reserva</button> 
+          </form>
         </div>
         
       </section>
@@ -126,9 +128,9 @@
           <input type="checkbox" id="drop_down">
 
           <div class="specifications_container">
-
+            <h4 class="title_specifications">Especificaciones</h4>
             <div class="especification">
-              <h4>Especificaciones 1</h4>
+              <!-- <h4>Especificaciones 1</h4> -->
               <div class="table_container">
                 <table>
                   <tr>
@@ -155,7 +157,7 @@
               </div>
             </div>
             <div class="especification">
-              <h4>Especificaciones 2</h4>
+              <!-- <h4>Especificaciones 2</h4> -->
               <div class="table_container">
                 <table>
                   <tr>
@@ -220,7 +222,7 @@
     <%- include("../partials/footer") %> 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script>
+    <!-- <script>
         $('.slider-for').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -236,6 +238,7 @@
         centerMode: true,
         focusOnSelect: true
       });
-    </script>
+    </script> -->
+    <script src="/js/formateoPrecio.js"></script>
   </body>
 </html>
