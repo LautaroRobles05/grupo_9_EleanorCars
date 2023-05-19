@@ -42,7 +42,9 @@ let userController = {
       });
     }
 
-    await Users.create({
+    
+
+    let response = await Users.create({
         name: req.body.firstName,
 
         lastName: req.body.lastName,
@@ -54,6 +56,11 @@ let userController = {
         nickname: req.body.nickname,
 
         rol_id: 1,
+    })
+
+    await UserImages.create({
+      name: "default-icon.png",
+      user_id: response.id
     })
 
     res.redirect("/user/login");
@@ -265,6 +272,11 @@ let userController = {
   },
   delete: async (req, res) => {
     try{
+      await UserImages.destroy({
+        where: {
+          user_id: req.params.id
+        }
+      })
       await Users.destroy({
         where: {
           id: req.params.id

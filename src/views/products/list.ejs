@@ -47,7 +47,8 @@
             <p>MODELO: <%= auto.model.name %></p>
             <p>AÑO: <%= auto.year %> </p>
             <p>MARCA: <%= auto.model.brand.name %> </p>
-            <p>PRECIO: 💰 <p class="price"><%= auto.price %></p></p>
+            <p style="display: inline-block;">PRECIO: 💰 </p>
+            <p class="price" style="display: inline-block;"><%= auto.price %></p>
             <button class="agregar_producto" data-id = "<%=auto.id %>">Agregar al carrito</button>
         </article> 
      

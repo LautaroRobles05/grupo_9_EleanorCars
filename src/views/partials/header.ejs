@@ -17,17 +17,7 @@
       </li>
       <!-- <i class="fa-solid fa-user-gear"></i> usuario con engranaje--> 
       <% if (locals.userLogged) { %>
-        <!-- <% if (locals.userLogged.rol_id == 2) { %>
-            <li>
-              <a href="/products/create"><i class="fa-solid fa-circle-plus"></i></a>
-            </li>
-            <li>
-              <a href="/user/list"><i class="fa-solid fa-users"></i></a>
-            </li>
-          <% } %> -->
-          
-
-
+        
           <% if (locals.userLogged.img) { %>
             <li id="profile-dropdown">
               Hi <%= locals.userLogged.nickname  %> <img class="profile_img" src="/images/users/<%=locals.userLogged.img.name  %>" alt="">
@@ -74,41 +64,8 @@
 
               </div>
             </div>
-          <% } else {%>
-            <li id="profile-dropdown">
-              Hi <%= locals.userLogged.nickname  %>
-            </li>
-            <div class="sub-menu-wrap" id="subMenu">
-              <div class="sub-menu">
-                <div class="user-info">
-                  <h3><%= locals.userLogged.nickname  %></h3>
-                </div>
-                <hr>
-
-                <a href="/user/profile" class="sub-menu-link">
-                  <img src="/images/profile.png" alt="">
-                  <p>Ver perfil</p>
-                  <span>></span>
-                </a>
-
-                <a href="/user/profile/edit" class="sub-menu-link">
-                  <img src="/images/setting.png" alt="">
-                  <p>Editar perfil</p>
-                  <span>></span>
-                </a>
-
-                <a href="/user/logout" class="sub-menu-link">
-                  <img src="/images/logout.png" alt="">
-                  <p>Cerrar Sesión</p>
-                  <span>></span>
-                </a>
-
-              </div>
-            </div>
             <% } %>
-
-
-
+        
       <% } else { %>
         <li>
           <a href="/user/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>

@@ -22,7 +22,7 @@ module.exports = {
           id: user.id,
           name: user.name,
           email: user.email,
-          img: user.img
+          img: "http://localhost:3009/images/users/" + user.img.name
         }
       })
     
