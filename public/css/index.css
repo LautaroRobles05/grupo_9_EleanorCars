@@ -191,6 +191,7 @@
         padding: 5vh 20px 5vh;
     }
 
+    
     main form select, .button-filter{
         max-width: none;
         max-height: none;
@@ -209,8 +210,8 @@
     }
 
     main section {
-        /* margin: auto !important; */
-        margin: 69px 0px;
+        width: 85vw;
+        margin: 0 auto 0;
         box-shadow: 0 0 29px 4px #5c5e60c8;
     }
 
