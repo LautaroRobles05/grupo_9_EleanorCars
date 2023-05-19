@@ -238,6 +238,7 @@ p  {
     background: url(../images/flecha-hacia-abajo.png);
     background-size: 100%;
     border: none;
+    z-index: 1;
 }
 
 .container_nav_carrucel .link_tarjeta{

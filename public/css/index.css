@@ -79,10 +79,12 @@
     .recomendations{
         background-color: #222831;
         padding: 15px;
+        margin-bottom: 100px
     }
 
     .recomendations h3{
         color: #EEEEEE;
+        text-align: center;
     }
 
     
@@ -93,6 +95,7 @@
         flex-direction: column;
         background-color: #393E46;
         color: #EEEEEE;
+        margin-bottom: 100px
     }
     
     .buy_with_us h3{
@@ -154,6 +157,11 @@
 
 @media (min-width: 768px){
     
+    .search-car p
+    {
+        font-size: 20px;
+    }
+
     .search-car{
         background-image: url('https://images.pexels.com/photos/13756523/pexels-photo-13756523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     }
@@ -164,6 +172,11 @@
     
     .button-filter{
         height: 45px;
+    }
+
+    .recomendations h3 {
+        
+        font-size: 40px;
     }
 
     .sell_with_us {
