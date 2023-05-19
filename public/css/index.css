@@ -188,14 +188,37 @@
 
     .search-car{
         /* background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
-        background-image: url(../images/shelby.jpg);
+        /* background-image: url(../images/shelby.jpg); */
 
         background-position: center 60%;
         height: 50vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        animation: slider-animation 24s infinite;
+        animation-timing-function: ease-in-out
     }
+
+    @keyframes slider-animation {
+        0%, 100% {
+            opacity: 1;
+        }
+        0% {
+            background-image: url(../images/shelby.jpg);
+        }
+        33% {
+          background-image: url(../images/mustangestirado.jpg);
+        }
+        55% {
+          background-image: url(../images/mustangs.jpg);
+        }
+        75% {
+            background-image: url(../images/mustangshelby.jpg);
+        }
+        100% {
+            background-image: url(../images/shelby.jpg);
+        }
+      }
 
     .form-search-car{
         flex-direction: row;
