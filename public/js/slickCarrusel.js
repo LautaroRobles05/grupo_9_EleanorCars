@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.fade').slick({
         dots: true,
         infinite: true,
-        speed: 300,
+        speed: 600,
         fade: true,
-        cssEase: 'linear'
+        cssEase: 'linear',
+        autoplay: true,
+        autoplaySpeed: 2000
       });
 
 

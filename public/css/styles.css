@@ -100,6 +100,7 @@ header {
     
 }
 
+
 .burguer-menu {
     position: absolute;
     text-align: center;
@@ -152,6 +153,25 @@ p  {
 .nav_header{
     display: none;
 }
+
+/* div.user-info .profile_img
+{
+    
+    height: 33px;
+    position: absolute;
+    margin-left: 4px;
+    width: 33px;
+    border-radius: 50%;
+    top: -4px;
+    object-fit: cover
+    
+} */
+
+
+
+
+
+
 
 /* -----------------------------------carrusel--------------------------------------- */
 
@@ -366,6 +386,8 @@ footer {
     {
         margin-right: 25px; 
         position: relative;
+        color: #EEEEEE;
+        cursor: pointer;
     }
 
     .nav_header ul li .carritoCantidad {
@@ -380,7 +402,105 @@ footer {
         border-radius: 50%;
         text-align: center;
         line-height: 18px;
-      }
+    }
+
+    .sub-menu-wrap
+    {
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        width: 270px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        z-index: 1;
+    }
+
+    .sub-menu-wrap.open-menu
+    {
+        max-height: 550px;
+        z-index: 1;
+    }
+
+    .sub-menu
+    {
+        background: #fff;
+        padding: 20px;
+        margin: 0px;
+        border-radius: 0 0 0 10px;
+    }
+
+    .user-info
+    {
+        display: flex;
+        align-items: center;
+    }
+
+    .user-info h3
+    {
+        font-weight: 500;
+        font-size: 24px;
+        color: #524b4b;
+    }
+
+    .user-info img
+    {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+    }
+
+    .sub-menu hr
+    {
+        border: 0;
+        height: 1px;
+        width: 100%;
+        background: #ccc;
+        margin: 15px 0 10px;
+    }
+
+    .sub-menu-link
+    {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #525252;
+        margin: 12px 0;
+    }
+
+    .sub-menu-link p 
+    {
+        width: 100%;
+        color: #524b4b;
+    }
+
+    .sub-menu-link span
+    {
+        color: #524b4b;
+        font-size: 22px;
+        transition: transform 0.5s;
+    }
+
+    .sub-menu-link:hover span
+    {
+        transform: translateX(5px);
+    }
+
+    .sub-menu-link:hover p
+    {
+        font-weight: 600;
+    }
+
+    .sub-menu-link img
+    {
+        width: 40px;
+        background: #e5e5e5;
+        border-radius: 50%;
+        padding: 8px;
+        margin: 15px
+    }
 
 
     /* ---------CARRUCEL------------ */
@@ -407,12 +527,25 @@ footer {
         transition: all 0.3s ease;
         
     }
+
+    .nav_header ul li#profile-dropdown
+    {
+        transition: all 0.3s ease;
+        
+    }
     .logo img:hover
     {
         height: 50px;
         width: 85px;
         background: transparent;
         
+    }
+
+    .nav_header ul li#profile-dropdown:hover
+    {
+        padding: 3px 6px;
+        background: rgb(0, 0, 0);
+        border-radius: 10px;
     }
 
     .nav_header ul li a:hover

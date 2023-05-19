@@ -204,7 +204,7 @@
             opacity: 1;
         }
         0% {
-            background-image: url(../images/shelby.jpg);
+            background-image: url(../images/mustangshelby.jpg);
         }
         33% {
           background-image: url(../images/mustangestirado.jpg);
@@ -213,10 +213,10 @@
           background-image: url(../images/mustangs.jpg);
         }
         75% {
-            background-image: url(../images/mustangshelby.jpg);
+            background-image: url(../images/shelby.jpg);
         }
         100% {
-            background-image: url(../images/shelby.jpg);
+            background-image: url(../images/mustangshelby.jpg);
         }
       }
 
