@@ -140,7 +140,8 @@ div.images_detail div.fade .slick-next
     font-size: 1px;
     color: transparent;
     position: absolute;
-    top: 0px;
+    top: 50%;
+    filter: invert(1);
     right: 75px;
     background: url(../images/flecha-hacia-abajo.png);
     background-size: 100%;
@@ -156,7 +157,8 @@ div.images_detail div.fade .slick-prev
     font-size: 1px;
     color: transparent;
     position: relative;
-    top: 0px;
+    top: 50%;
+    filter: invert(1);
     left: 75px;
     background: url(../images/flecha-hacia-abajo.png);
     background-size: 100%;

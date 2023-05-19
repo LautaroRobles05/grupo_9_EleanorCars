@@ -216,7 +216,8 @@ p  {
     font-size: 1px;
     color: transparent;
     position: absolute;
-    top: 12px;
+    top: 50%;
+    filter: invert(1);
     right: 0px;
     background: url(../images/flecha-hacia-abajo.png);
     background-size: 100%;
@@ -231,7 +232,8 @@ p  {
     font-size: 1px;
     color: transparent;
     position: relative;
-    top: 12px;
+    top: 50%;
+    filter: invert(1);
     left: 0px;
     background: url(../images/flecha-hacia-abajo.png);
     background-size: 100%;
