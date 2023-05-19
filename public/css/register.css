@@ -92,6 +92,7 @@ section
     width: 100%;
     height: 120vh;
     display: flex;
+    background-image: linear-gradient( 0deg, #222831 2%, #393E46 10%, #607d8b 35%, #0092CA 70% );
 }
 section .img-container
 {
@@ -100,6 +101,7 @@ section .img-container
     left: 0;
     width: 100%;
     height: 100%;
+    
     
 }
 section .img-container:before
@@ -224,14 +226,14 @@ section .content-box .form .input-box .back-home
 }
 
 #togglePassword {
-    margin: 13px;
+    margin: 16px;
     color: #0092CA;
     position: absolute;
     right: 0px;
 }
 
 #toggleConfirmPassword {
-    margin: 13px;
+    margin: 16px;
     color: #0092CA;
     position: absolute;
     right: 0px;

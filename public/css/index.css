@@ -96,7 +96,7 @@
     }
     
     .buy_with_us h3{
-        font-style: italic;
+        font-style:normal;
         font-weight: 700;
         font-size: 31px;
         width: 55%;
@@ -174,8 +174,10 @@
 @media (min-width: 1024px){
 
     .search-car{
-        background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-        background-position: center 40%;
+        /* background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+        background-image: url(../images/shelby.jpg);
+
+        background-position: center 60%;
         height: 50vh;
         display: flex;
         flex-direction: column;
