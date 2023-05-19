@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         
         precio.textContent = formattedPrice
         
-       console.log(precio.textContent)
     })
 
     

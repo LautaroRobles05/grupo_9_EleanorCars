@@ -60,7 +60,8 @@
             
 
           <%} else { %>
-            <div class ="fade" id="carrucel_recomendations" data-aos="fade-up" data-aos-duration="1500">
+
+            <!-- <div class ="fade" id="carrucel_recomendations" data-aos="fade-up" data-aos-duration="1500">
   
               <% for(let i = 0; i < auto.productImages.length ; i++){ %>
             
@@ -71,13 +72,30 @@
                       <% } else { %>
                         <img class="container_img_top" src="/images/products/image-missing.jpg" alt="">
                       <% } %>
-                    <!-- <div class="container_img"></div> -->
                   </div>
                 </div>
             
               <% } %>
             
-            </div>
+            </div> -->
+
+            <% if(auto.productImages.length != 1) {%>
+              <div class="slider-for">
+                <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>">
+                <% } %>
+              </div>
+
+              <div class="slider-nav">
+                <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>">
+                <% } %>
+              </div>
+
+            <% } else {%>
+              <img src="/images/products/<%= auto.productImages[0].name %>" alt="<%= auto.productImages[index].name %>">
+            <% } %>
+
           <% } %>        
                     
         </div>
@@ -188,11 +206,35 @@
     </main>
 
     <%- include("../partials/footer") %> 
+
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/aos.js"></script>
+    
+
     <script src="/js/slickCarrusel.js"></script>
     <script src="/js/formateoPrecio.js"></script>
-  </body>
+    
+    <script> 
+      $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+        arrows: false
+      });
+    </script>
+
+</body>
 </html>

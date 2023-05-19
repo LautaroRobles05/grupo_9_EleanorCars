@@ -207,7 +207,9 @@ p  {
 } */
 
 
-
+.slick-arrow{
+    z-index: 100;
+}
 
 .slick-next 
 {

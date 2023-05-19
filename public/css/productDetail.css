@@ -77,7 +77,7 @@ h4.title_specifications
 
 #carrucel_detail{
     width:  90%;
-    height: 450px;
+    height: fit-content;
     margin: auto;
     overflow: hidden;
 }
@@ -122,6 +122,19 @@ h4.title_specifications
     max-width: 109px;
     margin-top: 10px;
     object-fit: cover;
+}
+
+.slick-slider {
+    margin-top: 15px;
+}
+
+.slider-for img {
+    border-radius: 3px;
+}
+
+.slider-nav img{
+    margin: 0 10px;
+    border-radius: 3px;
 }
 
 .container_img_top

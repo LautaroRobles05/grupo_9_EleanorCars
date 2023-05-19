@@ -1,43 +1,35 @@
   <div class ="fade" id="carrucel_recomendations" data-aos="fade-up" data-aos-duration="1500">
   
     <% for(let i = 0; i < recomendedCars.length ; i++){ %>
+    
+    <a href="/products/detail/<%= recomendedCars[i].id %>">
+      <div class="item_carrucel">
+        <div class="tarjeta_carrucel">
+          <% if (recomendedCars[i].productImages.length) { %>
+            <img class="container_img" src="/images/products/<%=recomendedCars[i].productImages[0].name %>" alt="imagen-<%= recomendedCars[i].model.brand.name %>-<%= recomendedCars[i].model.name %>-<%= recomendedCars[i].year %>">
+            <% } else { %>
+              <img class="container_img" src="/images/products/image-missing.jpg" alt="">
+            <% } %>
 
-    <div id="item_carrucel_<%= i %>" class="item_carrucel">
-      <div class="tarjeta_carrucel">
-        <% if (recomendedCars[i].productImages.length) { %>
-          <img class="container_img" src="/images/products/<%=recomendedCars[i].productImages[0].name %>" alt="imagen-<%= recomendedCars[i].model.brand.name %>-<%= recomendedCars[i].model.name %>-<%= recomendedCars[i].year %>">
-          <% } else { %>
-            <img class="container_img" src="/images/products/image-missing.jpg" alt="">
+          <h4><%= recomendedCars[i].model.brand.name %> <%= recomendedCars[i].model.name %> <%= recomendedCars[i].year %></h4>
+          
+          <% if (recomendedCars[i].model.description) {%>
+
+            <p><%= recomendedCars[i].model.description %></p>
+
+          <% } else {%>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              aspernatur asperiores laboriosam, iste exercitationem voluptate.
+              Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
+              cupiditate iste veritatis accusantium vel vitae molestias!
+            </p>
+
           <% } %>
-        <!-- <div class="container_img"></div> -->
-        <h4><%= recomendedCars[i].model.brand.name %> <%= recomendedCars[i].model.name %> <%= recomendedCars[i].year %></h4>
-        
-        <% if (recomendedCars[i].model.description) {%>
-
-          <p><%= recomendedCars[i].model.description %></p>
-
-        <% } else {%>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-            aspernatur asperiores laboriosam, iste exercitationem voluptate.
-            Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
-            cupiditate iste veritatis accusantium vel vitae molestias!
-          </p>
-
-        <% } %>
+        </div>
       </div>
-
-      <!-- <div class="container_nav_carrucel">
-        <a href="#item_carrucel_<%= i == 0 ? (recomendedCars.length - 1) : (i - 1) %>">
-          <i class="fa-solid fa-caret-left"></i>
-        </a>
-        <a class="link_tarjeta" href="/products/detail/<%= recomendedCars[i].id %>"></a>
-        <a href="#item_carrucel_<%= (i + 1) == recomendedCars.length ? 0 : (i + 1)%>">
-          <i class="fa-solid fa-caret-right"></i>
-        </a>
-      </div> -->
-    </div>
+    </a>
 
     <% } %>
   
