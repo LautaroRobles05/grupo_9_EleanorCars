@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script
     src="https://kit.fontawesome.com/58f19d8ff4.js"
     crossorigin="anonymous"
@@ -19,11 +20,11 @@
 
 <body>
     <section>
-        <div class="img-container">
-            <img src="/images/register.jpg" alt="">
+        <div class="img-container" data-aos="zoom-in" data-aos-duration="800">
+            <img src="/images/register.jpg" alt="" >
         </div>
-        <div class="content-box">
-            <div class="form">
+        <div class="content-box" >
+            <div class="form" data-aos="flip-left" data-aos-duration="800">
                 <h2>CREA TU CUENTA</h2>
                 <form method="post" action="/user/register" id="form">
 
@@ -105,6 +106,8 @@
         </div>
     </section>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/aos.js"></script>
     <script src="/js/showPw.js"></script>
     <script src="/js/registerValidation.js"></script>
 </body>

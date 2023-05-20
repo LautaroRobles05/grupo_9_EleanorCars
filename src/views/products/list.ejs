@@ -34,7 +34,7 @@
         <% carsList.forEach(auto => {%>
 
           
-        <article class="cart-list-item" data-aos="zoom-in" data-aos-duration="1500">
+        <article class="cart-list-item" data-aos="zoom-in" data-aos-duration="1000">
               <a href="/products/detail/<%= auto.id %>">    
                 <% if (auto.productImages[0]) { %>
                   <img class="car-img" src="/images/products/<%= auto.productImages[0].name %>" alt="imagen auto">  
@@ -47,7 +47,8 @@
             <p>MODELO: <%= auto.model.name %></p>
             <p>AÑO: <%= auto.year %> </p>
             <p>MARCA: <%= auto.model.brand.name %> </p>
-            <p>PRECIO: 💰 <p class="price"><%= auto.price %></p></p>
+            <p style="display: inline-block;">PRECIO: 💰 </p>
+            <p class="price" style="display: inline-block;"><%= auto.price %></p>
             <button class="agregar_producto" data-id = "<%=auto.id %>">Agregar al carrito</button>
         </article> 
      
@@ -56,6 +57,7 @@
     <%- include ('../partials/footer') %>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/aos.js"></script>
+    <script src="/js/dropdownMenu.js"></script>
     <script src="/js/formateoPrecio.js"></script>
   </body>
 </html>
