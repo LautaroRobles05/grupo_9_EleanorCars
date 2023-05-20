@@ -101,11 +101,267 @@ header {
 }
 
 
-.burguer-menu {
+.burguer-menu 
+{
     position: absolute;
     text-align: center;
     left: 20px;
+    bottom: 15px;
 }
+
+.burguer-menu img
+{
+    height: 40px;
+    width: 40px;
+    filter: invert(1);
+}
+
+/* DROPDOWN BURGUER MENU */
+
+.sub-menu-burguer-wrap-mobile
+{
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    /* width: 270px; */
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 1;
+    
+}
+
+.sub-menu-burguer-wrap-mobile.open-menu
+{
+    max-height: 320px;
+    width: fit-content;
+}
+
+.sub-menu-burguer-mobile
+{
+    background: #fff;
+    padding: 20px;
+    margin: 0px;
+    border-radius: 0 0 10px 0;
+}
+
+.burguer-info-mobile
+{
+    display: flex;
+    align-items: center;
+}
+
+.burguer-info-mobile h3
+{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.burguer-info-mobile img
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.sub-menu-burguer-mobile hr
+{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-burguer-link-mobile
+{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+a.sub-menu-burguer-link-mobile 
+{
+    color: #525252;
+}
+
+.sub-menu-burguer-link-mobile p
+{
+    width: 100%;
+    font-size: 14px;
+    margin-right: 25px;
+}
+
+.sub-menu-burguer-link-mobile img
+{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.sub-menu-burguer-link-mobile span
+{
+    font-size: 15px;
+}
+
+.sub-menu-burguer-link-mobile span.carritoBurguerCantidad {
+    position: absolute;
+    top: 196px;
+    left: 40px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+}
+
+/* DROPDOWN BURGUER MENU END */
+
+.profile-menu 
+{
+    position: absolute;
+    text-align: center;
+    right: 50px;
+}
+
+.profile-menu-login 
+{
+    position: absolute;
+    text-align: center;
+    right: 15px;
+    bottom: 15px;
+}
+
+.profile-menu-login img
+{
+    height: 40px;
+    width: 40px;
+    filter: invert(1);
+}
+
+div.profile-menu img.profile_img_mobile
+{
+    height: 40px;
+    position: absolute;
+    margin-left: 4px;
+    width: 40px;
+    border-radius: 50%;
+    top: -15px;
+    object-fit: cover;
+}
+
+/* DROPDOWN MOBILE */
+
+.sub-menu-wrap-mobile
+{
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    /* width: 270px; */
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 1;
+    
+}
+
+.sub-menu-wrap-mobile.open-menu
+{
+    max-height: 350px;
+    width: fit-content;
+}
+
+.sub-menu-mobile
+{
+    background: #fff;
+    padding: 20px;
+    margin: 0px;
+    border-radius: 0 0 0 10px;
+}
+
+.user-info-mobile
+{
+    display: flex;
+    align-items: center;
+}
+
+.user-info-mobile h3
+{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.user-info-mobile img
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.sub-menu-mobile hr
+{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link-mobile
+{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+a.sub-menu-link-mobile 
+{
+    color: #525252;
+}
+
+.sub-menu-link-mobile p
+{
+    width: 100%;
+    font-size: 14px;
+    margin-right: 25px;
+}
+
+.sub-menu-link-mobile img
+{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.sub-menu-link-mobile span
+{
+    font-size: 15px;
+}
+
+.sub-menu-link-mobile span.carritoUserCantidad {
+    position: absolute;
+    top: 115px;
+    left: 40px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+}
+
+/* DROPDOWN MOBILE END */
 
 .fa-bars{
     font-size: 37px;
@@ -367,6 +623,19 @@ footer {
 
     .burguer-menu 
     {
+        display: none;
+    }
+
+    .profile-menu
+    {
+        display: none;
+    }
+    .profile-menu-login
+    {
+        display: none;
+    }
+
+    .sub-menu-wrap-mobile {
         display: none;
     }
 
