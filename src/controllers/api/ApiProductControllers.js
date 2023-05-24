@@ -136,21 +136,23 @@ module.exports = {
           
         },
       })
-      let objeto = {}
+      let objeto = {
+        categoria: []
+      }
     
       types.forEach(types => {
-        objeto[types.tipo] = {
+        objeto.categoria.push ({
           id: types.id,
           tipo: types.tipo,
           productCount: types.products.length,
-        }
       })
+      })
+        return   res.json(objeto)
       
       objeto.count = productsCount
       objeto.categories = categoriesCount
       objeto.products = productos
 
-      res.json(objeto)
 
     } catch (error) {
       res.json(error)

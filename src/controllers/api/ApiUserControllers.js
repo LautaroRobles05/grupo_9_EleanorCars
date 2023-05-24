@@ -3,6 +3,7 @@ const { Users } = require("../../database/models");
 
 
 module.exports = {
+  
   count: async (req, res) => {  //metodo para consulta de cantidad de usuarios
 
     try {
