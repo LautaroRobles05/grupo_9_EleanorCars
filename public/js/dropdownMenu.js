@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('HOLAAAA', profileBurguerDropdownMobile)  
   profileBurguerDropdownMobile.addEventListener('click', () => {
     subMenuBurguerMobile.classList.toggle("open-menu")
+    // subMenuBurguerMobile.classList.toggle("z-index")
     subMenuMobile.classList.remove("open-menu")
-    
+
   })
 
   //DROPDOWN PROFILE MOBILE
@@ -17,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(profileDropdownMobile)  
   profileDropdownMobile.addEventListener('click', () => {
     subMenuMobile.classList.toggle("open-menu")
+    // subMenuMobile.classList.toggle("z-index")
     subMenuBurguerMobile.classList.remove("open-menu")
+
 
   })
   

@@ -127,7 +127,7 @@ header {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
-    z-index: 1;
+    z-index: 2;
     
 }
 
@@ -135,6 +135,7 @@ header {
 {
     max-height: 320px;
     width: fit-content;
+    z-index: 3;
 }
 
 .sub-menu-burguer-mobile
@@ -267,14 +268,15 @@ div.profile-menu img.profile_img_mobile
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
-    z-index: 1;
-    
+    z-index: 2;
 }
+
 
 .sub-menu-wrap-mobile.open-menu
 {
     max-height: 350px;
     width: fit-content;
+    z-index: 3;
 }
 
 .sub-menu-mobile
@@ -680,7 +682,6 @@ footer {
         position: absolute;
         top: 100%;
         right: 0px;
-        width: 270px;
         max-height: 0px;
         overflow: hidden;
         transition: max-height 0.5s;

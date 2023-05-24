@@ -43,6 +43,10 @@
                             <input type="text" name="email" value="<%= user.email %>" disabled>
                         </div>
                         <div class="input-box">
+                            <span>Nombre de usuario</span>
+                            <input type="text" name="nickname" value="<%= user.nickname %>" disabled>
+                        </div>
+                        <div class="input-box">
                             <span>Provincia</span>
                             <% if (user.state) { %>
                                 <input type="text" name="state" value="<%= user.state.name %>" disabled>

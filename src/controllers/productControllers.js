@@ -210,23 +210,31 @@ let productControllers = {
         }
       });
 
-      let products = await Products.findAll({
-        include: {
-          all: true,
-          nested: true,
-          attributes: { exclude: ["id"] },
-        },
-        where: {
-          vehicleType_id: product.vehicleType_id, 
-          id: {[Op.ne]: product.id}
-         },
       
-        limit: 5
-      })
 
-      product.productImages = product.productImages.slice(0,4);
       
-     return res.render("products/detail", { auto: product, recomendedCars: products });
+      if(product){
+
+        let products = await Products.findAll({
+          include: {
+            all: true,
+            nested: true,
+            attributes: { exclude: ["id"] },
+          },
+          where: {
+            vehicleType_id: product.vehicleType_id, 
+            id: {[Op.ne]: product.id}
+           },
+        
+          limit: 5
+        })
+        
+        product.productImages = product.productImages.slice(0,4);
+
+        return res.render("products/detail", { auto: product, recomendedCars: products });
+     } else {
+      return res.render("notFound")
+     }
 
     } catch (error) {
         res.json({

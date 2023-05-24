@@ -82,18 +82,18 @@
             <% if(auto.productImages.length != 1) {%>
               <div class="slider-for">
                 <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
-                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>">
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
                 <% } %>
               </div>
 
               <div class="slider-nav">
                 <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
-                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>">
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
                 <% } %>
               </div>
 
             <% } else {%>
-              <img src="/images/products/<%= auto.productImages[0].name %>" alt="<%= auto.productImages[index].name %>">
+              <img src="/images/products/<%= auto.productImages[0].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
             <% } %>
 
           <% } %>        
@@ -214,9 +214,10 @@
     <script src="/js/aos.js"></script>
     <script src="/js/dropdownMenu.js"></script>
     <script src="/js/slickCarrusel.js"></script>
+    <script src="/js/slickCarruselDetail.js"></script>
     <script src="/js/formateoPrecio.js"></script>
     
-    <script> 
+    <!-- <script> 
       $('.slider-for').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -233,7 +234,6 @@
         focusOnSelect: true,
         arrows: false
       });
-    </script>
-
+    </script> -->
 </body>
 </html>

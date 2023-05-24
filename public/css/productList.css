@@ -13,6 +13,13 @@ main
     );
 }
 
+.list-title
+{
+    width: 100%;
+    text-align: center;
+    margin: 35px;
+}
+
 main .cart-list-item
 {
     padding: 15px;
