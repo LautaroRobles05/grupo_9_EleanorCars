@@ -20,7 +20,7 @@
 
     <main>
       <section class="product_detail" >
-        <div class="descripcion" data-aos="fade-left" data-aos-duration="1500">
+        <div class="descripcion" data-aos="fade-up" data-aos-duration="1500">
           <div class="title_product">
             <h2><%= auto.model.brand.name %>-<%= auto.model.name %></h2>
             
@@ -82,25 +82,25 @@
             <% if(auto.productImages.length != 1) {%>
               <div class="slider-for">
                 <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
-                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>">
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
                 <% } %>
               </div>
 
               <div class="slider-nav">
                 <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
-                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>">
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
                 <% } %>
               </div>
 
             <% } else {%>
-              <img src="/images/products/<%= auto.productImages[0].name %>" alt="<%= auto.productImages[index].name %>">
+              <img src="/images/products/<%= auto.productImages[0].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
             <% } %>
 
           <% } %>        
                     
         </div>
         
-        <div class="products_tags" data-aos="fade-left" data-aos-duration="1500">
+        <div class="products_tags" data-aos="fade-up" data-aos-duration="1500">
           <div class="price" id="price"><%= auto.price %></div>
           <form action="/cart">
             <button class="reserve" type="submit">Realizar reserva</button> 
@@ -214,9 +214,10 @@
     <script src="/js/aos.js"></script>
     <script src="/js/dropdownMenu.js"></script>
     <script src="/js/slickCarrusel.js"></script>
+    <script src="/js/slickCarruselDetail.js"></script>
     <script src="/js/formateoPrecio.js"></script>
     
-    <script> 
+    <!-- <script> 
       $('.slider-for').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -233,7 +234,6 @@
         focusOnSelect: true,
         arrows: false
       });
-    </script>
-
+    </script> -->
 </body>
 </html>

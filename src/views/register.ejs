@@ -33,7 +33,7 @@
                         <span>Nombre</span>
                         <input type="text" name="firstName" id="firstName" value="<%= locals.oldBody ? oldBody.firstName : null %>">
                         <% if (locals.errors && errors.firstName) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.firstName.msg %>
                             </div>
                         <% } %>
@@ -43,7 +43,7 @@
                         <span>Apellido</span>
                         <input type="text" name="lastName" id="lastName" value="<%= locals.oldBody ? oldBody.lastName : null %>">
                         <% if (locals.errors && errors.lastName) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;" >
                                <%= errors.lastName.msg %>
                             </div>
                         <% } %>
@@ -76,7 +76,7 @@
                             <i class="fas fa-eye-slash" id="togglePassword"></i>
                         </div>
                         <% if (locals.errors && errors.password) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.password.msg %>
                             </div>
                         <% } %>
@@ -89,7 +89,7 @@
                             <i class="fas fa-eye-slash" id="toggleConfirmPassword"></i>
                         </div>
                         <% if (locals.errors && errors.confirmPassword) { %>
-                            <div class="text-danger" style="color: red;">
+                            <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.confirmPassword.msg %>
                             </div>
                         <% } %>
@@ -107,8 +107,10 @@
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="/js/aos.js"></script>
     <script src="/js/showPw.js"></script>
     <script src="/js/registerValidation.js"></script>
+    <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/aos.js"></script>
+
 </body>
 </html>
