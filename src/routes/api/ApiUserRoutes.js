@@ -3,7 +3,7 @@ const router = express.Router();
 const ApiUserController = require('../../controllers/api/ApiUserControllers')
 
 //consulta
-
+router.get("/session",ApiUserController.session);
 //consulta cantidad total de usuarios creados
 router.get('/count', ApiUserController.count)
 

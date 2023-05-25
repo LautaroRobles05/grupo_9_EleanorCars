@@ -408,7 +408,14 @@ let productControllers = {
            imgProduct.push(dataImg)
            
          });
-         Images.bulkCreate(imgProduct);
+         if(imgProduct.length){
+           Images.bulkCreate(imgProduct);
+         }else{
+          Images.create({ 
+            product_id:id,
+            name: "image-missing.jpg"
+          })
+         }
         })
 
       return res.redirect ('/products')

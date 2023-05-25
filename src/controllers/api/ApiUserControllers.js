@@ -3,7 +3,10 @@ const { Users } = require("../../database/models");
 
 
 module.exports = {
-  
+  session: (req,res)=>{
+   // console.log('holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',req.session)
+    //res.json(req.session.userLogged)
+  },
   count: async (req, res) => {  //metodo para consulta de cantidad de usuarios
 
     try {

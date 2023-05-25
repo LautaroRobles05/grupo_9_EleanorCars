@@ -8,6 +8,9 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 
 
+
+
+
 router.get("/list", adminMiddleware, userControllers.list);
 
 router.get("/register", guestMiddleware, userControllers.register);
