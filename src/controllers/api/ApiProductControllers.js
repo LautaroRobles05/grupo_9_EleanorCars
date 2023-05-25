@@ -39,18 +39,29 @@ module.exports = {
     //res.render("products/list", {carsList: products});
   },
 
+
   last: async (req, res) => { //consulta a la db por el ultimo producto creado
     try {
       const lastProduct = await Products.findOne({
-        order: [['createdAt', 'DESC']]
+        include: [{
+          association: 'productImages',
+          attributes: ["name"]
+        }],
+          order: [['createdAt', 'DESC']]
       });
+      //console.log(lastProduct)
+  let last = {
+  equipment: lastProduct.equipment,
+   img: lastProduct.productImages.length? "http://localhost:3009/images/products/" + lastProduct.productImages[0].dataValues.name : "http://localhost:3009/images/products/image-missing.jpg"
+  }
   
+  console.log('laaaaaaaaaaaaaa',last)
       res.json(({
         metadata: {
           resultado: 200,
           mensaje: "Consulta de ultimo producto creado exitosa!",
         },
-        lastProduct,
+        last,
       }))
     } catch (error) {
       res.json(error);
@@ -79,7 +90,7 @@ module.exports = {
   count: async (req, res) => { //metodo para consulta de cantidad de productos
     try {
       let products = await Products.count()
-      console.log(products)
+      //console.log(products)
       res.json(({
         metadata: {
           resultado: 200,

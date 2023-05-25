@@ -4,6 +4,8 @@ const apiProductControllers = require('../../controllers/api/ApiProductControlle
 
 router.get('/', apiProductControllers.list);
 
+
+
 //consulta ultimo producto creado
 router.get('/last', apiProductControllers.last);
 
