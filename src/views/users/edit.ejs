@@ -30,7 +30,7 @@
         <div class="content-box">
             <div class="form">
                 <h2>PERFIL USUARIO</h2>
-                <form method = "post" action="/user/profile/edit?_method=PUT" enctype="multipart/form-data">
+                <form method = "post" action="/user/profile/edit/<%= user.id %>?_method=PUT" enctype="multipart/form-data">
                     <div class="input-box">
                         <span>Nombre</span>
                         <input type="text" name="name" value="<%= user.name %>" >
@@ -75,7 +75,11 @@
 
                     <div class="input-box">
                         <span>DNI</span>
-                        <input type="text" name="dni" value="<%= user.dni %>" >
+                        <% if (user.dni) { %>
+                            <input type="text" name="dni" value="<%= user.dni %>" >
+                        <% } else { %>
+                                <input type="text" name="dni" placeholder="Ingresa tu DNI">
+                            <% } %>
                     </div>
 
                     <div class="input-box">
@@ -107,7 +111,11 @@
 
                     <div class="input-box">
                         <span>Teléfono personal</span>
-                        <input type="number" name="phone"  value="<%= user.phone %>">
+                        <% if (user.phone) { %>
+                            <input type="number" name="phone"  value="<%= user.phone %>">
+                        <% } else { %>
+                                <input type="text" name="phone" placeholder="Ingresa tu teléfono">
+                            <% } %>
                     </div>
                     
                     <div class="input-box">

@@ -51,43 +51,55 @@
                             <% if (user.state) { %>
                                 <input type="text" name="state" value="<%= user.state.name %>" disabled>
                             <% } else {%>
-                                    <input type="text" name="state" value="" disabled>
+                                    <input type="text" name="state" placeholder="Sin definir" disabled>
                                 <% } %>
                             </select>
                         </div>
                         <div class="input-box">
                             <span>DNI</span>
-                            <input type="text" name="dni" value="<%= user.dni %>" disabled>
+                            <% if (user.dni) { %>
+                                <input type="text" name="dni" value="<%= user.dni %>" disabled>
+                            <% } else { %>
+                                <input type="text" name="dni" placeholder="Sin definir" disabled>
+                                <% } %>
                         </div>
                         <div class="input-box">
                             <span>Género</span>
                             <% if (user.gender) { %>
                                 <input type="text" name="gender" value="<%= user.gender.name %>" disabled>
                             <% } else {%>
-                                    <input type="text" name="gender" value="" disabled>
+                                    <input type="text" name="gender" placeholder="Sin definir" disabled>
                                 <% } %>
                             </select>
                         </div>
                         <div class="input-box">
                             <span>Fecha de nacimiento</span>
-                            <input type="text" name="bornDate" value="<%= user.bornDate %>" disabled>
+                            <% if (user.bornDate) { %>
+                                <input type="text" name="bornDate" value="<%= user.bornDate %>" disabled>
+                            <% } else { %>
+                                    <input type="text" name="bornDate" placeholder="Sin definir" disabled>
+                                <% } %>
                         </div>
                         <div class="input-box">
                             <span>Teléfono personal</span>
-                            <input type="number" name="phone" value="<%= user.phone %>" disabled>
+                            <% if (user.phone) { %>
+                                <input type="number" name="phone" value="<%= user.phone %>" disabled>
+                            <% } else { %>
+                                    <input type="text" name="phone" placeholder="Sin definir" disabled>
+                                <% } %>
                         </div>
                         
                         
                         <div class="input-box">
-                            <a href="/user/profile/edit">
+                            <a href="/user/profile/edit/<%= user.id  %>">
                                 <input type="button" value="Editar">
                             </a>
                         </div> 
-                        <div class="input-box">
+                        <!-- <div class="input-box">
                             <a href="/user/logout">
                                 <input type="button" value="Log-out">
                             </a>
-                        </div> 
+                        </div>  -->
                     
 
         </section>

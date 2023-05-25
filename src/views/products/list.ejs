@@ -39,17 +39,16 @@
                 <% if (auto.productImages[0]) { %>
                   <img class="car-img" src="/images/products/<%= auto.productImages[0].name %>" alt="imagen auto">  
                   <% } else { %>
-                        <img class="car-img" src="/images/products/default-troll-img.jpeg" alt="">
+                        <img class="car-img" src="/images/products/image-missing.jpg" alt="">
                 <% } %>
                 
               </a> 
             <h3 class="img-title"><%= auto.maker %></h3>
-            <p>MODELO: <%= auto.model.name %></p>
-            <p>AÑO: <%= auto.year %> </p>
-            <p>MARCA: <%= auto.model.brand.name %> </p>
-            <p style="display: inline-block;">PRECIO: 💰 </p>
-            <p class="price" style="display: inline-block;"><%= auto.price %></p>
-            <button class="agregar_producto" data-id = "<%=auto.id %>">Agregar al carrito</button>
+            <p class="car_name"><%= auto.model.brand.name %> <%= auto.model.name %></p>
+            <p class="car_year">AÑO - <%= auto.year %> </p>
+            <p class="car_km"> <%= auto.km  %> KILOMETROS </p>
+            <p class="price"><%= auto.price %></p>
+            <button class="agregar_producto" data-id = "<%=auto.id %>"><p>Agregar al carrito</p><img class="button_img" src="/images/carrito-de-comprasBW.png" alt=""></button>
         </article> 
      
         <% }) %>

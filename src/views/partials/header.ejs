@@ -71,7 +71,7 @@
         </div>
         <hr>
 
-        <a href="/user/profile" class="sub-menu-link-mobile">
+        <a href="/user/profile/<%=locals.userLogged.id %>" class="sub-menu-link-mobile">
           <img src="/images/usuario.png" alt="">
           <p>Ver perfil</p>
           <span>></span>
@@ -86,7 +86,7 @@
           </a>
         <% } %>
 
-        <a href="/user/profile/edit" class="sub-menu-link-mobile">
+        <a href="/user/profile/edit/<%=locals.userLogged.id %>" class="sub-menu-link-mobile">
           <img src="/images/setting.png" alt="">
           <p>Editar perfil</p>
           <span>></span>
@@ -156,13 +156,13 @@
                 </div>
                 <hr>
 
-                <a href="/user/profile" class="sub-menu-link">
+                <a href="/user/profile/<%=locals.userLogged.id %>" class="sub-menu-link">
                   <img src="/images/usuario.png" alt="">
                   <p>Ver perfil</p>
                   <span>></span>
                 </a>
 
-                <a href="/user/profile/edit" class="sub-menu-link">
+                <a href="/user/profile/edit/<%=locals.userLogged.id %>" class="sub-menu-link">
                   <img src="/images/setting.png" alt="">
                   <p>Editar perfil</p>
                   <span>></span>

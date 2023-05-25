@@ -117,7 +117,7 @@ let userController = {
           if (req.body.remember) {
             res.cookie("remember", usuario, { maxAge: 60000 });
           }
-          res.redirect("/user/profile");
+          res.redirect("/user/profile/" + usuario.id);
         } else {
           throw new ValidationError('Email o contraseña incorrectos')
         }
@@ -154,7 +154,8 @@ let userController = {
               include: ['name'] //spread operator de timestamps linea 9
             }
           }],
-          where:{email:req.session.userLogged.email}
+          // where:{email:req.session.userLogged.email}
+          where:{id: req.params.id}
         })
        
         return res.render('users/profile', { user });
@@ -188,7 +189,8 @@ let userController = {
               include: ['name']
             }
           }],
-          where: { email:req.session.userLogged.email }
+          // where: { email:req.session.userLogged.email }
+            where: { id: req.params.id }
         })
 
         let generos = await Genders.findAll({
@@ -212,60 +214,37 @@ let userController = {
 
   editProcess: async (req, res) => {
     try {
-      let user = req.session.userLogged
+      let user = req.params.id
       
       if(req.file){ 
         await UserImages.destroy({
           where: {
-            user_id: user.id
+            user_id: user
           }
         })
         await UserImages.create({
           name: req.file.filename,
-          user_id: user.id
+          user_id: user
         })
       }
       
        await Users.update({
 
-        name: req.body.name || user.name,
-        lastName: req.body.lastName || user.lastName,
-        // puede llegar a romper por conflictos en db con email repetido (revisar)
-        state_id: req.body.state || (user.state ? user.state.id : null),
-        gender_id: req.body.gender || (user.gender ? user.gender.id : null),
-        bornDate: req.body.bornDate || user.bornDate,
-        dni: req.body.dni || user.dni,
-        phone: req.body.phone || user.phone,
+        name: req.body.name, 
+        lastName: req.body.lastName ,
+        state_id: req.body.state,
+        gender_id: req.body.gender,
+        bornDate: req.body.bornDate,
+        dni: req.body.dni,
+        phone: req.body.phone,
       },
       {
         where: {
-          id: user.id
+          id: user
         }
       })
       
-      // let user = {
-      //   name: req.body.name || oldSession.name,
-      //   lastName: req.body.lastName || oldSession.lastName,
-      //   // puede llegar a romper por conflictos en db con email repetido (revisar)
-      //   state_id: req.body.state || (oldSession.state ? oldSession.state.id : null),
-      //   gender_id: req.body.gender || (oldSession.gender ? oldSession.gender.id : null),
-      //   bornDate: req.body.bornDate || oldSession.bornDate,
-      //   dni: req.body.dni || oldSession.dni,
-      //   phone: req.body.phone || oldSession.phone,
-      //   img: image
-      // }
-
-      delete user.password;
-
-      if(req.cookies.remember){
-        res.clearCookie('remember');
-        res.cookie(
-          "remember",
-          user,
-          { maxAge: 60000 }
-        )
-      }
-      return res.redirect("/user/profile");
+      return res.redirect("/user/profile/" + user);
     } catch (error) {
       res.json({error})
     }
@@ -282,9 +261,13 @@ let userController = {
           id: req.params.id
         }
       })
-      req.session.destroy();
-      res.clearCookie('remember');
-      res.redirect("/");
+      if (req.session.userLogged.id == req.params.id) {
+        req.session.destroy();
+        res.clearCookie('remember');
+        res.redirect("/");
+      } else {
+        res.redirect("/user/list")
+      }
     } catch (error) {
       res.json({
         metadata: {
