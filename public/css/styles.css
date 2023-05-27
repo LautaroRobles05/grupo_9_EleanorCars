@@ -829,6 +829,7 @@ footer {
         padding: 3px 6px;
         background: rgb(0, 0, 0);
         border-radius: 10px;
+        color: unset;
     }
 
     .container_nav_carrucel i {

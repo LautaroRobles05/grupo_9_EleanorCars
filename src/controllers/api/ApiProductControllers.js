@@ -50,19 +50,19 @@ module.exports = {
           order: [['createdAt', 'DESC']]
       });
       //console.log(lastProduct)
-  let last = {
-  equipment: lastProduct.equipment,
-   img: lastProduct.productImages.length? "http://localhost:3009/images/products/" + lastProduct.productImages[0].dataValues.name : "http://localhost:3009/images/products/image-missing.jpg"
-  }
+      let last = {
+      equipment: lastProduct.equipment,
+      img: lastProduct.productImages.length? "http://localhost:3009/images/products/" + lastProduct.productImages[0].dataValues.name : "http://localhost:3009/images/products/image-missing.jpg"
+      }
   
-  console.log('laaaaaaaaaaaaaa',last)
-      res.json(({
-        metadata: {
-          resultado: 200,
-          mensaje: "Consulta de ultimo producto creado exitosa!",
-        },
-        last,
-      }))
+      console.log('laaaaaaaaaaaaaa',last)
+        res.json(({
+          metadata: {
+            resultado: 200,
+            mensaje: "Consulta de ultimo producto creado exitosa!",
+          },
+          last,
+        }))
     } catch (error) {
       res.json(error);
     }
@@ -72,9 +72,8 @@ module.exports = {
     try {
       let products = await Brands.findByPk(req.params.id, {
         include: {
-          all: true,
-        }
-         
+          all: true,  
+        },  
       });
 
       res.json(
@@ -158,11 +157,9 @@ module.exports = {
           productCount: types.products.length,
       })
       })
-        return   res.json(objeto)
+
+      res.json(objeto)
       
-      objeto.count = productsCount
-      objeto.categories = categoriesCount
-      objeto.products = productos
 
 
     } catch (error) {

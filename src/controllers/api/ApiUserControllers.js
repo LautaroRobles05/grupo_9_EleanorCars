@@ -1,4 +1,4 @@
-const { Users } = require("../../database/models");
+const { Users, UserImages } = require("../../database/models");
 
 
 
@@ -85,6 +85,35 @@ module.exports = {
     } catch (error) {
       res.json({error})
     }
+  },
+
+  userDelete: async (req, res) => {
+    try {
+      await UserImages.destroy({
+        where: {
+          user_id: req.params.id
+        }
+      })
+      await Users.destroy({
+          where: {
+              id: req.params.id
+          }
+      })
+
+      if (req.session.userLogged.id == req.params.id) {
+        req.session.destroy();
+        res.clearCookie('remember');
+      }
+      
+      res.status(200).json({
+          status: 200,
+          data: true
+      });
+  } catch (error) {
+      console.log(error);
+      res.json(error);
+  }
+
   }
 
 };

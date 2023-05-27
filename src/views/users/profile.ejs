@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/userProfile.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
@@ -17,17 +18,17 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-        <section>
+        <section >
             <% if (user.img) { %>
-                <div class="img-container">
+                <div class="img-container" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="/images/users/<%= user.img.name  %>" alt="">
                 </div>
             <% } else { %>
-                <div class="img-container">
+                <div class="img-container" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="/images/users/default-icon.png" alt="">
                 </div>
             <% } %>
-            <div class="content-box">
+            <div class="content-box" data-aos="zoom-in-down" data-aos-duration="1000">
                 <div class="form">
                     <h2>PERFIL USUARIO</h2>
                         <div class="input-box">
@@ -110,7 +111,10 @@
 
 
     <%- include("../partials/footer") %> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/aos.js"></script>
+
 </body>
 
 </html>

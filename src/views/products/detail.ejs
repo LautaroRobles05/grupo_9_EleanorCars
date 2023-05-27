@@ -102,9 +102,9 @@
         
         <div class="products_tags" data-aos="fade-up" data-aos-duration="1500">
           <div class="price" id="price"><%= auto.price %></div>
-          <form action="/cart">
+          <a href="/products/reserve/<%=auto.id  %>">
             <button class="reserve" type="submit">Realizar reserva</button> 
-          </form>
+          </a>
         </div>
         
       </section>

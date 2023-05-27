@@ -245,6 +245,27 @@ let productControllers = {
         });
     }
   },
+
+  reserve: async (req, res) => {
+    try {
+      let producto = await Products.findByPk(req.params.id, {
+        include: [
+          {association: 'model', attributes: ["name"], include: [{association: 'brand', attributes: ["name"]}]},
+          // {association: 'state', attributes: ["name"]},
+          // {association: 'gender', attributes: ["name"]},
+        ]
+      })
+      // return res.json(producto)
+      res.render('products/reserve', {producto})
+    } catch (error) {
+      
+    }
+    
+  },
+
+  reserveConfirm: async (req, res) => {
+    res.render("products/reserveConfirm")
+  },
  
 
   productCart: (req, res) => {
@@ -253,9 +274,15 @@ let productControllers = {
 
   create: async (req, res) => {
     try {
-      let brands = await Brands.findAll();
-      let models = await CarModels.findAll();
-      let colors = await Colors.findAll();
+      let brands = await Brands.findAll({
+        order: [['name', 'ASC']]
+      });
+      let models = await CarModels.findAll({
+        order: [['name', 'DESC']]
+      });
+      let colors = await Colors.findAll({
+        order: [['name', 'ASC']]
+      });
       let gasType = await GasTypes.findAll();
       let vehicleTypes = await VehicleTypes.findAll();
       let transmissions = ['Manual','Automatico'];

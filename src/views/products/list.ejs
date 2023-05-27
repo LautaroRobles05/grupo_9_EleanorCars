@@ -48,7 +48,9 @@
             <p class="car_year">AÑO - <%= auto.year %> </p>
             <p class="car_km"> <%= auto.km  %> KILOMETROS </p>
             <p class="price"><%= auto.price %></p>
-            <button class="agregar_producto" data-id = "<%=auto.id %>"><p>Agregar al carrito</p><img class="button_img" src="/images/carrito-de-comprasBW.png" alt=""></button>
+            <a href="/products/reserve/<%= auto.id %>">
+              <button class="agregar_producto" data-id = "<%=auto.id %>"><p>RESERVAR </p><img class="button_img" src="/images/carrito-de-comprasBW.png" alt=""></button>
+            </a>
         </article> 
      
         <% }) %>
