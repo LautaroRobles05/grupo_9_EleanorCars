@@ -41,6 +41,46 @@ let productControllers = {
     //res.render("products/list", {carsList: products});
   },
 
+  findBrand: async (req,res)=>{
+    try {
+      let search = req.query.search
+      const products = await Products.findAll({
+        include: [{
+          association: 'model',
+          attributes:['name'],
+          where:{
+            id:{[Op.not]: null }
+          },
+          include:[{
+            association:'brand',
+            attributes:['name'],
+            where:{
+              name:{ [Op.like]: `%${search}%`}
+            }
+          }]
+
+        },
+        {association: 'productImages'}
+      ],
+
+      });
+      if(products.length){
+        res.render("products/list", {carsList: products});
+      }else{
+        res.render("notFound")
+      }
+      //return res.json({products})
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "No se encontro el producto",
+        },
+        error,
+      })
+    }
+  },
+
+
   findProduct: async (req, res) => {
     try {
      let products = await Products.findAll({

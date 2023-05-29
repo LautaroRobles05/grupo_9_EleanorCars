@@ -11,6 +11,7 @@ const productValidatorMiddleware = require ('../middlewares/productValidatorMidd
 router.get('/', productControllers.list)
 
 router.get('/search', productControllers.findProduct)
+router.get('/searchBrand', productControllers.findBrand)
 
 router.get('/create', /*adminMiddleware,*/ productControllers.create) //Vista crear producto
 router.post('/create', /*adminMiddleware,*/ upload.any('img'),productValidatorMiddleware,  productControllers.upload) //Subir a BD
