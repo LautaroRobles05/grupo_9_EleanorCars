@@ -12,8 +12,8 @@ router.get('/', productControllers.list)
 
 router.get('/search', productControllers.findProduct)
 
-router.get('/create', adminMiddleware, productControllers.create) //Vista crear producto
-router.post('/create', adminMiddleware, upload.any('img'),productValidatorMiddleware,  productControllers.upload) //Subir a BD
+router.get('/create', /*adminMiddleware,*/ productControllers.create) //Vista crear producto
+router.post('/create', /*adminMiddleware,*/ upload.any('img'),productValidatorMiddleware,  productControllers.upload) //Subir a BD
 
 
 
@@ -29,11 +29,11 @@ router.get("/reserve/:id", authMiddleware, productControllers.reserve);
 router.get("/detail/:id", productControllers.productDetail);
 
 
-router.get("/edit/:id", adminMiddleware, productControllers.productEdit); //Vista editar producto
+router.get("/edit/:id", /*adminMiddleware,*/ productControllers.productEdit); //Vista editar producto
 
-router.put("/edit/:id", adminMiddleware, upload.any('img'),productValidatorMiddleware, productControllers.productUpdate); //subir edicion a BD
+router.put("/edit/:id", /*adminMiddleware,*/ upload.any('img'),productValidatorMiddleware, productControllers.productUpdate); //subir edicion a BD
 
-router.delete("/:id", adminMiddleware, productControllers.delete)
+router.delete("/:id", /*adminMiddleware,*/ productControllers.delete)
 
 
 module.exports = router;

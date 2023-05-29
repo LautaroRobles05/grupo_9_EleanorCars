@@ -13,13 +13,14 @@ let userController = {
       let users = await Users.findAll({
         include: [{
           association: 'img',
-          attributes: {
-            include: ['name'] //spread operator de timestamps linea 9
-          }
+          attributes: ['name'] 
+        }, {
+          association: 'role',
+          attributes: ['name'] 
         }],
         limit: 20
       });
-
+      
       res.render("users/list",{users});
     } catch (error) {
       res.json({error});

@@ -35,7 +35,7 @@
 
         <% if (!locals.userLogged) { %>
           <a href="/cart" class="sub-menu-burguer-link-mobile">
-            <span id="carritoCantidad" class="carritoBurguerCantidad">0</span>
+            <span id="carritoCantidad" class="carritoBurguerCantidad cantidad">0</span>
             <img src="/images/carrito-de-compras.png" alt="">
             <p>Carrito</p>
             <span>></span>
@@ -79,7 +79,7 @@
 
         <% if (locals.userLogged) { %>
           <a href="/cart" class="sub-menu-link-mobile">
-            <span id="carritoCantidad" class="carritoUserCantidad">0</span>
+            <span id="carritoCantidad" class="carritoUserCantidad cantidad">0</span>
             <img src="/images/carrito-de-compras.png" alt="">
             <p>Carrito</p>
             <span>></span>
@@ -139,7 +139,7 @@
       <li><a href="/notFound">Vender</a></li>
       <li><a href="/products">Vehículos</a></li>
       <li class="cart">
-        <a href="/cart"><i class="fa-solid fa-cart-shopping"></i><span id="carritoCantidad" class="carritoCantidad">0</span></a>
+        <a href="/cart"><i class="fa-solid fa-cart-shopping"></i><span id="carritoCantidad" class="carritoCantidad cantidad">0</span></a>
       </li>
       <!-- <i class="fa-solid fa-user-gear"></i> usuario con engranaje--> 
       <% if (locals.userLogged) { %>
@@ -200,4 +200,6 @@
       <% } %>
     </ul>
   </nav>
+
+  <script src="/js/numeroCarrito.js"></script>
 </header>

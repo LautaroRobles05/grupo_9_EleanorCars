@@ -56,6 +56,9 @@
                     <th class="th-lg ">
                       <strong>Apellido</strong>
                     </th>
+                    <th class="th-lg ">
+                      <strong>Rol</strong>
+                    </th>
                     <th class="text-center">
                       <strong>Usuario</strong>
                     </th>
@@ -86,10 +89,16 @@
                            <img style="height: 33px; width: 33px; object-fit: cover; border-radius: 50%;" src="/images/users/default-icon.png" alt="imagen usuario">
                         <% } %>
                       </td>
-                      <td><%= user.name %></p></td>
-                      <td><%= user.lastName %></p></td>
-                      <td class="text-center"><%= user.nickname %></p></td>
-                      <td class="text-center"><%= user.email %></p></td>
+                      <td><%= user.name %></td>
+                      <td><%= user.lastName %></td>
+                      <% if (user.rol_id == 2) { %>
+                        <td class="text-primary"><%= user.role.name %></td>     
+                      <% } else { %>
+                          <td><%= user.role.name %></td>     
+                        <% } %>
+
+                      <td class="text-center"><%= user.nickname %></td>
+                      <td class="text-center"><%= user.email %></td>
                       <td class="text-center">
                         <button class="btn btn-primary btn-sm">
                           <a style="color: white;" href="/user/profile/<%= user.id %>"><i class="fa-solid fa-eye"></i></a>
