@@ -28,12 +28,12 @@ const sweetConferm = async () => {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Eliminar cuenta',
+      confirmButtonText: 'Eliminar producto',
       cancelButtonText: 'Cancelar'
     })
     if (confirm.isConfirmed) {
       await Swal.fire(
-        'Cuenta eliminada!',  
+        'Producto eliminado!',  
       )
     }
     return confirm
