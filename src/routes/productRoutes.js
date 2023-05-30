@@ -18,7 +18,7 @@ router.post('/create', /*adminMiddleware,*/ upload.any('img'),productValidatorMi
 
 
 
-router.get("/cart", productControllers.productCart);
+// router.get("/cart", authMiddleware, productControllers.productCart);
 
 //Segundo paso para reserva de producto
 router.get("/reserveConfirm", authMiddleware, productControllers.reserveConfirm);

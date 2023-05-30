@@ -27,20 +27,21 @@
                 <table class="table mb-0">
                   <thead>
                     <tr>
-                      <th style="width: 50px;">
-                        <strong>#</strong>
-                      </th>
+                      
                       <th style="width: 30px;">
                         <strong>Imagen</strong>
                       </th>
-                      <th class="th-lg">
+                      <th class="th-lg text-center">
                         <strong>Marca</strong>
                       </th>
-                      <th class="th-lg ">
+                      <th class="th-lg text-center">
                         <strong>Modelo</strong>
                       </th>
                       <th class="text-center">
                         <strong>Año</strong>
+                      </th>
+                      <th class="text-center">
+                        <strong>Estado de reserva</strong>
                       </th>
                       <th class="text-center">
                         <strong>Precio</strong>
@@ -49,28 +50,12 @@
                     </tr>
                   </thead>
                   <tbody class="cartRows">
-                    <tr>
-                      <td>1</td>
-                      <td><img src="images/users/pop-cat-cat.gif" alt="" class="img-fluid"></td>
-                      <td>Nissan</td>
-                      <td>Chorizo</td>
-                      <td class="text-center">2020</td>
-                      <td class="text-center">$400000</td>
-                      <td>
-                        <button class="btn btn-danger btn-sm">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <!-- Resto de las filas del carrito -->
+                    <!-- relleno de los datos por localStorage desde el script reserve.js -->
                   </tbody>
                 </table>
               </div>
               <div class="card-footer text-right" style="text-align: right!important">
-                <h2>Total: <span class="totalAmount">$ 400000</span></h2>
-              </div>
-              <div class="text-center">
-                <button class="btn btn-primary btn-lg btn-block waves-effect waves-light mt-3" type="submit">Comprar</button>
+                <h2>Total: <span class="totalAmount"></span></h2>
               </div>
             </div>
           </div>
@@ -82,7 +67,8 @@
       
     
     <%- include("./partials/footer") %> 
-
+    <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/reserve.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
 </html>
