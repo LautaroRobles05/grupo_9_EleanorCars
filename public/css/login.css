@@ -10,6 +10,7 @@ section
     width: 100%;
     height: 100vh;
     display: flex;
+    background-image: linear-gradient( 0deg, #222831 2%, #393E46 10%, #607d8b 35%, #0092CA 70% );
 }
 section .img-container
 {
@@ -98,6 +99,11 @@ section .content-box .form .input-box input
     background: transparent;
     border-radius: 6px;
 }
+
+section .content-box .form .input-box div input#password{
+    padding-right: 40px;
+}
+
 section .content-box .form .input-box input:focus
 {
     border-color: #0092CA;
@@ -187,6 +193,13 @@ section .content-box .form .social-media li img
 section .content-box .form .input-box .back-home
 {
     display: none;
+}
+
+#togglePassword {
+    margin: 16px;
+    color: #0092CA;
+    position: absolute;
+    right: 0px;
 }
 
 @media (min-width: 768px)

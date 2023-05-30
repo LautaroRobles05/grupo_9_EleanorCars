@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/58f19d8ff4.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f2f2;
+          margin: 0;
+          padding: 0;
+          background-image: linear-gradient(
+                0deg,
+                #222831 2%,
+                #393E46 10%,
+                #607d8b 35%,
+                #0092CA 70%
+          );
+        }
+
+        main {
+          background-image: none;
+          display: flex;
+          align-items: center;
+        }
+    
+        .container {
+          max-width: 600px;
+          margin: 20px auto;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          /* display: flex; responsive */
+        }
+    
+        h1 {
+          font-size: 24px;
+          margin-top: 0;
+        }
+    
+        p {
+          margin-bottom: 20px;
+        }
+
+        /* .content_father
+        {
+          display: flex;
+          align-items: center; responsive
+        } */
+
+        .div_img
+        {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 40px;
+          padding: 0px;
+        }
+    
+        .content {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+        }
+    
+        .content_father .div_img img {
+          width: 200px;
+          height: 200px;
+          /* margin-right: 20px; responsive*/
+        }
+    
+        .buy-button {
+          display: block;
+          background-color: #007bff;
+          color: #ffffff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+          text-align: center;
+        }
+    
+        .buy-button:hover {
+          background-color: #0056b3;
+        }
+      </style>
+    </head>
+   
+    <body>
+      <%- include('../partials/header') %>
+      <main>
+        <div class="container">
+          <div class="content_father">
+            <div class="div_img">
+              <img src="/images/metodo-de-pago.png" alt="Imagen de Comprar">
+            </div>
+            <div class="content">
+        
+              <p>
+                Hola <strong><%=locals.userLogged.nickname%></strong>, Estás por reservar un<strong> <%=producto.model.brand.name %>   <%=producto.model.name  %></strong>, con un valor de: <strong><%= (producto.price).toLocaleString('es-AR', { style: 'currency', currency: 'ARS' }) %></strong>. Es muy simple:
+                <br>
+                Te solicitaremos tus datos personales de contacto y la reserva se hará efectiva con una seña de $50.000 que pagas con tu tarjeta de crédito.
+                Una vez abonada la seña, tenés 48 horas para revisar y concretar la operación, y de no estar satisfecho se te reintegra el 100% del dinero.
+              </p>
+            </div>
+          </div>
+          <div>
+            <a id="reserva" data-id="<%= producto.id %>"href="/cart" class="buy-button">Reservar</a>
+          </div>
+        </div>
+      </main>
+      <%- include("../partials/footer") %>
+    <script src="/js/formateoPrecio.js"></script>
+    <script src="/js/confirmarReserva.js"></script>
+
+    </body>
+</html>

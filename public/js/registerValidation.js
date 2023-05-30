@@ -43,18 +43,20 @@ function validarInputs () {
 
 
     formulario.addEventListener('submit', (e) => {
-        let errorFirstName = document.querySelector('.errorFirstName')
-        if (firstName.value < 2) {
-            errores.push('error de inputs 1')
-            if(!errorFirstName) {
-                errorFirstName = document.createElement('p');
-                errorFirstName.textContent = "El nombre debe tener al menos 2 caracteres"
-                errorFirstName.classList.add('errorFirstName');
-                errorFirstName.style.color = 'red'
-                errorFirstName.style.fontSize = 'small'
-                divFirstName.insertBefore(errorFirstName, divFirstName.lastChild)
-                console.log('holis mundo')
+        let errorFirstName = document.querySelector('.errorFirstName') //capturar el input que se crea cuando se detecta un error
+        if (firstName.value < 2) { //verificando que el input no cumpla la condición
+            errores.push('error de inputs 1') //pusheamos mensaje de error a array de errores
+            if(!errorFirstName) { //si errorFirstName es undifined (esto se hace para evitar repeticiones en la impresión del error) procedemos a enviar el error a la vista
+                errorFirstName = document.createElement('p'); //creamos la etiqueta que va a devolver el error
+                errorFirstName.textContent = "El nombre debe tener al menos 2 caracteres" //error en cuestion
+                errorFirstName.classList.add('errorFirstName'); //añadimos la clase para luego verificar si esta ya existe
+                errorFirstName.style.color = 'red' //estilos
+                errorFirstName.style.fontSize = 'small' //estilos
+                divFirstName.insertBefore(errorFirstName, divFirstName.lastChild) //accedemos al ultimo hijo del div para colocar el error
+                
             }
+        } else {
+            errorFirstName.remove()
         }
 
         let errorLastName = document.querySelector('.errorLastName')
@@ -67,12 +69,13 @@ function validarInputs () {
                 errorLastName.style.color = 'red'
                 errorLastName.style.fontSize = 'small'
                 divLastName.insertBefore(errorLastName, divLastName.lastChild)
-                console.log('holis mundo 2')
             }
+        } else {
+            errorLastName.remove()
         }
 
         let errorEmail = document.querySelector('.errorEmail')
-        if (!validarEmail(email.value)) {
+        if (!validarEmail(email.value)) { //validamos formato email con test de regEx en funcion creada en linea 9
             errores.push('error de inputs 3')
             if(!errorEmail) {
                 errorEmail = document.createElement('p');
@@ -81,8 +84,9 @@ function validarInputs () {
                 errorEmail.style.color = 'red'
                 errorEmail.style.fontSize = 'small'
                 divEmail.insertBefore(errorEmail, divEmail.lastChild)
-                console.log('holis mundo 3')
             }
+        } else {
+            errorEmail.remove()
         }
         
         let errorNickname = document.querySelector('.errorNickname')
@@ -95,12 +99,13 @@ function validarInputs () {
                 errorNickname.style.color = 'red'
                 errorNickname.style.fontSize = 'small'
                 divNickname.insertBefore(errorNickname, divNickname.lastChild)
-                console.log('holis mundo 4')
             }
+        } else {
+            errorNickname.remove()
         }
 
         let errorPassword = document.querySelector('.errorPassword')
-        if (!validarPassword(password.value)) {
+        if (!validarPassword(password.value)) { //validamos con el test de regEx que cumpla la condición del valor de pw con la funcion creada en linea 15
             errores.push('error de inputs 5')
             if(!errorPassword) {
                 errorPassword = document.createElement('p');
@@ -109,13 +114,13 @@ function validarInputs () {
                 errorPassword.style.color = 'red'
                 errorPassword.style.fontSize = 'small'
                 divPassword.insertBefore(errorPassword, divPassword.lastChild)
-                console.log('holis mundo 5')
             }
+        } else {
+            errorPassword.remove()
         }
 
         let errorConfPassword = document.querySelector('.errorConfPassword')
-        if (!(validarPassword(password.value) && (password.value == confirmPassword.value))) {
-            console.log('password', password.value, '\n confirm password', confirmPassword.value)
+        if (password.value != confirmPassword.value) { //negamos coincidencia en password y confirmPassword 
             errores.push('error de inputs 6')
             if(!errorConfPassword) {
                 errorConfPassword = document.createElement('p');
@@ -124,16 +129,13 @@ function validarInputs () {
                 errorConfPassword.style.color = 'red'
                 errorConfPassword.style.fontSize = 'small'
                 divConfPassword.insertBefore(errorConfPassword, divConfPassword.lastChild)
-                console.log('holis mundo 6')
             }
-        }
+        } 
 
-        if(errores.length > 0) {
-            console.log(errores)
+        if(errores.length > 0) { //verificamos que la longitud del array sea mayor que 0
             errores = []
-            console.log(errores)
-            e.preventDefault()
-            
-        }
+            console.log('hola estoy en el prevent') //reseteamos el array de errores para volver a checkear información
+            e.preventDefault() //evitamos envio de formulario
+        } 
     })
 }

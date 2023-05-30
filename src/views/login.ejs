@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/login.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
@@ -20,11 +21,11 @@
     <%- include('./partials/header') %> 
     
     <section>
-        <div class="img-container">
+        <div class="img-container" data-aos="zoom-in" data-aos-duration="800">
             <img src="/images/login.jpg" alt="">
         </div>
         <div class="content-box">
-            <div class="form">
+            <div class="form" data-aos="flip-left" data-aos-duration="800">
                 <h2>INGRESÁ</h2>
                 <form method="post" action="/user/login" id="form">
                     
@@ -35,7 +36,12 @@
 
                     <div class="input-box" id="divPassword">
                         <span>Contraseña</span>
-                        <input type="password" name="password" id="password">
+
+                        <div style="position: relative;">
+                            <input type="password" name="password" id="password">
+                            <i class="fas fa-eye-slash" id="togglePassword"></i>
+                        </div>
+
                         <% if (locals.errors) { %>
                             <div class="text-danger" style="color: red; font-size: smaller;">
                                <%= errors.msg %>
@@ -66,6 +72,12 @@
         </div>
     </section>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="/js/loginValidator.js"></script>
+    <script src="/js/showPw.js"></script>
+    <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/aos.js"></script>
+    
 </body>
 </html>

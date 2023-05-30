@@ -13,6 +13,84 @@ main
     );
 }
 
+.list-title
+{
+    width: 100%;
+    text-align: center;
+    margin: 35px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+    color: white;
+}
+
+/* -------------------------------------- */
+.container-4{
+    overflow: hidden;
+    width: 250px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .container-4 input#search{
+    width: 250px;
+    height: 50px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #fff;
+    padding-left: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .container-4 input#search::-webkit-input-placeholder {
+    color: #65737e;
+ }
+ .container-4 input#search:-moz-placeholder { /* Firefox 18- */
+    color: #65737e;  
+ }
+ .container-4 input#search::-moz-placeholder {  /* Firefox 19+ */
+    color: #65737e;  
+ }
+ .container-4 input#search:-ms-input-placeholder {  
+    color: #65737e;  
+ }
+ .container-4 button.icon{
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    background: #232833;
+    height: 50px;
+    width: 50px;
+    color: #4f5b66;
+    opacity: 0;
+    font-size: 10pt;
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+  }
+  .container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
+    outline: none;
+    opacity: 1;
+    margin-left: -50px;
+  }
+  .container-4:hover button.icon:hover{
+    background: white;
+  }  
+
+/* -------------------------------------- */
+
+
+
+
+
 main .cart-list-item
 {
     padding: 15px;
@@ -22,6 +100,7 @@ main .cart-list-item
     background-color: #e3e4e5;
     border-radius: 6px;
     box-shadow: 0px 0px 18px 4px #0000007a;
+    text-align: center;
 }
 
 main .cart-list-item .car-img
@@ -29,9 +108,84 @@ main .cart-list-item .car-img
     width: -webkit-fill-available;
 }
 
+.car_name
+{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.car_year
+{
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+}
+
+.car_km
+{
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+}
+
+.price 
+{
+    margin-top: 15px;
+    font-size: 25px;
+    color: #0b6486;
+}
+
+.agregar_producto 
+{
+    background: linear-gradient(to right, #055099, lightblue);
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 20px;
+    margin-top: 15px;
+    align-items: center;
+    display: flex;
+    margin: 15px auto 0;
+    font-size: 15px;
+}
+
+.agregar_producto p 
+{
+    margin: 0;
+}
+
+img.button_img
+{
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 50%;
+}
+
+article p 
+{
+    margin-top: 10px;
+}
+
+@media (min-width: 768px){
+.container-4{
+    width: 400px;
+}
+.container-4 input#search{
+    width: 400px;
+}
+
+}
 @media (min-width: 1024px){
     main .cart-list-item
     {
         max-width: 350px;
+    }
+
+    .list-title
+    {
+        font-size: 40px;
     }
 }

@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/productDetail.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </head>
 
   <body>
@@ -17,8 +21,8 @@
     <%- include("../partials/header") %> 
 
     <main>
-      <section class="product_detail">
-        <div class="descripcion">
+      <section class="product_detail" >
+        <div class="descripcion" data-aos="fade-up" data-aos-duration="1500">
           <div class="title_product">
             <h2><%= auto.model.brand.name %>-<%= auto.model.name %></h2>
             
@@ -28,114 +32,93 @@
                   <button type="submit" style="all: unset;"><i class="fa-regular fa-pen-to-square"></i></button>
                 </form>
   
-               <form action="/products/<%= auto.id %>?_method=DELETE" method="post">
+               <form id="delete" data-productdelete="<%= auto.id %>" action="/products/<%= auto.id %>?_method=DELETE" method="post">
                   <button type="submit" style="all: unset;"><i class="fa-solid fa-trash"></i></button>
                 </form>
               </div>
             <% } %>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-            aspernatur asperiores laboriosam, iste exercitationem voluptate.
-            Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
-            cupiditate iste veritatis accusantium vel vitae molestias!
-          </p>
+
+          <% if (auto.model.description) {%>
+
+            <p><%= auto.model.description %></p>
+          <% } else {%>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              aspernatur asperiores laboriosam, iste exercitationem voluptate.
+              Culpa, laboriosam impedit. Magnam rem eligendi facilis dolorem
+              cupiditate iste veritatis accusantium vel vitae molestias!
+            </p>
+
+          <% } %>
         </div>
 
-        <div class="images_detail" id="carrucel_detail">
-    
-          <div class="item_carrucel_detail" id="product_detail_1">
-<!-- 
-            <div class="card_carrucel_detail">
-            
-              
-            </div> -->
-            <img class="card_carrucel_detail" src="/images/products/default-troll-img.jpeg" alt="">
-            <div class="carrucel_navegation">
-              <a href="#product_detail_3">
-                <i class="fa-solid fa-caret-left"></i>
-              </a>
-              <a href="#product_detail_1">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <i class="fa-solid fa-caret-right"></i>
-              </a>
-            </div>
-          </div>
+        <div class="images_detail" id="carrucel_detail" data-aos="fade-right" data-aos-duration="1500">
           
-          <div class="item_carrucel_detail" id="product_detail_2">
+          <% if (!auto.productImages.length) { %>
+
+            <img class="card_carrucel_detail" src="/images/products/image-missing.jpg" alt="">
+            
+
+          <%} else { %>
+
+            <!-- <div class ="fade" id="carrucel_recomendations" data-aos="fade-up" data-aos-duration="1500">
   
-            <div class="card_carrucel_detail">
-              IMAGEN B
-            </div>
-            <!-- <img class="card_carrucel_detail" src="/images/matiboton.png" alt=""> -->
-            <div class="carrucel_navegation">
-              <a href="#product_detail_1">
-                <i class="fa-solid fa-caret-left"></i>
-              </a>
-              <a href="#product_detail_1">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <i class="fa-solid fa-caret-right"></i>
-              </a>
-            </div>
-          </div>
-          
-          <div class="item_carrucel_detail" id="product_detail_3">
+              <% for(let i = 0; i < auto.productImages.length ; i++){ %>
             
-            <div class="card_carrucel_detail">
-              IMAGEN C
-            </div>
+                <div id="item_carrucel_<%= i %>" class="item_carrucel">
+                  <div class="tarjeta_carrucel">
+                    <% if (auto.productImages.length) { %>
+                      <img class="container_img_top" src="/images/products/<%=auto.productImages[i].name %>" alt="">
+                      <% } else { %>
+                        <img class="container_img_top" src="/images/products/image-missing.jpg" alt="">
+                      <% } %>
+                  </div>
+                </div>
             
-            <div class="carrucel_navegation">
-              <a href="#product_detail_2">
-                <i class="fa-solid fa-caret-left"></i>
-              </a>
-              <a href="#product_detail_1">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_2">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_3">
-                <img class="preview" src="" alt="">
-              </a>
-              <a href="#product_detail_1">
-                <i class="fa-solid fa-caret-right"></i>
-              </a>
-            </div>
-          </div>
+              <% } %>
+            
+            </div> -->
+
+            <% if(auto.productImages.length != 1) {%>
+              <div class="slider-for">
+                <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
+                <% } %>
+              </div>
+
+              <div class="slider-nav">
+                <% for( let index = 0; index < auto.productImages.length; index++ ) { %>
+                  <img src="/images/products/<%= auto.productImages[index].name %>" alt="<%= auto.productImages[index].name %>" style="cursor: grab;">
+                <% } %>
+              </div>
+
+            <% } else {%>
+              <img src="/images/products/<%= auto.productImages[0].name %>" alt="<%= auto.productImages[0].name %>" style="cursor: grab;">
+            <% } %>
+
+          <% } %>        
+                    
         </div>
         
-        <div class="products_tags">
-          <div class="price">$<%= auto.price %></div>
-          <button class="reserve">Realizar reserva</button>
+        <div class="products_tags" data-aos="fade-up" data-aos-duration="1500">
+          <div class="price" id="price"><%= auto.price %></div>
+          <a href="/products/reserve/<%=auto.id  %>">
+            <button class="reserve" type="submit">Realizar reserva</button> 
+          </a>
         </div>
         
       </section>
       
-      <section class="specification_detail">
+      <section class="specification_detail" data-aos="fade-up" data-aos-duration="1500">
         <div class="specifications_drop_down">
           <input type="checkbox" id="drop_down">
 
           <div class="specifications_container">
-
+            <h4 class="title_specifications">Especificaciones</h4>
             <div class="especification">
-              <h4>Especificaciones 1</h4>
+              <!-- <h4>Especificaciones 1</h4> -->
               <div class="table_container">
                 <table>
                   <tr>
@@ -155,14 +138,14 @@
                     <td class="data"><%= auto.color.name %></td>
                   </tr>
                   <tr>
-                    <td class="details">Puertas</td>
-                    <td class="data"><%= auto.doors %></td>
+                    <td class="details">Tipo</td>
+                    <td class="data"><%= auto.vehicleType.tipo %></td>
                   </tr>
                 </table>
               </div>
             </div>
             <div class="especification">
-              <h4>Especificaciones 2</h4>
+              <!-- <h4>Especificaciones 2</h4> -->
               <div class="table_container">
                 <table>
                   <tr>
@@ -180,6 +163,10 @@
                   <tr>
                     <td class="details">Kilometraje</td>
                     <td class="data"><%= auto.km %>km</td>
+                  </tr>
+                  <tr>
+                    <td class="details">Puertas</td>
+                    <td class="data"><%= auto.doors %></td>
                   </tr>
                   <!-- <tr>
                     <td class="details">Puertas</td>
@@ -208,18 +195,48 @@
 
       </section>
 
-      <section class="recomendations">
-        <div>
-          <h3>Autos similares</h3>
-          
-          <%- include('../partials/carrucel') %> 
-        </div>
-      </section>
+      <% if (recomendedCars.length) { %>
+        <section class="recomendations">
+          <div>
+            <h3>Autos similares</h3>
+            
+            <%- include('../partials/carrucel') %> 
+          </div>
+        </section>
+      <% } %>
 
     </main>
 
     <%- include("../partials/footer") %> 
 
 
-  </body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/slickCarrusel.js"></script>
+    <script src="/js/slickCarruselDetail.js"></script>
+    <script src="/js/formateoPrecio.js"></script>
+    <script src="/js/confirmDeleteProduct.js"></script>
+    
+    <!-- <script> 
+      $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+        arrows: false
+      });
+    </script> -->
+</body>
 </html>

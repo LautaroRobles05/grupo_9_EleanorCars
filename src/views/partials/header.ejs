@@ -1,33 +1,197 @@
 <header>
-  <div class="burguer-menu"><i class="fa-solid fa-bars"></i></div>
+  
+  <!-- //DROPDOWN BURGUER MENU------------------------------------------------- -->
 
+  <div class="burguer-menu">
+    <img src="/images/menuBW.png" alt="">
+  </div>
+
+  <div class="sub-menu-burguer-wrap-mobile" id="subMenuBurguerMobile">
+    <div class="sub-menu-burguer-mobile">
+      <div class="burguer-info-mobile">
+        <img src="/images/menuBW.png" alt="">
+        <h3>MENU</h3>
+      </div>
+      <hr>
+
+      <a href="/products" class="sub-menu-burguer-link-mobile">
+        <img src="/images/productos.png" alt="">
+        <p>Lista de productos</p>
+        <span>></span>
+      </a>
+
+      <!-- <a href="/notFound" class="sub-menu-burguer-link-mobile">
+        <img src="/images/reunion-de-negocios.png" alt="">
+        <p>Nosotros</p>
+        <span>></span>
+      </a> -->
+
+      
+        <a href="/notFound" class="sub-menu-burguer-link-mobile">
+          <img src="/images/llaves.png" alt="">
+          <p>Vender</p>
+          <span>></span>
+        </a>
+
+        <% if (!locals.userLogged) { %>
+          <a href="/cart" class="sub-menu-burguer-link-mobile">
+            <span id="carritoCantidad" class="carritoBurguerCantidad cantidad">0</span>
+            <img src="/images/carrito-de-compras.png" alt="">
+            <p>Carrito</p>
+            <span>></span>
+          </a>
+        <% } %>
+
+        
+
+    </div>
+  </div>
+  
+
+
+
+  <!-- //DROPDOWN BURGUER MENU------------------------------------------------- -->
+
+
+
+  <!-- //DROPDOWN MOBILE------------------------------------------------------- -->
+
+  <% if (locals.userLogged) { %>
+        
+    <% if (locals.userLogged.img) { %>
+
+    <div class="profile-menu">
+      <img class="profile_img_mobile" src="/images/users/<%=locals.userLogged.img.name  %>" alt="">
+    </div>
+    <div class="sub-menu-wrap-mobile" id="subMenuMobile">
+      <div class="sub-menu-mobile">
+        <div class="user-info-mobile">
+          <img src="/images/users/<%=locals.userLogged.img.name  %>" alt="">
+          <h3><%= locals.userLogged.nickname  %></h3>
+        </div>
+        <hr>
+
+        <a href="/user/profile/<%=locals.userLogged.id %>" class="sub-menu-link-mobile">
+          <img src="/images/usuario.png" alt="">
+          <p>Ver perfil</p>
+          <span>></span>
+        </a>
+
+        <% if (locals.userLogged) { %>
+          <a href="/cart" class="sub-menu-link-mobile">
+            <span id="carritoCantidad" class="carritoUserCantidad cantidad">0</span>
+            <img src="/images/carrito-de-compras.png" alt="">
+            <p>Carrito</p>
+            <span>></span>
+          </a>
+        <% } %>
+
+        <a href="/user/profile/edit/<%=locals.userLogged.id %>" class="sub-menu-link-mobile">
+          <img src="/images/setting.png" alt="">
+          <p>Editar perfil</p>
+          <span>></span>
+        </a>
+
+        <% if (locals.userLogged.rol_id == 2) { %>
+          <a href="/products/create" class="sub-menu-link-mobile">
+            <img src="/images/masblue.png" alt="">
+            <p>Crear producto</p>
+            <span>></span>
+          </a>
+
+          <a href="/user/list" class="sub-menu-link-mobile">
+            <img src="/images/usuarios.png" alt="">
+            <p>Lista de usuarios</p>
+            <span>></span>
+          </a>
+        <% } %>
+
+        <a href="/user/logout" class="sub-menu-link-mobile">
+          <img src="/images/logout.png" alt="">
+          <p>Cerrar Sesión</p>
+          <span>></span>
+        </a>
+
+      </div>
+    </div>
+    <% } %>
+        
+  <% } else { %>
+    <div class="profile-menu-login">
+      <a href="/user/login">
+        <!-- <i class="fa-solid fa-arrow-right-to-bracket"></i> -->
+        <img src="/images/iniciar-sesionBW.png" alt="">
+      </a>
+    </div>
+  <% } %>
+
+  <!-- // DROPDOWN MOBILE------------------------------------------------------- -->
+  
+  
   <div class="logo">
     <a href="/"><img src="/images/logo-eleanor-cars.jpg" alt="Logo Eleanor Cars" /></a>
-    <p>Eleanor Cars</p>
+    <p class="logo_name">Eleanor Cars</p>
   </div>
 
   <nav class="nav_header">
     <ul>
-      <li><a href="/notFound">Nosotros</a></li>
+      <!-- <li><a href="/notFound">Nosotros</a></li> -->
       <li><a href="/notFound">Vender</a></li>
-      <li><a href="/products">Comprar</a></li>
-      <li>
-        <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+      <li><a href="/products">Vehículos</a></li>
+      <li class="cart">
+        <a href="/cart"><i class="fa-solid fa-cart-shopping"></i><span id="carritoCantidad" class="carritoCantidad cantidad">0</span></a>
       </li>
       <!-- <i class="fa-solid fa-user-gear"></i> usuario con engranaje--> 
       <% if (locals.userLogged) { %>
-        <% if (locals.userLogged.rol_id == 2) { %>
-            <li>
-              <a href="/products/create"><i class="fa-solid fa-circle-plus"></i></a>
+        
+          <% if (locals.userLogged.img) { %>
+            <li id="profile-dropdown">
+              Hi <%= locals.userLogged.nickname  %> <img class="profile_img" src="/images/users/<%=locals.userLogged.img.name  %>" alt="">
             </li>
-            <li>
-              <a href="/user/list"><i class="fa-solid fa-users"></i></a>
-            </li>
-          <% } %>
-        <li>
-          <a href="/user/profile"><i class="fa-solid fa-user-tie"></i> Hi <%= locals.userLogged.nickname  %>
-          </a>
-        </li>
+            <div class="sub-menu-wrap" id="subMenu">
+              <div class="sub-menu">
+                <div class="user-info">
+                  <img  src="/images/users/<%=locals.userLogged.img.name  %>" alt="">
+                  <h3><%= locals.userLogged.nickname  %></h3>
+                </div>
+                <hr>
+
+                <a href="/user/profile/<%=locals.userLogged.id %>" class="sub-menu-link">
+                  <img src="/images/usuario.png" alt="">
+                  <p>Ver perfil</p>
+                  <span>></span>
+                </a>
+
+                <a href="/user/profile/edit/<%=locals.userLogged.id %>" class="sub-menu-link">
+                  <img src="/images/setting.png" alt="">
+                  <p>Editar perfil</p>
+                  <span>></span>
+                </a>
+
+                <% if (locals.userLogged.rol_id == 2) { %>
+                  <a href="/products/create" class="sub-menu-link">
+                    <img src="/images/masblue.png" alt="">
+                    <p>Crear producto</p>
+                    <span>></span>
+                  </a>
+
+                  <a href="/user/list" class="sub-menu-link">
+                    <img src="/images/usuarios.png" alt="">
+                    <p>Lista de usuarios</p>
+                    <span>></span>
+                  </a>
+                <% } %>
+
+                <a href="/user/logout" class="sub-menu-link">
+                  <img src="/images/logout.png" alt="">
+                  <p>Cerrar Sesión</p>
+                  <span>></span>
+                </a>
+
+              </div>
+            </div>
+            <% } %>
+        
       <% } else { %>
         <li>
           <a href="/user/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>
@@ -36,4 +200,6 @@
       <% } %>
     </ul>
   </nav>
+
+  <script src="/js/numeroCarrito.js"></script>
 </header>

@@ -24,6 +24,12 @@ Fuente Login y Register: #607d8b
     font-family: 'Poppins', sans-serif;
 }
 
+/* main section 
+{
+    width: 80vw;
+    margin: auto;
+} */
+
 body::-webkit-scrollbar {
     width: 11px;
 }
@@ -52,7 +58,9 @@ main {
         #393E46 10%,
         #607d8b 35%,
         #0092CA 70%
-    )
+    );
+    min-height: 60vh;
+
 }
 
 ul{
@@ -60,7 +68,7 @@ ul{
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #EEEEEE;
 }
 
@@ -94,11 +102,270 @@ header {
     
 }
 
-.burguer-menu {
+
+.burguer-menu 
+{
     position: absolute;
     text-align: center;
     left: 20px;
+    bottom: 15px;
 }
+
+.burguer-menu img
+{
+    height: 40px;
+    width: 40px;
+    filter: invert(1);
+}
+
+/* DROPDOWN BURGUER MENU */
+
+.sub-menu-burguer-wrap-mobile
+{
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    /* width: 270px; */
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 2;
+    
+}
+
+.sub-menu-burguer-wrap-mobile.open-menu
+{
+    max-height: 320px;
+    width: fit-content;
+    z-index: 3;
+}
+
+.sub-menu-burguer-mobile
+{
+    background: #fff;
+    padding: 20px;
+    margin: 0px;
+    border-radius: 0 0 10px 0;
+}
+
+.burguer-info-mobile
+{
+    display: flex;
+    align-items: center;
+}
+
+.burguer-info-mobile h3
+{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.burguer-info-mobile img
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.sub-menu-burguer-mobile hr
+{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-burguer-link-mobile
+{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+a.sub-menu-burguer-link-mobile 
+{
+    color: #525252;
+}
+
+.sub-menu-burguer-link-mobile p
+{
+    width: 100%;
+    font-size: 14px;
+    margin-right: 25px;
+}
+
+.sub-menu-burguer-link-mobile img
+{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.sub-menu-burguer-link-mobile span
+{
+    font-size: 15px;
+}
+
+.sub-menu-burguer-link-mobile span.carritoBurguerCantidad {
+    position: absolute;
+    top: 154px;
+    left: 40px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+}
+
+/* DROPDOWN BURGUER MENU END */
+
+.profile-menu 
+{
+    position: absolute;
+    text-align: center;
+    right: 50px;
+}
+
+.profile-menu-login 
+{
+    position: absolute;
+    text-align: center;
+    right: 15px;
+    bottom: 15px;
+}
+
+.profile-menu-login img
+{
+    height: 40px;
+    width: 40px;
+    filter: invert(1);
+}
+
+div.profile-menu img.profile_img_mobile
+{
+    height: 40px;
+    position: absolute;
+    margin-left: 4px;
+    width: 40px;
+    border-radius: 50%;
+    top: -15px;
+    object-fit: cover;
+}
+
+/* DROPDOWN MOBILE */
+
+.sub-menu-wrap-mobile
+{
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    /* width: 270px; */
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 2;
+}
+
+
+.sub-menu-wrap-mobile.open-menu
+{
+    max-height: 350px;
+    width: fit-content;
+    z-index: 3;
+}
+
+.sub-menu-mobile
+{
+    background: #fff;
+    padding: 20px;
+    margin: 0px;
+    border-radius: 0 0 0 10px;
+}
+
+.user-info-mobile
+{
+    display: flex;
+    align-items: center;
+}
+
+.user-info-mobile h3
+{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.user-info-mobile img
+{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.sub-menu-mobile hr
+{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link-mobile
+{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+a.sub-menu-link-mobile 
+{
+    color: #525252;
+}
+
+.sub-menu-link-mobile p
+{
+    width: 100%;
+    font-size: 14px;
+    margin-right: 25px;
+}
+
+.sub-menu-link-mobile img
+{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.sub-menu-link-mobile span
+{
+    font-size: 15px;
+}
+
+.sub-menu-link-mobile span.carritoUserCantidad {
+    position: absolute;
+    top: 115px;
+    left: 40px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+}
+
+/* DROPDOWN MOBILE END */
 
 .fa-bars{
     font-size: 37px;
@@ -113,10 +380,29 @@ header {
     text-align: center;
     color: #EEEEEE;
 }
-
+/* corrige el problema del logo en el cart */
+img
+{
+    vertical-align: baseline !important;
+}
 .logo img{
     height: 45px;
     width: 80px;
+}
+
+img.profile_img
+{
+    height: 33px;
+    position: absolute;
+    margin-left: 4px;
+    width: 33px;
+    border-radius: 50%;
+    top: -4px;
+    object-fit: cover
+}
+/* corrige el problema del texto del logo en el cart */
+p  {
+    margin-bottom: 0rem !important;
 }
 
 .logo p {
@@ -127,6 +413,25 @@ header {
 .nav_header{
     display: none;
 }
+
+/* div.user-info .profile_img
+{
+    
+    height: 33px;
+    position: absolute;
+    margin-left: 4px;
+    width: 33px;
+    border-radius: 50%;
+    top: -4px;
+    object-fit: cover
+    
+} */
+
+
+
+
+
+
 
 /* -----------------------------------carrusel--------------------------------------- */
 
@@ -142,7 +447,7 @@ header {
 .item_carrucel{ 
     width: 100%;
     height: 100%;
-    background-color: #EEEEEE;
+    /* background-color: #EEEEEE; */
     position: relative;
 }
 
@@ -160,14 +465,61 @@ header {
     align-items: center;
 }
 
-.container_nav_carrucel i {
+/* .container_nav_carrucel i {
     font-size: 40px;
     width: 40px;
     text-align: center;
     margin: 20px;
-    background-color: #5C5E60;
     color: #DBDBDB;
+    background-color: #5C5E60;
     border-radius: 50%;
+} */
+
+/* .slick-arrow
+{
+    width: 30px;
+    height: 30px;
+    font-size: 1px;
+    color: transparent;
+    position: absolute;
+    top: 189px;
+    right: 0px;
+} */
+
+
+.slick-arrow{
+    z-index: 100;
+    top: 50%;
+}
+
+.slick-next 
+{
+    width: 39px;
+    height: 39px;
+    font-size: 1px;
+    color: transparent;
+    position: absolute;
+    filter: invert(1);
+    right: 0px;
+    background: url(../images/flecha-hacia-abajo.png);
+    background-size: 100%;
+    transform: rotate(180deg);
+    border: none;
+} 
+
+.slick-prev 
+{
+    width: 39px;
+    height: 39px;
+    font-size: 1px;
+    color: transparent;
+    position: absolute;
+    filter: invert(1);
+    left: 0px;
+    background: url(../images/flecha-hacia-abajo.png);
+    background-size: 100%;
+    border: none;
+    z-index: 1;
 }
 
 .container_nav_carrucel .link_tarjeta{
@@ -181,12 +533,16 @@ header {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    color: #DBDBDB;
 }
 
 .container_img{
     min-width: 150px;
     max-width: fit-content;
     min-height: 100px;
+    border-radius: 3%;
+    width: 250px;
+    cursor: grab;
 }
 
 .tarjeta_carrucel h4 {
@@ -197,8 +553,11 @@ header {
 .tarjeta_carrucel p{
     width: 60%;
     min-width: 150px;
-    text-align: justify;
+    text-align: center;
     overflow: hidden;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 100%) -9%, rgb(255 255 255 / -10%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* -----------------------------------carrusel--------------------------------------- */
@@ -271,32 +630,164 @@ footer {
         display: none;
     }
 
+    .profile-menu
+    {
+        display: none;
+    }
+    .profile-menu-login
+    {
+        display: none;
+    }
+
+    .sub-menu-wrap-mobile {
+        display: none;
+    }
+
     .nav_header
     {
         display: flex;
-        align-self: flex-end;
+        /* corrige el problema de la posicion del ul en nav del cart */
+        align-self: flex-end !important;
     }
 
     .nav_header ul 
     {
         display: flex;
+        margin-bottom: 0px;
     }
 
     .nav_header ul li
     {
         margin-right: 25px; 
+        position: relative;
+        color: #EEEEEE;
+        cursor: pointer;
     }
+
+    .nav_header ul li .carritoCantidad {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: red;
+        color: white;
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    /* DROPDOWN PROFILE */
+    .sub-menu-wrap
+    {
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        z-index: 1;
+    }
+
+    .sub-menu-wrap.open-menu
+    {   
+        width: fit-content;
+        max-height: 550px;
+        z-index: 1;
+    }
+
+    .sub-menu
+    {
+        background: #fff;
+        padding: 20px;
+        margin: 0px;
+        border-radius: 0 0 0 10px;
+    }
+
+    .user-info
+    {
+        display: flex;
+        align-items: center;
+    }
+
+    .user-info h3
+    {
+        font-weight: 500;
+        font-size: 24px;
+        color: #524b4b;
+    }
+
+    .user-info img
+    {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+    }
+
+    .sub-menu hr
+    {
+        border: 0;
+        height: 1px;
+        width: 100%;
+        background: #ccc;
+        margin: 15px 0 10px;
+    }
+
+    .sub-menu-link
+    {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #525252;
+        margin: 12px 0;
+    }
+
+    .sub-menu-link p 
+    {
+        width: 100%;
+        color: #524b4b;
+    }
+
+    .sub-menu-link span
+    {
+        color: #524b4b;
+        font-size: 22px;
+        transition: transform 0.5s;
+    }
+
+    .sub-menu-link:hover span
+    {
+        transform: translateX(5px);
+    }
+
+    .sub-menu-link:hover p
+    {
+        font-weight: 600;
+    }
+
+    .sub-menu-link img
+    {
+        width: 40px;
+        background: #e5e5e5;
+        border-radius: 50%;
+        padding: 8px;
+        margin: 15px
+    }
+    /* DROPDOWN PROFILE */
 
 
     /* ---------CARRUCEL------------ */
     
     #carrucel_recomendations{
         width: 80%;
-        box-shadow: 0 0 10px 10px #5c5e60c8 ;
+        /* box-shadow: 0 0 10px 10px #5c5e60c8 ; */
     }
 
     .container_img {
-        width: 70%;
+        width: 50%;
     }
 
     .tarjeta_carrucel p {
@@ -312,6 +803,12 @@ footer {
         transition: all 0.3s ease;
         
     }
+
+    .nav_header ul li#profile-dropdown
+    {
+        transition: all 0.3s ease;
+        
+    }
     .logo img:hover
     {
         height: 50px;
@@ -320,10 +817,34 @@ footer {
         
     }
 
+    .nav_header ul li#profile-dropdown:hover
+    {
+        padding: 3px 6px;
+        background: rgb(0, 0, 0);
+        border-radius: 10px;
+    }
+
     .nav_header ul li a:hover
     {
         padding: 3px 6px;
         background: rgb(0, 0, 0);
         border-radius: 10px;
+        color: unset;
+    }
+
+    .container_nav_carrucel i {
+        font-size: 70px;
+        width: 70px;
+    }
+    #carrucel_recomendations {
+        height: fit-content;
+    }
+
+    .container_img {
+        width: 50%;
+    }
+
+    section.recomendations div.fade ul.slick-dots {
+        display: none !important
     }
 }

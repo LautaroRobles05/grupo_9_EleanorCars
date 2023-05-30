@@ -4,7 +4,9 @@ const {
   CarModels,
   Brands,
 } = require("../../database/models");
-//const { Op } = require("sequelize");
+const { Op } = require("sequelize");
+const Sequelize = require("sequelize");
+
 
 module.exports = {
   list: async (req, res) => {
@@ -15,11 +17,8 @@ module.exports = {
           nested: true,
           attributes: { exclude: ["id"] },
         },
-        attributes: { exclude: ["id"] },
         limit: 20,
       });
-
-      
 
       res.json({
         metadata: {
@@ -39,14 +38,99 @@ module.exports = {
 
     //res.render("products/list", {carsList: products});
   },
+
+
+  last: async (req, res) => { //consulta a la db por el ultimo producto creado
+    try {
+      const lastProduct = await Products.findOne({
+        include: [{
+          association: 'productImages',
+          attributes: ["name"]
+        }],
+          order: [['createdAt', 'DESC']]
+      });
+      //console.log(lastProduct)
+      let last = {
+      equipment: lastProduct.equipment,
+      img: lastProduct.productImages.length? "http://localhost:3009/images/products/" + lastProduct.productImages[0].dataValues.name : "http://localhost:3009/images/products/image-missing.jpg"
+      }
+  
+      console.log('laaaaaaaaaaaaaa',last)
+        res.json(({
+          metadata: {
+            resultado: 200,
+            mensaje: "Consulta de ultimo producto creado exitosa!",
+          },
+          last,
+        }))
+    } catch (error) {
+      res.json(error);
+    }
+  },
  
-  prueba: async (req,res) => {
+  getBrandsWithProducts: async (req,res) => { //Retorna Las Marcas que tengan autos con un determinado tipo de vehiculo
+    try {
+      let data = await Brands.findAll({ // Obtengo Marcas
+        attributes: ['id','name'],
+        include: [{
+          association: 'models',  //Relaciono sus modelos
+          attributes: [],
+          include: [{
+            association: 'modelProducts', //Relaciono Modelo - Productos
+            attributes: [],
+            where: {  //Filtra por modelos que tengan productos
+              id : { [Op.not] : null }
+            }
+          }], 
+          where: {  //Filtro aquellas marcas que no tengan coincidencias por modelos
+            id : { [Op.not] : null }
+          }
+        }]
+      })
+
+      res.json(
+        data
+      );
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  getBrandByTypeId: async (req,res) => { //Retorna Las Marcas que tengan autos con un determinado tipo de vehiculo
+    try {
+      let tipoId = req.params.id;
+      let data = await Brands.findAll({ // Obtengo Marcas
+        attributes: ['id','name'],
+        include: [{
+          association: 'models',  //Relaciono sus modelos
+          attributes: [],
+          include: [{
+            association: 'modelProducts', //Relaciono Modelo - Productos
+            attributes: [],
+            where: {  // Filtro aquellos que tengan el tipo de vehiculo deseado
+              vehicleType_id : tipoId
+            }
+          }], 
+          where: {  //Filtro aquellas marcas que no tengan coincidencias por Tipo de vehiculo  
+            id : { [Op.not] : null }
+          }
+        }]
+      })
+
+      res.json(
+        data
+      );
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  getModelByBrandId: async (req,res) => {
     try {
       let products = await Brands.findByPk(req.params.id, {
         include: {
-          all: true,
-        }
-         
+          all: true,  
+        },  
       });
 
       res.json(
@@ -58,6 +142,120 @@ module.exports = {
     }
 
   },
+
+  getModelByBrandIdWithProducts: async (req,res) => {
+    try {
+      let brandId = req.params.id
+      let data = await CarModels.findAll({
+        attributes: ['id','name'],
+        include: [{
+          association: 'brand',
+          attributes: [],
+          where: {
+            id : brandId
+          }
+        },{
+          association: 'modelProducts',
+          attributes: [],
+          where:{
+            id : {
+              [Op.not] : null
+            }
+          }
+        }]
+      });
+
+      res.json(
+        data
+      );
+
+    } catch (error) {
+      res.json(error)
+    }
+  },
+  
+  count: async (req, res) => { //metodo para consulta de cantidad de productos
+    try {
+      let products = await Products.count()
+      //console.log(products)
+      res.json(({
+        metadata: {
+          resultado: 200,
+          mensaje: "Consulta de cantidad de productos exitosa!",
+        },
+        products,
+      }))
+
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  categories1: async (req,res) => {
+    let categorias = await VehicleTypes.findAll()
+    res.json(({
+      metadata: {
+        resultado: 200,
+        mensaje: "Consulta de cantidad de categorias exitosa!",
+      },
+      data: {
+        categorias
+      },
+    }))
+  },
+
+  categories: async (req, res) => { //metodo para consulta de cantidad de categorias
+    try {
+      let categories = await VehicleTypes.count()
+      console.log(categories)
+      res.json(({
+        metadata: {
+          resultado: 200,
+          mensaje: "Consulta de cantidad de categorias exitosa!",
+        },
+        categories,
+      }))
+
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  countTypes: async (req, res) => { //metodo para consulta de cantidad de productos segun tipo de vehículo
+  
+    try {
+
+      let categoriesCount = await VehicleTypes.count()
+      let productos = await Products.findAll()
+      let productsCount = await Products.count()
+      let types = await VehicleTypes.findAll({
+        include: {
+          all: true,
+          
+        },
+      })
+      let objeto = {
+        categoria: []
+      }
+    
+      types.forEach(types => {
+        objeto.categoria.push ({
+          id: types.id,
+          tipo: types.tipo,
+          productCount: types.products.length,
+      })
+      })
+
+      res.json(objeto)
+      
+
+
+    } catch (error) {
+      res.json(error)
+    }
+
+},
+
   upload: async (req, res) => {
     try {
       let {
@@ -109,10 +307,13 @@ module.exports = {
   detail: async (req, res) => {
       try{
         let product = await Products.findByPk(req.params.id, {
+            attributes: { 
+              exclude: ["createdAt", "deletedAt"] 
+            },
             include: {
                 all: true,
                 nested: true,
-                attributes: { exclude: ["id"] },
+                attributes: { exclude: ["id", "createdAt", "deletedAt"] },
             }
         });
         return res.json(product)
@@ -163,5 +364,5 @@ module.exports = {
         error,
     });
     }
-  }
+  },
 };

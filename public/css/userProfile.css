@@ -4,7 +4,7 @@ section
 {
     position: relative;
     width: 100%;
-    height: 120vh;
+    height: max-content;
     display: flex;
     background-image: linear-gradient(
         0deg,
@@ -13,6 +13,8 @@ section
         #607d8b 35%,
         #0092CA 70%
       );
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 section .img-container {
     display: none;
@@ -81,7 +83,25 @@ section .content-box .form h2
 section .content-box .form .input-box
 {
     margin-bottom: 20px;
+
 }
+
+section .content-box .form .input-box select
+{
+    width: 100%;
+    padding: 10px 20px;
+    /* border: 1px solid #607d8b; */
+    border: 1px solid #607d8b;
+    border-radius: 4px;
+    outline: none;
+    background: transparent;
+    /* color: #607d8b; */
+    color: #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: 0.5s all ease;
+}
+
 section .content-box .form .input-box span
 {
     font-size: 16px;
@@ -157,7 +177,6 @@ section .content-box .form .input-box .back-home
     {
         position: relative;
         width: 100%;
-        height: 160vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -169,18 +188,20 @@ section .content-box .form .input-box .back-home
         position: relative;
         top: 0;
         left: 0;
-        width: 30%;
-        height: 20%;
+        object-fit: cover;
+        margin-bottom: 30px;
+        height: 220px;
+        width: 220px;
+        padding: 5px;
+        border-radius: 7%;
         box-shadow: 4px -7px 33px 2px #262626d6;
     }
     section .img-container img
     {
-        position: absolute;
-        top: 0;
-        left: 0; 
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 7%;
     }
     
     section .content-box 
@@ -203,7 +224,6 @@ section .content-box .form .input-box .back-home
     section {
         position: relative;
         width: 100%;
-        height: 240vh;
         display: flex;
         
     }
@@ -215,7 +235,6 @@ section .content-box .form .input-box .back-home
     {
         position: relative;
         width: 100%;
-        height: 170vh;
         display: flex;
         align-items: center;
         padding: 40px;
@@ -223,8 +242,9 @@ section .content-box .form .input-box .back-home
     section .img-container 
     {
         position: relative;
-        width: 30%;
-        height: 25%;
+        height: 270px;
+        width: 270px;
+        padding: 9px;
         box-shadow: 4px -7px 33px 2px #262626d6;
     }
     section .content-box .form

@@ -7,30 +7,36 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/userProfile.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <title>Editar Prefíl</title>
 </head>
 
 <body>
     <%- include('../partials/header') %>
 <main>
-    <section>
+    <section >
         <% if (user.img) { %>
-            <div class="img-container">
+            <div class="img-container" data-aos="zoom-in" data-aos-duration="1000">
                 <img src="/images/users/<%= user.img.name  %>" alt="">
             </div>
         <% } else { %>
-            <div class="img-container">
+            <div class="img-container" data-aos="zoom-in" data-aos-duration="1000">
                 <img src="/images/users/default-icon.png" alt="">
             </div>
         <% } %>
-        <div class="content-box">
+        <div class="content-box" data-aos="zoom-in-down" data-aos-duration="1000">
             <div class="form">
                 <h2>PERFIL USUARIO</h2>
-                <form method = "post" action="/user/profile/edit?_method=PUT" enctype="multipart/form-data">
+                <form method = "post" action="/user/profile/edit/<%= user.id %>?_method=PUT" enctype="multipart/form-data">
                     <div class="input-box">
                         <span>Nombre</span>
                         <input type="text" name="name" value="<%= user.name %>" >
@@ -47,6 +53,10 @@
                     <div class="input-box">
                         <span>E-mail</span>
                         <input type="text" name="email" value="<%= user.email %>" disabled>
+                    </div>
+                    <div class="input-box">
+                        <span>Nombre de usuario</span>
+                        <input type="text" name="nickname" value="<%= user.nickname %>" disabled>
                     </div>
                     <!-- <div class="input-box">
                         <span>Imagen de perfil</span>
@@ -71,7 +81,11 @@
 
                     <div class="input-box">
                         <span>DNI</span>
-                        <input type="text" name="dni" value="<%= user.dni %>" >
+                        <% if (user.dni) { %>
+                            <input type="text" name="dni" value="<%= user.dni %>" >
+                        <% } else { %>
+                                <input type="text" name="dni" placeholder="Ingresa tu DNI">
+                            <% } %>
                     </div>
 
                     <div class="input-box">
@@ -103,7 +117,11 @@
 
                     <div class="input-box">
                         <span>Teléfono personal</span>
-                        <input type="number" name="phone"  value="<%= user.phone %>">
+                        <% if (user.phone) { %>
+                            <input type="number" name="phone"  value="<%= user.phone %>">
+                        <% } else { %>
+                                <input type="text" name="phone" placeholder="Ingresa tu teléfono">
+                            <% } %>
                     </div>
                     
                     <div class="input-box">
@@ -111,7 +129,7 @@
                     </div>
                    
                 </form>
-                <form action="/user/<%= user.id %>?_method=DELETE" method="post">
+                <form id="delete" data-userdelete="<%= user.id %>" method="post" >
                     <div class="input-box delete">
                         <input type="submit" value="Eliminar Cuenta" name="">
                     </div>
@@ -130,6 +148,10 @@
 
 
     <%- include("../partials/footer") %> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/confirmDeleteUser.js"></script>
 </body>
 
 </html>

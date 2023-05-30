@@ -41,6 +41,108 @@ let productControllers = {
     //res.render("products/list", {carsList: products});
   },
 
+  findBrand: async (req,res)=>{
+    try {
+      let search = req.query.search
+      const products = await Products.findAll({
+        include: [{
+          association: 'model',
+          attributes:['name'],
+          where:{
+            id:{[Op.not]: null }
+          },
+          include:[{
+            association:'brand',
+            attributes:['name'],
+            where:{
+              name:{ [Op.like]: `%${search}%`}
+            }
+          }]
+
+        },
+        {association: 'productImages'}
+      ],
+
+      });
+      if(products.length){
+        res.render("products/list", {carsList: products});
+      }else{
+        res.render("notFound")
+      }
+      //return res.json({products})
+    } catch (error) {
+      res.json({
+        metadata: {
+          mensaje: "No se encontro el producto",
+        },
+        error,
+      })
+    }
+  },
+
+
+  findProduct: async (req, res) => {
+    try {
+  
+      let {tipo, brand_id, model_id} = req.body;
+
+      tipo = parseInt(tipo)
+      brand_id = parseInt(brand_id)
+      model_id = parseInt(model_id)
+
+      // console.log('\n\n\n%cPARAMETROS BUSQUEDA -----------------','color:red');
+      // console.log(tipo);
+      // console.log(brand_id);
+      // console.log(model_id);
+
+      let condiciones = {}
+
+      if(tipo){
+        condiciones.vehicleType_id = tipo
+      }
+
+      if(brand_id){
+        condiciones['$model.brand_id$'] = brand_id
+      }
+
+      if(model_id){
+        condiciones['$model.id$'] = model_id
+      }
+
+      let products = await Products.findAll({
+        where : {
+          ...condiciones,
+        },
+        include: [
+          {
+            model: CarModels,
+            as: 'model',
+            include:[{
+              association: 'brand'
+            }]
+          },
+          {association: 'vehicleType'},
+          {association: 'gasType'},
+          {association: 'color'},
+          {association: 'productImages'},
+        ], 
+      })
+
+   
+
+    // return res.json(products);
+
+     if (products.length > 0){
+      res.render("products/list", {carsList: products})
+     } else {
+      res.render("notFound")
+     }
+    } catch (error) {
+      // return res.json(error)
+      res.render('notFound')
+    }
+  },
+
   productEdit: async (req, res) => {
     try {
       let brands = await Brands.findAll();
@@ -184,21 +286,33 @@ let productControllers = {
             attributes: { exclude: ["id"] },
         }
       });
-      let products = await Products.findAll({
-        include: {
-          all: true,
-          nested: true,
-          attributes: 
-          { exclude: ["id"] },
-        },
-        where: {
-          vehicleType_id: product.vehicleType_id, 
-          id: {[Op.ne]: product.id}
-         },
+
       
-        limit: 5
-      })
-     return res.render("products/detail", { auto: product, recomendedCars:products });
+
+      
+      if(product){
+
+        let products = await Products.findAll({
+          include: {
+            all: true,
+            nested: true,
+            attributes: { exclude: ["id"] },
+          },
+          where: {
+            vehicleType_id: product.vehicleType_id, 
+            id: {[Op.ne]: product.id}
+           },
+        
+          limit: 5
+        })
+        
+        product.productImages = product.productImages.slice(0,4);
+
+        return res.render("products/detail", { auto: product, recomendedCars: products });
+     } else {
+      return res.render("notFound")
+     }
+
     } catch (error) {
         res.json({
             metadata: {
@@ -208,6 +322,27 @@ let productControllers = {
         });
     }
   },
+
+  reserve: async (req, res) => {
+    try {
+      let producto = await Products.findByPk(req.params.id, {
+        include: [
+          {association: 'model', attributes: ["name"], include: [{association: 'brand', attributes: ["name"]}]},
+          // {association: 'state', attributes: ["name"]},
+          // {association: 'gender', attributes: ["name"]},
+        ]
+      })
+      // return res.json(producto)
+      res.render('products/reserve', {producto})
+    } catch (error) {
+      
+    }
+    
+  },
+
+  reserveConfirm: async (req, res) => {
+    res.render("products/reserveConfirm")
+  },
  
 
   productCart: (req, res) => {
@@ -216,9 +351,15 @@ let productControllers = {
 
   create: async (req, res) => {
     try {
-      let brands = await Brands.findAll();
-      let models = await CarModels.findAll();
-      let colors = await Colors.findAll();
+      let brands = await Brands.findAll({
+        order: [['name', 'ASC']]
+      });
+      let models = await CarModels.findAll({
+        order: [['name', 'DESC']]
+      });
+      let colors = await Colors.findAll({
+        order: [['name', 'ASC']]
+      });
       let gasType = await GasTypes.findAll();
       let vehicleTypes = await VehicleTypes.findAll();
       let transmissions = ['Manual','Automatico'];
@@ -371,7 +512,14 @@ let productControllers = {
            imgProduct.push(dataImg)
            
          });
-         Images.bulkCreate(imgProduct);
+         if(imgProduct.length){
+           Images.bulkCreate(imgProduct);
+         }else{
+          Images.create({ 
+            product_id:id,
+            name: "image-missing.jpg"
+          })
+         }
         })
 
       return res.redirect ('/products')

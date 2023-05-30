@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/userProfile.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script
       src="https://kit.fontawesome.com/58f19d8ff4.js"
@@ -16,89 +17,104 @@
 
 <body>
     <%- include('../partials/header') %>
-<main>
-    <section>
-        <% if (user.img) { %>
-            <div class="img-container">
-                <img src="/images/users/<%= user.img.name  %>" alt="">
-            </div>
-        <% } else { %>
-            <div class="img-container">
-                <img src="/images/users/default-icon.png" alt="">
-            </div>
-        <% } %>
-        <div class="content-box">
-            <div class="form">
-                <h2>PERFIL USUARIO</h2>
-                    <div class="input-box">
-                        <span>Nombre</span>
-                        <input type="text" name="firstName" value="<%= user.name %>" disabled>
-                    </div>
-                    <div class="input-box">
-                        <span>Apellido</span>
-                        <input type="text" name="lastName" value="<%= user.lastName %>" disabled>
-                    </div>
-                    <div class="input-box">
-                        <span>E-mail</span>
-                        <input type="text" name="email" value="<%= user.email %>" disabled>
-                    </div>
-                    <div class="input-box">
-                        <span>Provincia</span>
-                        <% if (user.state) { %>
-                            <input type="text" name="state" value="<%= user.state.name %>" disabled>
-                        <% } else {%>
-                                <input type="text" name="state" value="" disabled>
-                            <% } %>
-                        </select>
-                    </div>
-                    <div class="input-box">
-                        <span>DNI</span>
-                        <input type="text" name="dni" value="<%= user.dni %>" disabled>
-                    </div>
-                    <div class="input-box">
-                        <span>Género</span>
-                        <% if (user.gender) { %>
-                            <input type="text" name="gender" value="<%= user.gender.name %>" disabled>
-                        <% } else {%>
-                                <input type="text" name="gender" value="" disabled>
-                            <% } %>
-                        </select>
-                    </div>
-                    <div class="input-box">
-                        <span>Fecha de nacimiento</span>
-                        <input type="text" name="bornDate" value="<%= user.bornDate %>" disabled>
-                    </div>
-                    <div class="input-box">
-                        <span>Teléfono personal</span>
-                        <input type="number" name="phone" value="<%= user.phone %>" disabled>
-                    </div>
+    <main>
+        <section >
+            <% if (user.img) { %>
+                <div class="img-container" data-aos="zoom-in" data-aos-duration="1000">
+                    <img src="/images/users/<%= user.img.name  %>" alt="">
+                </div>
+            <% } else { %>
+                <div class="img-container" data-aos="zoom-in" data-aos-duration="1000">
+                    <img src="/images/users/default-icon.png" alt="">
+                </div>
+            <% } %>
+            <div class="content-box" data-aos="zoom-in-down" data-aos-duration="1000">
+                <div class="form">
+                    <h2>PERFIL USUARIO</h2>
+                        <div class="input-box">
+                            <span>Nombre</span>
+                            <input type="text" name="firstName" value="<%= user.name %>" disabled>
+                        </div>
+                        <div class="input-box">
+                            <span>Apellido</span>
+                            <input type="text" name="lastName" value="<%= user.lastName %>" disabled>
+                        </div>
+                        <div class="input-box">
+                            <span>E-mail</span>
+                            <input type="text" name="email" value="<%= user.email %>" disabled>
+                        </div>
+                        <div class="input-box">
+                            <span>Nombre de usuario</span>
+                            <input type="text" name="nickname" value="<%= user.nickname %>" disabled>
+                        </div>
+                        <div class="input-box">
+                            <span>Provincia</span>
+                            <% if (user.state) { %>
+                                <input type="text" name="state" value="<%= user.state.name %>" disabled>
+                            <% } else {%>
+                                    <input type="text" name="state" placeholder="Sin definir" disabled>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span>DNI</span>
+                            <% if (user.dni) { %>
+                                <input type="text" name="dni" value="<%= user.dni %>" disabled>
+                            <% } else { %>
+                                <input type="text" name="dni" placeholder="Sin definir" disabled>
+                                <% } %>
+                        </div>
+                        <div class="input-box">
+                            <span>Género</span>
+                            <% if (user.gender) { %>
+                                <input type="text" name="gender" value="<%= user.gender.name %>" disabled>
+                            <% } else {%>
+                                    <input type="text" name="gender" placeholder="Sin definir" disabled>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span>Fecha de nacimiento</span>
+                            <% if (user.bornDate) { %>
+                                <input type="text" name="bornDate" value="<%= user.bornDate %>" disabled>
+                            <% } else { %>
+                                    <input type="text" name="bornDate" placeholder="Sin definir" disabled>
+                                <% } %>
+                        </div>
+                        <div class="input-box">
+                            <span>Teléfono personal</span>
+                            <% if (user.phone) { %>
+                                <input type="number" name="phone" value="<%= user.phone %>" disabled>
+                            <% } else { %>
+                                    <input type="text" name="phone" placeholder="Sin definir" disabled>
+                                <% } %>
+                        </div>
+                        
+                        
+                        <div class="input-box">
+                            <a href="/user/profile/edit/<%= user.id  %>">
+                                <input type="button" value="Editar">
+                            </a>
+                        </div> 
+                        <!-- <div class="input-box">
+                            <a href="/user/logout">
+                                <input type="button" value="Log-out">
+                            </a>
+                        </div>  -->
                     
-                    
-                    <div class="input-box">
-                        <a href="/user/profile/edit">
-                            <input type="button" value="Editar">
-                        </a>
-                    </div> 
-                    <div class="input-box">
-                        <a href="/user/logout">
-                            <input type="button" value="Log-out">
-                        </a>
-                    </div> 
-                
 
-    </section>
+        </section>
 
-
-
-
-
-    
-</main>
+    </main>
 
 
 
 
     <%- include("../partials/footer") %> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/aos.js"></script>
+
 </body>
 
 </html>

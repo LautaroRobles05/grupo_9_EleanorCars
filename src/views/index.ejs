@@ -8,6 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link rel="stylesheet" href="/css/styles.css"/>
     <link rel="stylesheet" href="/css/index.css">
@@ -25,78 +27,92 @@
     
 
     <main>      
-      <section class="search-car">
+      <section class="search-car" data-aos="fade-up" data-aos-duration="1500">
+        
+        <p>Tu auto ideal, a un solo click de distancia.</p>
+        
+        <form class="form-search-car"action="/products/search"  method="post">
+          
+          <select  name="tipo" id="tipo" >
+            <option value="0" disabled selected>Tipo Vehículo</option>
+            <option value="0">Cualquiera</option>
 
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente nesciunt dolores voluptatum dicta, facere nisi quia exercitationem voluptate consequuntur, obcaecati odio debitis illo fuga necessitatibus eligendi inventore ad iure quo.</p>
+            <% for( let vehicleType of vehicleTypes ) { %>
+              <option value="<%= vehicleType.id %>"><%= vehicleType.tipo %></option>
+            <% } %>
+          </select>
+
+          <select name="brand_id" id="brand_id" >
+            <option value="0" disabled selected>Marca</option>
+            <option value="0">Cualquiera</option>
+
+            <% for( let brand of brands ) { %>
+              <option value="<%= brand.id %>"><%= brand.name %></option>
+            <% } %>
+          </select>
+
+          <select name="model_id" id="model_id" >
+            <option value="0" disabled selected>Modelo</option>
+          </select>
+          
+
+          <div>
+            <button class="button-filter" type="submit">
+              Buscar
+            </button>
+          </div>
+        </form>
+
+      </section>
+
+      <section class="recomendations" data-aos="fade-up" data-aos-duration="1500">
+        <h3>Nuestros recomendados</h3>
+        <%- include('partials/carrucel') %> 
+      </section>
+
+
+      <section class="banner-primera-plana" data-aos="fade-up" data-aos-duration="1500"></section>
+
+      <section class="buy_with_us" data-aos="fade-up" data-aos-duration="1500">
+        <h3>¿Por que comprar con nosotros?</h3>
+        <div class="bwu_description_container">
+          <p>En nuestra empresa, nos diferenciamos por ofrecer una experiencia de compra de autos única y personalizada para cada uno de nuestros clientes. Al elegirnos, no solo estás adquiriendo un vehículo de calidad, sino que estás obteniendo un servicio completo que se adapta a tus necesidades.</p>
+          <a href="#">Nosotros</a>
+        </div>
+      </section>
       
-      <form class="form-search-car" action="/">
-        
-        <select  name="tipo" id="tipo">
-          <option value="" disabled selected>Tipo Vehículo</option>
+      
+      <section class="sell_with_us" data-aos="fade-up" data-aos-duration="1500">
+        <div class="swu_container">
+          <h4>¿Queres vender tu auto?</h4>
 
-          <% for( let vehicleType of vehicleTypes ) { %>
-            <option value="<%= vehicleType.id %>"><%= vehicleType.tipo %></option>
-          <% } %>
-        </select>
+          <p>Entendemos lo importante que es encontrar un comprador confiable y obtener el mejor precio por tu vehículo. Por eso, hemos creado la sección "¿Querés vender tu auto? ¡Contactanos!" para ayudarte en todo el proceso de venta.</p>
 
-        <select name="brand_id" id="brand_id">
-          <option value="" disabled selected>Marca</option>
-
-          <% for( let brand of brands ) { %>
-            <option value="<%= brand.id %>"><%= brand.name %></option>
-          <% } %>
-        </select>
-
-        <select name="model_id" id="model_id">
-          <option value="" disabled selected>Modelo</option>
-        </select>
-        
-
-        <div>
-          <button class="button-filter" type="/">
-            Buscar
+          <button>
+            <a href="tel:+">Contactanos</a>
           </button>
         </div>
-      </form>
-    </section>
 
-    <section class="recomendations">
-      <h3>Nuestros recomendados</h3>
-      <%- include('partials/carrucel') %> 
-    </section>
+        <img src="https://lh3.googleusercontent.com/ESDr-glwzmLrtw4f6tt5uR98KIVCxptlKYH5BeEf-tAHMZYQUwpXONGhJ_B1Ty8TzQYRRGYqce3Z7gmUEh5lOwLAdAd3vna47K9oHA" alt="imagen candado, venta segura">
+      </section>
 
-
-    <section class="banner-primera-plana"></section>
-
-    <section class="buy_with_us">
-      <h3>¿Por que comprar con nosotros?</h3>
-      <div class="bwu_description_container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, optio. Quas aliquam quisquam ipsum repudiandae, quis perspiciatis aspernatur sed possimus, laudantium iste voluptatem accusamus atque architecto voluptate eum molestiae odit?</p>
-        <a href="#">Nosotros</a>
-      </div>
-    </section>
-    
-    
-    <section class="sell_with_us">
-      <div class="swu_container">
-        <h4>¿Queres vender tu auto?</h4>
-
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nobis quod exercitationem illum saepe dolore provident aperiam? Consectetur numquam sunt, eveniet, molestias veniam cum impedit debitis illum laborum, quia asperiores.</p>
-
-        <button>
-          <a href="tel:+">Contactanos</a>
-        </button>
-      </div>
-
-      <img src="https://lh3.googleusercontent.com/ESDr-glwzmLrtw4f6tt5uR98KIVCxptlKYH5BeEf-tAHMZYQUwpXONGhJ_B1Ty8TzQYRRGYqce3Z7gmUEh5lOwLAdAd3vna47K9oHA" alt="imagen candado, venta segura">
-    </section>
-
-    <section class="banner-carretera"></section>
+      <section class="banner-carretera" data-aos="fade-up" data-aos-duration="1500"></section>
 
     </main>
       
     <%- include("./partials/footer") %> 
 
-    <script src="/js/updateMarcaModelo.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="/js/updateTipoMarcaIndex.js"></script>
+    <script src="/js/updateMarcaModeloIndex.js"></script>
+
+
+    <script src="/js/dropdownMenu.js"></script>
+    <script src="/js/slickCarrusel.js"></script>
+    <script src="/js/numeroCarrito.js"></script>
+    <script src="/js/aos.js"></script>
   </body>
 </html>

@@ -79,10 +79,12 @@
     .recomendations{
         background-color: #222831;
         padding: 15px;
+        margin-bottom: 100px
     }
 
     .recomendations h3{
         color: #EEEEEE;
+        text-align: center;
     }
 
     
@@ -93,10 +95,11 @@
         flex-direction: column;
         background-color: #393E46;
         color: #EEEEEE;
+        margin-bottom: 100px
     }
     
     .buy_with_us h3{
-        font-style: italic;
+        font-style:normal;
         font-weight: 700;
         font-size: 31px;
         width: 55%;
@@ -154,6 +157,11 @@
 
 @media (min-width: 768px){
     
+    .search-car p
+    {
+        font-size: 20px;
+    }
+
     .search-car{
         background-image: url('https://images.pexels.com/photos/13756523/pexels-photo-13756523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     }
@@ -166,6 +174,11 @@
         height: 45px;
     }
 
+    .recomendations h3 {
+        
+        font-size: 40px;
+    }
+
     .sell_with_us {
         flex-direction: row;
     }
@@ -174,13 +187,38 @@
 @media (min-width: 1024px){
 
     .search-car{
-        background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-        background-position: center 40%;
+        /* background-image: url(https://images.pexels.com/photos/13756521/pexels-photo-13756521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+        /* background-image: url(../images/shelby.jpg); */
+
+        background-position: center 60%;
         height: 50vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        animation: slider-animation 24s infinite;
+        animation-timing-function: ease-in-out
     }
+
+    @keyframes slider-animation {
+        0%, 100% {
+            opacity: 1;
+        }
+        0% {
+            background-image: url(../images/mustangshelby.jpg);
+        }
+        33% {
+          background-image: url(../images/mustangestirado.jpg);
+        }
+        55% {
+          background-image: url(../images/mustangs.jpg);
+        }
+        75% {
+            background-image: url(../images/shelby.jpg);
+        }
+        100% {
+            background-image: url(../images/mustangshelby.jpg);
+        }
+      }
 
     .form-search-car{
         flex-direction: row;
@@ -189,6 +227,7 @@
         padding: 5vh 20px 5vh;
     }
 
+    
     main form select, .button-filter{
         max-width: none;
         max-height: none;
@@ -207,8 +246,8 @@
     }
 
     main section {
-        /* margin: auto !important; */
-        margin: 69px 0px;
+        width: 85vw;
+        margin: 0 auto 0;
         box-shadow: 0 0 29px 4px #5c5e60c8;
     }
 

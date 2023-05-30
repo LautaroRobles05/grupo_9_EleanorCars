@@ -18,6 +18,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false
         },
+
+        description: {
+            type : dataTypes.STRING(500)
+        }
  
     }
 
