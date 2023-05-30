@@ -11,13 +11,12 @@ const eventDetail = ()=>{
         const confirmation = await sweetConferm()
         
         if(confirmation.isConfirmed){
-            await fetch (`http://localhost:3009/api/users/delete/${deleteButton.dataset.userdelete}`, {
-                method: "delete"
-            })
+          this.SubmitEvent()
+          await fetch (`http://localhost:3009/api/users/delete/${deleteButton.dataset.userdelete}`, {
+            method: "delete"
+          })
+          window.location.href = 'http://localhost:3009/'
         }
-
-        window.location.href = 'http://localhost:3009/'
-        
     })
 }
 

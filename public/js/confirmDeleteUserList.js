@@ -16,9 +16,9 @@ const eventDetail = ()=>{
                 await fetch (`http://localhost:3009/api/users/delete/${buton.dataset.userdelete}`, {
                     method: "delete"
                 })
+                window.location.href = 'http://localhost:3009/user/list'
             }
     
-            window.location.href = 'http://localhost:3009/user/list'
             
         })
     })

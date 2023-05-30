@@ -29,8 +29,25 @@
   <body>
     <%- include ('../partials/header') %>
     <main>
+      <h1 class="list-title">LISTADO DE PRODUCTOS</h1>
 
-        <h1 class="list-title">LISTADO DE PRODUCTOS</h1>
+      <!-- <div class="div-search-cars" style="width: 100%;"> 
+        <form action="/products/searchBrand" method="get">
+         <input class="search-cars" type="search" name="search" id="">
+        </form>
+      </div> -->
+
+      <div class="box" style="width: 100%;display: flex; justify-content: center;margin: 20px;">
+        <div class="container-4" >
+          <form action="/products/searchBrand" method="get">
+            <!-- <input class="search-cars" type="search" name="search" id=""> -->
+            <input type="search" id="search" name="search" placeholder="Busca tu auto por marca..." />
+            <button class="icon"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+
+        
         <% carsList.forEach(auto => {%>
 
           
