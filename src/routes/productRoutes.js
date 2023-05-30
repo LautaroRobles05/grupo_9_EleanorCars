@@ -10,7 +10,7 @@ const productValidatorMiddleware = require ('../middlewares/productValidatorMidd
 
 router.get('/', productControllers.list)
 
-router.get('/search', productControllers.findProduct)
+router.post('/search', productControllers.findProduct)
 router.get('/searchBrand', productControllers.findBrand)
 
 
