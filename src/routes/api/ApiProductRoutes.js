@@ -24,8 +24,13 @@ router.get('/count/types', apiProductControllers.countTypes);
 //ruta para ver el total de categorias de producto
 router.get('/categories', apiProductControllers.categories);
 
-//ruta de prueba para select de create
-router.get('/marca_modelo/:id', apiProductControllers.getModel);
+//ruta de filtros
+router.get('/tipo_marca', apiProductControllers.getBrandsWithProducts);
+router.get('/tipo_marca/:id', apiProductControllers.getBrandByTypeId);
+
+router.get('/marca_modelo/:id', apiProductControllers.getModelByBrandId);
+router.get('/marca_modelo_producto/:id', apiProductControllers.getModelByBrandIdWithProducts);
+
 
 router.get("/detail/:id",apiProductControllers.detail);
 

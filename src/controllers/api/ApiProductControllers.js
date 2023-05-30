@@ -4,7 +4,7 @@ const {
   CarModels,
   Brands,
 } = require("../../database/models");
-//const { Op } = require("sequelize");
+const { Op } = require("sequelize");
 const Sequelize = require("sequelize");
 
 
@@ -68,7 +68,64 @@ module.exports = {
     }
   },
  
-  getModel: async (req,res) => {
+  getBrandsWithProducts: async (req,res) => { //Retorna Las Marcas que tengan autos con un determinado tipo de vehiculo
+    try {
+      let data = await Brands.findAll({ // Obtengo Marcas
+        attributes: ['id','name'],
+        include: [{
+          association: 'models',  //Relaciono sus modelos
+          attributes: [],
+          include: [{
+            association: 'modelProducts', //Relaciono Modelo - Productos
+            attributes: [],
+            where: {  //Filtra por modelos que tengan productos
+              id : { [Op.not] : null }
+            }
+          }], 
+          where: {  //Filtro aquellas marcas que no tengan coincidencias por modelos
+            id : { [Op.not] : null }
+          }
+        }]
+      })
+
+      res.json(
+        data
+      );
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  getBrandByTypeId: async (req,res) => { //Retorna Las Marcas que tengan autos con un determinado tipo de vehiculo
+    try {
+      let tipoId = req.params.id;
+      let data = await Brands.findAll({ // Obtengo Marcas
+        attributes: ['id','name'],
+        include: [{
+          association: 'models',  //Relaciono sus modelos
+          attributes: [],
+          include: [{
+            association: 'modelProducts', //Relaciono Modelo - Productos
+            attributes: [],
+            where: {  // Filtro aquellos que tengan el tipo de vehiculo deseado
+              vehicleType_id : tipoId
+            }
+          }], 
+          where: {  //Filtro aquellas marcas que no tengan coincidencias por Tipo de vehiculo  
+            id : { [Op.not] : null }
+          }
+        }]
+      })
+
+      res.json(
+        data
+      );
+    } catch (error) {
+      res.json(error)
+    }
+  },
+
+  getModelByBrandId: async (req,res) => {
     try {
       let products = await Brands.findByPk(req.params.id, {
         include: {
@@ -84,6 +141,37 @@ module.exports = {
       res.json(error)
     }
 
+  },
+
+  getModelByBrandIdWithProducts: async (req,res) => {
+    try {
+      let brandId = req.params.id
+      let data = await CarModels.findAll({
+        attributes: ['id','name'],
+        include: [{
+          association: 'brand',
+          attributes: [],
+          where: {
+            id : brandId
+          }
+        },{
+          association: 'modelProducts',
+          attributes: [],
+          where:{
+            id : {
+              [Op.not] : null
+            }
+          }
+        }]
+      });
+
+      res.json(
+        data
+      );
+
+    } catch (error) {
+      res.json(error)
+    }
   },
   
   count: async (req, res) => { //metodo para consulta de cantidad de productos

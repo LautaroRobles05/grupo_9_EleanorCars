@@ -43,25 +43,62 @@ let productControllers = {
 
   findProduct: async (req, res) => {
     try {
-     let products = await Products.findAll({
-      include: {
-        all: true,
-        nested: true,
-        attributes: { exclude: ["id"] }
-      },
-      limit: 20,
-      
-      where: {
-        vehicleType_id: req.query.tipo,
+  
+      let {tipo, brand_id, model_id} = req.body;
+
+      tipo = parseInt(tipo)
+      brand_id = parseInt(brand_id)
+      model_id = parseInt(model_id)
+
+      // console.log('\n\n\n%cPARAMETROS BUSQUEDA -----------------','color:red');
+      // console.log(tipo);
+      // console.log(brand_id);
+      // console.log(model_id);
+
+      let condiciones = {}
+
+      if(tipo){
+        condiciones.vehicleType_id = tipo
       }
-     })
-    
+
+      if(brand_id){
+        condiciones['$model.brand_id$'] = brand_id
+      }
+
+      if(model_id){
+        condiciones['$model.id$'] = model_id
+      }
+
+      let products = await Products.findAll({
+        where : {
+          ...condiciones,
+        },
+        include: [
+          {
+            model: CarModels,
+            as: 'model',
+            include:[{
+              association: 'brand'
+            }]
+          },
+          {association: 'vehicleType'},
+          {association: 'gasType'},
+          {association: 'color'},
+          {association: 'productImages'},
+        ], 
+      })
+
+   
+
+    // return res.json(products);
+
      if (products.length > 0){
       res.render("products/list", {carsList: products})
      } else {
       res.render("notFound")
      }
     } catch (error) {
+      // return res.json(error)
       res.render('notFound')
     }
   },

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //DROPDOWN BURGUER MENU
   let subMenuBurguerMobile = document.getElementById('subMenuBurguerMobile')
   let profileBurguerDropdownMobile = document.querySelector('.burguer-menu')
-  console.log('HOLAAAA', profileBurguerDropdownMobile)  
+
   profileBurguerDropdownMobile.addEventListener('click', () => {
     subMenuBurguerMobile.classList.toggle("open-menu")
     // subMenuBurguerMobile.classList.toggle("z-index")
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //DROPDOWN PROFILE MOBILE
   let subMenuMobile = document.getElementById('subMenuMobile')
   let profileDropdownMobile = document.querySelector('.profile-menu')
-  console.log(profileDropdownMobile)  
+  
   profileDropdownMobile.addEventListener('click', () => {
     subMenuMobile.classList.toggle("open-menu")
     // subMenuMobile.classList.toggle("z-index")
